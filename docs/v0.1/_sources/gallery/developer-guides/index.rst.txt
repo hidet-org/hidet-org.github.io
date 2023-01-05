@@ -1,0 +1,39 @@
+
+
+.. _sphx_glr_gallery_developer-guides:
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="  More details about hidet script and how to write dynamic kernel are coming soon.">
+
+.. only:: html
+
+  .. image:: /gallery/developer-guides/images/thumb/sphx_glr_hidet-script-dynamic-kernel_thumb.png
+    :alt: Writing Dynamic kernel
+
+  :ref:`sphx_glr_gallery_developer-guides_hidet-script-dynamic-kernel.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Writing Dynamic kernel</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/developer-guides/hidet-script-dynamic-kernel
+

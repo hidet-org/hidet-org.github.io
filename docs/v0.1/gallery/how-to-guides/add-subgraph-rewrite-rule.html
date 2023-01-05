@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Add Sub-Graph Rewrite Rule &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visualize Flow Graph" href="visualize-flow-graph.html" />
+    <link rel="prev" title="Add Operator Resolve Rule" href="add-operator-resolve-rule.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/gallery/how-to-guides/add-subgraph-rewrite-rule.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sub-graph-rewrite-in-hidet">
+   Sub-graph rewrite in Hidet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-a-sub-graph-rewrite-rule">
+   Add a sub-graph rewrite rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-the-rewrite-rule">
+   Apply the rewrite rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Add Sub-Graph Rewrite Rule</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sub-graph-rewrite-in-hidet">
+   Sub-graph rewrite in Hidet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-a-sub-graph-rewrite-rule">
+   Add a sub-graph rewrite rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-the-rewrite-rule">
+   Apply the rewrite rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-how-to-guides-add-subgraph-rewrite-rule-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="add-sub-graph-rewrite-rule">
+<span id="sphx-glr-gallery-how-to-guides-add-subgraph-rewrite-rule-py"></span><h1>Add Sub-Graph Rewrite Rule<a class="headerlink" href="#add-sub-graph-rewrite-rule" title="Permalink to this headline"><span>¶</span></a></h1>
+<p>This tutorial shows how to add a sub-graph rewrite rule in the graph optimization pipeline. Sub-graph rewriting is an
+important technique in graph optimization. It is used to replace a sub-graph with another sub-graph, which is usually
+more efficient than the original one. For example, we can replace a sub-graph with two matrix multiplications sharing
+the same input and one addition with a concatenation and a single matrix multiplication:</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/subgraph-rewrite-example.svg"><img alt="../../_images/subgraph-rewrite-example.svg" height="307" src="../../_images/subgraph-rewrite-example.svg" width="581" /></a>
+<figcaption>
+<p><span class="caption-text">The sub-graph rewrite rule that fuses two matrix multiplications.</span><a class="headerlink" href="#id4" title="Permalink to this image"><span>¶</span></a></p>
+</figcaption>
+</figure>
+<div class="margin admonition seealso">
+<p class="admonition-title">See also</p>
+<p>TASO <span id="id1">[<a class="reference internal" href="#id3" title="Zhihao Jia, Oded Padon, James Thomas, Todd Warszawski, Matei Zaharia, and Alex Aiken. Taso: optimizing deep learning computation with automatic generation of graph substitutions. In Proceedings of the 27th ACM Symposium on Operating Systems Principles, 47–62. 2019.">1</a>]</span> systematically studies the sub-graph rewrite optimization for deep learning workloads.</p>
+</div>
+<p>After the rewrite, the graph becomes more efficient as we only need to run a single kernel and the <cite>fused</cite> matrix
+multiplication usually exposes more parallelism to utilize the underlying hardware. We can also fuse multiple
+convolutions into a single one, or do other sub-graph rewrites.</p>
+<section id="sub-graph-rewrite-in-hidet">
+<h2>Sub-graph rewrite in Hidet<a class="headerlink" href="#sub-graph-rewrite-in-hidet" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>In Hidet, we use a <em>sub-graph rewrite rule</em> to describe the rewrite. A sub-graph rewrite rule contains two parts:</p>
+<ul class="simple">
+<li><p><strong>Sub-graph pattern</strong>: a sub-graph pattern that we use to match the sub-graph in the graph. The pattern is a directed
+acyclic graph (DAG) where each node is an operator pattern and each edge is a tensor pattern. We only specify the
+operator type for each node and whether the (input) tensors are symbolic or concrete.</p></li>
+<li><p><strong>Target sub-graph constructor</strong>: when we find a sub-graph that matches the pattern, we use the constructor to
+construct the target sub-graph that replaces the matched sub-graph. When constructing the target sub-graph, we can
+use the matched tensors and nodes to further determine whether the rewrite is applicable. If applicable, the
+constructor returns the target sub-graph, otherwise it returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<p>In the above example, the sub-graph pattern contains three input tensors, where x1 is a symbolic tensor and w1, w2 are
+two concrete tensors (i.e., we know the concrete values of w1 and w2). There are three operators in the pattern, where
+the first two are matrix multiplications and the last one is an addition. The output tensor of the addition is the
+output tensor of the pattern. When we find a sub-graph that matches the pattern, we use the constructor to construct
+the target sub-graph and replace the matched sub-graph with the target sub-graph.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Difference between sub-graph rewrite and operator resolving</strong>. Although
+<a class="reference internal" href="add-operator-resolve-rule.html#add-operator-resolve-rule"><span class="std std-ref">operator resolving</span></a> can be conceptually considered as a special case of
+sub-graph rewrite, we use a different mechanism to implement them and their execution order is different. The operator
+resolving can be performed efficiently thus we can add arbitrary number of operator resolve rules. But the sub-graph
+rewrite is usually more expensive. Second, we run the sub-graph rewrite pass before the operator resolving pass, so
+that we can use the generic operators in the sub-graph patterns without worrying about the operator resolving.</p>
+</div>
+</section>
+<section id="add-a-sub-graph-rewrite-rule">
+<h2>Add a sub-graph rewrite rule<a class="headerlink" href="#add-a-sub-graph-rewrite-rule" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>Let’s implement the sub-graph rewrite rule shown in the above example. Before we start, we first create a new model
+that contains the sub-graph we want to rewrite:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">hidet</span>
+<span class="kn">from</span> <span class="nn">hidet</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">Operator</span>
+<span class="kn">from</span> <span class="nn">hidet</span> <span class="kn">import</span> <span class="n">ops</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.transforms.graph_patterns</span> <span class="kn">import</span> <span class="n">MatchDict</span>
+
+
+<span class="k">def</span> <span class="nf">example_model</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">w0</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">w1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">w2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">ops</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">symbol</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">example_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+<span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">trace_from</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[3, 3]){
+  c = Constant(float32[3, 3])
+  c_1 = Constant(float32[3, 3])
+  c_2 = Constant(float32[3, 3])
+  x_1: float32[3, 3] = Matmul(x, c)
+  x_2: float32[3, 3] = Matmul(x_1, c_1)
+  x_3: float32[3, 3] = Matmul(x_1, c_2)
+  x_4: float32[3, 6] = Concat(x_2, x_3, axis=1)
+  x_5: float32[3, 6] = Relu(x_4)
+  return x_5
+}
+</pre></div>
+</div>
+<p>Then, we define and register the sub-graph rewrite rule.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.graph.ops.definitions</span> <span class="kn">import</span> <span class="n">MatmulOp</span><span class="p">,</span> <span class="n">ConcatOp</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.transforms</span> <span class="kn">import</span> <span class="n">TensorPattern</span><span class="p">,</span> <span class="n">SubgraphRewriteRule</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.transforms</span> <span class="kn">import</span> <span class="n">op_pattern</span><span class="p">,</span> <span class="n">register_rewrite_rule</span>
+<span class="kn">from</span> <span class="nn">hidet.utils</span> <span class="kn">import</span> <span class="n">same_list</span>
+
+
+<span class="c1"># register the rewrite rule, only registered rewrite rules will be applied</span>
+<span class="nd">@register_rewrite_rule</span>
+<span class="k">class</span> <span class="nc">FuseTwoMatmulRewriteRule</span><span class="p">(</span><span class="n">SubgraphRewriteRule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;new: [matmul(x, c1), matmul(x,c2)] =&gt; matmul(x, [c1, c2])&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">TensorPattern</span><span class="p">()</span>  <span class="c1"># x can match either a symbolic or concrete tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c1</span> <span class="o">=</span> <span class="n">TensorPattern</span><span class="p">(</span><span class="n">is_const</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># c1 can only match a concrete tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c2</span> <span class="o">=</span> <span class="n">TensorPattern</span><span class="p">(</span><span class="n">is_const</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># c2 can only match a concrete tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">op_pattern</span><span class="p">(</span><span class="n">MatmulOp</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c1</span><span class="p">])</span>  <span class="c1"># pattern: y1 = matmul(x, c1)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y2</span> <span class="o">=</span> <span class="n">op_pattern</span><span class="p">(</span><span class="n">MatmulOp</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c2</span><span class="p">])</span>  <span class="c1"># pattern: y2 = matmul(x, c2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">op_pattern</span><span class="p">(</span><span class="n">ConcatOp</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">])</span>  <span class="c1"># pattern: y = concat(y1, y2)</span>
+
+    <span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TensorPattern</span><span class="p">]:</span>
+        <span class="c1"># Return the output tensors of the source sub-graph pattern.</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matched</span><span class="p">:</span> <span class="n">MatchDict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="c1"># The target sub-graph constructor</span>
+        <span class="c1"># The matched dictionary has type Dict[TensorPattern, Tensor]</span>
+        <span class="c1"># that maps the patterns to the matched tensors.</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">matched</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">]]</span>
+        <span class="n">concat</span><span class="p">:</span> <span class="n">Operator</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">op</span>
+
+        <span class="c1"># We can use the matched tensors to determine whether the rewrite is applicable.</span>
+        <span class="c1"># For example, in this case, we check whether the two weight matrices share the</span>
+        <span class="c1"># same shape except the last dimension.</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="mi">2</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">same_list</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">c2</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="n">concat</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;axis&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="p">):</span>
+            <span class="c1"># If applicable, we construct the target sub-graph and return the output tensors.</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If not, we return None to indicate that the rewrite is not applicable.</span>
+            <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>We can check that the rewrite rule has been registered:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.graph.transforms</span> <span class="kn">import</span> <span class="n">registered_rewrite_rules</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Registered rewrite rules:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">registered_rewrite_rules</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">SubgraphRewriteRule</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Registered rewrite rules:
+a + x =&gt; x + a
+x - a =&gt; x + (-a)
+(x + a) + b =&gt; x + (a + b)
+(x + a) * b =&gt; x * b + a * b
+(x + a) + (y + b) =&gt; (x + y) + (a + b)
+reshape(x) * scale
+reshape(x) + bias
+squeeze(x) * c =&gt; squeeze(x * c)
+conv2d(x, w) * scale =&gt; conv2d(x, w * scale)
+conv2d(x, w1)|conv2d(x, w2)|conv2d(x, w3) =&gt; conv2d(x, w1 + w2 + w3)
+conv2d(x, w1)|conv2d(x, w2) =&gt; conv2d(x, w1 + w2)
+3 branches of matmul(x, branch c) + branch b ==&gt; matmul(x, c) + b followed by split
+matmul(x, c1)|matmul(x, c2)|matmul(x, c3) =&gt; matmul(x, concat(c1, c2, c3)) followed by split
+matmul(x, c1)|matmul(x, c2) ==&gt; matmul(x, concat(c1, c2)) followed by split
+new: [matmul(x, c1), matmul(x,c2)] =&gt; matmul(x, [c1, c2])
+</pre></div>
+</div>
+</section>
+<section id="apply-the-rewrite-rule">
+<h2>Apply the rewrite rule<a class="headerlink" href="#apply-the-rewrite-rule" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>Besides the predefined rewrite rules, we can see that the rewrite rule we just registered is also included at the
+last line. In this tutorial, to prevent the default rewrite rules from being applied, we first clear the registered
+rewrite rules and then register the rewrite rule we just defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">registered_rewrite_rules</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">register_rewrite_rule</span><span class="p">(</span>
+    <span class="n">FuseTwoMatmulRewriteRule</span><span class="p">()</span>
+<span class="p">)</span>  <span class="c1"># a second way to register the rewrite rule</span>
+</pre></div>
+</div>
+<p>The rewrite process is done in a graph optimization pass called <cite>subgraph_rewrite_pass</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.graph.transforms</span> <span class="kn">import</span> <span class="n">subgraph_rewrite_pass</span>
+
+<span class="n">rewrite_pass</span> <span class="o">=</span> <span class="n">subgraph_rewrite_pass</span><span class="p">()</span>
+<span class="n">rewritten_graph</span><span class="p">:</span> <span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">rewrite_pass</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rewritten_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[3, 3]){
+  c = Constant(float32[3, 3])
+  c_1 = Constant(float32[3, 6])
+  x_1: float32[3, 3] = Matmul(x, c)
+  x_2: float32[3, 6] = Matmul(x_1, c_1)
+  x_3: float32[3, 6] = Relu(x_2)
+  return x_3
+}
+</pre></div>
+</div>
+<p>We can see that the rewritten graph contains 2 matmul operators instead of 3. There is no concat operator in the
+rewritten graph, because the inputs of concat operator are constant tensors and thus have been folded.</p>
+<p>We do not need to call the rewrite pass explicitly. It will be called automatically when we call
+<a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.optimize" title="hidet.graph.optimize"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.graph.optimize()</span></code></a>, together with other graph optimization passes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">graph_opt</span><span class="p">:</span> <span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph_opt</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[3, 3]){
+  c = Constant(float32[1, 3, 3])
+  c_1 = Constant(float32[1, 3, 6])
+  x_1: float32[3, 3] = FusedBatchMatmul*(c, x, mma=&quot;simt&quot;, fusion=&quot;Broadcast BatchMatmul Reshape&quot;)
+  x_2: float32[3, 6] = FusedBatchMatmul*(c_1, x_1, mma=&quot;simt&quot;, fusion=&quot;Broadcast BatchMatmul Reshape Relu&quot;)
+  return x_2
+}
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>In this tutorial, we have learned how to define and register a sub-graph rewrite rule. It is an important
+component of the graph optimization framework. Hidet uses it to implement some horizontal fusion rules.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline"><span>¶</span></a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Zhihao Jia, Oded Padon, James Thomas, Todd Warszawski, Matei Zaharia, and Alex Aiken. Taso: optimizing deep learning computation with automatic generation of graph substitutions. In <em>Proceedings of the 27th ACM Symposium on Operating Systems Principles</em>, 47–62. 2019.</p>
+</dd>
+</dl>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.219 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-how-to-guides-add-subgraph-rewrite-rule-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/22c1baa5c77e0a0ba4cdc6ecc6dc1a76/add-subgraph-rewrite-rule.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-subgraph-rewrite-rule.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/510d7fc92aeafd21b5be3da1e086527d/add-subgraph-rewrite-rule.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-subgraph-rewrite-rule.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="add-operator-resolve-rule.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Add Operator Resolve Rule</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="visualize-flow-graph.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visualize Flow Graph</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2022, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
