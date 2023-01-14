@@ -1,0 +1,2929 @@
+{
+  "graphs": [
+    {
+      "name": "",
+      "inputs": [
+        {
+          "name": "input:0",
+          "arguments": [
+            {
+              "name": "input:0",
+              "type": {
+                "string": "float32(1, 128, 768)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128,
+                    768
+                  ]
+                },
+                "dataType": "float32"
+              }
+            }
+          ],
+          "visible": true
+        },
+        {
+          "name": "input:1",
+          "arguments": [
+            {
+              "name": "input:1",
+              "type": {
+                "string": "int32(1, 128)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128
+                  ]
+                },
+                "dataType": "int32"
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output:0",
+          "arguments": [
+            {
+              "name": "Rearrange9:0",
+              "type": {
+                "string": "float32(1, 128, 768)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128,
+                    768
+                  ]
+                },
+                "dataType": "float32"
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "nodes": [
+        {
+          "name": "Reshape1",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "input:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape1:0",
+                  "type": {
+                    "string": "float32(1, 128, 4, 192)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        4,
+                        192
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 128, 4, 192]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: tensor(float32, [1, 128, 4, 192])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: float32[1, 128, 4, 192] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 192))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 192), (v_6 % 192)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange1",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape1:0",
+                  "type": {
+                    "string": "float32(1, 128, 4, 192)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        4,
+                        192
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange1:0",
+                  "type": {
+                    "string": "float32(4, 128, 192)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        128,
+                        192
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 4, 192])",
+            "    y: tensor(float32, [4, 128, 192])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 4, 192])",
+            "    y: float32[4, 128, 192] where y[v, v_1, v_2] = x[0, (v_1 % 128), (v % 4), (v_2 % 192)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 4) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "BatchMatmul1",
+          "type": {
+            "name": "BatchMatmul",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange1:0",
+                  "type": {
+                    "string": "float32(4, 128, 192)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        128,
+                        192
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "const:0",
+                  "type": {
+                    "string": "float32(4, 192, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        192,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  },
+                  "initializer": {
+                    "kind": "Initializer",
+                    "value": "<>"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul1:0",
+                  "type": {
+                    "string": "float32(4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    a: tensor(float32, [4, 128, 192])",
+            "    b: tensor(float32, [4, 192, 2304])",
+            "    c: tensor(float32, [4, 128, 2304])",
+            "  inputs: [a, b]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b: tensor(float32, [4, 192, 2304])",
+            "    a: tensor(float32, [4, 128, 192])",
+            "    c: float32[4, 128, 2304] where c[v, v_1, v_2] = reduce([192], (v_3) => (a[v, v_1, v_3] * b[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 4, m_size: 128, n_size: 2304, k_size: 192, mma: simt}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape2",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul1:0",
+                  "type": {
+                    "string": "float32(4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape2:0",
+                  "type": {
+                    "string": "float32(1, 4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 4, 128, 2304]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [4, 128, 2304])",
+            "    y: tensor(float32, [1, 4, 128, 2304])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [4, 128, 2304])",
+            "    y: float32[1, 4, 128, 2304] where y[v, v_1, v_2, v_3] = x[(v_1 + (v * 4)), v_2, v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [(v_4 / 4), (v_4 % 4), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "ReduceSum1",
+          "type": {
+            "name": "ReduceSum",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape2:0",
+                  "type": {
+                    "string": "float32(1, 4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 4, 128, 2304])",
+            "    y: tensor(float32, [1, 128, 2304])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 4, 128, 2304])",
+            "    y: float32[1, 128, 2304] where y[v, v_1, v_2] = reduce([4], (v_3) => x[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            ")"
+          ]
+        },
+        {
+          "name": "Add1",
+          "type": {
+            "name": "Add",
+            "category": "transform"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "const:1",
+                  "type": {
+                    "string": "float32(2304,)",
+                    "shape": {
+                      "dimensions": [
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  },
+                  "initializer": {
+                    "kind": "Initializer",
+                    "value": "<>"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [],
+          "description": [
+            "Task(",
+            "  name: add",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 2304])",
+            "    y: tensor(float32, [2304])",
+            "    z: tensor(float32, [1, 128, 2304])",
+            "  inputs: [x, y]",
+            "  outputs: [z]",
+            "  computations: ",
+            "    y: tensor(float32, [2304])",
+            "    x: tensor(float32, [1, 128, 2304])",
+            "    z: float32[1, 128, 2304] where z[v, v_1, v_2] = (x[0, v_1, v_2] + y[v_2])",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5] => [v_3, v_4, v_5])",
+            ")"
+          ]
+        },
+        {
+          "name": "StridedSlice1",
+          "type": {
+            "name": "StridedSlice",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice1:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "starts",
+              "type": "Sequence[int]",
+              "value": "[0]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "ends",
+              "type": "Sequence[int]",
+              "value": "[768]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "axes",
+              "type": "Sequence[int]",
+              "value": "[2]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "strides",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: slice",
+            "  parameters: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: tensor(float32, [1, 128, 768])",
+            "  inputs: [data]",
+            "  outputs: [out]",
+            "  computations: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: float32[1, 128, 768] where out[v, v_1, v_2] = data[v, v_1, v_2]",
+            "  attributes: {}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape3",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice1:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape3:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 128, 12, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: tensor(float32, [1, 128, 12, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: float32[1, 128, 12, 64] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 64))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 64), (v_6 % 64)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange2",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape3:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange2:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: tensor(float32, [12, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: float32[12, 128, 64] where y[v, v_1, v_2] = x[0, (v_1 % 128), (v % 12), (v_2 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 12) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape4",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange2:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape4:0",
+                  "type": {
+                    "string": "float32(12, 128, 8, 8)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        8,
+                        8
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 128, 8, 8]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: tensor(float32, [12, 128, 8, 8])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: float32[12, 128, 8, 8] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 8))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 8), (v_6 % 8)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange3",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape4:0",
+                  "type": {
+                    "string": "float32(12, 128, 8, 8)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        8,
+                        8
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange3:0",
+                  "type": {
+                    "string": "float32(96, 128, 8)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        8
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 8, 8])",
+            "    y: tensor(float32, [96, 128, 8])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 8, 8])",
+            "    y: float32[96, 128, 8] where y[v, v_1, v_2] = x[((v / 8) % 12), (v_1 % 128), (v % 8), (v_2 % 8)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 8) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "StridedSlice2",
+          "type": {
+            "name": "StridedSlice",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice2:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "starts",
+              "type": "Sequence[int]",
+              "value": "[768]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "ends",
+              "type": "Sequence[int]",
+              "value": "[1536]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "axes",
+              "type": "Sequence[int]",
+              "value": "[2]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "strides",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: slice",
+            "  parameters: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: tensor(float32, [1, 128, 768])",
+            "  inputs: [data]",
+            "  outputs: [out]",
+            "  computations: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: float32[1, 128, 768] where out[v, v_1, v_2] = data[v, v_1, (768 + v_2)]",
+            "  attributes: {}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape5",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice2:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape5:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 128, 12, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: tensor(float32, [1, 128, 12, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: float32[1, 128, 12, 64] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 64))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 64), (v_6 % 64)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange4",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape5:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange4:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: tensor(float32, [12, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: float32[12, 128, 64] where y[v, v_1, v_2] = x[0, (v_1 % 128), (v % 12), (v_2 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 12) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "PermuteDims1",
+          "type": {
+            "name": "PermuteDims",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange4:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "PermuteDims1:0",
+                  "type": {
+                    "string": "float32(12, 64, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        64,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axes",
+              "type": "Sequence[int]",
+              "value": "[0, 2, 1]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: tensor(float32, [12, 64, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: float32[12, 64, 128] where y[v, v_1, v_2] = x[(v % 12), (v_2 % 128), (v_1 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5] => [v_3, v_5, v_4])",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape6",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "PermuteDims1:0",
+                  "type": {
+                    "string": "float32(12, 64, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        64,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape6:0",
+                  "type": {
+                    "string": "float32(12, 8, 8, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        8,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 8, 8, 128]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 64, 128])",
+            "    y: tensor(float32, [12, 8, 8, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 64, 128])",
+            "    y: float32[12, 8, 8, 128] where y[v, v_1, v_2, v_3] = x[v, (v_2 + (v_1 * 8)), v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, (v_5 / 8), (v_5 % 8), v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange5",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape6:0",
+                  "type": {
+                    "string": "float32(12, 8, 8, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        8,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange5:0",
+                  "type": {
+                    "string": "float32(96, 8, 128)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        8,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 1], [2], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 8, 128])",
+            "    y: tensor(float32, [96, 8, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 8, 8, 128])",
+            "    y: float32[96, 8, 128] where y[v, v_1, v_2] = x[((v / 8) % 12), (v % 8), (v_1 % 8), (v_2 % 128)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 8) + v_4), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "BatchMatmul2",
+          "type": {
+            "name": "BatchMatmul",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange3:0",
+                  "type": {
+                    "string": "float32(96, 128, 8)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        8
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "Rearrange5:0",
+                  "type": {
+                    "string": "float32(96, 8, 128)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        8,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul2:0",
+                  "type": {
+                    "string": "float32(96, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    a: tensor(float32, [96, 128, 8])",
+            "    b: tensor(float32, [96, 8, 128])",
+            "    c: tensor(float32, [96, 128, 128])",
+            "  inputs: [a, b]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b: tensor(float32, [96, 8, 128])",
+            "    a: tensor(float32, [96, 128, 8])",
+            "    c: float32[96, 128, 128] where c[v, v_1, v_2] = reduce([8], (v_3) => (a[v, v_1, v_3] * b[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 96, m_size: 128, n_size: 128, k_size: 8, mma: simt}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape7",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul2:0",
+                  "type": {
+                    "string": "float32(96, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape7:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 8, 128, 128]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [96, 128, 128])",
+            "    y: tensor(float32, [12, 8, 128, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [96, 128, 128])",
+            "    y: float32[12, 8, 128, 128] where y[v, v_1, v_2, v_3] = x[(v_1 + (v * 8)), v_2, v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [(v_4 / 8), (v_4 % 8), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "ReduceSum2",
+          "type": {
+            "name": "ReduceSum",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape7:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 128, 128])",
+            "    y: tensor(float32, [12, 128, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 8, 128, 128])",
+            "    y: float32[12, 128, 128] where y[v, v_1, v_2] = reduce([8], (v_3) => x[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            ")"
+          ]
+        },
+        {
+          "name": "DivideScalar1",
+          "type": {
+            "name": "DivideScalar",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "DivideScalar1:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "scalar",
+              "type": "Constant",
+              "value": "8.0f",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: divs",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: tensor(float32, [12, 128, 128])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: float32[12, 128, 128] where y[v, v_1, v_2] = (x[v, v_1, v_2] / 8.0f)",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5] => [v_3, v_4, v_5])",
+            ")"
+          ]
+        },
+        {
+          "name": "Add2",
+          "type": {
+            "name": "Add",
+            "category": "transform"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "DivideScalar1:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "input:1",
+                  "type": {
+                    "string": "int32(1, 128)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128
+                      ]
+                    },
+                    "dataType": "int32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [],
+          "description": [
+            "Task(",
+            "  name: add",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: tensor(int32, [1, 128])",
+            "    z: tensor(float32, [12, 128, 128])",
+            "  inputs: [x, y]",
+            "  outputs: [z]",
+            "  computations: ",
+            "    y: tensor(int32, [1, 128])",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    z: float32[12, 128, 128] where z[v, v_1, v_2] = (x[v, v_1, v_2] + y[0, v_2])",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5] => [v_3, v_4, v_5])",
+            ")"
+          ]
+        },
+        {
+          "name": "Softmax1",
+          "type": {
+            "name": "Softmax",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Softmax1:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "type": "int",
+              "value": "2",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: softmax",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    out: tensor(float32, [12, 128, 128])",
+            "  inputs: [x]",
+            "  outputs: [out]",
+            "  computations: ",
+            "    sum_value: float32[12, 128] where sum_value[v, v_1] = reduce([128], (v_2) => exp_value[v, v_1, v_2], sumreduce)",
+            "    max_value: float32[12, 128] where max_value[v_3, v_4] = reduce([128], (v_5) => x[v_3, v_4, v_5], maxreduce)",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    exp_value: float32[12, 128, 128] where exp_value[v_6, v_7, v_8] = generic_exp((x[v_6, v_7, v_8] - max_value[v_6, v_7]))",
+            "    out: float32[12, 128, 128] where out[v_9, v_10, v_11] = (exp_value[v_9, v_10, v_11] / sum_value[v_9, v_10])",
+            "  attributes: {}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape8",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Softmax1:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape8:0",
+                  "type": {
+                    "string": "float32(12, 128, 8, 16)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        8,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 128, 8, 16]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: tensor(float32, [12, 128, 8, 16])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: float32[12, 128, 8, 16] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 16))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 16), (v_6 % 16)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange6",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape8:0",
+                  "type": {
+                    "string": "float32(12, 128, 8, 16)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        8,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange6:0",
+                  "type": {
+                    "string": "float32(96, 128, 16)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 8, 16])",
+            "    y: tensor(float32, [96, 128, 16])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 8, 16])",
+            "    y: float32[96, 128, 16] where y[v, v_1, v_2] = x[((v / 8) % 12), (v_1 % 128), (v % 8), (v_2 % 16)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 8) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "StridedSlice3",
+          "type": {
+            "name": "StridedSlice",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Add1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice3:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "starts",
+              "type": "Sequence[int]",
+              "value": "[1536]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "ends",
+              "type": "Sequence[int]",
+              "value": "[2304]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "axes",
+              "type": "Sequence[int]",
+              "value": "[2]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "strides",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: slice",
+            "  parameters: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: tensor(float32, [1, 128, 768])",
+            "  inputs: [data]",
+            "  outputs: [out]",
+            "  computations: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    out: float32[1, 128, 768] where out[v, v_1, v_2] = data[v, v_1, (1536 + v_2)]",
+            "  attributes: {}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape9",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "StridedSlice3:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape9:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 128, 12, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: tensor(float32, [1, 128, 12, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: float32[1, 128, 12, 64] where y[v, v_1, v_2, v_3] = x[v, v_1, (v_3 + (v_2 * 64))]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, v_5, (v_6 / 64), (v_6 % 64)])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange7",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape9:0",
+                  "type": {
+                    "string": "float32(1, 128, 12, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        12,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange7:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 2], [1], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: tensor(float32, [12, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 128, 12, 64])",
+            "    y: float32[12, 128, 64] where y[v, v_1, v_2] = x[0, (v_1 % 128), (v % 12), (v_2 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 12) + v_5), v_4, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape10",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange7:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape10:0",
+                  "type": {
+                    "string": "float32(12, 8, 16, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        16,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 8, 16, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: tensor(float32, [12, 8, 16, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: float32[12, 8, 16, 64] where y[v, v_1, v_2, v_3] = x[v, (v_2 + (v_1 * 16)), v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [v_4, (v_5 / 16), (v_5 % 16), v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange8",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape10:0",
+                  "type": {
+                    "string": "float32(12, 8, 16, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        16,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange8:0",
+                  "type": {
+                    "string": "float32(96, 16, 64)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        16,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0, 1], [2], [3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 16, 64])",
+            "    y: tensor(float32, [96, 16, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 8, 16, 64])",
+            "    y: float32[96, 16, 64] where y[v, v_1, v_2] = x[((v / 8) % 12), (v % 8), (v_1 % 16), (v_2 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [((v_3 * 8) + v_4), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "BatchMatmul3",
+          "type": {
+            "name": "BatchMatmul",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange6:0",
+                  "type": {
+                    "string": "float32(96, 128, 16)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "Rearrange8:0",
+                  "type": {
+                    "string": "float32(96, 16, 64)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        16,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul3:0",
+                  "type": {
+                    "string": "float32(96, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    a: tensor(float32, [96, 128, 16])",
+            "    b: tensor(float32, [96, 16, 64])",
+            "    c: tensor(float32, [96, 128, 64])",
+            "  inputs: [a, b]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b: tensor(float32, [96, 16, 64])",
+            "    a: tensor(float32, [96, 128, 16])",
+            "    c: float32[96, 128, 64] where c[v, v_1, v_2] = reduce([16], (v_3) => (a[v, v_1, v_3] * b[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 96, m_size: 128, n_size: 64, k_size: 16, mma: simt}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape11",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "BatchMatmul3:0",
+                  "type": {
+                    "string": "float32(96, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape11:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[12, 8, 128, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [96, 128, 64])",
+            "    y: tensor(float32, [12, 8, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [96, 128, 64])",
+            "    y: float32[12, 8, 128, 64] where y[v, v_1, v_2, v_3] = x[(v_1 + (v * 8)), v_2, v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [(v_4 / 8), (v_4 % 8), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "ReduceSum3",
+          "type": {
+            "name": "ReduceSum",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape11:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum3:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 128, 64])",
+            "    y: tensor(float32, [12, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 8, 128, 64])",
+            "    y: float32[12, 128, 64] where y[v, v_1, v_2] = reduce([8], (v_3) => x[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            ")"
+          ]
+        },
+        {
+          "name": "Reshape12",
+          "type": {
+            "name": "Reshape",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "ReduceSum3:0",
+                  "type": {
+                    "string": "float32(12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape12:0",
+                  "type": {
+                    "string": "float32(1, 12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "type": "Sequence[int]",
+              "value": "[1, 12, 128, 64]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reshape",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: tensor(float32, [1, 12, 128, 64])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [12, 128, 64])",
+            "    y: float32[1, 12, 128, 64] where y[v, v_1, v_2, v_3] = x[(v_1 + (v * 12)), v_2, v_3]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_4, v_5, v_6] => [(v_4 / 12), (v_4 % 12), v_5, v_6])",
+            ")"
+          ]
+        },
+        {
+          "name": "Rearrange9",
+          "type": {
+            "name": "Rearrange",
+            "category": null
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Reshape12:0",
+                  "type": {
+                    "string": "float32(1, 12, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        12,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "Rearrange9:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "plan",
+              "type": "Sequence[list]",
+              "value": "[[0], [2], [1, 3]]",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: rearrange",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 12, 128, 64])",
+            "    y: tensor(float32, [1, 128, 768])",
+            "  inputs: [x]",
+            "  outputs: [y]",
+            "  computations: ",
+            "    x: tensor(float32, [1, 12, 128, 64])",
+            "    y: float32[1, 128, 768] where y[v, v_1, v_2] = x[0, ((v_2 / 64) % 12), (v_1 % 128), (v_2 % 64)]",
+            "  attributes: {}",
+            "  inverse_map:",
+            "    x: InverseMap([v_3, v_4, v_5, v_6] => [v_3, v_5, ((v_4 * 64) + v_6)])",
+            ")"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Converted from FlowGraph",
+  "author": "",
+  "company": "",
+  "license": "",
+  "domain": "",
+  "source": "Hidet",
+  "format": "netron"
+}

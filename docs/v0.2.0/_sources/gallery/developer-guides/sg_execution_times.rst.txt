@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr_gallery_developer-guides_sg_execution_times:
+
+Computation times
+=================
+**00:01.281** total execution time for **gallery_developer-guides** files:
+
++--------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_developer-guides_hidet-script-dynamic-kernel.py` (``hidet-script-dynamic-kernel.py``) | 00:01.281 | 0.0 MB |
++--------------------------------------------------------------------------------------------------------------+-----------+--------+

@@ -1,0 +1,1097 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Using Template-based Scheduling &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Add Operator Resolve Rule" href="add-operator-resolve-rule.html" />
+    <link rel="prev" title="Using Rule-based Scheduling" href="add-new-operator-rule-based.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/gallery/how-to-guides/add-new-operator-template-based.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#override-implement-cuda-method">
+   Override
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     implement_cuda()
+    </span>
+   </code>
+   method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implement-the-tensor-program">
+   Implement the tensor-program
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-the-operator">
+   Define the operator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generated-source-code">
+   Generated Source Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using Template-based Scheduling</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#override-implement-cuda-method">
+   Override
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     implement_cuda()
+    </span>
+   </code>
+   method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implement-the-tensor-program">
+   Implement the tensor-program
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-the-operator">
+   Define the operator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generated-source-code">
+   Generated Source Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-how-to-guides-add-new-operator-template-based-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="using-template-based-scheduling">
+<span id="sphx-glr-gallery-how-to-guides-add-new-operator-template-based-py"></span><h1>Using Template-based Scheduling<a class="headerlink" href="#using-template-based-scheduling" title="Permalink to this headline"><span>¶</span></a></h1>
+<p>In the previous tutorial, we have learned how to define a new operator with rule-based scheduling. Rule-based scheduling
+is a convenient way to define a new operator, but it is not efficient enough for operators with large amount of
+reduction. In this tutorial, we will learn how to define a new operator with <strong>template-based scheduling</strong>.
+Template-based scheduling allows us to define a tensor program template, and the template will be instantiated for
+different input shapes and tunable hyper-parameters.</p>
+<section id="override-implement-cuda-method">
+<h2>Override <code class="docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method<a class="headerlink" href="#override-implement-cuda-method" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>The <a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> class have two methods <code class="code docutils literal notranslate"><span class="pre">implement_cpu()</span></code> and <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> that
+can be override when we define a new task.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hidet</span>
+<span class="kn">from</span> <span class="nn">hidet.ir.compute</span> <span class="kn">import</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">compute</span><span class="p">,</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">hidet.ir.task</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">hidet.ir.func</span> <span class="kn">import</span> <span class="n">IRModule</span>
+
+
+<span class="k">class</span> <span class="nc">BatchMatmulFp16Task</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">):</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">const_shape</span><span class="p">()</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">const_shape</span><span class="p">()</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span>
+            <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">k_size</span><span class="p">],</span>
+                <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span>
+                <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;batch_matmul_fp16&#39;</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>
+            <span class="n">attributes</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="n">batch_size</span><span class="p">,</span>
+                <span class="s1">&#39;m_size&#39;</span><span class="p">:</span> <span class="n">m_size</span><span class="p">,</span>
+                <span class="s1">&#39;n_size&#39;</span><span class="p">:</span> <span class="n">n_size</span><span class="p">,</span>
+                <span class="s1">&#39;k_size&#39;</span><span class="p">:</span> <span class="n">k_size</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">allow_epilogue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">implement_cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IRModule</span><span class="p">:</span>
+        <span class="c1"># override this method to use template-based scheduling</span>
+        <span class="k">return</span> <span class="n">batch_matmul_mma_fp16_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In above task definition, we override the <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method to use template-based scheduling. Inside
+the <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method, we call the <code class="code docutils literal notranslate"><span class="pre">batch_matmul_mma_fp16_schedule()</span></code> function to get a tensor
+program that implements the computation defined in the task.</p>
+</section>
+<section id="implement-the-tensor-program">
+<h2>Implement the tensor-program<a class="headerlink" href="#implement-the-tensor-program" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>We can implement the <code class="code docutils literal notranslate"><span class="pre">batch_matmul_mma_fp16_schedule()</span></code> function in the following way. This function is
+complicated. To learn what it does, we should know both CUDA programming and Hidet Script. Feel free to skip it for
+now.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>This function defines the tensor program based on <em>Hidet Script</em>. Hidet Script is another domain-specific language
+in Hidet that allows developers to write tensor programs in python syntax. We will add more documentation
+to introduce Hidet Script in the future when it gets more stable.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">batch_matmul_mma_fp16_schedule</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BatchMatmulFp16Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IRModule</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">hidet.lang</span> <span class="kn">import</span> <span class="n">f16</span><span class="p">,</span> <span class="n">spatial</span><span class="p">,</span> <span class="n">repeat</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">printf</span><span class="p">,</span> <span class="n">cast</span>
+    <span class="kn">from</span> <span class="nn">hidet.lang.mapping</span> <span class="kn">import</span> <span class="n">repeat</span><span class="p">,</span> <span class="n">spatial</span>
+    <span class="kn">from</span> <span class="nn">hidet.lang.cuda</span> <span class="kn">import</span> <span class="n">blockIdx</span><span class="p">,</span> <span class="n">threadIdx</span><span class="p">,</span> <span class="n">syncthreads</span>
+    <span class="kn">from</span> <span class="nn">hidet.lang.cuda</span> <span class="kn">import</span> <span class="n">MmaConfig</span><span class="p">,</span> <span class="n">mma_sync</span>
+    <span class="kn">from</span> <span class="nn">hidet.transforms.tools</span> <span class="kn">import</span> <span class="n">add_packed_func</span>
+
+    <span class="c1"># get the workload size</span>
+    <span class="n">bs</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">]</span>
+    <span class="n">m_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;m_size&#39;</span><span class="p">]</span>
+    <span class="n">n_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;n_size&#39;</span><span class="p">]</span>
+    <span class="n">k_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;k_size&#39;</span><span class="p">]</span>
+
+    <span class="c1"># define the template hyper-parameters</span>
+    <span class="n">mma_config</span> <span class="o">=</span> <span class="n">MmaConfig</span><span class="o">.</span><span class="n">m16n8k8_f16_f16</span><span class="p">()</span>
+    <span class="n">block_m</span><span class="p">,</span> <span class="n">block_n</span><span class="p">,</span> <span class="n">block_k</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span>
+    <span class="n">warp_m</span><span class="p">,</span> <span class="n">warp_n</span><span class="p">,</span> <span class="n">warp_k</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">8</span>
+    <span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">mma_m</span><span class="p">,</span> <span class="n">mma_n</span><span class="p">,</span> <span class="n">mma_k</span> <span class="o">=</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">k</span>  <span class="c1"># 16, 8, 8</span>
+    <span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">,</span> <span class="n">mma_count</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="n">warp_count_m</span> <span class="o">*</span> <span class="n">warp_count_n</span> <span class="o">*</span> <span class="n">warp_count_k</span> <span class="o">*</span> <span class="mi">32</span>
+
+    <span class="c1"># define the tensor program</span>
+    <span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">script_module</span><span class="p">()</span> <span class="k">as</span> <span class="n">module</span><span class="p">:</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span> <span class="nf">load_regs_a</span><span class="p">(</span>
+            <span class="n">smem_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">block_m</span><span class="p">,</span> <span class="n">block_k</span><span class="p">],</span> <span class="n">regs_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Load A registers from shared memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span>
+                <span class="n">warp_id</span>
+            <span class="p">):</span>
+                <span class="k">for</span> <span class="n">mi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">):</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_load_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                        <span class="n">regs_a</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">smem_a</span><span class="p">[</span>
+                            <span class="n">wi</span> <span class="o">*</span> <span class="n">warp_m</span> <span class="o">+</span> <span class="n">mi</span> <span class="o">*</span> <span class="n">mma_m</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">wk</span> <span class="o">*</span> <span class="n">warp_k</span> <span class="o">+</span> <span class="n">k</span>
+                        <span class="p">]</span>
+                        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span> <span class="nf">load_regs_b</span><span class="p">(</span>
+            <span class="n">smem_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">block_k</span><span class="p">,</span> <span class="n">block_n</span><span class="p">],</span> <span class="n">regs_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Load B registers from shared memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span>
+                <span class="n">warp_id</span>
+            <span class="p">):</span>
+                <span class="k">for</span> <span class="n">mj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mma_count_n</span><span class="p">):</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_load_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                        <span class="n">regs_b</span><span class="p">[</span><span class="n">mj</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">smem_b</span><span class="p">[</span>
+                            <span class="n">wk</span> <span class="o">*</span> <span class="n">warp_k</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">wj</span> <span class="o">*</span> <span class="n">warp_n</span> <span class="o">+</span> <span class="n">mj</span> <span class="o">*</span> <span class="n">mma_n</span> <span class="o">+</span> <span class="n">j</span>
+                        <span class="p">]</span>
+                        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span> <span class="nf">warp_mma</span><span class="p">(</span>
+            <span class="n">regs_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">],</span>
+            <span class="n">regs_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">],</span>
+            <span class="n">regs_c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">],</span>
+        <span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Perform warp-level matrix multiplication.&quot;&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">mj</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">mma_sync</span><span class="p">(</span><span class="n">mma_config</span><span class="p">,</span> <span class="o">~</span><span class="n">regs_a</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">~</span><span class="n">regs_b</span><span class="p">[</span><span class="n">mj</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">~</span><span class="n">regs_c</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">mj</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span> <span class="nf">store_c</span><span class="p">(</span><span class="n">regs_c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">]):</span>
+            <span class="sd">&quot;&quot;&quot;Store C registers to global memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="n">offset_m</span><span class="p">,</span> <span class="n">offset_n</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m</span><span class="p">,</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n</span>
+            <span class="n">gmem_c</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_m</span><span class="p">:,</span> <span class="n">offset_n</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">k_round</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">warp_count_k</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span>
+                    <span class="n">warp_id</span>
+                <span class="p">):</span>
+                    <span class="k">if</span> <span class="n">wk</span> <span class="o">==</span> <span class="n">k_round</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">mj</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                            <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_store_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                                <span class="n">gmem_c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                                    <span class="p">[</span>
+                                        <span class="n">wi</span> <span class="o">*</span> <span class="n">warp_m</span> <span class="o">+</span> <span class="n">mi</span> <span class="o">*</span> <span class="n">mma_m</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span>
+                                        <span class="n">wj</span> <span class="o">*</span> <span class="n">warp_n</span> <span class="o">+</span> <span class="n">mj</span> <span class="o">*</span> <span class="n">mma_n</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span>
+                                    <span class="p">],</span>
+                                    <span class="n">regs_c</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">mj</span><span class="p">,</span> <span class="n">p</span><span class="p">],</span>
+                                    <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="p">)</span>
+                                <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span> <span class="nf">batch_matmul_kernel</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">],</span>
+            <span class="n">b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span>
+            <span class="n">c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span>
+        <span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Batch matrix multiplication kernel.&quot;&quot;&quot;</span>
+            <span class="n">attr</span><span class="o">.</span><span class="n">cuda_grid_dim</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">m_size</span> <span class="o">+</span> <span class="n">block_m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_m</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">n_size</span> <span class="o">+</span> <span class="n">block_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_n</span><span class="p">,</span>
+                <span class="n">bs</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">attr</span><span class="o">.</span><span class="n">cuda_block_dim</span> <span class="o">=</span> <span class="n">threads</span>
+            <span class="n">offset_m</span><span class="p">,</span> <span class="n">offset_n</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m</span><span class="p">,</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n</span>
+            <span class="n">smem_a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">block_m</span><span class="p">,</span> <span class="n">block_k</span><span class="p">])</span>
+            <span class="n">smem_b</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">block_k</span><span class="p">,</span> <span class="n">block_n</span><span class="p">])</span>
+            <span class="n">regs_a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">])</span>
+            <span class="n">regs_b</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">])</span>
+            <span class="n">regs_c</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="s1">&#39;register&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">])</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">):</span>
+                <span class="n">regs_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="k">for</span> <span class="n">k0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">k_size</span> <span class="o">+</span> <span class="n">block_k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_k</span><span class="p">):</span>
+                <span class="n">offset_k</span> <span class="o">=</span> <span class="n">k0</span> <span class="o">*</span> <span class="n">block_k</span>
+                <span class="n">gmem_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_m</span><span class="p">:,</span> <span class="n">offset_k</span><span class="p">:]</span>
+                <span class="n">gmem_b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_k</span><span class="p">:,</span> <span class="n">offset_n</span><span class="p">:]</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                    <span class="n">smem_a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmem_a</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">],</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                    <span class="n">smem_b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmem_b</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">syncthreads</span><span class="p">()</span>
+                <span class="n">load_regs_a</span><span class="p">(</span><span class="n">smem_a</span><span class="p">,</span> <span class="n">regs_a</span><span class="p">)</span>
+                <span class="n">load_regs_b</span><span class="p">(</span><span class="n">smem_b</span><span class="p">,</span> <span class="n">regs_b</span><span class="p">)</span>
+                <span class="n">warp_mma</span><span class="p">(</span><span class="n">regs_a</span><span class="p">,</span> <span class="n">regs_b</span><span class="p">,</span> <span class="n">regs_c</span><span class="p">)</span>
+                <span class="n">syncthreads</span><span class="p">()</span>
+            <span class="n">store_c</span><span class="p">(</span><span class="n">regs_c</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+    <span class="n">ir_module</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">ir_module</span><span class="p">()</span>
+    <span class="c1"># conduct the fusion (when the task has prologue or epilogue) and generate the packed function</span>
+    <span class="c1"># ir_module = fuse_and_pack(ir_module, kernel_func=batch_matmul_kernel, task=task)</span>
+    <span class="n">add_packed_func</span><span class="p">(</span><span class="n">ir_module</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">batch_matmul_kernel</span><span class="p">,</span> <span class="n">pack_func_name</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ir_module</span>
+</pre></div>
+</div>
+</section>
+<section id="define-the-operator">
+<h2>Define the operator<a class="headerlink" href="#define-the-operator" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>The remaining part is the same as the rule-based scheduling method to add new operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.graph</span> <span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.ops.definitions.utils</span> <span class="kn">import</span> <span class="n">input_like</span>
+
+
+<span class="k">class</span> <span class="nc">BatchMatmulFp16Op</span><span class="p">(</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">hidet</span><span class="o">.</span><span class="n">float16</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">hidet</span><span class="o">.</span><span class="n">float16</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>
+            <span class="n">task</span><span class="o">=</span><span class="n">BatchMatmulFp16Task</span><span class="p">(</span><span class="n">input_like</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="n">input_like</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)),</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">batch_matmul_fp16</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">BatchMatmulFp16Op</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">demo_usage</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">batch_matmul_fp16</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+
+<span class="n">demo_usage</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[ 0.06  1.18]
+  [-1.17  1.34]]]
+Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[-0.97 -2.37]
+  [-1.34  1.18]]]
+Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[-1.64  1.24]
+  [-0.66  4.35]]]
+</pre></div>
+</div>
+</section>
+<section id="generated-source-code">
+<h2>Generated Source Code<a class="headerlink" href="#generated-source-code" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>If you are interested in the generated source code, here it is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># we hide the code to get the source path for simplicity</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Generated source path (relative to hidet cache root): </span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">relative_path</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Generated source code:&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Generated source path (relative to hidet cache root):
+docs-cache/ops/cuda_space_0/batch_matmul_fp16/35e8896a6a622f3e/source.cu
+
+Generated source code:
+#include &lt;cuda_fp16.h&gt;
+#include &lt;cuda_bf16.h&gt;
+#include &lt;hidet/runtime/cuda_context.h&gt;
+#include &lt;hidet/runtime/cpu_context.h&gt;
+typedef float tfloat32_t;
+#define __float_to_tf32(x) (x)
+extern &quot;C&quot; {
+
+__device__ __forceinline__ void hidet_load_regs_a(half * __restrict__ smem_a, half * __restrict__ regs_a) {
+  int32_t warp_id = ((int)threadIdx.x / 32);
+  int32_t lane_id = ((int)threadIdx.x % 32);
+  for (int32_t mi = 0; (mi &lt; 4); mi = (mi + 1)) {
+    int32_t p = 0;
+    for (int32_t i = 0; (i &lt; 2); i = (i + 1)) {
+      for (int32_t i_1 = 0; (i_1 &lt; 2); i_1 = (i_1 + 1)) {
+        regs_a[((mi * 4) + p)] = smem_a[((((((warp_id / 2) * 64) + (mi * 16)) + ((i * 8) + (lane_id / 4))) * 8) + (((lane_id % 4) * 2) + i_1))];
+        p = (p + 1);
+      }
+    }
+  }
+}
+
+__device__ __forceinline__ void hidet_load_regs_b(half * __restrict__ smem_b, half * __restrict__ regs_b) {
+  int32_t warp_id = ((int)threadIdx.x / 32);
+  int32_t lane_id = ((int)threadIdx.x % 32);
+  for (int32_t mj = 0; (mj &lt; 8); mj = (mj + 1)) {
+    int32_t p = 0;
+    for (int32_t i = 0; (i &lt; 2); i = (i + 1)) {
+      regs_b[((mj * 2) + p)] = smem_b[(((((lane_id % 4) * 2) + i) * 128) + ((((warp_id % 2) * 64) + (mj * 8)) + (lane_id / 4)))];
+      p = (p + 1);
+    }
+  }
+}
+
+__device__ __forceinline__ void hidet_cuda_mma_sync_aligned_m16n8k8_row_col_f16_f16_f16_f16(half * __restrict__ a, half * __restrict__ b, half * __restrict__ c) {
+  uint32_t *ra;
+  uint32_t *rb;
+  uint32_t *rc;
+  ra = ((uint32_t*)(a));
+  rb = ((uint32_t*)(b));
+  rc = ((uint32_t*)(c));
+  asm (&quot;mma.sync.aligned.m16n8k8.row.col.f16.f16.f16.f16 {%0, %1}, {%2, %3}, {%4}, {%0, %1};&quot; : &quot;+r&quot;(rc[0]), &quot;+r&quot;(rc[1]) : &quot;r&quot;(ra[0]), &quot;r&quot;(ra[1]), &quot;r&quot;(rb[0]));
+}
+
+__device__ __forceinline__ void hidet_warp_mma(half * __restrict__ regs_a, half * __restrict__ regs_b, half * __restrict__ regs_c) {
+  for (int32_t i = 0; (i &lt; 4); i = (i + 1)) {
+    for (int32_t i_1 = 0; (i_1 &lt; 8); i_1 = (i_1 + 1)) {
+      hidet_cuda_mma_sync_aligned_m16n8k8_row_col_f16_f16_f16_f16(&amp;regs_a[(i * 4)], &amp;regs_b[(i_1 * 2)], &amp;regs_c[((i * 32) + (i_1 * 4))]);
+    }
+  }
+}
+
+__device__ __forceinline__ void hidet_store_c(half * __restrict__ regs_c, half * __restrict__ c) {
+  int32_t warp_id = ((int)threadIdx.x / 32);
+  int32_t lane_id = ((int)threadIdx.x % 32);
+  int32_t offset_m = 0;
+  int32_t offset_n = 0;
+  for (int32_t i = 0; (i &lt; 4); i = (i + 1)) {
+    for (int32_t i_1 = 0; (i_1 &lt; 8); i_1 = (i_1 + 1)) {
+      int32_t p = 0;
+      for (int32_t i_2 = 0; (i_2 &lt; 2); i_2 = (i_2 + 1)) {
+        for (int32_t i_3 = 0; (i_3 &lt; 2); i_3 = (i_3 + 1)) {
+          if ((((((warp_id / 2) * 64) + (i * 16)) + ((i_2 * 8) + (lane_id / 4))) &lt; 2) &amp;&amp; (((((warp_id % 2) * 64) + (i_1 * 8)) + (((lane_id % 4) * 2) + i_3)) &lt; 2)) {
+            c[((((((warp_id / 2) * 64) + (i * 16)) + ((i_2 * 8) + (lane_id / 4))) * 2) + ((((warp_id % 2) * 64) + (i_1 * 8)) + (((lane_id % 4) * 2) + i_3)))] = regs_c[(((i * 32) + (i_1 * 4)) + p)];
+          }
+          p = (p + 1);
+        }
+      }
+    }
+  }
+}
+
+__global__ void __launch_bounds__(128) hidet_batch_matmul_kernel(half * __restrict__ a, half * __restrict__ b, half * __restrict__ c) {
+  __shared__ half smem_a[1024];
+  __shared__ half smem_b[1024];
+  half regs_a[16];
+  half regs_b[16];
+  half regs_c[128];
+  for (int32_t i = 0; (i &lt; 4); i = (i + 1)) {
+    for (int32_t j = 0; (j &lt; 8); j = (j + 1)) {
+      for (int32_t p = 0; (p &lt; 4); p = (p + 1)) {
+        regs_c[(((i * 32) + (j * 4)) + p)] = ((half)(0.0f));
+      }
+    }
+  }
+  for (int32_t i_1 = 0; (i_1 &lt; 8); i_1 = (i_1 + 1)) {
+    smem_a[((((i_1 * 16) + ((int)threadIdx.x / 8)) * 8) + ((int)threadIdx.x % 8))] = (((((i_1 * 16) + ((int)threadIdx.x / 8)) &lt; 2) &amp;&amp; (((int)threadIdx.x % 8) &lt; 2)) ? a[((((i_1 * 16) + ((int)threadIdx.x / 8)) * 2) + ((int)threadIdx.x % 8))] : half(0.0f));
+  }
+  for (int32_t i_2 = 0; (i_2 &lt; 8); i_2 = (i_2 + 1)) {
+    smem_b[((i_2 * 128) + (int)threadIdx.x)] = (((i_2 &lt; 2) &amp;&amp; ((int)threadIdx.x &lt; 2)) ? b[((i_2 * 2) + (int)threadIdx.x)] : half(0.0f));
+  }
+  __syncthreads();
+  hidet_load_regs_a(smem_a, regs_a);
+  hidet_load_regs_b(smem_b, regs_b);
+  hidet_warp_mma(regs_a, regs_b, regs_c);
+  __syncthreads();
+  hidet_store_c(regs_c, c);
+}
+
+__host__ void hidet_batch_matmul_fp16(int32_t num_args, int32_t * __restrict__ arg_types, void* * __restrict__ args) {
+  assert(((void)&quot;Expect 3 arguments&quot;, (num_args == 3)));
+  assert(((void)&quot;The 0-th argument should be POINTER&quot;, (arg_types[0] == 3)));
+  half *a = ((half*)(args[0]));
+  assert(((void)&quot;The 1-th argument should be POINTER&quot;, (arg_types[1] == 3)));
+  half *b = ((half*)(args[1]));
+  assert(((void)&quot;The 2-th argument should be POINTER&quot;, (arg_types[2] == 3)));
+  half *c = ((half*)(args[2]));
+  hidet_batch_matmul_kernel&lt;&lt;&lt;dim3(1, 1, 1), dim3(128, 1, 1), 0, (cudaStream_t)get_cuda_stream()&gt;&gt;&gt;(a, b, c);
+}
+
+}
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>In this tutorial, we have shown how to use the template-based scheduling mechanism to add new operators. Basically,
+what we need to do is to override the <strong>implement_cuda</strong> or <strong>implement_cpu</strong> method of the task class, and implement
+the task to get an IR module. In this example, we used Hidet Script to implement the task, but you can also use
+other ways such as IR builder.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.008 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-how-to-guides-add-new-operator-template-based-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/7240296177347b3c7ce886a2b9dd1706/add-new-operator-template-based.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-new-operator-template-based.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/61b5b96b256398d98e3d5d573e557864/add-new-operator-template-based.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-template-based.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="add-new-operator-rule-based.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Using Rule-based Scheduling</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="add-operator-resolve-rule.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Add Operator Resolve Rule</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2022, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
