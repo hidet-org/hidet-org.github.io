@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.graph.ir.flow_graph &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../gallery/how-to-guides/add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../gallery/how-to-guides/add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../gallery/how-to-guides/add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/how-to-guides/add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/how-to-guides/add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../gallery/how-to-guides/visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../gallery/developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for hidet.graph.ir.flow_graph</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># pylint: disable=protected-access</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">import</span> <span class="nn">hidet.graph.operator</span>
+<span class="kn">import</span> <span class="nn">hidet.cuda</span>
+<span class="kn">from</span> <span class="nn">hidet</span> <span class="kn">import</span> <span class="n">option</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.tensor</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">randn_like</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.operator</span> <span class="kn">import</span> <span class="n">Operator</span>
+<span class="kn">from</span> <span class="nn">hidet.utils.doc</span> <span class="kn">import</span> <span class="n">Doc</span><span class="p">,</span> <span class="n">NewLine</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">doc_join</span>
+<span class="kn">from</span> <span class="nn">hidet.utils.namer</span> <span class="kn">import</span> <span class="n">Namer</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">GraphForwardInstrument</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">before_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">after_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">before_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">after_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">GraphForwardContext</span><span class="p">:</span>
+    <span class="n">_stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GraphForwardContext</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GraphForwardInstrument</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">current</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">GraphForwardContext</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">_stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GraphForwardContext</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_trigger_before_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">before_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_trigger_after_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">after_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_trigger_before_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">before_operator</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_trigger_after_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
+            <span class="n">instrument</span><span class="o">.</span><span class="n">after_operator</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">append_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instrument</span><span class="p">:</span> <span class="n">GraphForwardInstrument</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;./outs/debug&#39;</span><span class="p">,</span> <span class="n">print_summary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.flow_graph_impl</span> <span class="kn">import</span> <span class="n">GraphForwardDebugInstrument</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GraphForwardDebugInstrument</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">print_summary</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;./outs/benchmark&#39;</span><span class="p">,</span> <span class="n">print_summary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">warmup</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.flow_graph_impl</span> <span class="kn">import</span> <span class="n">GraphForwardBenchmarkInstrument</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GraphForwardBenchmarkInstrument</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">print_summary</span><span class="p">,</span> <span class="n">warmup</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">repeat</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">forward_context</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">GraphForwardContext</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">GraphForwardContext</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="FlowGraph"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph">[docs]</a><span class="k">class</span> <span class="nc">FlowGraph</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The computation graph representation.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="n">outputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Operator</span><span class="p">]]</span> <span class="o">=</span> <span class="n">nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="FlowGraph.__call__"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Run the computation graph.</span>
+<span class="sd">        See Also :func:`FlowGraph.forward`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span><span class="p">]):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_nodes</span><span class="p">()</span>
+        <span class="n">namer</span> <span class="o">=</span> <span class="n">Namer</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_tensor_sig</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Doc</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">],</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+
+        <span class="k">def</span> <span class="nf">get_attr_repr</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Doc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">([</span><span class="n">get_attr_repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">],</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">([</span><span class="n">get_attr_repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">],</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+        <span class="n">param_docs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">namer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">param_docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="n">get_tensor_sig</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+        <span class="c1"># head</span>
+        <span class="n">head_doc</span> <span class="o">=</span> <span class="s1">&#39;Graph(&#39;</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">(</span><span class="n">param_docs</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+
+        <span class="c1"># body</span>
+        <span class="n">body_doc</span> <span class="o">=</span> <span class="n">Doc</span><span class="p">()</span>
+        <span class="n">const_doc</span> <span class="o">=</span> <span class="n">Doc</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="c1"># const inputs</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">namer</span><span class="o">.</span><span class="n">obj_name</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="n">const_doc</span> <span class="o">+=</span> <span class="n">NewLine</span><span class="p">()</span> <span class="o">+</span> <span class="n">namer</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hint</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = Constant(&#39;</span> <span class="o">+</span> <span class="n">get_tensor_sig</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">outputs</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+            <span class="n">output</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">line_doc</span> <span class="o">=</span> <span class="n">Doc</span><span class="p">()</span>
+            <span class="n">line_doc</span> <span class="o">+=</span> <span class="n">namer</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="n">get_tensor_sig</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span>
+            <span class="n">line_doc</span> <span class="o">+=</span> <span class="n">op</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">task_graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;(&#39;</span>
+            <span class="n">line_doc</span> <span class="o">+=</span> <span class="n">doc_join</span><span class="p">([</span><span class="n">namer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+                <span class="n">line_doc</span> <span class="o">+=</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">Text</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="n">get_attr_repr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()],</span> <span class="s1">&#39;, &#39;</span>
+                <span class="p">)</span>
+            <span class="n">line_doc</span> <span class="o">+=</span> <span class="s1">&#39;)  &#39;</span>
+            <span class="n">body_doc</span> <span class="o">+=</span> <span class="n">NewLine</span><span class="p">()</span> <span class="o">+</span> <span class="n">line_doc</span>
+
+        <span class="c1"># return statement</span>
+        <span class="n">body_doc</span> <span class="o">+=</span> <span class="n">NewLine</span><span class="p">()</span> <span class="o">+</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;return &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">doc_join</span><span class="p">([</span><span class="n">namer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">],</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
+
+        <span class="n">graph_doc</span> <span class="o">=</span> <span class="n">head_doc</span> <span class="o">+</span> <span class="s1">&#39;{&#39;</span> <span class="o">+</span> <span class="n">const_doc</span><span class="o">.</span><span class="n">indent</span><span class="p">()</span> <span class="o">+</span> <span class="n">body_doc</span><span class="o">.</span><span class="n">indent</span><span class="p">()</span> <span class="o">+</span> <span class="n">NewLine</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">graph_doc</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tunable_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">task_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">search_space</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;search_space&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">task_func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">task_key</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">task</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">task_key</span> <span class="ow">in</span> <span class="n">task_keys</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">task_keys</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task_key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">search_space</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="s1">&#39;implement_cuda&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+                    <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">task</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tunable_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">task</span><span class="p">)</span>
+
+        <span class="n">hidet</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">build_task_batch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">option</span><span class="o">.</span><span class="n">context</span><span class="p">():</span>
+            <span class="n">hidet</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">parallel_build</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">hidet</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">build_task_batch</span><span class="p">(</span><span class="n">tunable_tasks</span><span class="p">)</span>  <span class="c1"># build tunable tasks one by one</span>
+
+<div class="viewcode-block" id="FlowGraph.forward"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Run the computation graph.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *inputs: Tensor</span>
+<span class="sd">            The input tensors. They should be consistent with the symbolic inputs</span>
+<span class="sd">            of the computation graph.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output: Union[List[Tensor], Tensor]</span>
+<span class="sd">            If there is only one output, it is returned directly. Otherwise, a list</span>
+<span class="sd">            of output tensors are returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Expect non-symbolic input tensors, got symbolic input </span><span class="si">{}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1">).&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">signature</span><span class="p">())</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span><span class="p">]):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_nodes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+        <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">_trigger_before_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+        <span class="n">usage_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">tensor_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">st</span><span class="p">,</span> <span class="n">at</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+            <span class="n">tensor_map</span><span class="p">[</span><span class="n">st</span><span class="p">]</span> <span class="o">=</span> <span class="n">at</span>
+
+        <span class="n">num_operators</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
+            <span class="c1"># prepare node inputs</span>
+            <span class="n">node_inputs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">node_input</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">node_input</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># symbolic input</span>
+                    <span class="n">node_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor_map</span><span class="p">[</span><span class="n">node_input</span><span class="p">])</span>
+                    <span class="n">usage_count</span><span class="p">[</span><span class="n">node_input</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">usage_count</span><span class="p">[</span><span class="n">node_input</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="c1"># free the memory</span>
+                        <span class="k">del</span> <span class="n">tensor_map</span><span class="p">[</span><span class="n">node_input</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># constant input</span>
+                    <span class="n">node_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_input</span><span class="p">)</span>
+
+            <span class="c1"># run node</span>
+            <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">_trigger_before_operator</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node_inputs</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%4d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">] run operator </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">num_operators</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;   inputs: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">signature</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">node_inputs</span><span class="p">])</span>
+            <span class="n">node_outputs</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">imperative_run</span><span class="p">(</span><span class="n">node_inputs</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;  outputs: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">signature</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">node_outputs</span><span class="p">])</span>
+            <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">_trigger_after_operator</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node_inputs</span><span class="p">,</span> <span class="n">node_outputs</span><span class="p">)</span>
+
+            <span class="c1"># update map</span>
+            <span class="k">for</span> <span class="n">node_output</span><span class="p">,</span> <span class="n">symbolic_output</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">node_outputs</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">outputs</span><span class="p">):</span>
+                <span class="n">tensor_map</span><span class="p">[</span><span class="n">symbolic_output</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_output</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">graph_output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">graph_output</span> <span class="ow">in</span> <span class="n">tensor_map</span><span class="p">:</span>
+                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor_map</span><span class="p">[</span><span class="n">graph_output</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">graph_output</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graph_output</span><span class="p">)</span>  <span class="c1"># constant output, not the graph input or produced by any operator</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Graph output </span><span class="si">{}</span><span class="s1"> is not produced by any operator.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">graph_output</span><span class="o">.</span><span class="n">signature</span><span class="p">()))</span>
+
+        <span class="n">GraphForwardContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">_trigger_after_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">outputs</span></div>
+
+    <span class="k">def</span> <span class="nf">dummy_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">symbolic_input</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">symbolic_input</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+                <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">symbolic_input</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">symbolic_input</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">is_float</span><span class="p">():</span>
+                <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randn_like</span><span class="p">(</span><span class="n">symbolic_input</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">inputs</span>
+
+<div class="viewcode-block" id="FlowGraph.save"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the flow graph to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_file: str</span>
+<span class="sd">            The model file to store the flow graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># before save, clear the packed func cache because ctypes object can not be pickled</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">task_func</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+        <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># save to a temporary file first, in case pickle fails.</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_file</span> <span class="o">+</span> <span class="s1">&#39;.temp&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">model_file</span> <span class="o">+</span> <span class="s1">&#39;.temp&#39;</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FlowGraph.load"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FlowGraph</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Load a flow graph from a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_file: str</span>
+<span class="sd">            The path to the flow graph.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: FlowGraph</span>
+<span class="sd">            The loaded flow graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">FlowGraph</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Expect to load FlowGraph, got </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ret</span><span class="p">)))</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">update_nodes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+    <span class="k">def</span> <span class="nf">update_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">free_vars</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">usage_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+            <span class="n">non_bound_free_vars</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">free_vars</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_bound_free_vars</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;There is free variable(s) not given in inputs:&#39;</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">non_bound_free_vars</span><span class="p">:</span>
+                    <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">signature</span><span class="p">()))</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">free_vars</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;The traced graph has found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">free_vars</span><span class="p">)</span><span class="si">}</span><span class="s1"> free varaibles. &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;When there are multiple free &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;variables, it is mandatory to specify the &quot;inputs&quot; argument explicitly when calling &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;hidet.trace_from(...):</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s1">&#39;    hidet.trace_from(..., inputs=[tensor1, tensor2, ...])</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">free_vars</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="FlowGraph.cuda_graph"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.cuda_graph">[docs]</a>    <span class="k">def</span> <span class="nf">cuda_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a CudaGraph from FlowGraph.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: hidet.cuda.graph.CudaGraph</span>
+<span class="sd">            The created cuda graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">hidet.cuda.graph</span> <span class="kn">import</span> <span class="n">CudaGraph</span>
+
+        <span class="k">return</span> <span class="n">CudaGraph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FlowGraph.latency"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.FlowGraph.latency">[docs]</a>    <span class="k">def</span> <span class="nf">latency</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">warmup</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">median</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dummy_inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;Measure the latency of the flow graph.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        warmup: int</span>
+<span class="sd">            The number of warmup runs.</span>
+
+<span class="sd">        number: int</span>
+<span class="sd">            The number of runs to measure the latency.</span>
+
+<span class="sd">        repeat: int</span>
+<span class="sd">            The number of times to repeat the measurement.</span>
+
+<span class="sd">        median: bool</span>
+<span class="sd">            Whether to return the median latency.</span>
+
+<span class="sd">        dummy_inputs: Optional[Sequence[Tensor]]</span>
+<span class="sd">            The dummy inputs to run the flow graph. If not given, automatic generated dummy inputs would be used.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: Union[float, List[float]]</span>
+<span class="sd">            The measured latency in milliseconds.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">time</span>
+        <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+        <span class="k">if</span> <span class="n">dummy_inputs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dummy_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dummy_inputs</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">warmup</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="n">dummy_inputs</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeat</span><span class="p">):</span>
+            <span class="n">hidet</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="n">dummy_inputs</span><span class="p">)</span>
+            <span class="n">hidet</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
+            <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">number</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">median</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">results</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">results</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_analyze</span><span class="p">(</span><span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Operator</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyze the implicit flow graph by backwards traversing the graph from given outputs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        outputs: List[Tensor]</span>
+<span class="sd">            The outputs of the flow graph to traversing from.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        free_vars, nodes, usage_count: Tuple[List[Tensor], List[Operator], Dict[Tensor, int]]</span>
+<span class="sd">            The free variables, nodes and usage count of the flow graph.</span>
+
+<span class="sd">            The free variables are the free symbolic tensors that are not produced by any operators and do not contain</span>
+<span class="sd">            the non-None storage attribute.</span>
+
+<span class="sd">            The nodes are the operators that are used to produce the outputs, in topological order.</span>
+
+<span class="sd">            The usage count contains the number of times each tensor is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">free_vars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Operator</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># find out all nodes</span>
+        <span class="n">all_nodes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Operator</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">find_all_nodes</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n">Operator</span><span class="p">):</span>
+            <span class="n">all_nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">op</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">v</span><span class="p">:</span> <span class="n">Operator</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">op</span>
+                <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_nodes</span><span class="p">:</span>
+                    <span class="n">find_all_nodes</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">trace</span><span class="p">:</span>
+                <span class="n">find_all_nodes</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">op</span><span class="p">)</span>
+
+        <span class="c1"># topological sort</span>
+        <span class="n">out_degree</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Operator</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">all_nodes</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">all_nodes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">op</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">out_degree</span><span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">:</span>
+                <span class="n">out_degree</span><span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Operator</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">:</span>
+                <span class="n">out_degree</span><span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">out_degree</span><span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">op</span><span class="p">)</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">op</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">op</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">free_vars</span><span class="p">):</span>
+                        <span class="c1"># input</span>
+                        <span class="n">free_vars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">out_degree</span><span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">out_degree</span><span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">op</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">op</span><span class="p">)</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">nodes</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_nodes</span><span class="p">),</span> <span class="s1">&#39;all_nodes </span><span class="si">{}</span><span class="s1"> topo_order </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">))</span>
+
+        <span class="c1"># tensor usage count</span>
+        <span class="n">usage_count</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">all_nodes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="n">usage_count</span><span class="p">[</span><span class="n">inp</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">graph_output</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="n">usage_count</span><span class="p">[</span><span class="n">graph_output</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">free_vars</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">usage_count</span></div>
+
+
+<div class="viewcode-block" id="trace_from"><a class="viewcode-back" href="../../../../python_api/root.html#hidet.graph.trace_from">[docs]</a><span class="k">def</span> <span class="nf">trace_from</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FlowGraph</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trace the flow graph given the output tensor(s).</span>
+
+<span class="sd">    Each :class:`hidet.graph.Tensor` has an attribute :class:`hidet.graph.Tensor.trace` which indicates how the tensor</span>
+<span class="sd">    is generated. If the tensor is generated by an operator with symbolic input(s), the tensor itself is also symbolic.</span>
+<span class="sd">    And the tensor will have a reference to the operator that generates it. The reference is stored in this attribute.</span>
+
+<span class="sd">    What this function does is to walk through the trace of the given tensor(s) and construct a flow graph.</span>
+
+<span class="sd">    When there are multiple symbol inputs, it is mandatory to specify the &quot;inputs&quot; argument explicitly to avoid</span>
+<span class="sd">    ambiguity.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tensor: Tensor or List[Tensor]</span>
+<span class="sd">        The output tensor(s) that we trace from.</span>
+<span class="sd">    inputs: Optional, Tensor or List[Tensor]</span>
+<span class="sd">        The inputs of the flow graph. When there is only a single symbol tensor in the flow graph, it is</span>
+<span class="sd">        optional. When there are multiple inputs, this is required to specify the input order.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: FlowGraph</span>
+<span class="sd">        The flow graph that outputs the given input tensor(s).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">trace</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;trace_from expects symbol tensor(s).&#39;</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">inputs</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">FlowGraph</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">update_nodes</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">save_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">,</span> <span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">load_graph</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FlowGraph</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">FlowGraph</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2022, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

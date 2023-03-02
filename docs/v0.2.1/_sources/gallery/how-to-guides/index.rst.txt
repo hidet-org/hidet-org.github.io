@@ -1,0 +1,130 @@
+
+
+.. _sphx_glr_gallery_how-to-guides:
+
+Index
+=====
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is a tutorial introduces the operator resolving mechanism and how to add a new operator re...">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_add-operator-resolve-rule_thumb.png
+    :alt: Add Operator Resolve Rule
+
+  :ref:`sphx_glr_gallery_how-to-guides_add-operator-resolve-rule.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Add Operator Resolve Rule</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the previous tutorial, we have learned how to define the computation using compute primitive...">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_add-new-operator-rule-based_thumb.png
+    :alt: Using Rule-based Scheduling
+
+  :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-rule-based.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using Rule-based Scheduling</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Visualization is a key component of a machine learning tool to allow us have a better understan...">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_visualize-flow-graph_thumb.png
+    :alt: Visualize Flow Graph
+
+  :ref:`sphx_glr_gallery_how-to-guides_visualize-flow-graph.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Visualize Flow Graph</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows how to add a sub-graph rewrite rule in the graph optimization pipeline. Sub...">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_add-subgraph-rewrite-rule_thumb.png
+    :alt: Add Sub-Graph Rewrite Rule
+
+  :ref:`sphx_glr_gallery_how-to-guides_add-subgraph-rewrite-rule.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Add Sub-Graph Rewrite Rule</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Each operator takes a list of input tensors and produces a list of output tensors:">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_add-new-operator-compute-definition_thumb.png
+    :alt: Define Operator Computation
+
+  :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-compute-definition.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Define Operator Computation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the previous tutorial, we have learned how to define a new operator with rule-based scheduli...">
+
+.. only:: html
+
+  .. image:: /gallery/how-to-guides/images/thumb/sphx_glr_add-new-operator-template-based_thumb.png
+    :alt: Using Template-based Scheduling
+
+  :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-template-based.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using Template-based Scheduling</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/how-to-guides/add-operator-resolve-rule
+   /gallery/how-to-guides/add-new-operator-rule-based
+   /gallery/how-to-guides/visualize-flow-graph
+   /gallery/how-to-guides/add-subgraph-rewrite-rule
+   /gallery/how-to-guides/add-new-operator-compute-definition
+   /gallery/how-to-guides/add-new-operator-template-based
+

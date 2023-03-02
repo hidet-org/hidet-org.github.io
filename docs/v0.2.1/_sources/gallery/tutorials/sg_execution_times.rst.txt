@@ -1,0 +1,14 @@
+
+:orphan:
+
+.. _sphx_glr_gallery_tutorials_sg_execution_times:
+
+Computation times
+=================
+**00:06.036** total execution time for **gallery_tutorials** files:
+
++---------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_tutorials_run-onnx-model.py` (``run-onnx-model.py``)                 | 00:03.718 | 0.0 MB |
++---------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_tutorials_optimize-pytorch-model.py` (``optimize-pytorch-model.py``) | 00:02.318 | 0.0 MB |
++---------------------------------------------------------------------------------------------+-----------+--------+

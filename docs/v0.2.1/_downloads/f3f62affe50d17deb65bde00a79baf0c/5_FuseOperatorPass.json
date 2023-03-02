@@ -1,0 +1,852 @@
+{
+  "graphs": [
+    {
+      "name": "",
+      "inputs": [
+        {
+          "name": "input:0",
+          "arguments": [
+            {
+              "name": "input:0",
+              "type": {
+                "string": "float32(1, 128, 768)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128,
+                    768
+                  ]
+                },
+                "dataType": "float32"
+              }
+            }
+          ],
+          "visible": true
+        },
+        {
+          "name": "input:1",
+          "arguments": [
+            {
+              "name": "input:1",
+              "type": {
+                "string": "int32(1, 128)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128
+                  ]
+                },
+                "dataType": "int32"
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output:0",
+          "arguments": [
+            {
+              "name": "FusedReduceSum3:0",
+              "type": {
+                "string": "float32(1, 128, 768)",
+                "shape": {
+                  "dimensions": [
+                    1,
+                    128,
+                    768
+                  ]
+                },
+                "dataType": "float32"
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "nodes": [
+        {
+          "name": "FusedBatchMatmul1",
+          "type": {
+            "name": "FusedBatchMatmul",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "const:0",
+                  "type": {
+                    "string": "float32(4, 192, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        4,
+                        192,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  },
+                  "initializer": {
+                    "kind": "Initializer",
+                    "value": "<>"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "input:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul1:0",
+                  "type": {
+                    "string": "float32(1, 4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "Reshape Rearrange BatchMatmul Reshape",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    b: tensor(float32, [4, 192, 2304])",
+            "    x: tensor(float32, [1, 128, 768])",
+            "    y: tensor(float32, [1, 4, 128, 2304])",
+            "  inputs: [a, b_1]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b_1: tensor(float32, [4, 192, 2304])",
+            "    a: tensor(float32, [4, 128, 192])",
+            "    c: float32[4, 128, 2304] where c[v, v_1, v_2] = reduce([192], (v_3) => (a[v, v_1, v_3] * b_1[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 4, m_size: 128, n_size: 2304, k_size: 192, mma: simt}",
+            "  task_graph: TaskGraph(b, x) {",
+            "    y_1 = reshape(x_1=x)",
+            "      y_1: float32[1, 128, 4, 192] where y_1[v_4, v_5, v_6, v_7] = x_1[v_4, v_5, (v_7 + (v_6 * 192))]",
+            "    y_2 = rearrange(x_2=y_1)",
+            "      y_2: float32[4, 128, 192] where y_2[v_8, v_9, v_10] = x_2[0, (v_9 % 128), (v_8 % 4), (v_10 % 192)]",
+            "    c = batch_matmul(a=y_2, b_1=b, batch_size=4, m_size=128, n_size=2304, k_size=192, mma=simt) [anchor]",
+            "    y = reshape(x_3=c)",
+            "      y: float32[1, 4, 128, 2304] where y[v_11, v_12, v_13, v_14] = x_3[(v_12 + (v_11 * 4)), v_13, v_14]",
+            "    return y",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedReduceSum1",
+          "type": {
+            "name": "FusedReduceSum",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul1:0",
+                  "type": {
+                    "string": "float32(1, 4, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        4,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "const:1",
+                  "type": {
+                    "string": "float32(2304,)",
+                    "shape": {
+                      "dimensions": [
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  },
+                  "initializer": {
+                    "kind": "Initializer",
+                    "value": "<>"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "ReduceSum Add",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [1, 4, 128, 2304])",
+            "    y: tensor(float32, [2304])",
+            "    z: tensor(float32, [1, 128, 2304])",
+            "  inputs: [x_1]",
+            "  outputs: [y_1]",
+            "  computations: ",
+            "    x_1: tensor(float32, [1, 4, 128, 2304])",
+            "    y_1: float32[1, 128, 2304] where y_1[v, v_1, v_2] = reduce([4], (v_3) => x_1[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            "  task_graph: TaskGraph(x, y) {",
+            "    y_1 = reduce_sum(x_1=x, dims=[1], keep_dim=False, reduce_type=sum, accumulate_dtype=float32) [anchor]",
+            "    z = add(x_2=y_1, y_2=y)",
+            "      z: float32[1, 128, 2304] where z[v_4, v_5, v_6] = (x_2[0, v_5, v_6] + y_2[v_6])",
+            "    return z",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedBatchMatmul2",
+          "type": {
+            "name": "FusedBatchMatmul",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul2:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "StridedSlice Reshape StridedSlice Rearrange Reshape PermuteDims Rearrange Reshape Reshape Rearrange Rearrange BatchMatmul Reshape",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    y: tensor(float32, [12, 8, 128, 128])",
+            "  inputs: [a, b]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b: tensor(float32, [96, 8, 128])",
+            "    a: tensor(float32, [96, 128, 8])",
+            "    c: float32[96, 128, 128] where c[v, v_1, v_2] = reduce([8], (v_3) => (a[v, v_1, v_3] * b[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 96, m_size: 128, n_size: 128, k_size: 8, mma: simt}",
+            "  task_graph: TaskGraph(data) {",
+            "    out = slice(data_1=data)",
+            "      out: float32[1, 128, 768] where out[v_4, v_5, v_6] = data_1[v_4, v_5, (768 + v_6)]",
+            "    y_1 = reshape(x=out)",
+            "      y_1: float32[1, 128, 12, 64] where y_1[v_7, v_8, v_9, v_10] = x[v_7, v_8, (v_10 + (v_9 * 64))]",
+            "    out_1 = slice(data_2=data)",
+            "      out_1: float32[1, 128, 768] where out_1[v_11, v_12, v_13] = data_2[v_11, v_12, v_13]",
+            "    y_2 = rearrange(x_1=y_1)",
+            "      y_2: float32[12, 128, 64] where y_2[v_14, v_15, v_16] = x_1[0, (v_15 % 128), (v_14 % 12), (v_16 % 64)]",
+            "    y_3 = reshape(x_2=out_1)",
+            "      y_3: float32[1, 128, 12, 64] where y_3[v_17, v_18, v_19, v_20] = x_2[v_17, v_18, (v_20 + (v_19 * 64))]",
+            "    y_4 = rearrange(x_3=y_2)",
+            "      y_4: float32[12, 64, 128] where y_4[v_21, v_22, v_23] = x_3[(v_21 % 12), (v_23 % 128), (v_22 % 64)]",
+            "    y_5 = rearrange(x_4=y_3)",
+            "      y_5: float32[12, 128, 64] where y_5[v_24, v_25, v_26] = x_4[0, (v_25 % 128), (v_24 % 12), (v_26 % 64)]",
+            "    y_6 = reshape(x_5=y_4)",
+            "      y_6: float32[12, 8, 8, 128] where y_6[v_27, v_28, v_29, v_30] = x_5[v_27, (v_29 + (v_28 * 8)), v_30]",
+            "    y_7 = reshape(x_6=y_5)",
+            "      y_7: float32[12, 128, 8, 8] where y_7[v_31, v_32, v_33, v_34] = x_6[v_31, v_32, (v_34 + (v_33 * 8))]",
+            "    y_8 = rearrange(x_7=y_6)",
+            "      y_8: float32[96, 8, 128] where y_8[v_35, v_36, v_37] = x_7[((v_35 / 8) % 12), (v_35 % 8), (v_36 % 8), (v_37 % 128)]",
+            "    y_9 = rearrange(x_8=y_7)",
+            "      y_9: float32[96, 128, 8] where y_9[v_38, v_39, v_40] = x_8[((v_38 / 8) % 12), (v_39 % 128), (v_38 % 8), (v_40 % 8)]",
+            "    c = batch_matmul(a=y_9, b=y_8, batch_size=96, m_size=128, n_size=128, k_size=8, mma=simt) [anchor]",
+            "    y = reshape(x_9=c)",
+            "      y: float32[12, 8, 128, 128] where y[v_41, v_42, v_43, v_44] = x_9[(v_42 + (v_41 * 8)), v_43, v_44]",
+            "    return y",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedReduceSum2",
+          "type": {
+            "name": "FusedReduceSum",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul2:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "input:1",
+                  "type": {
+                    "string": "int32(1, 128)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128
+                      ]
+                    },
+                    "dataType": "int32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "ReduceSum DivideScalar Add",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 128, 128])",
+            "    y: tensor(int32, [1, 128])",
+            "    z: tensor(float32, [12, 128, 128])",
+            "  inputs: [x_1]",
+            "  outputs: [y_1]",
+            "  computations: ",
+            "    x_1: tensor(float32, [12, 8, 128, 128])",
+            "    y_1: float32[12, 128, 128] where y_1[v, v_1, v_2] = reduce([8], (v_3) => x_1[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            "  task_graph: TaskGraph(x, y) {",
+            "    y_1 = reduce_sum(x_1=x, dims=[1], keep_dim=False, reduce_type=sum, accumulate_dtype=float32) [anchor]",
+            "    y_2 = divs(x_2=y_1)",
+            "      y_2: float32[12, 128, 128] where y_2[v_4, v_5, v_6] = (x_2[v_4, v_5, v_6] / 8.0f)",
+            "    z = add(x_3=y_2, y_3=y)",
+            "      z: float32[12, 128, 128] where z[v_7, v_8, v_9] = (x_3[v_7, v_8, v_9] + y_3[0, v_9])",
+            "    return z",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedSoftmax1",
+          "type": {
+            "name": "FusedSoftmax",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum2:0",
+                  "type": {
+                    "string": "float32(12, 128, 128)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        128,
+                        128
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedSoftmax1:0",
+                  "type": {
+                    "string": "float32(96, 128, 16)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "type": "int",
+              "value": "2",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "Softmax Reshape Rearrange",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: softmax",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 128, 128])",
+            "    y: tensor(float32, [96, 128, 16])",
+            "  inputs: [x_1]",
+            "  outputs: [out]",
+            "  computations: ",
+            "    sum_value: float32[12, 128] where sum_value[v, v_1] = reduce([128], (v_2) => exp_value[v, v_1, v_2], sumreduce)",
+            "    max_value: float32[12, 128] where max_value[v_3, v_4] = reduce([128], (v_5) => x_1[v_3, v_4, v_5], maxreduce)",
+            "    x_1: tensor(float32, [12, 128, 128])",
+            "    exp_value: float32[12, 128, 128] where exp_value[v_6, v_7, v_8] = generic_exp((x_1[v_6, v_7, v_8] - max_value[v_6, v_7]))",
+            "    out: float32[12, 128, 128] where out[v_9, v_10, v_11] = (exp_value[v_9, v_10, v_11] / sum_value[v_9, v_10])",
+            "  attributes: {}",
+            "  task_graph: TaskGraph(x) {",
+            "    out = softmax(x_1=x) [anchor]",
+            "    y_1 = reshape(x_2=out)",
+            "      y_1: float32[12, 128, 8, 16] where y_1[v_12, v_13, v_14, v_15] = x_2[v_12, v_13, (v_15 + (v_14 * 16))]",
+            "    y = rearrange(x_3=y_1)",
+            "      y: float32[96, 128, 16] where y[v_16, v_17, v_18] = x_3[((v_16 / 8) % 12), (v_17 % 128), (v_16 % 8), (v_18 % 16)]",
+            "    return y",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedBatchMatmul3",
+          "type": {
+            "name": "FusedBatchMatmul",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedSoftmax1:0",
+                  "type": {
+                    "string": "float32(96, 128, 16)",
+                    "shape": {
+                      "dimensions": [
+                        96,
+                        128,
+                        16
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            },
+            {
+              "name": "1",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum1:0",
+                  "type": {
+                    "string": "float32(1, 128, 2304)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        2304
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul3:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mma",
+              "type": "str",
+              "value": "simt",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "StridedSlice Reshape Rearrange Reshape Rearrange BatchMatmul Reshape",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: batch_matmul",
+            "  parameters: ",
+            "    a: tensor(float32, [96, 128, 16])",
+            "    data: tensor(float32, [1, 128, 2304])",
+            "    y: tensor(float32, [12, 8, 128, 64])",
+            "  inputs: [a_1, b]",
+            "  outputs: [c]",
+            "  computations: ",
+            "    b: tensor(float32, [96, 16, 64])",
+            "    a_1: tensor(float32, [96, 128, 16])",
+            "    c: float32[96, 128, 64] where c[v, v_1, v_2] = reduce([16], (v_3) => (a_1[v, v_1, v_3] * b[v, v_3, v_2]), sumreduce)",
+            "  attributes: {batch_size: 96, m_size: 128, n_size: 64, k_size: 16, mma: simt}",
+            "  task_graph: TaskGraph(a, data) {",
+            "    out = slice(data_1=data)",
+            "      out: float32[1, 128, 768] where out[v_4, v_5, v_6] = data_1[v_4, v_5, (1536 + v_6)]",
+            "    y_1 = reshape(x=out)",
+            "      y_1: float32[1, 128, 12, 64] where y_1[v_7, v_8, v_9, v_10] = x[v_7, v_8, (v_10 + (v_9 * 64))]",
+            "    y_2 = rearrange(x_1=y_1)",
+            "      y_2: float32[12, 128, 64] where y_2[v_11, v_12, v_13] = x_1[0, (v_12 % 128), (v_11 % 12), (v_13 % 64)]",
+            "    y_3 = reshape(x_2=y_2)",
+            "      y_3: float32[12, 8, 16, 64] where y_3[v_14, v_15, v_16, v_17] = x_2[v_14, (v_16 + (v_15 * 16)), v_17]",
+            "    y_4 = rearrange(x_3=y_3)",
+            "      y_4: float32[96, 16, 64] where y_4[v_18, v_19, v_20] = x_3[((v_18 / 8) % 12), (v_18 % 8), (v_19 % 16), (v_20 % 64)]",
+            "    c = batch_matmul(a_1=a, b=y_4, batch_size=96, m_size=128, n_size=64, k_size=16, mma=simt) [anchor]",
+            "    y = reshape(x_4=c)",
+            "      y: float32[12, 8, 128, 64] where y[v_21, v_22, v_23, v_24] = x_4[(v_22 + (v_21 * 8)), v_23, v_24]",
+            "    return y",
+            "  }",
+            ")"
+          ]
+        },
+        {
+          "name": "FusedReduceSum3",
+          "type": {
+            "name": "FusedReduceSum",
+            "category": "dropout"
+          },
+          "inputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedBatchMatmul3:0",
+                  "type": {
+                    "string": "float32(12, 8, 128, 64)",
+                    "shape": {
+                      "dimensions": [
+                        12,
+                        8,
+                        128,
+                        64
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "0",
+              "arguments": [
+                {
+                  "name": "FusedReduceSum3:0",
+                  "type": {
+                    "string": "float32(1, 128, 768)",
+                    "shape": {
+                      "dimensions": [
+                        1,
+                        128,
+                        768
+                      ]
+                    },
+                    "dataType": "float32"
+                  }
+                }
+              ],
+              "visible": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "dims",
+              "type": "Sequence[int]",
+              "value": "[1]",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "keepdims",
+              "type": "bool",
+              "value": "False",
+              "visible": true,
+              "description": ""
+            },
+            {
+              "name": "fusion",
+              "type": "str",
+              "value": "ReduceSum Reshape Rearrange",
+              "visible": true,
+              "description": ""
+            }
+          ],
+          "description": [
+            "Task(",
+            "  name: reduce_sum",
+            "  parameters: ",
+            "    x: tensor(float32, [12, 8, 128, 64])",
+            "    y: tensor(float32, [1, 128, 768])",
+            "  inputs: [x_1]",
+            "  outputs: [y_1]",
+            "  computations: ",
+            "    x_1: tensor(float32, [12, 8, 128, 64])",
+            "    y_1: float32[12, 128, 64] where y_1[v, v_1, v_2] = reduce([8], (v_3) => x_1[v, v_3, v_1, v_2], sumreduce)",
+            "  attributes: {dims: [1], keep_dim: False, reduce_type: sum, accumulate_dtype: float32}",
+            "  task_graph: TaskGraph(x) {",
+            "    y_1 = reduce_sum(x_1=x, dims=[1], keep_dim=False, reduce_type=sum, accumulate_dtype=float32) [anchor]",
+            "    y_2 = reshape(x_2=y_1)",
+            "      y_2: float32[1, 12, 128, 64] where y_2[v_4, v_5, v_6, v_7] = x_2[(v_5 + (v_4 * 12)), v_6, v_7]",
+            "    y = rearrange(x_3=y_2)",
+            "      y: float32[1, 128, 768] where y[v_8, v_9, v_10] = x_3[0, ((v_10 / 64) % 12), (v_9 % 128), (v_10 % 64)]",
+            "    return y",
+            "  }",
+            ")"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Converted from FlowGraph",
+  "author": "",
+  "company": "",
+  "license": "",
+  "domain": "",
+  "source": "Hidet",
+  "format": "netron"
+}

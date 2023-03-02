@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.cuda.graph &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../gallery/how-to-guides/add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../gallery/how-to-guides/add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../gallery/how-to-guides/add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/how-to-guides/add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/how-to-guides/add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../gallery/how-to-guides/visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../gallery/developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for hidet.cuda.graph</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># pylint: disable=no-name-in-module, c-extension-no-member</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">cuda</span> <span class="kn">import</span> <span class="n">cudart</span>
+<span class="kn">from</span> <span class="nn">cuda.cudart</span> <span class="kn">import</span> <span class="n">cudaGraphExec_t</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.tensor</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">zeros_like</span><span class="p">,</span> <span class="n">randn_like</span>
+<span class="kn">from</span> <span class="nn">hidet.runtime.storage</span> <span class="kn">import</span> <span class="n">MemoryPool</span><span class="p">,</span> <span class="n">CudaMemoryAPI</span><span class="p">,</span> <span class="n">memory_pool</span>
+<span class="kn">from</span> <span class="nn">hidet.runtime.device</span> <span class="kn">import</span> <span class="n">Device</span>
+<span class="kn">from</span> <span class="nn">hidet.utils</span> <span class="kn">import</span> <span class="n">same_list</span><span class="p">,</span> <span class="n">exiting</span>
+<span class="kn">from</span> <span class="nn">.device</span> <span class="kn">import</span> <span class="n">current_device</span>
+<span class="kn">from</span> <span class="nn">.stream</span> <span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamContext</span><span class="p">,</span> <span class="n">current_stream</span>
+<span class="kn">from</span> <span class="nn">.memory</span> <span class="kn">import</span> <span class="n">memcpy_async</span>
+
+
+<span class="k">class</span> <span class="nc">FreezableMemoryAPI</span><span class="p">(</span><span class="n">CudaMemoryAPI</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">Device</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">malloc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Cannot malloc when the memory device is frozen&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">malloc</span><span class="p">(</span><span class="n">nbytes</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">free</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Cannot free when the memory device is frozen&#39;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">free</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">freeze</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">unfreeze</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frozen</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span> <span class="nc">CudaGraphCapture</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream_context</span> <span class="o">=</span> <span class="n">StreamContext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">cudart</span><span class="o">.</span><span class="n">cudaGraph_t</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream_context</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>
+        <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaStreamBeginCapture</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">handle</span><span class="p">(),</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaStreamCaptureMode</span><span class="o">.</span><span class="n">cudaStreamCaptureModeGlobal</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;cudaStreamBeginCapture failed with error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="n">err</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaStreamEndCapture</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">handle</span><span class="p">())</span>
+        <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream_context</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_shutting_down</span><span class="o">=</span><span class="n">exiting</span><span class="o">.</span><span class="n">is_exiting</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_shutting_down</span><span class="p">():</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaGraphDestroy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+
+    <span class="k">def</span> <span class="nf">instantiate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">cudaGraphExec_t</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;cuda graph has not been captured yet&quot;</span><span class="p">)</span>
+        <span class="n">err</span><span class="p">,</span> <span class="n">graph_exec</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaGraphInstantiateWithFlags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">captured_graph</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;cudaGraphInstantiate failed with error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">graph_exec</span>
+
+
+<div class="viewcode-block" id="CudaGraph"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.graph.CudaGraph">[docs]</a><span class="k">class</span> <span class="nc">CudaGraph</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CUDA graph that executes a :class:`~hidet.graph.ir.flow_graph.FlowGraph` on the GPU.</span>
+
+<span class="sd">    You can create the CUDA graph by calling :meth:`~hidet.graph.ir.flow_graph.FlowGraph.cuda_graph`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    flow_graph: FlowGraph</span>
+<span class="sd">        The flow graph to be executed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flow_graph</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">hidet.graph.ir.flow_graph</span> <span class="kn">import</span> <span class="n">FlowGraph</span>
+
+        <span class="n">flow_graph</span><span class="p">:</span> <span class="n">FlowGraph</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_memory_api</span><span class="p">:</span> <span class="n">FreezableMemoryAPI</span> <span class="o">=</span> <span class="n">FreezableMemoryAPI</span><span class="p">(</span><span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> <span class="n">current_device</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_memory_pool</span><span class="p">:</span> <span class="n">MemoryPool</span> <span class="o">=</span> <span class="n">MemoryPool</span><span class="p">(</span>
+            <span class="n">memory_api</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory_api</span><span class="p">,</span> <span class="n">block_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">max_reserve_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">3</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_capture</span><span class="p">:</span> <span class="n">CudaGraphCapture</span> <span class="o">=</span> <span class="n">CudaGraphCapture</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flow_graph</span><span class="p">:</span> <span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">flow_graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span>
+
+        <span class="k">with</span> <span class="n">memory_pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory_pool</span><span class="p">):</span>
+            <span class="c1"># update the nodes and inputs of the flow graph</span>
+            <span class="n">flow_graph</span><span class="o">.</span><span class="n">update_nodes</span><span class="p">()</span>
+
+            <span class="c1"># prepare the dummpy inputs</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">flow_graph</span><span class="o">.</span><span class="n">inputs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">is_symbolic</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">is_float</span><span class="p">():</span>
+                        <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randn_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span> <span class="o">=</span> <span class="n">inputs</span>
+
+            <span class="c1"># run and capture the graph execution</span>
+            <span class="n">flow_graph</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">)</span>  <span class="c1"># warm up, avoid memory allocation during capturing</span>
+            <span class="n">flow_graph</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_memory_api</span><span class="o">.</span><span class="n">freeze</span><span class="p">()</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_capture</span><span class="p">:</span>
+                <span class="n">outputs</span> <span class="o">=</span> <span class="n">flow_graph</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">)</span>
+
+            <span class="c1"># process the outputs</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">outputs</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">outputs</span>
+
+        <span class="c1"># instantiate the captured graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_exec</span><span class="p">:</span> <span class="n">cudaGraphExec_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_capture</span><span class="o">.</span><span class="n">instantiate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_shutting_down</span><span class="o">=</span><span class="n">exiting</span><span class="o">.</span><span class="n">is_exiting</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_shutting_down</span><span class="p">():</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_graph_exec&#39;</span><span class="p">):</span>
+            <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaGraphExecDestroy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph_exec</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_memory_api</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">copy_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">stream</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Stream</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the number of inputs does not match&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">src</span><span class="o">.</span><span class="n">is_symbolic</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the input tensor is symbolic&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">same_list</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dst</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the shape of input does not match&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">src</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">dst</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the dtype of input does not match&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">src</span><span class="o">.</span><span class="n">device</span> <span class="o">!=</span> <span class="n">dst</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the device of input does not match&quot;</span><span class="p">)</span>
+            <span class="n">memcpy_async</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">num_bytes</span><span class="o">=</span><span class="n">dst</span><span class="o">.</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The inputs of the cuda graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The outputs of the cuda graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span>
+
+<div class="viewcode-block" id="CudaGraph.run"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.graph.CudaGraph.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the cuda graph synchronously. If the inputs are provided, the inputs will be copied to the</span>
+<span class="sd">        internal inputs of the cuda graph before running.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs: Optional[Sequence[Tensor]]</span>
+<span class="sd">            The optional inputs to run the cuda graph.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        outputs: List[Tensor]</span>
+<span class="sd">            The outputs of the cuda graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="n">current_stream</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_async</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">synchronize</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span></div>
+
+<div class="viewcode-block" id="CudaGraph.run_async"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.graph.CudaGraph.run_async">[docs]</a>    <span class="k">def</span> <span class="nf">run_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Stream</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the cuda graph asynchronously. If the inputs are provided, the inputs will be copied to the</span>
+<span class="sd">        internal inputs of the cuda graph before running.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs: Optional[Sequence[Tensor]]</span>
+<span class="sd">            The optional inputs to run the cuda graph.</span>
+
+<span class="sd">        stream: Optional[Stream]</span>
+<span class="sd">            The optional stream to run the cuda graph. If not provided, the current stream will be used.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        outputs: List[Tensor]</span>
+<span class="sd">            The outputs of the cuda graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">stream</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">current_stream</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">copy_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+        <span class="n">cudart</span><span class="o">.</span><span class="n">cudaGraphLaunch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph_exec</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span></div></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2022, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

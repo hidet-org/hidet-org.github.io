@@ -1,0 +1,22 @@
+
+:orphan:
+
+.. _sphx_glr_gallery_how-to-guides_sg_execution_times:
+
+Computation times
+=================
+**00:00.125** total execution time for **gallery_how-to-guides** files:
+
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_visualize-flow-graph.py` (``visualize-flow-graph.py``)                               | 00:00.096 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-compute-definition.py` (``add-new-operator-compute-definition.py``) | 00:00.008 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-template-based.py` (``add-new-operator-template-based.py``)         | 00:00.008 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_add-subgraph-rewrite-rule.py` (``add-subgraph-rewrite-rule.py``)                     | 00:00.008 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_add-operator-resolve-rule.py` (``add-operator-resolve-rule.py``)                     | 00:00.003 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_gallery_how-to-guides_add-new-operator-rule-based.py` (``add-new-operator-rule-based.py``)                 | 00:00.002 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------------------+-----------+--------+

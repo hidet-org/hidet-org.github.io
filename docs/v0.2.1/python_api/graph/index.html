@@ -1,0 +1,1638 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.graph &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="hidet.graph.frontend" href="frontend/index.html" />
+    <link rel="prev" title="hidet.ir.task" href="../ir/task.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../gallery/how-to-guides/add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../gallery/how-to-guides/add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../gallery/how-to-guides/add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/how-to-guides/add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/how-to-guides/add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gallery/how-to-guides/visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../gallery/developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   Python API
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="current reference internal" href="#">
+     hidet.graph
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python_api/graph/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>hidet.graph</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="hidet-graph">
+<h1>hidet.graph<a class="headerlink" href="#hidet-graph" title="Permalink to this headline"><span>¶</span></a></h1>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Submodules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="frontend/index.html">hidet.graph.frontend</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transforms/index.html">hidet.graph.transforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-hidet.graph"></span><p><strong>Classes:</strong></p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.Operator" title="hidet.graph.Operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Operator</span></code></a>(inputs, task[, outputs, name, ...])</p></td>
+<td><p>An operator that takes tensor as input and output.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlowGraph</span></code></a>(outputs[, inputs, nodes])</p></td>
+<td><p>The computation graph representation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.PassContext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassContext</span></code></a>()</p></td>
+<td><p>Graph-level pass context.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.GraphPassInstrument" title="hidet.graph.GraphPassInstrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GraphPassInstrument</span></code></a>()</p></td>
+<td><p>Graph pass instrument.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.asarray" title="hidet.graph.asarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asarray</span></code></a>(obj, /, *[, dtype, device])</p></td>
+<td><p>Convert a list, tuple, or numpy ndarray to a hidet tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.randn" title="hidet.graph.randn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randn</span></code></a>(shape[, dtype, mean, stddev, device])</p></td>
+<td><p>Create a tensor with uniformly distributed values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.empty" title="hidet.graph.empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty</span></code></a>(shape[, dtype, device, layout])</p></td>
+<td><p>Create an uninitialized tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.zeros" title="hidet.graph.zeros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros</span></code></a>(shape[, dtype, device])</p></td>
+<td><p>Create a tensor initialized with zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.ones" title="hidet.graph.ones"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones</span></code></a>(shape[, dtype, device])</p></td>
+<td><p>Create a tensor initialized with one.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.symbol" title="hidet.graph.symbol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symbol</span></code></a>(shape[, dtype, device, layout])</p></td>
+<td><p>Create a symbolic tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.randn_like" title="hidet.graph.randn_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randn_like</span></code></a>(data[, shape, dtype, device])</p></td>
+<td><p>Create a randomly initialized tensor with the same shape, dtype, and device as the given tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.empty_like" title="hidet.graph.empty_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty_like</span></code></a>(data[, shape, dtype, device, layout])</p></td>
+<td><p>Create an uninitialized tensor with the same shape, dtype, and device as the given tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.zeros_like" title="hidet.graph.zeros_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code></a>(data[, shape, dtype, device])</p></td>
+<td><p>Create a tensor initialized with zero with the same shape, dtype, and device as the given tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.ones_like" title="hidet.graph.ones_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code></a>(data[, shape, dtype, device])</p></td>
+<td><p>Create a tensor initialized with one with the same shape, dtype, and device as the given tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.symbol_like" title="hidet.graph.symbol_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symbol_like</span></code></a>(data[, shape, dtype, device, layout])</p></td>
+<td><p>Create a symbol tensor like an existing tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.full" title="hidet.graph.full"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full</span></code></a>(shape, fill_value[, dtype, device])</p></td>
+<td><p>Create a tensor initialized with given constant.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.full_like" title="hidet.graph.full_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_like</span></code></a>(data, fill_value[, shape, dtype, ...])</p></td>
+<td><p>Create a tensor initialized with fill_value with the same shape, dtype, and device as the given tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.from_numpy" title="hidet.graph.from_numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_numpy</span></code></a>(nparray)</p></td>
+<td><p>Create a tensor from a numpy array, sharing the memory with the numpy array when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.from_dlpack" title="hidet.graph.from_dlpack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dlpack</span></code></a>(dltensor)</p></td>
+<td><p>Create a hidet tensor from an object that implements the __dlpack__ protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.from_torch" title="hidet.graph.from_torch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_torch</span></code></a>(torch_tensor)</p></td>
+<td><p>Create a hidet tensor from pytorch tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.trace_from" title="hidet.graph.trace_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace_from</span></code></a>(tensor[, inputs])</p></td>
+<td><p>Trace the flow graph given the output tensor(s).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.optimize" title="hidet.graph.optimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></a>(graph)</p></td>
+<td><p>Optimize a flow graph.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="hidet.graph.Operator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">Operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/operator.html#Operator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.Operator" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>An operator that takes tensor as input and output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<em>List</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>hidet.Tensor</em></a><em>]</em>) – </p></li>
+<li><p><strong>task</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><em>hidet.ir.task.Task</em></a><em>]</em>) – </p></li>
+<li><p><strong>outputs</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>hidet.Tensor</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">FlowGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>The computation graph representation.</p>
+<p><strong>Methods:</strong></p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.__call__" title="hidet.graph.FlowGraph.__call__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code></a>(*inputs)</p></td>
+<td><p>Run the computation graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.forward" title="hidet.graph.FlowGraph.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(*inputs)</p></td>
+<td><p>Run the computation graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.save" title="hidet.graph.FlowGraph.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(model_file)</p></td>
+<td><p>Save the flow graph to a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.load" title="hidet.graph.FlowGraph.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(model_file)</p></td>
+<td><p>Load a flow graph from a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.cuda_graph" title="hidet.graph.FlowGraph.cuda_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuda_graph</span></code></a>()</p></td>
+<td><p>Create a CudaGraph from FlowGraph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.latency" title="hidet.graph.FlowGraph.latency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">latency</span></code></a>([warmup, number, repeat, median, ...])</p></td>
+<td><p>Measure the latency of the flow graph.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>outputs</strong> (<em>List</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em>]</em>) – </p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.__call__" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Run the computation graph.
+See Also <a class="reference internal" href="#hidet.graph.FlowGraph.forward" title="hidet.graph.FlowGraph.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">FlowGraph.forward()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>hidet.Tensor</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>Union</em>[<em>List</em>[<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">hidet.Tensor</a>], <a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">hidet.Tensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.forward" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Run the computation graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*inputs</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The input tensors. They should be consistent with the symbolic inputs
+of the computation graph.</p></li>
+<li><p><strong>inputs</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>hidet.Tensor</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>output</strong> – If there is only one output, it is returned directly. Otherwise, a list
+of output tensors are returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[List[<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a>], <a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.save" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Save the flow graph to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_file</strong> (<em>str</em>) – The model file to store the flow graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.load" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Load a flow graph from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_file</strong> (<em>str</em>) – The path to the flow graph.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The loaded flow graph.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph">FlowGraph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.cuda_graph">
+<span class="sig-name descname"><span class="pre">cuda_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.cuda_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.cuda_graph" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a CudaGraph from FlowGraph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>ret</strong> – The created cuda graph.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../cuda.html#hidet.cuda.graph.CudaGraph" title="hidet.cuda.graph.CudaGraph">hidet.cuda.graph.CudaGraph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.FlowGraph.latency">
+<span class="sig-name descname"><span class="pre">latency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warmup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dummy_inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#FlowGraph.latency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.latency" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Measure the latency of the flow graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>warmup</strong> (<em>int</em>) – The number of warmup runs.</p></li>
+<li><p><strong>number</strong> (<em>int</em>) – The number of runs to measure the latency.</p></li>
+<li><p><strong>repeat</strong> (<em>int</em>) – The number of times to repeat the measurement.</p></li>
+<li><p><strong>median</strong> (<em>bool</em>) – Whether to return the median latency.</p></li>
+<li><p><strong>dummy_inputs</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em>]</em><em>]</em>) – The dummy inputs to run the flow graph. If not given, automatic generated dummy inputs would be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The measured latency in milliseconds.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[float, List[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hidet.graph.PassContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">PassContext</span></span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Graph-level pass context.</p>
+<p>Use the pass context to control the behavior of optimization passes. Normally, we can
+optimize a flow graph by directly calling <a class="reference internal" href="#hidet.graph.optimize" title="hidet.graph.optimize"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.graph.optimize()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph_opt</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will optimize the given flow graph in a default context.</p>
+<p>To customize the optimizations, run the <a class="reference internal" href="#hidet.graph.optimize" title="hidet.graph.optimize"><code class="xref py py-func docutils literal notranslate"><span class="pre">optimize()</span></code></a> function with in
+a custom <a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.PassContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.PassContext</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">PassContext</span><span class="p">()</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+    <span class="c1"># config the contexts</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">profile_pass_instrument</span><span class="p">(</span><span class="n">print_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># print elapsed time for each pass</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">save_graph_instrument</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="s1">&#39;./outs&#39;</span><span class="p">)</span>  <span class="c1"># save the output of each pass as text</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">set_precision</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">)</span>  <span class="c1"># use float16 as the data type</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">set_reduce_precision</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>  <span class="c1"># use float32 for reduction accumulation</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">set_mma</span><span class="p">(</span><span class="s1">&#39;mma&#39;</span><span class="p">)</span>  <span class="c1"># use TensorCore in NVIDIA GPUs to accelerate matmul and conv2d</span>
+    <span class="o">...</span>   <span class="c1"># other configs</span>
+
+    <span class="c1"># call optimize function</span>
+    <span class="n">graph_opt</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please refer to the member functions of this class for the available configs and their usage.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.instruments">
+<span class="sig-name descname"><span class="pre">instruments</span></span><a class="headerlink" href="#hidet.graph.PassContext.instruments" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>The graph pass instruments that will be applied before and after each pass. The instruments
+will be applied in order. See <a class="reference internal" href="#hidet.graph.GraphPassInstrument" title="hidet.graph.GraphPassInstrument"><code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.GraphPassInstrument</span></code></a> on how to add custom
+instrument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#hidet.graph.GraphPassInstrument" title="hidet.graph.GraphPassInstrument">GraphPassInstrument</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.configs">
+<span class="sig-name descname"><span class="pre">configs</span></span><a class="headerlink" href="#hidet.graph.PassContext.configs" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>The current configs of the pass context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Methods:</strong></p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext.current" title="hidet.graph.PassContext.current"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current</span></code></a>()</p></td>
+<td><p>Get the current pass context.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.PassContext.set_precision" title="hidet.graph.PassContext.set_precision"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_precision</span></code></a>([dtype])</p></td>
+<td><p>Set the target precision to use as the output of most operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext.set_reduce_precision" title="hidet.graph.PassContext.set_reduce_precision"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_reduce_precision</span></code></a>([dtype])</p></td>
+<td><p>Set the target precision used for accumulation results.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.PassContext.set_verbose" title="hidet.graph.PassContext.set_verbose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_verbose</span></code></a>()</p></td>
+<td><p>Allow each graph level passes to print detailed information related to its lowering and optimization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext.set_mma" title="hidet.graph.PassContext.set_mma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mma</span></code></a>(mma)</p></td>
+<td><p>Specify the matrix-multiply-accumulate (mma) computation primitives used in matrix multiplication and convolution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.PassContext.set_parallel_k" title="hidet.graph.PassContext.set_parallel_k"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_parallel_k</span></code></a>([disabled, default, search, ...])</p></td>
+<td><p>Set the strategy to parallel on reduction dimension for matrix multiplication and convolution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext.save_graph_instrument" title="hidet.graph.PassContext.save_graph_instrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_graph_instrument</span></code></a>(out_dir)</p></td>
+<td><p>Save the computation graph after each pass to given output directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.PassContext.profile_pass_instrument" title="hidet.graph.PassContext.profile_pass_instrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile_pass_instrument</span></code></a>([log_file, print_stdout])</p></td>
+<td><p>Profile the time of each pass.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.current">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.current" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Get the current pass context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>ret</strong> – The current pass context.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.PassContext">PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.set_precision">
+<span class="sig-name descname"><span class="pre">set_precision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.set_precision"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.set_precision" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Set the target precision to use as the output of most operators. To retain the accuracy,
+some operators will still use the original data type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – <p>The target dtype to mix the precision of the model. Candidates:</p>
+<ul class="simple">
+<li><p>None
+Do not mix the precision.</p></li>
+<li><p>’float16’
+Convert the model into float16 data type.</p></li>
+<li><p>’bfloat16’
+Convert the model into bfloat16 data type.</p></li>
+<li><p>’float32’
+Convert the model into float32 data type.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.set_reduce_precision">
+<span class="sig-name descname"><span class="pre">set_reduce_precision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.set_reduce_precision"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.set_reduce_precision" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Set the target precision used for accumulation results. Operators like reduce_mean, reduce_avg,
+matrix multiplication and convolution will reduce along some dimensions. We might want to use a
+data type with more precision to accumulate the results for more accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>accumulation.</strong> (<em>The target dtype to use for</em>) – <ul>
+<li><p>None
+Use the same as inputs of operators.</p></li>
+<li><p>’float16’
+Use ‘float16’ to accumulate. Only valid when set_precision(‘float16’) has been used.</p></li>
+<li><p>’float32’
+Use ‘float32’ to accumulate.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.set_verbose">
+<span class="sig-name descname"><span class="pre">set_verbose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.set_verbose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.set_verbose" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Allow each graph level passes to print detailed information related to its lowering and optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.set_mma">
+<span class="sig-name descname"><span class="pre">set_mma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.set_mma"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.set_mma" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Specify the matrix-multiply-accumulate (mma) computation primitives used in matrix multiplication and
+convolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mma</strong> (<em>str</em>) – <p>The mma computation primitive to use. Candidates:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>’simt’</dt><dd><p>Use cuda cores.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’wmma’</dt><dd><p>Use wmma instructions.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’mma’</dt><dd><p>Use mma instructions.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.set_parallel_k">
+<span class="sig-name descname"><span class="pre">set_parallel_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nparts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.set_parallel_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.set_parallel_k" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Set the strategy to parallel on reduction dimension for matrix multiplication and convolution.</p>
+<p>Only one of the three parameters should be specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>disabled</strong> (<em>bool</em>) – Disable the parallelization on reduction dimension.</p></li>
+<li><p><strong>default</strong> (<em>bool</em>) – Allow hidet to figure our the parallel factor.</p></li>
+<li><p><strong>search</strong> (<em>bool</em>) – Whether to search the k.</p></li>
+<li><p><strong>nparts</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Use a fixed factor.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.save_graph_instrument">
+<span class="sig-name descname"><span class="pre">save_graph_instrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.save_graph_instrument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.save_graph_instrument" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Save the computation graph after each pass to given output directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out_dir</strong> (<em>str</em>) – The directory to save graph.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.PassContext.profile_pass_instrument">
+<span class="sig-name descname"><span class="pre">profile_pass_instrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_stdout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.profile_pass_instrument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.profile_pass_instrument" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Profile the time of each pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_file</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – When given, write the elapsed time for each pass to this file.</p></li>
+<li><p><strong>print_stdout</strong> (<em>bool</em>) – Whether to print the elapsed time for each pass to standard output.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.transforms.base.PassContext">hidet.graph.transforms.base.PassContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hidet.graph.GraphPassInstrument">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">GraphPassInstrument</span></span><a class="reference internal" href="../../_modules/hidet/graph/transforms/instruments/base.html#GraphPassInstrument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.GraphPassInstrument" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Graph pass instrument.</p>
+<p>This class defines the interface for graph pass instruments. An instrument
+defines the functions that will be called before and after each pass. This can
+be used to collect the information of graph passes. Currently, the instrument
+does not support modifying the flow graph passed to it (such functionality should
+be implemented as graph pass).</p>
+<p>To define a custom graph pass instrument and use it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hidet</span>
+
+<span class="c1"># define custom instrument and implement instrument functions</span>
+<span class="k">class</span> <span class="nc">MyInstrument</span><span class="p">(</span><span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">GraphPassInstrument</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">before_all_passes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before all passes&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">before_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pass_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before pass&#39;</span><span class="p">,</span> <span class="n">pass_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">after_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pass_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after pass&#39;</span><span class="p">,</span> <span class="n">pass_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">after_all_passes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after all passes&#39;</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">FlowGraph</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[])</span>   <span class="c1"># empty flow graph</span>
+<span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">PassContext</span><span class="p">()</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+    <span class="c1"># add custom instrument to pass context</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MyInstrument</span><span class="p">())</span>
+    <span class="c1"># optimize flow graph</span>
+    <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can get output like</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>before all passes
+before pass FoldConstantPass
+after pass FoldConstantPass
+before pass PatternTransformPass
+after pass PatternTransformPass
+...
+after all passes
+</pre></div>
+</div>
+<p><strong>Methods:</strong></p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.GraphPassInstrument.before_all_passes" title="hidet.graph.GraphPassInstrument.before_all_passes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">before_all_passes</span></code></a>(graph)</p></td>
+<td><p>Called before process all passes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.GraphPassInstrument.before_pass" title="hidet.graph.GraphPassInstrument.before_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">before_pass</span></code></a>(pass_name, graph)</p></td>
+<td><p>Called before each pass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.GraphPassInstrument.after_pass" title="hidet.graph.GraphPassInstrument.after_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">after_pass</span></code></a>(pass_name, graph)</p></td>
+<td><p>Called after each pass.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.GraphPassInstrument.after_all_passes" title="hidet.graph.GraphPassInstrument.after_all_passes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">after_all_passes</span></code></a>(graph)</p></td>
+<td><p>Called after applying all passes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.GraphPassInstrument.before_all_passes">
+<span class="sig-name descname"><span class="pre">before_all_passes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/instruments/base.html#GraphPassInstrument.before_all_passes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.GraphPassInstrument.before_all_passes" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Called before process all passes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><em>FlowGraph</em></a>) – The flow graph before applying all passes.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.GraphPassInstrument.before_pass">
+<span class="sig-name descname"><span class="pre">before_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pass_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/instruments/base.html#GraphPassInstrument.before_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.GraphPassInstrument.before_pass" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Called before each pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pass_name</strong> (<em>str</em>) – The name of the pass that is going to be applied.</p></li>
+<li><p><strong>graph</strong> (<a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><em>FlowGraph</em></a>) – The flow graph before applying the pass.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.GraphPassInstrument.after_pass">
+<span class="sig-name descname"><span class="pre">after_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pass_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/instruments/base.html#GraphPassInstrument.after_pass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.GraphPassInstrument.after_pass" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Called after each pass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pass_name</strong> (<em>str</em>) – The name of the pass that has been applied.</p></li>
+<li><p><strong>graph</strong> (<a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><em>FlowGraph</em></a>) – The flow graph after applied the pass.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hidet.graph.GraphPassInstrument.after_all_passes">
+<span class="sig-name descname"><span class="pre">after_all_passes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/instruments/base.html#GraphPassInstrument.after_all_passes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.GraphPassInstrument.after_all_passes" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Called after applying all passes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><em>FlowGraph</em></a>) – The flow graph after applying all passes.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.asarray">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">asarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#asarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.asarray" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Convert a list, tuple, or numpy ndarray to a hidet tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Union</em><em>[</em><em>bool</em><em>, </em><em>int</em><em>, </em><em>float</em><em>, </em><em>List</em><em>, </em><em>Tuple</em><em>, </em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em>, </em><em>np.ndarray</em><em>]</em>) – The object to be converted.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em>, </em><em>optional</em>) – The data type of the output tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em>) – The device of the output tensor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The hidet tensor converted from given object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.randn">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">randn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#randn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.randn" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor with uniformly distributed values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>default 'float32'</em>) – The data type of element of the tensor.</p></li>
+<li><p><strong>mean</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – The mean of the uniform distribution.</p></li>
+<li><p><strong>stddev</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – The standard deviation of the uniform distribution.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">randn</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">Tensor(shape=[2, 3], dtype=&#39;float32&#39;, device=&#39;cuda&#39;)</span>
+<span class="go">[[ 0.10720467 -1.6906018   0.06347568]</span>
+<span class="go"> [-0.37061226  0.562728    1.857547  ]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.empty">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.empty" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create an uninitialized tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em> or </em><a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a>) – The data type of element of the tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+<li><p><strong>layout</strong> (<em>DataLayout</em><em>, </em><em>optional</em>) – The layout of the new tensor. None indicates the default layout (row-major layout).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.zeros">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.zeros" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em>) – The data type of element of the tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.ones">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">ones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#ones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.ones" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>default 'float32'</em>) – The data type of element of the tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.symbol">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#symbol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.symbol" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a symbolic tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em>) – The data type of element of the tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+<li><p><strong>layout</strong> (<em>DataLayout</em><em>, </em><em>optional</em>) – The layout of the new tensor. None indicates the default layout (row-major layout).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.randn_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">randn_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#randn_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.randn_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a randomly initialized tensor with the same shape, dtype, and device as the given tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor with random values sampled from a normal distribution.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.empty_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">empty_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#empty_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.empty_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create an uninitialized tensor with the same shape, dtype, and device as the given tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+<li><p><strong>layout</strong> (<em>DataLayout</em><em>, </em><em>optional</em>) – The layout of the new tensor. If None, the layout of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.zeros_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">zeros_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#zeros_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.zeros_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with zero with the same shape, dtype, and device as the given tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor with all elements as zero.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.ones_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">ones_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#ones_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.ones_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with one with the same shape, dtype, and device as the given tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor with all elements as one.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.symbol_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">symbol_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#symbol_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.symbol_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a symbol tensor like an existing tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+<li><p><strong>layout</strong> (<em>DataLayout</em><em>, </em><em>optional</em>) – The layout of the new tensor. If None, the layout of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created symbol tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.full">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#full"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.full" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with given constant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
+<li><p><strong>fill_value</strong> (<em>float</em><em> or </em><em>int</em><em> or </em><em>hidet.ir.Constant</em>) – The constant to initialize the new tensor.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>default 'float32'</em>) – The data type of element of the tensor.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.full_like">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">full_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#full_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.full_like" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor initialized with fill_value with the same shape, dtype, and device as the given tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The tensor to copy shape, dtype, and device from.</p></li>
+<li><p><strong>fill_value</strong> (<em>int</em><em>, </em><em>float</em><em>, or </em><em>bool</em>) – The value to fill the tensor with.</p></li>
+<li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of new tensor. If None, the shape of data is used.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>optional</em>) – The data type of element of the tensor. If None, the dtype of data is used.</p></li>
+<li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The device of the new tensor is created on. If None, the device of data is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor with all elements as fill_value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.from_numpy">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">from_numpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nparray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#from_numpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.from_numpy" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a tensor from a numpy array, sharing the memory with the numpy array when possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nparray</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><em>numpy.ndarray</em></a>) – The numpy array to create the tensor from.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.from_dlpack">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">from_dlpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dltensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#from_dlpack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.from_dlpack" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a hidet tensor from an object that implements the __dlpack__ protocol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dltensor</strong> (<em>an object that implements the DLPack protocol.</em>) – The object must have the method <cite>__dlpack__</cite> that returns a PyCapsule object with name <cite>dltensor</cite>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The hidet tensor that shares the same storage with the DLPack tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.from_torch">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">from_torch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">torch_tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#from_torch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.from_torch" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Create a hidet tensor from pytorch tensor.</p>
+<p>The created tensor shared the same memory as given pytorch tensor. Thus, any content
+modification on one tensor would be reflected on the other one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>torch_tensor</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.13)"><em>torch.Tensor</em></a>) – The pytorch tensor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The created hidet tensor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.trace_from">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">trace_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/ir/flow_graph.html#trace_from"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.trace_from" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Trace the flow graph given the output tensor(s).</p>
+<p>Each <code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.Tensor</span></code> has an attribute <code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.Tensor.trace</span></code> which indicates how the tensor
+is generated. If the tensor is generated by an operator with symbolic input(s), the tensor itself is also symbolic.
+And the tensor will have a reference to the operator that generates it. The reference is stored in this attribute.</p>
+<p>What this function does is to walk through the trace of the given tensor(s) and construct a flow graph.</p>
+<p>When there are multiple symbol inputs, it is mandatory to specify the “inputs” argument explicitly to avoid
+ambiguity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em> or </em><em>List</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em>]</em>) – The output tensor(s) that we trace from.</p></li>
+<li><p><strong>inputs</strong> (<em>Optional</em><em>, </em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em> or </em><em>List</em><em>[</em><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a><em>]</em>) – The inputs of the flow graph. When there is only a single symbol tensor in the flow graph, it is
+optional. When there are multiple inputs, this is required to specify the input order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The flow graph that outputs the given input tensor(s).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph">FlowGraph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.graph.optimize">
+<span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms.html#optimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.optimize" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Optimize a flow graph.</p>
+<p>This function applies a sequence of predefined graph-level passes to a <a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlowGraph</span></code></a> to
+conduct optimizations and graph transformations.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Some graph passes provide options to config, please refer to <a class="reference internal" href="#hidet.graph.PassContext" title="hidet.graph.PassContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.PassContext</span></code></a> for more
+information on graph pass configuration.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><em>FlowGraph</em></a>) – The flow graph to be optimized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – The optimized flow graph.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph">FlowGraph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../ir/task.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">hidet.ir.task</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="frontend/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">hidet.graph.frontend</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2022, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
