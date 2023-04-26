@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Define Operator Computation &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using Rule-based Scheduling" href="add-new-operator-rule-based.html" />
+    <link rel="prev" title="Add New Operator" href="../../how-to-guides/add-new-operator/index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-operator-resolve-rule.html">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/gallery/how-to-guides/add-new-operator-compute-definition.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-primitives">
+   Compute Primitives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-a-computation-task">
+   Define a Computation Task
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-and-run-a-task">
+   Build and Run a Task
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-examples">
+   More Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reducesum">
+     ReduceSum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#argmax">
+     ArgMax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matmul">
+     MatMul
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#softmax">
+     Softmax
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Define Operator Computation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-primitives">
+   Compute Primitives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-a-computation-task">
+   Define a Computation Task
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-and-run-a-task">
+   Build and Run a Task
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-examples">
+   More Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reducesum">
+     ReduceSum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#argmax">
+     ArgMax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matmul">
+     MatMul
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#softmax">
+     Softmax
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-how-to-guides-add-new-operator-compute-definition-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="define-operator-computation">
+<span id="sphx-glr-gallery-how-to-guides-add-new-operator-compute-definition-py"></span><h1>Define Operator Computation<a class="headerlink" href="#define-operator-computation" title="Permalink to this headline"><span>¶</span></a></h1>
+<p id="define-computation-task">Each operator takes a list of input tensors and produces a list of output tensors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span>
+<span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="n">operator</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>Our pioneers <a class="reference external" href="https://halide-lang.org/">Halide</a> and <a class="reference external" href="https://tvm.apache.org/">Apache TVM</a> also employ a similar
+DSL to define the mathematical definition of an operator.</p>
+</div>
+<p>The precise mathematical definition of each operator in Hidet is defined through a domain-specific-language (DSL).
+In this tutorial, we will show how to define the mathematical definition of a new operator in Hidet using this DSL,
+which is defined in the <a class="reference internal" href="../../python_api/ir/compute.html#module-hidet.ir.compute" title="hidet.ir.compute"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hidet.ir.compute</span></code></a> module.</p>
+<section id="compute-primitives">
+<h2>Compute Primitives<a class="headerlink" href="#compute-primitives" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>This module provides compute primitives to define the mathematical computation of an operator:</p>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tensor_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>The <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.tensor_input" title="hidet.ir.compute.tensor_input"><code class="xref py py-func docutils literal notranslate"><span class="pre">tensor_input()</span></code></a> primitive defines a tensor input by specifying the name hint, scalar
+data type, and shape of the tensor.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Examples</span><a class="headerlink" href="#id1" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcompute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Var</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>The <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.compute" title="hidet.ir.compute.compute"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute()</span></code></a> primitive defines a tensor by specifying</p>
+<ul class="simple">
+<li><p>the name of the tensor, just a hint for what the tensor represents,</p></li>
+<li><p>the shape of the tensor, and</p></li>
+<li><p>a function that maps an index to the expression that computes the value of the tensor at that index.</p></li>
+</ul>
+<p>The computation of each element of the tensor is <em>independent</em> with each other and can be computed in parallel.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Semantics</span><a class="headerlink" href="#id2" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute primitive</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hint_name&#39;</span><span class="p">,</span>
+    <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">nk</span><span class="p">],</span>
+    <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># semantics</span>
+<span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n1</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n2</span><span class="p">):</span>
+    <span class="o">...</span>
+      <span class="k">for</span> <span class="n">ik</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nk</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>In the last example, we used an <a class="reference internal" href="../../python_api/ir/expr.html#hidet.ir.expr.if_then_else" title="hidet.ir.expr.if_then_else"><code class="xref py py-func docutils literal notranslate"><span class="pre">if_then_else()</span></code></a> expression to define a conditional
+expression.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Examples</span><a class="headerlink" href="#id3" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define an input tensor</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c1"># example 1: slice the first column of a</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;slice&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># example 2: reverse the rows of matrix a</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;reverse&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="mi">9</span> <span class="o">-</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># example 3: add 1 to the diagonal elements of a</span>
+<span class="kn">from</span> <span class="nn">hidet.ir.expr</span> <span class="kn">import</span> <span class="n">if_then_else</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;diag_add&#39;</span><span class="p">,</span>
+  <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+  <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">if_then_else</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="n">then_expr</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">else_expr</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">reduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcompute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Var</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>The <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.reduce" title="hidet.ir.compute.reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code></a> primitive conducts a reduction operation on a domain with the given shape.
+It returns a scalar value and can be used in <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.compute" title="hidet.ir.compute.compute"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute()</span></code></a> primitive.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Semantics</span><a class="headerlink" href="#id4" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># reduce primitive</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hint_name&#39;</span><span class="p">,</span>
+    <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">nk</span><span class="p">],</span>
+    <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">)</span>
+    <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span> <span class="o">|</span> <span class="s1">&#39;max&#39;</span> <span class="o">|</span> <span class="s1">&#39;min&#39;</span> <span class="o">|</span> <span class="s1">&#39;avg&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># semantics</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n1</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n2</span><span class="p">):</span>
+    <span class="o">...</span>
+      <span class="k">for</span> <span class="n">ik</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nk</span><span class="p">):</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ik</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">reduce_type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Examples</span><a class="headerlink" href="#id5" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define an input tensor</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c1"># example 1: sum all elements of a</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+<span class="c1"># example 2: sum the first column of a</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+<span class="c1"># example 3: matrix multiplication</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">,</span>
+    <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span>
+        <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span>
+        <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">arg_reduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcompute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Var</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Expr</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Similar to <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.reduce" title="hidet.ir.compute.reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code></a>, the <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.arg_reduce" title="hidet.ir.compute.arg_reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">arg_reduce()</span></code></a> primitive conducts a
+reduction operation on a domain with the given extent. The difference is that it returns the index of the element
+that corresponds to the reduction result, instead of the result itself.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Semantics</span><a class="headerlink" href="#id6" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># arg_reduce primitive</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">arg_reduce</span><span class="p">(</span><span class="n">extent</span><span class="p">,</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;max&#39;</span> <span class="o">|</span> <span class="s1">&#39;min&#39;</span><span class="p">)</span>
+
+<span class="c1"># semantics</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">extent</span><span class="p">):</span>
+  <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">max</span><span class="o">/</span><span class="nb">min</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Examples</span><a class="headerlink" href="#id7" title="Permalink to this code"><span>¶</span></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define an input tensor</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c1"># example: find the index of the max element in each row of a</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">arg_reduce</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</section>
+<section id="define-a-computation-task">
+<h2>Define a Computation Task<a class="headerlink" href="#define-a-computation-task" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>The computation of each operator can be described as a directed acyclic graph (DAG). The DAG is composed of tensor
+nodes. Both <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.tensor_input" title="hidet.ir.compute.tensor_input"><code class="xref py py-func docutils literal notranslate"><span class="pre">tensor_input()</span></code></a> and <a class="reference internal" href="../../python_api/ir/compute.html#hidet.ir.compute.compute" title="hidet.ir.compute.compute"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute()</span></code></a> primitives create tensor
+nodes. The edges of the DAG are the dependencies between the tensor nodes. Such a DAG is stored in a
+<a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> object.</p>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">TensorNode</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">TensorNode</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Each task has a name, a list of inputs, and a list of outputs, correspongding to the inputs and outputs of the operator.
+The following example shows how to create a task.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">demo_task</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">hidet.ir.compute</span> <span class="kn">import</span> <span class="n">tensor_input</span><span class="p">,</span> <span class="n">compute</span>
+    <span class="kn">from</span> <span class="nn">hidet.ir.task</span> <span class="kn">import</span> <span class="n">Task</span>
+
+    <span class="c1"># define the computation DAG through the compute primitives</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">c</span><span class="p">[</span><span class="mi">9</span> <span class="o">-</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># create a task object</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+
+<span class="n">demo_task</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task(
+  name: task
+  parameters:
+    a: tensor(float32, [10])
+    b: tensor(float32, [10])
+    d: tensor(float32, [10])
+    e: tensor(float32, [10])
+  inputs: [a, b]
+  outputs: [d, e]
+  computations:
+    b: tensor(float32, [10])
+    e: float32[10] where e[v] = (a[v] + b[v])
+    a: tensor(float32, [10])
+    c: float32[10] where c[v_1] = (a[v_1] + v_1)
+    d: float32[10] where d[v_2] = c[(9 - v_2)]
+  attributes: {}
+)
+</pre></div>
+</div>
+<p>Its computation DAG can be visualized as follows.</p>
+<figure class="align-default" id="id8">
+<div class="graphviz"><object data="../../_images/graphviz-e549cb0f9e92d3351f64350c1b3e96126314b87c.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
+    // rankdir=LR;
+    splines=curved;
+    node [
+        shape=box, style=&quot;rounded&quot;,
+        height=0.4, width=0.6
+    ];
+    graph [style=&quot;rounded, dashed&quot;]
+        subgraph cluster_0 {
+            graph [style=&quot;rounded, dashed&quot;, margin=&quot;12&quot;];
+            node [group=0];
+            label=&quot;Inputs&quot;;
+            a [label=&quot;A&quot;];
+            b [label=&quot;B&quot;];
+        }
+        subgraph cluster_1 {
+            graph [style=&quot;rounded, dashed&quot;, labelloc=&quot;b&quot;, margin=&quot;15&quot;];
+            node [group=1];
+            labeljust=&quot;b&quot;;
+            d [label=&quot;D&quot;];
+            e [label=&quot;E&quot;];
+            label=&quot;Outputs&quot;;
+        }
+        c [label=&quot;C&quot;];
+        a -&gt; c -&gt; d
+        a -&gt; e
+        b -&gt; e
+}</p></object></div>
+<figcaption>
+<p><span class="caption-text">An example of computation DAG. In this example, there are 5 tensor nodes, where node A and B are inputs
+and node D and E are outputs. The computation of node C depends on the computation of node A and B.</span><a class="headerlink" href="#id8" title="Permalink to this image"><span>¶</span></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="build-and-run-a-task">
+<h2>Build and Run a Task<a class="headerlink" href="#build-and-run-a-task" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>We provide a driver function <a class="reference internal" href="../../python_api/driver.html#hidet.driver.build_task" title="hidet.driver.build_task"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.driver.build_task()</span></code></a> to build a task into callable function. The
+<a class="reference internal" href="../../python_api/driver.html#hidet.driver.build_task" title="hidet.driver.build_task"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_task()</span></code></a> function does the following steps to lower the task into a callable function:</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>A scheduler is a function that takes a task as input and returns an scheduled tensor program defined in an IRModule.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Dispatch the task to a <strong>scheduler</strong> according to the target device and task.</p></li>
+<li><p>The scheduler lowers the task into a tensor program, defined with <a class="reference internal" href="../../python_api/ir/func.html#hidet.ir.func.IRModule" title="hidet.ir.func.IRModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">IRModule</span></code></a>.</p></li>
+<li><p>Lower and optimize the IRModule.</p></li>
+<li><p>Code generation that translates the IRModule into the target source code (e.g., <strong>source.cu</strong>).</p></li>
+<li><p>Call compiler (e.g., <strong>nvcc</strong>) to compile the source code into a dynamic library (i.e., <strong>lib.so</strong>).</p></li>
+<li><p>Load the dynamic library and wrap it to <a class="reference internal" href="../../python_api/runtime/index.html#hidet.runtime.CompiledFunction" title="hidet.runtime.CompiledFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompiledFunction</span></code></a> that can be directly called.</p></li>
+</ol>
+<p>We can define the following function to build and run a task.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">hidet</span>
+<span class="kn">from</span> <span class="nn">hidet.ir.task</span> <span class="kn">import</span> <span class="n">Task</span>
+
+
+<span class="k">def</span> <span class="nf">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;Run given task and print inputs and outputs&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">hidet.runtime</span> <span class="kn">import</span> <span class="n">CompiledFunction</span>
+
+    <span class="c1"># build the task</span>
+    <span class="n">func</span><span class="p">:</span> <span class="n">CompiledFunction</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">build_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">target_device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">inputs</span> <span class="o">+</span> <span class="n">outputs</span>
+
+    <span class="c1"># run the compiled task</span>
+    <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Task:&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Inputs:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Output:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The following code shows how to 1) define the computation, 2) define the task, and 3) build and run the task.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>Please pay attention to the difference between <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TensorNode</span></code>. The former is a tensor object that can be used to store data and trace the
+high-level computation graph of a deep learning model. The latter is a tensor node in the domain-specific language
+that is used to describe the computation of a single operator.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.ir.compute</span> <span class="kn">import</span> <span class="n">tensor_input</span><span class="p">,</span> <span class="n">reduce</span><span class="p">,</span> <span class="n">compute</span><span class="p">,</span> <span class="n">arg_reduce</span><span class="p">,</span> <span class="n">TensorNode</span>
+
+
+
+<span class="k">def</span> <span class="nf">add_example</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">TensorNode</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="n">b</span><span class="p">:</span> <span class="n">TensorNode</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="n">c</span><span class="p">:</span> <span class="n">TensorNode</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+    <span class="n">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">5</span><span class="p">]),</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">5</span><span class="p">])],</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">5</span><span class="p">])])</span>
+
+
+<span class="n">add_example</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: add
+Inputs:
+Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[-0.44 -0.09 -0.36 -1.02 -0.31]
+Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[-1.29  0.88  1.75  0.52  1.  ]
+Output:
+Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[-1.72  0.79  1.39 -0.5   0.68]
+</pre></div>
+</div>
+</section>
+<section id="more-examples">
+<h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline"><span>¶</span></a></h2>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All the hidet operators are defined in <code class="xref py py-mod docutils literal notranslate"><span class="pre">hidet.graph.ops</span></code> submodule. And all of existing operators
+are defined through the compute primitives described in this tutorial. Feel free to check the source code to learn
+more about how to define the computation of different operators.</p>
+</div>
+<p>At last, we show more examples of using the compute primitives to define operator computation.</p>
+<section id="reducesum">
+<h3>ReduceSum<a class="headerlink" href="#reducesum" title="Permalink to this headline"><span>¶</span></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduce_sum_example</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+        <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+        <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s1">&#39;reduce_sum&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+    <span class="n">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">4</span><span class="p">])])</span>
+
+
+<span class="n">reduce_sum_example</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: reduce_sum
+Inputs:
+Tensor(shape=(4, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[ 0.39  0.67  0.51]
+ [-0.38  0.7  -1.16]
+ [-0.66 -2.04 -0.43]
+ [-0.62  0.28 -0.35]]
+Output:
+Tensor(shape=(4,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[ 1.57 -0.85 -3.13 -0.69]
+</pre></div>
+</div>
+</section>
+<section id="argmax">
+<h3>ArgMax<a class="headerlink" href="#argmax" title="Permalink to this headline"><span>¶</span></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arg_max_example</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+        <span class="s1">&#39;b&#39;</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+        <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">arg_reduce</span><span class="p">(</span>
+            <span class="n">extent</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;max&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s1">&#39;arg_max&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+    <span class="n">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)])</span>
+
+
+<span class="n">arg_max_example</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: arg_max
+Inputs:
+Tensor(shape=(4, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[-2.34  0.28  0.41]
+ [-0.1   0.37 -0.67]
+ [ 0.15  1.04 -0.51]
+ [-0.94  0.97 -2.17]]
+Output:
+Tensor(shape=(4,), dtype=&#39;int64&#39;, device=&#39;cpu&#39;)
+[2 1 1 1]
+</pre></div>
+</div>
+</section>
+<section id="matmul">
+<h3>MatMul<a class="headerlink" href="#matmul" title="Permalink to this headline"><span>¶</span></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matmul_example</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+        <span class="s1">&#39;c&#39;</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s1">&#39;matmul&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+    <span class="n">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])],</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])])</span>
+
+
+<span class="n">matmul_example</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: matmul
+Inputs:
+Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[ 0.27 -1.47 -0.42]
+ [ 1.94  1.71  1.22]
+ [ 0.86  0.86 -0.09]]
+Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[ 0.56 -0.38 -0.8 ]
+ [-0.59  1.74 -0.67]
+ [ 0.82  0.29  0.95]]
+Output:
+Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[ 0.68 -2.78  0.38]
+ [ 1.07  2.59 -1.53]
+ [-0.1   1.15 -1.35]]
+</pre></div>
+</div>
+</section>
+<section id="softmax">
+<h3>Softmax<a class="headerlink" href="#softmax" title="Permalink to this headline"><span>¶</span></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">softmax_example</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">hidet.ir.primitives</span> <span class="kn">import</span> <span class="n">exp</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor_input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">max_val</span><span class="p">)</span>
+    <span class="n">exp_a</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;exp&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">exp_sum</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">exp_a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+    <span class="n">softmax</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="s1">&#39;softmax&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">exp_a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp_sum</span><span class="p">)</span>
+
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s1">&#39;softmax&#39;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">softmax</span><span class="p">])</span>
+    <span class="n">run_task</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">])],</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">3</span><span class="p">])])</span>
+
+
+<span class="n">softmax_example</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: softmax
+Inputs:
+Tensor(shape=(3,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[-0.68  0.42 -0.74]
+Output:
+Tensor(shape=(3,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[0.2  0.61 0.19]
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>In this tutorial, we introduced the compute primitives that are used to define the computation of operators in Hidet.
+After that, we showed how to wrap the computation DAG into a task and build and run the task. In the next step, we
+will show you how to use these compute primitives to define new operators in Hidet.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.437 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-how-to-guides-add-new-operator-compute-definition-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c54852770936e45625536aac1bf5a14f/add-new-operator-compute-definition.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-new-operator-compute-definition.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/a51bf76398536809c73f38bcb9c8e65e/add-new-operator-compute-definition.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-compute-definition.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../how-to-guides/add-new-operator/index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Add New Operator</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="add-new-operator-rule-based.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Using Rule-based Scheduling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2023, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Add Operator Resolve Rule &#8212; Hidet Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Add Sub-Graph Rewrite Rule" href="add-subgraph-rewrite-rule.html" />
+    <link rel="prev" title="Using Template-based Scheduling" href="add-new-operator-template-based.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../getting-started/install.html">
+   Installation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../getting-started/build-from-source.html">
+     Build from source
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/quick-start.html">
+   Quick Start
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/optimize-pytorch-model.html">
+   Optimize PyTorch Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/run-onnx-model.html">
+   Optimize ONNX Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How-to Guide
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">
+   Add New Operator
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-compute-definition.html">
+     Define Operator Computation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-rule-based.html">
+     Using Rule-based Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add-new-operator-template-based.html">
+     Using Template-based Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="add-subgraph-rewrite-rule.html">
+   Add Sub-Graph Rewrite Rule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="visualize-flow-graph.html">
+   Visualize Flow Graph
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developer-guides/contributing.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../developer-guides/hidet-script/index.html">
+   Hidet Script
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../developer-guides/hidet-script-dynamic-kernel.html">
+     Writing Dynamic kernel
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/operator-cache.html">
+   Operator Cache
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python_api/index.html">
+   Python API
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/root.html">
+     hidet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/option.html">
+     hidet.option
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/driver.html">
+     hidet.driver
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/cuda.html">
+     hidet.cuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/tensor.html">
+     hidet.Tensor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/data_types.html">
+     hidet.dtypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/ops/index.html">
+     hidet.ops
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/ir/index.html">
+     hidet.ir
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/type.html">
+       hidet.ir.type
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/expr.html">
+       hidet.ir.expr
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/stmt.html">
+       hidet.ir.stmt
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/func.html">
+       hidet.ir.func
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/compute.html">
+       hidet.ir.compute
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_api/ir/task.html">
+       hidet.ir.task
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_api/graph/index.html">
+     hidet.graph
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/frontend/index.html">
+       hidet.graph.frontend
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/onnx.html">
+         hidet.graph.frontend.onnx
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/frontend/torch.html">
+         hidet.graph.frontend.torch
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_api/graph/transforms/index.html">
+       hidet.graph.transforms
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">
+         Sub-graph Rewrite Pass
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">
+         Resolve Operator Pass
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/runtime/index.html">
+     hidet.runtime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/utils/index.html">
+     hidet.utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../python_api/testing/index.html">
+     hidet.testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href=/netron target=_blank>Customized Netron</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hidet-org/hidet"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/gallery/how-to-guides/add-operator-resolve-rule.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operator-resolving">
+   Operator Resolving
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Add Operator Resolve Rule</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operator-resolving">
+   Operator Resolving
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Add Operator Resolve Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-how-to-guides-add-operator-resolve-rule-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="add-operator-resolve-rule">
+<span id="sphx-glr-gallery-how-to-guides-add-operator-resolve-rule-py"></span><span id="id1"></span><h1>Add Operator Resolve Rule<a class="headerlink" href="#add-operator-resolve-rule" title="Permalink to this headline"><span>¶</span></a></h1>
+<p>This is a tutorial introduces the <cite>operator resolving mechanism</cite> and how to add a new operator resolve rule. An operator
+resolve rule is used to resolve an operator to other operators. Usually, we would resolve a more generic operator to
+more specific and efficient operators. The operator resolving rules allow us to reuse existing highly-optimized
+operators to implement a new operator, while organizing the operators in a more modular way.</p>
+<section id="operator-resolving">
+<h2>Operator Resolving<a class="headerlink" href="#operator-resolving" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>The core idea of the <strong>operator resolving</strong> is to resolve a generic operator to more specific and high-optimized
+operators. When we define a new operator, we can also attach an operator resolve rule to it. The rule defines how to
+resolve the operator to other operators with the same semantics. After the operator is resolved, the original operator
+will be replaced by the resolved operators. This process is transparent to the user and is done automatically by a pass
+when we optimize a flow graph.</p>
+<p>There are typical two scenarios that we need to resolve an operator to other operators:</p>
+<ul class="simple">
+<li><p><strong>Resolve a generic operator to specialized variants</strong>: We can provide a generic operator and lots of its specialized
+variants. When optimizing the model, we can resolve the generic operator to the most suitable specialized operator.
+For example, in Hidet, we provided a generic <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul()</span></code></a> operator with the same semantics as
+the numpy equivalent <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul" title="(in NumPy v1.24)"><code class="xref py py-data docutils literal notranslate"><span class="pre">numpy.matmul</span></code></a>. This operator is a generic operator and is scheduled automatically by
+our auto-scheduler, thus it is not very efficient. But we also provided a lot of specialized variants of the operators
+such as highly-optimized <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.batch_matmul" title="hidet.ops.batch_matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a> that only accepts <span class="math notranslate nohighlight">\(A=[B, M, K]\)</span> and
+<span class="math notranslate nohighlight">\(B=[B, K, N]\)</span>. During the operator resolving, we first reshape and broadcast the input tensors to align the
+input shapes with the specialized operator, then use the specialized operator to compute the result, and finally
+reshape the output tensor to get the correct output shape.</p></li>
+</ul>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>During the operator resolving, we might introduce some extra operators to adjust the input tensors (e.g.,
+<a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.reshape" title="hidet.ops.reshape"><code class="xref py py-func docutils literal notranslate"><span class="pre">reshape()</span></code></a>, <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.broadcast" title="hidet.ops.broadcast"><code class="xref py py-func docutils literal notranslate"><span class="pre">broadcast()</span></code></a>, <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.transpose" title="hidet.ops.transpose"><code class="xref py py-func docutils literal notranslate"><span class="pre">transpose()</span></code></a>, etc.).
+These extra operators are usually fused into the resolved operators or surrounding operators of the original operator
+in the later optimization pass. Thus, the extra overhead is usually negligible.</p>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/resolve-example-matmul.svg"><img alt="../../_images/resolve-example-matmul.svg" height="281" src="../../_images/resolve-example-matmul.svg" width="592" /></a>
+<figcaption>
+<p><span class="caption-text">The resolve rule for <cite>Matmul</cite> operator.</span><a class="headerlink" href="#id3" title="Permalink to this image"><span>¶</span></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Reuse a new operator to existing operators</strong>: When we add a new operator and the new operator can be implemented by
+existing operators, we can use a resolve rule to resolve the new operator to the existing highly-optimized operators
+to reduce the development effort.</p></li>
+</ul>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/resolve-example-conv2d.svg"><img alt="../../_images/resolve-example-conv2d.svg" height="329" src="../../_images/resolve-example-conv2d.svg" width="515" /></a>
+<figcaption>
+<p><span class="caption-text">This rule resolves the generic <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">conv2d()</span></code></a> operator to matrix multiplication using the img2col
+algorithm.</span><a class="headerlink" href="#id4" title="Permalink to this image"><span>¶</span></a></p>
+</figcaption>
+</figure>
+<p>The operator resolving pass would repeat the resolving process until no more operators can be resolved. Thus, in the
+conv2d example, we will first resolve <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">conv2d()</span></code></a> to <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul()</span></code></a>, and then
+to <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.batch_matmul" title="hidet.ops.batch_matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a>.</p>
+</section>
+<section id="id2">
+<h2>Add Operator Resolve Rule<a class="headerlink" href="#id2" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>To add a resolve rule to an operator, we need to</p>
+<ol class="arabic simple">
+<li><p>define a subclass of <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.ResolveRule" title="hidet.graph.transforms.resolve_variant.ResolveRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResolveRule</span></code></a> and then</p></li>
+<li><p>register the rule by decorating it with <a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.register_resolve_rule" title="hidet.graph.transforms.resolve_variant.register_resolve_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_resolve_rule()</span></code></a>.</p></li>
+</ol>
+<p>In the following example, we resolve the <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.pow" title="hidet.ops.pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a> operator to normal multiplications if the exponent
+is a constant integer 3.</p>
+<p>Before we start, let’s have a look at the original behavior when there is no such resolve rule.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hidet</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">symbol</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">hidet</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">))</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">trace_from</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original graph:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Optimized graph without resolving Pow:&#39;</span><span class="p">)</span>
+<span class="n">graph_opt</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph_opt</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original graph:
+Graph(x: float32[2, 3]){
+  c = Constant(int64[])
+  x_1: float32[2, 3] = Pow(x, c)
+  return x_1
+}
+Optimized graph without resolving Pow:
+Graph(x: float32[2, 3]){
+  c = Constant(int64[])
+  x_1: float32[2, 3] = Pow(x, c)
+  return x_1
+}
+</pre></div>
+</div>
+<p>The original graph contains a <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.pow" title="hidet.ops.pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">pow()</span></code></a> operator, and the optimized graph is the same as the
+original graph. Now let’s add the resolve rule and see what happens.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">hidet</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.ops.definitions.arithmetic</span> <span class="kn">import</span> <span class="n">PowOp</span>
+<span class="kn">from</span> <span class="nn">hidet.graph.transforms</span> <span class="kn">import</span> <span class="n">register_resolve_rule</span><span class="p">,</span> <span class="n">ResolveRule</span>
+
+
+<span class="nd">@register_resolve_rule</span><span class="p">(</span><span class="n">PowOp</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PowResolveRule</span><span class="p">(</span><span class="n">ResolveRule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">PowOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># get the base tensor</span>
+        <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># get the exponent tensor</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">is_symbolic</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="c1"># if the exponent is a constant integer 3, resolve the operator to a * a * a</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">]</span>
+        <span class="c1"># otherwise, return None to indicate that the operator cannot be resolved</span>
+        <span class="c1"># and the original operator will be kept</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="c1"># optimize the original graph again</span>
+<span class="c1"># the Pow operator will be resolved to a * a * a</span>
+<span class="c1"># after that, the two multiplications will be fused into one operator</span>
+<span class="n">graph_opt_new</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Optimized graph after resolving Pow:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph_opt_new</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Optimized graph after resolving Pow:
+Graph(x: float32[2, 3]){
+  x_1: float32[2, 3] = FusedMultiply(x, fused_graph=FlowGraph(Multiply, Multiply), anchor=1)
+  return x_1
+}
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.register_resolve_rule" title="hidet.graph.transforms.resolve_variant.register_resolve_rule"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_resolve_rule()</span></code></a>,
+<a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.ResolveRule" title="hidet.graph.transforms.resolve_variant.ResolveRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResolveRule</span></code></a> for the details of the resolve rule.</p>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><span>¶</span></a></h2>
+<p>In this tutorial, we learned how to resolve an operator to other operators. We also learned how to add a resolve
+rule to an operator. The resolve rule is a powerful tool to reuse existing operators to implement new operators.
+We can also use it to resolve a generic operator to more specialized variants.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.005 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-how-to-guides-add-operator-resolve-rule-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/429ab0e71d236ef9f7d26899704df5f6/add-operator-resolve-rule.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-operator-resolve-rule.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d89112aba4ceee3be8ec8508cce471a2/add-operator-resolve-rule.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-operator-resolve-rule.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="add-new-operator-template-based.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Using Template-based Scheduling</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="add-subgraph-rewrite-rule.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Add Sub-Graph Rewrite Rule</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Hidet Team<br/>
+  
+      &copy; Copyright 2023, Hidet Authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
