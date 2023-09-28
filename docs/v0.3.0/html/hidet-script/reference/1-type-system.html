@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Type System &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hidet-script/reference/1-type-system';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Expressions" href="2-expression.html" />
+    <link rel="prev" title="Reference" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/hidet-script/reference/1-type-system.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Type System</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-types">Scalar types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-type">Tensor type</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-shape">Tensor shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-layout">Tensor layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-types">Pointer types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#void-type">Void type</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="type-system">
+<h1>Type System<a class="headerlink" href="#type-system" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>In hidet script, we have a type system that contains scalar types, tensor type, as well as pointer types.</p>
+<section id="scalar-types">
+<h2>Scalar types<a class="headerlink" href="#scalar-types" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>Hidet supports the following scalar types:
+- integer types: <code class="docutils literal notranslate"><span class="pre">i8</span></code>, <code class="docutils literal notranslate"><span class="pre">i16</span></code>, <code class="docutils literal notranslate"><span class="pre">i32</span></code>, <code class="docutils literal notranslate"><span class="pre">i64</span></code> (<code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>)
+- floating point types: <code class="docutils literal notranslate"><span class="pre">f16</span></code>, <code class="docutils literal notranslate"><span class="pre">f32</span></code>, <code class="docutils literal notranslate"><span class="pre">f64</span></code>, <code class="docutils literal notranslate"><span class="pre">bf16</span></code>, <code class="docutils literal notranslate"><span class="pre">tf32</span></code> (<code class="docutils literal notranslate"><span class="pre">float16</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>, <code class="docutils literal notranslate"><span class="pre">bfloat16</span></code>, <code class="docutils literal notranslate"><span class="pre">tfloat32</span></code>)
+- boolean type: <code class="docutils literal notranslate"><span class="pre">bool</span></code>
+- complex types: <code class="docutils literal notranslate"><span class="pre">c64</span></code>, <code class="docutils literal notranslate"><span class="pre">c128</span></code> (<code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>)</p>
+<p>Some types have both short names and long names. For example, <code class="docutils literal notranslate"><span class="pre">i8</span></code> and <code class="docutils literal notranslate"><span class="pre">int8</span></code> are the same type.</p>
+<p>There are also vectorized scalar types:
+- vectorized integer types: <code class="docutils literal notranslate"><span class="pre">i8x4</span></code> (<code class="docutils literal notranslate"><span class="pre">int8x4</span></code>)
+- vectorized float types: <code class="docutils literal notranslate"><span class="pre">f16x2</span></code>, <code class="docutils literal notranslate"><span class="pre">f32x4</span></code> (<code class="docutils literal notranslate"><span class="pre">float16x2</span></code>, <code class="docutils literal notranslate"><span class="pre">float32x4</span></code>)</p>
+</section>
+<section id="tensor-type">
+<h2>Tensor type<a class="headerlink" href="#tensor-type" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>Hidet is designed to simplify the tensor program writing. Therefore, we have a powerful tensor type that
+represents a tensor with a specific element data type, shape, and memory layout. More specifically, a
+tensor type has the following attributes:
+- <code class="docutils literal notranslate"><span class="pre">dtype</span></code>: the data type of the tensor elements, can be any scalar type.
+- <code class="docutils literal notranslate"><span class="pre">shape</span></code>: a list of expressions that represents the shape of the tensor.
+- <code class="docutils literal notranslate"><span class="pre">layout</span></code>: the memory layout of the tensor.</p>
+<p>The following code snippet shows how to define a tensor type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hidet</span>
+<span class="kn">from</span> <span class="nn">hidet.lang</span> <span class="kn">import</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">printf</span>
+<span class="kn">from</span> <span class="nn">hidet.lang.types</span> <span class="kn">import</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">f32</span>
+
+<span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">script_module</span><span class="p">()</span> <span class="k">as</span> <span class="n">script_module</span><span class="p">:</span>
+  <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+  <span class="k">def</span> <span class="nf">kernel</span><span class="p">():</span>
+    <span class="n">attrs</span><span class="o">.</span><span class="n">func_kind</span> <span class="o">=</span> <span class="s1">&#39;cpu_kernel&#39;</span>
+
+    <span class="c1"># by default, the layout is a row-major layout</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">])</span>
+
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;a[</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">] = </span><span class="si">%.1f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">module</span> <span class="o">=</span> <span class="n">script_module</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="n">module</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="tensor-shape">
+<h3>Tensor shape<a class="headerlink" href="#tensor-shape" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>The shape of the tensor must be determined at the compile time. Therefore, the shape of the tensor can only
+be defined with constant expressions. If we want to access a tensor with shape determined at runtime with
+variable expressions, we can use <em>tensor pointer</em> (will be discussed later).</p>
+</section>
+<section id="tensor-layout">
+<h3>Tensor layout<a class="headerlink" href="#tensor-layout" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>The layout of a tensor defines how to map the coordinates of a tensor element to the linear position of the
+element in the memory space. Generally speaking, a layout maps a <span class="math notranslate nohighlight">\(n\)</span>-dimensional coordinate
+<span class="math notranslate nohighlight">\((c_0, c_1, \dots, c_{n-1})\)</span> to a linear index:</p>
+<div class="math notranslate nohighlight">
+\[index = layout(c_0, c_1, ..., c_{n-1})\]</div>
+<p>The most commonly used layout is the row-major layout. In row-major layout, the linear index is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[index = c_0 \times s_1 \times s_2 \times \dots \times s_{n-1} + c_1 \times s_2 \times \dots \times s_{n-1} + \dots + c_{n-2} \times s_{n-1} + c_{n-1}\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_i\)</span> is the size of the <span class="math notranslate nohighlight">\(i\)</span>-th dimension of the tensor: <span class="math notranslate nohighlight">\(shape=(s_0, s_1, \dots, s_{n-1})\)</span>.</p>
+<p>Similar to the row-major layout, we can also define a column-major layout as follows:</p>
+<div class="math notranslate nohighlight">
+\[index = c_{n-1} \times s_{n-2} \times \dots \times s_1 \times s_0 + c_{n-2} \times \dots \times s_1 \times s_0 + \dots + c_1 \times s_0 + c_0\]</div>
+<p>The row-major layout is the default layout if we do not specify the layout of a tensor. We can also specify
+the layout of a tensor with the <code class="docutils literal notranslate"><span class="pre">layout</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">tensor</span></code> type. For example, we can define a tensor with
+column-major layout as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.lang.layout</span> <span class="kn">import</span> <span class="n">column_major</span>
+<span class="kn">from</span> <span class="nn">hidet.lang.types</span> <span class="kn">import</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">f32</span>
+<span class="c1"># ...</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">column_major</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">))</span>
+<span class="c1"># or ignore shape if the layout is specified</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">column_major</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Both row-major layout and column-major layout are special cases of the strided layout.
+In hidet, we can define a strided layout like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.lang.layout</span> <span class="kn">import</span> <span class="n">strided_layout</span>
+<span class="kn">from</span> <span class="nn">hidet.lang.types</span> <span class="kn">import</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">f32</span>
+
+<span class="c1"># equivalent to row-major layout</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">strided_layout</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="n">ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># equivalent to column-major layout</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">strided_layout</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="n">ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># the ranks define the order of the dimensions from the one that changes the slowest to the one that changes the fastest</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">f32</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">strided_layout</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">ranks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># c[coordinate] -&gt; index</span>
+<span class="c1"># c[0, 0, 0] -&gt; 0</span>
+<span class="c1"># c[0, 1, 0] -&gt; 1</span>
+<span class="c1"># c[0, 0, 1] -&gt; 2</span>
+<span class="c1"># c[0, 1, 1] -&gt; 3</span>
+<span class="c1"># c[1, 0, 0] -&gt; 4</span>
+<span class="c1"># c[1, 1, 0] -&gt; 5</span>
+<span class="c1"># c[1, 0, 1] -&gt; 6</span>
+<span class="c1"># c[1, 1, 1] -&gt; 7</span>
+</pre></div>
+</div>
+<p>Given two layouts $f$ and $g$, we can define a new layout $h$ as the composition of $f$ and $g$ with $f$ as the outer
+layout and $g$ as the inner layout:</p>
+<div class="math notranslate nohighlight">
+\[h(\textbf{c}) = f(\textbf{c}/\textbf{s}_{g}) * n_g + g(\textbf{c} \mod \textbf{s}_{g})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\textbf{c}\)</span> is the coordinate of the tensor element, <span class="math notranslate nohighlight">\(\textbf{s}_{g}\)</span> is the shape of the inner
+layout <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(n_g\)</span> is the number of elements in the inner layout <span class="math notranslate nohighlight">\(g\)</span>. The division and modulo
+operations are performed element-wise. The composed layout $h$ has the same number of dimensions as the outer and inner
+layouts, and the shape of the composed layout is the elementwise product of the shapes of the outer and inner layouts.</p>
+<p>In hidet script, we can use the <em>multiply</em> operator <code class="docutils literal notranslate"><span class="pre">*</span></code> to compose two layouts. For example, we can define a
+composed layout as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.lang.layout</span> <span class="kn">import</span> <span class="n">row_major</span><span class="p">,</span> <span class="n">column_major</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">row_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">row_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># c shape=[4, 2]</span>
+<span class="c1"># c[0, 0] -&gt; 0</span>
+<span class="c1"># c[0, 1] -&gt; 1</span>
+<span class="c1"># c[1, 0] -&gt; 2</span>
+<span class="c1"># c[1, 1] -&gt; 3</span>
+<span class="c1"># c[2, 0] -&gt; 4</span>
+<span class="c1"># c[2, 1] -&gt; 5</span>
+<span class="c1"># c[3, 0] -&gt; 6</span>
+<span class="c1"># c[3, 1] -&gt; 7</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">row_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">column_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># d shape=[4, 2]</span>
+<span class="c1"># d[0, 0] -&gt; 0</span>
+<span class="c1"># d[1, 0] -&gt; 1</span>
+<span class="c1"># d[0, 1] -&gt; 2</span>
+<span class="c1"># d[1, 1] -&gt; 3</span>
+<span class="c1"># d[2, 0] -&gt; 4</span>
+<span class="c1"># d[3, 0] -&gt; 5</span>
+<span class="c1"># d[2, 1] -&gt; 6</span>
+<span class="c1"># d[3, 1] -&gt; 7</span>
+</pre></div>
+</div>
+<p>We can apply the composition operation multiple times to compose multiple layouts. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hidet.lang.layout</span> <span class="kn">import</span> <span class="n">row_major</span><span class="p">,</span> <span class="n">column_major</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">row_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">row_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">column_major</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># e shape=[8, 4]</span>
+</pre></div>
+</div>
+<p>The composition operation is associative, i.e., <span class="math notranslate nohighlight">\((f * g) * h = f * (g * h)\)</span>, but not commutative, i.e.,
+it is highly likely <span class="math notranslate nohighlight">\(f * g \neq g * f\)</span>.</p>
+</section>
+<section id="pointer-types">
+<h3>Pointer types<a class="headerlink" href="#pointer-types" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>In hidet, we can define a pointer type with the same semantics as the pointer type in C/C++.</p>
+<p>To construct a pointer type, we use the <code class="docutils literal notranslate"><span class="pre">~</span></code> operator to apply to a scalar type or pointer type:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~i32</span></code>: a pointer to <code class="docutils literal notranslate"><span class="pre">i32</span></code> type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~(~f16)</span></code>: a pointer to a pointer to <code class="docutils literal notranslate"><span class="pre">f16</span></code> type</p></li>
+</ul>
+</section>
+<section id="void-type">
+<h3>Void type<a class="headerlink" href="#void-type" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">void</span></code> type can be used as the return type of a function, or used to define a <code class="docutils literal notranslate"><span class="pre">void</span></code> pointer type
+(i.e., <code class="docutils literal notranslate"><span class="pre">~void</span></code>).</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2-expression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expressions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-types">Scalar types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-type">Tensor type</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-shape">Tensor shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-layout">Tensor layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-types">Pointer types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#void-type">Void type</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

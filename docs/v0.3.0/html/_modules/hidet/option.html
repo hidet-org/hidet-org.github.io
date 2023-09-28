@@ -1,0 +1,1249 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.option &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/option';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for hidet.option</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tomlkit</span>
+
+
+<span class="k">class</span> <span class="nc">OptionRegistry</span><span class="p">:</span>
+    <span class="n">registered_options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">OptionRegistry</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+        <span class="n">normalizer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">choices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">checker</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hint</span> <span class="o">=</span> <span class="n">type_hint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">default_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">normalizer</span> <span class="o">=</span> <span class="n">normalizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="n">choices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checker</span> <span class="o">=</span> <span class="n">checker</span>
+
+
+<span class="k">def</span> <span class="nf">create_toml_doc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">TOMLDocument</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">nest_flattened_dict</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
+                <span class="n">prefix</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">prefix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_dict</span><span class="p">:</span>
+                    <span class="n">new_dict</span><span class="p">[</span><span class="n">prefix</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">suffix</span><span class="p">:</span> <span class="n">v</span><span class="p">}</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">new_dict</span><span class="p">[</span><span class="n">prefix</span><span class="p">][</span><span class="n">suffix</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">new_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">new_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">nest_flattened_dict</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_dict</span>
+
+    <span class="k">def</span> <span class="nf">gen_doc</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">toml_doc</span><span class="p">:</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">TOMLDocument</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">table</span> <span class="o">=</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">table</span><span class="p">()</span>
+                <span class="n">gen_doc</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+                <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">OptionRegistry</span><span class="p">):</span>
+                <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tomlkit</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">description</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">choices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tomlkit</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  choices: </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">choices</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">default_value</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+                    <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">default_value</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">default_value</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">):</span>
+                    <span class="c1"># represent tuples are toml arrays, do not allow python lists are default values to avoid ambiguity</span>
+                    <span class="n">val</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">default_value</span><span class="p">)</span>
+                    <span class="n">arr</span> <span class="o">=</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">array</span><span class="p">()</span>
+                    <span class="n">arr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+                    <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid type of default value for option </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">default_value</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">toml_doc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tomlkit</span><span class="o">.</span><span class="n">nl</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid type of default value for option </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">nest_flattened_dict</span><span class="p">(</span><span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">document</span><span class="p">()</span>
+    <span class="n">gen_doc</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">doc</span>
+
+
+<span class="k">def</span> <span class="nf">_load_config</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">collapse_nested_dict</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">]]:</span>
+        <span class="c1"># {&quot;cuda&quot;: {&quot;arch&quot;: &quot;hopper&quot;, &quot;cc&quot;: [9, 0]}} -&gt; {&quot;cuda.arch&quot;: 90, &quot;cuda.cc&quot;: (9, 0)}</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">collapse_nested_dict</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">k1</span><span class="p">,</span> <span class="n">v1</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">ret</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">k1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v1</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">ret</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config_doc</span> <span class="o">=</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">collapse_nested_dict</span><span class="p">(</span><span class="n">config_doc</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Option </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> found in config file </span><span class="si">{</span><span class="n">config_file_path</span><span class="si">}</span><span class="s1"> is not registered.&#39;</span><span class="p">)</span>
+        <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">v</span>
+
+
+<span class="k">def</span> <span class="nf">_write_default_config</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config_doc</span><span class="p">:</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">TOMLDocument</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">tomlkit</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config_doc</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">register_option</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">type_hint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">default_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">normalizer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">choices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">checker</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">registered_options</span> <span class="o">=</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">registered_options</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Option </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> has already been registered.&#39;</span><span class="p">)</span>
+    <span class="n">registered_options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">OptionRegistry</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">type_hint</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">default_value</span><span class="p">,</span> <span class="n">normalizer</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">checker</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">register_hidet_options</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">hidet.utils</span> <span class="kn">import</span> <span class="n">git_utils</span>
+
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bench_config&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;Tuple[int, int, int]&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The (warmup, number, repeat) parameters for benchmarking. &#39;</span>
+        <span class="s1">&#39;The benchmarking will run warmup + number * repeat times.&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;search_space&#39;</span><span class="p">,</span>  <span class="c1">#</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The search space level.&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cache_operator&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to enable operator cache on disk.&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;path&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The directory to store the cache.&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_utils</span><span class="o">.</span><span class="n">git_repo_root</span><span class="p">(),</span> <span class="s1">&#39;.hidet_cache&#39;</span><span class="p">)</span>  <span class="c1"># developer mode</span>
+            <span class="k">if</span> <span class="n">git_utils</span><span class="o">.</span><span class="n">in_git_repo</span><span class="p">()</span>
+            <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;.cache&#39;</span><span class="p">,</span> <span class="s1">&#39;hidet&#39;</span><span class="p">)</span>  <span class="c1"># user mode</span>
+        <span class="p">),</span>
+        <span class="n">normalizer</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to build operators in parallel.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int, float&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The pair (max_parallel_jobs, mem_gb_per_job) that describe &#39;</span>
+        <span class="s1">&#39;the maximum number of parallel jobs and memory reserved for each job&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;save_lower_ir&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to save the IR when lower an IRModule to the operator cache.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;debug_cache_tuning&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to cache the generated kernels during tuning.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;debug_show_var_id&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to show the variable id in the IR.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;runtime_check&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to check shapes of compiled graph and tasks during execution.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;debug_show_verbose_flow_graph&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to show the verbose flow graph.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.addr&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The address of the compile server. Can be an IP address or a domain name.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.port&#39;</span><span class="p">,</span> <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">8329</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The port of the compile server.&#39;</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.enabled&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to enable the compile server.&#39;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.username&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The user name to access the compile server.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.password&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;admin_password&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The password to access the compile server.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.repo_url&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;https://github.com/hidet-org/hidet&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The URL of the repository that the remote server will use.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.repo_version&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The version (e.g., branch, commit, or tag) that the remote server will use.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">register_option</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cuda.arch&#39;</span><span class="p">,</span>
+        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
+        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The CUDA architecture to compile the kernels for (e.g., &quot;sm_70&quot;). &quot;auto&quot; for auto-detect.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;.config&#39;</span><span class="p">,</span> <span class="s1">&#39;hidet&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">)</span>
+    <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="s1">&#39;hidet.toml&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">):</span>
+        <span class="n">_write_default_config</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="n">create_toml_doc</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_load_config</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">)</span>
+
+
+<span class="n">register_hidet_options</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="OptionContext"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.OptionContext">[docs]</a><span class="k">class</span> <span class="nc">OptionContext</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The option context.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OptionContext</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enter the option context.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: OptionContext</span>
+<span class="sd">            The option context itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Exit the option context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">current</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">OptionContext</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">configparser</span>
+
+        <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">sections</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+                <span class="n">entry_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">entry_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                        <span class="s1">&#39;Option </span><span class="si">{}</span><span class="s1"> found in config file </span><span class="si">{}</span><span class="s1"> is not registered.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">entry_name</span><span class="p">,</span> <span class="n">config_path</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="n">entry_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Option </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> has not been registered.&#39;</span><span class="p">)</span>
+        <span class="n">registry</span> <span class="o">=</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">registry</span><span class="o">.</span><span class="n">normalizer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">normalizer</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">registry</span><span class="o">.</span><span class="n">checker</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">registry</span><span class="o">.</span><span class="n">checker</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid value for option </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">registry</span><span class="o">.</span><span class="n">choices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">registry</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid value for option </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">, choices </span><span class="si">{</span><span class="n">registry</span><span class="o">.</span><span class="n">choices</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">get_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ctx</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Option </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> has not been registered.&#39;</span><span class="p">)</span>
+        <span class="n">registry</span> <span class="o">=</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">registry</span><span class="o">.</span><span class="n">default_value</span></div>
+
+
+<span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">OptionContext</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="dump_options"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.dump_options">[docs]</a><span class="k">def</span> <span class="nf">dump_options</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dump the options in option context stack.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: Dict[str, Any]</span>
+<span class="sd">        The dumped options.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;option_context_stack&#39;</span><span class="p">:</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="s1">&#39;registered_options&#39;</span><span class="p">:</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="restore_options"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.restore_options">[docs]</a><span class="k">def</span> <span class="nf">restore_options</span><span class="p">(</span><span class="n">dumped_options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restore the options from dumped options.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dumped_options: Dict[str, Any]</span>
+<span class="sd">        The dumped options.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">stack</span> <span class="o">=</span> <span class="n">dumped_options</span><span class="p">[</span><span class="s1">&#39;option_context_stack&#39;</span><span class="p">]</span>
+    <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span> <span class="o">=</span> <span class="n">dumped_options</span><span class="p">[</span><span class="s1">&#39;registered_options&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="current_context"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.current_context">[docs]</a><span class="k">def</span> <span class="nf">current_context</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">OptionContext</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the current option context.</span>
+
+<span class="sd">    To get the value of an option in the current context:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        ctx = hidet.option.current_context()</span>
+<span class="sd">        cache_dir: str = ctx.get_option(&#39;cache_dir&#39;)</span>
+<span class="sd">        cache_operator: bool = ctx.get_option(&#39;cache_operator&#39;)</span>
+<span class="sd">        ...</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ctx: OptionContext</span>
+<span class="sd">        The current option context.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="context"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.context">[docs]</a><span class="k">def</span> <span class="nf">context</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">OptionContext</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a new option context.</span>
+
+<span class="sd">    To set options in the new context, use the ``with`` statement:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        with hidet.option.context() as ctx:</span>
+<span class="sd">            hidet.option.cache_dir(&#39;./new_cache_dir&#39;)               # set predefined option</span>
+<span class="sd">            hidet.option.set_option(&#39;other_option&#39;, &#39;other_value&#39;)  # set a custom option</span>
+<span class="sd">            ...</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ctx: OptionContext</span>
+<span class="sd">        The new option context.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="set_option"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.set_option">[docs]</a><span class="k">def</span> <span class="nf">set_option</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the value of an option in current option context.</span>
+
+<span class="sd">    The option must be registered before setting via :py:func:`hidet.option.register_option`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">        The name of the option.</span>
+<span class="sd">    value: Any</span>
+<span class="sd">        The value of the option.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_option"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_option">[docs]</a><span class="k">def</span> <span class="nf">get_option</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the value of an option in current option context.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name: str</span>
+<span class="sd">        The name of the option.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: Any</span>
+<span class="sd">        The value of the option.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="bench_config"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.bench_config">[docs]</a><span class="k">def</span> <span class="nf">bench_config</span><span class="p">(</span><span class="n">warmup</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">repeat</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the benchmark config of operator tuning.</span>
+
+<span class="sd">    To profile a schedule, hidet will run the following code:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        for i in range(warmup):</span>
+<span class="sd">            run()</span>
+<span class="sd">        latency = []</span>
+<span class="sd">        for i in range(repeat):</span>
+<span class="sd">            synchronize device</span>
+<span class="sd">            t1 = time()</span>
+<span class="sd">            for j in range(number):</span>
+<span class="sd">                run()</span>
+<span class="sd">            synchronize device</span>
+<span class="sd">            t2 = time()</span>
+<span class="sd">            latency.append((t2 - t1) / number)</span>
+<span class="sd">        return median of latency</span>
+
+<span class="sd">    Thus, there will be total ``warmup + number * repeat`` times of execution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    warmup: int</span>
+<span class="sd">        The number of warmup runs.</span>
+<span class="sd">    number: int</span>
+<span class="sd">        The number of runs in a repeat.</span>
+<span class="sd">    repeat: int</span>
+<span class="sd">        The number of repeats.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;bench_config&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">warmup</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">repeat</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_bench_config"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_bench_config">[docs]</a><span class="k">def</span> <span class="nf">get_bench_config</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the benchmark config of operator tuning.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: Tuple[int, int, int]</span>
+<span class="sd">        The benchmark config.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;bench_config&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="search_space"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.search_space">[docs]</a><span class="k">def</span> <span class="nf">search_space</span><span class="p">(</span><span class="n">space</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the schedule search space of tunable operator.</span>
+
+<span class="sd">    Some operators can be tuned in hidet to achieve the best performance, such as matrix multiplication.</span>
+
+<span class="sd">    During tuning, different operator schedules will be tried and profiled to get the best one.</span>
+
+<span class="sd">    We call the space of the tried operator schedule `schedule space`. There is a trade-off between the</span>
+<span class="sd">    tuning time and the operator execution time. If we try more schedules, the tuning process would take</span>
+<span class="sd">    longer time, and we are likely to find better schedule.</span>
+
+<span class="sd">    This function allows user to set the space level that controls the search space we tried.</span>
+
+<span class="sd">    By convention, we have space level</span>
+
+<span class="sd">    - 0 for schedule space contains only a single schedule.</span>
+<span class="sd">    - 1 for schedule space contains tens of schedules so that the tuning time will be less than 1 minute.</span>
+<span class="sd">    - 2 for arbitrary large space.</span>
+
+<span class="sd">    Usage</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        hidet.search_space(2)</span>
+
+<span class="sd">    After calling above function, all subsequent compilation would use space level 2, until we call this</span>
+<span class="sd">    function again with another space level.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    space: int</span>
+<span class="sd">        The space level to use. Candidates: 0, 1, and 2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;search_space&#39;</span><span class="p">,</span> <span class="n">space</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_search_space"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_search_space">[docs]</a><span class="k">def</span> <span class="nf">get_search_space</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the schedule search space of tunable operator.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: int</span>
+<span class="sd">        The schedule space level.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;search_space&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="cache_operator"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.cache_operator">[docs]</a><span class="k">def</span> <span class="nf">cache_operator</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to cache compiled operator on disk.</span>
+
+<span class="sd">    By default, hidet would cache all compiled operator and reuse whenever possible.</span>
+
+<span class="sd">    If user wants to disable the cache, run</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        hidet.option.cache_operator(False)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enabled: bool</span>
+<span class="sd">        Whether to cache the compiled operator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;cache_operator&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_cache_operator"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_cache_operator">[docs]</a><span class="k">def</span> <span class="nf">get_cache_operator</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the option value of whether to cache compiled operator on disk.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: bool</span>
+<span class="sd">        Whether to cache the compiled operator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;cache_operator&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="cache_dir"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.cache_dir">[docs]</a><span class="k">def</span> <span class="nf">cache_dir</span><span class="p">(</span><span class="n">new_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the directory to store the cache.</span>
+
+<span class="sd">    The default cache directory:</span>
+
+<span class="sd">    - If the hidet code is in a git repo, the cache will be stored in the repo root:</span>
+<span class="sd">      ``hidet-repo/.hidet_cache``.</span>
+<span class="sd">    - Otherwise, the cache will be stored in the user home directory: ``~/.hidet/cache``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    new_dir: str</span>
+<span class="sd">        The new directory to store the cache.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">,</span> <span class="n">new_dir</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_cache_dir"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_cache_dir">[docs]</a><span class="k">def</span> <span class="nf">get_cache_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the directory to store the cache.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: str</span>
+<span class="sd">        The directory to store the cache.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="parallel_build"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.parallel_build">[docs]</a><span class="k">def</span> <span class="nf">parallel_build</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to build operators in parallel.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enabled: bool</span>
+<span class="sd">        Whether to build operators in parallel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_parallel_build"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_parallel_build">[docs]</a><span class="k">def</span> <span class="nf">get_parallel_build</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the option value of whether to build operators in parallel.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: bool</span>
+<span class="sd">        Whether to build operators in parallel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="parallel_tune"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.parallel_tune">[docs]</a><span class="k">def</span> <span class="nf">parallel_tune</span><span class="p">(</span><span class="n">max_parallel_jobs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mem_gb_per_job</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Specify the maximum number of parallel compilation jobs to do,</span>
+<span class="sd">    and the number of GiB preserved for each job.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_parallel_jobs: int</span>
+<span class="sd">        The maximum number of parallel jobs allowed, default -1</span>
+<span class="sd">        (the number of available vcpu returned by `os.cpu_count()`).</span>
+<span class="sd">    mem_gb_per_job: float</span>
+<span class="sd">        The minimum amount of memory (in GiB) reserved for each tuning job, default 1.5GiB.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">max_parallel_jobs</span><span class="p">,</span> <span class="n">mem_gb_per_job</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_parallel_tune"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_parallel_tune">[docs]</a><span class="k">def</span> <span class="nf">get_parallel_tune</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the option value of whether to build operators in parallel.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: Tuple[int, float]</span>
+<span class="sd">        Get the maximum number of jobs and minumum amount of memory reserved for tuning.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="save_lower_ir"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.save_lower_ir">[docs]</a><span class="k">def</span> <span class="nf">save_lower_ir</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to save the lower IR.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enabled: bool</span>
+<span class="sd">        Whether to save the lower IR.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;save_lower_ir&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_save_lower_ir"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_save_lower_ir">[docs]</a><span class="k">def</span> <span class="nf">get_save_lower_ir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the option value of whether to save the lower IR.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;save_lower_ir&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="debug_cache_tuning"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.debug_cache_tuning">[docs]</a><span class="k">def</span> <span class="nf">debug_cache_tuning</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to cache the generated kernels during tuning.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This option is only used for debugging purpose. It will generate a lot of files in the cache directory</span>
+<span class="sd">        and take a lot of disk space.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enabled: bool</span>
+<span class="sd">        Whether to debug cache tuning.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;debug_cache_tuning&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="debug_show_var_id"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.debug_show_var_id">[docs]</a><span class="k">def</span> <span class="nf">debug_show_var_id</span><span class="p">(</span><span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to show the var id in the IR.</span>
+
+<span class="sd">    When this option is enabled, the IR will show the var id with the format `var@id`, like `x@1` and `d_1@1732`.</span>
+<span class="sd">    Variable (i.e., hidet.ir.Var) a and b is the same var if and only if `a is b` evaluates to True in Python).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enable: bool</span>
+<span class="sd">        Whether to show the var id in the IR.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;debug_show_var_id&#39;</span><span class="p">,</span> <span class="n">enable</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="runtime_check"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.runtime_check">[docs]</a><span class="k">def</span> <span class="nf">runtime_check</span><span class="p">(</span><span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Whether to check shapes and dtypes of all input arguments to compiled Graphs or Tasks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enable: bool</span>
+<span class="sd">        Whether to check shapes and dtypes of all input arguments to compiled Graphs or Tasks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;runtime_check&#39;</span><span class="p">,</span> <span class="n">enable</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_runtime_check"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_runtime_check">[docs]</a><span class="k">def</span> <span class="nf">get_runtime_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get whether to check shapes and dtypes of all input arguments to compiled Graphs or Tasks.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: bool</span>
+<span class="sd">        Get whether to check shapes and dtypes of all input arguments to compiled Graphs or Tasks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;runtime_check&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="debug_show_verbose_flow_graph"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.debug_show_verbose_flow_graph">[docs]</a><span class="k">def</span> <span class="nf">debug_show_verbose_flow_graph</span><span class="p">(</span><span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether to show verbose information (like task) when we convert flow graph in to human-readable text.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enable: bool</span>
+<span class="sd">        Whether to show verbose information when we convert flow graph in to human-readable text.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;debug_show_verbose_flow_graph&#39;</span><span class="p">,</span> <span class="n">enable</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">cuda</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">arch</span><span class="p">(</span><span class="n">arch</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the CUDA architecture to use when building CUDA kernels.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        arch: Optional[str]</span>
+<span class="sd">            The CUDA architecture, e.g., &#39;sm_35&#39;, &#39;sm_70&#39;, &#39;sm_80&#39;, etc. &quot;auto&quot; means</span>
+<span class="sd">            using the architecture of the first CUDA GPU on the current machine. Default &quot;auto&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;cuda.arch&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_arch</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the CUDA architecture to use when building CUDA kernels.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: str</span>
+<span class="sd">            The CUDA architecture, e.g., &#39;sm_35&#39;, &#39;sm_70&#39;, &#39;sm_80&#39;, etc.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">arch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;cuda.arch&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arch</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">hidet.cuda</span>
+
+            <span class="c1"># get the architecture of the first CUDA GPU</span>
+            <span class="n">properties</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">arch</span> <span class="o">=</span> <span class="s1">&#39;sm_</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">major</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">minor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">arch</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_arch_pair</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the CUDA architecture to use when building CUDA kernels, with major and minor version as a tuple.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: Tuple[int, int]</span>
+<span class="sd">            The CUDA architecture, e.g., (3, 5), (7, 0), (8, 0), etc.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">arch</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">get_arch</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">arch</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">arch</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">compile_server</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">addr</span><span class="p">(</span><span class="n">addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.addr&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">port</span><span class="p">(</span><span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.port&#39;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">enable</span><span class="p">(</span><span class="n">flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.enabled&#39;</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">enabled</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;compile_server.enabled&#39;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">username</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.username&#39;</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.password&#39;</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">repo</span><span class="p">(</span><span class="n">repo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;main&#39;</span><span class="p">):</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.repo_url&#39;</span><span class="p">,</span> <span class="n">repo_url</span><span class="p">)</span>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.repo_version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+
+
+<span class="c1"># load the options from config file (e.g., ~/.config/hidet.config) if exists</span>
+<span class="n">_config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;.config&#39;</span><span class="p">,</span> <span class="s1">&#39;hidet.config&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_config_path</span><span class="p">):</span>
+    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="n">_config_path</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
