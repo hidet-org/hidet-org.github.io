@@ -1,0 +1,1443 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.ir.expr &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/ir/expr';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.ir.expr</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># pylint: disable=import-outside-toplevel, useless-parent-delegation, redefined-outer-name, redefined-builtin</span>
+<span class="c1"># pylint: disable=useless-super-delegation, protected-access</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.option</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.dtypes</span><span class="w"> </span><span class="kn">import</span> <span class="n">boolean</span><span class="p">,</span> <span class="n">int32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">uint64</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">,</span> <span class="n">promote_type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.type</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseType</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">,</span> <span class="n">DataType</span><span class="p">,</span> <span class="n">TensorPointerType</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">,</span> <span class="n">FuncType</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">ArrayType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.type</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensor_pointer_type</span><span class="p">,</span> <span class="n">string_type</span><span class="p">,</span> <span class="n">tensor_type</span><span class="p">,</span> <span class="n">data_type</span>
+
+<span class="n">PyScalar</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Expr</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;hidet.ir.Expr does not support pythonic logical operations (e.g., and, or, not, if(...)). &quot;</span>
+            <span class="s2">&quot;Please use hidet.ir.if_then_else, hidet.ir.logical_and, hidet.ir.logical_or, hidet.ir.logical_or &quot;</span>
+            <span class="s2">&quot;explicitly.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Keyword arguments are not supported in hidet function calls.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_func_type</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only function variable can be called.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unary</span><span class="p">(</span><span class="n">Neg</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Add</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Add</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Sub</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rsub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Sub</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Multiply</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Multiply</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Div</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rtruediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Div</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Div</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rfloordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Div</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Mod</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rmod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Mod</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">LessThan</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">LessEqual</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># In hidet, we override the comparison operators: &#39;&lt;&#39;, &#39;&lt;=&#39;, &#39;==&#39;, &#39;!=&#39;, &#39;&gt;&#39;, &#39;&gt;=&#39;, which will return</span>
+        <span class="c1"># the corresponding comparison expression. For example, `a &lt; b` will return a LessThan expression.</span>
+        <span class="c1"># An error will be raised if the result of the comparison is used in any place to evaluate the value in python:</span>
+        <span class="c1"># `if a &lt; b: ...` will raise an error.</span>
+        <span class="c1"># This is because these comparison operators are used to construct the comparison expression in hidet IR.</span>
+        <span class="c1"># However, there are two exceptions:</span>
+        <span class="c1">#  1. if the comparison result is a constant (e.g., `int32(1) &lt; int32(2)`), the result can be evaluated.</span>
+        <span class="c1">#  2. if it is a `==` comparison, the result can be evaluated in python, and True if the two expressions are</span>
+        <span class="c1">#     identical (e.g., `a is b`), False otherwise. We need this feature to use Expr as the keys in dict.</span>
+        <span class="c1"># See `hidet.ir.expr.Constant.__bool__` and `hidet.ir.expr.Equal.__bool__` for the implementation details.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">Equal</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">NotEqual</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">LeftShift</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">RightShift</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">LessThan</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">LessEqual</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Address</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># We override the invert operator `~a` as the addressing operator.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseOr</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ror__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseOr</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseAnd</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rand__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseAnd</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseXor</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__rxor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">BitwiseXor</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">starts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ends</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+                <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+                <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">stop</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">item</span><span class="o">.</span><span class="n">step</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;do not support step slice&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="n">starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">rank</span> <span class="o">=</span> <span class="n">tensor_rank</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rank</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="n">i</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">):</span>
+            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">:</span>
+                <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">starts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">ends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tensor_slice</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">,</span> <span class="n">starts</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="o">=</span><span class="n">ends</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tensor_element</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">astext</span>
+
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">astext</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert hidet.ir.Expr to int.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert hidet.ir.Expr to float.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__complex__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert hidet.ir.Expr to complex.&quot;</span><span class="p">)</span>
+
+    <span class="fm">__hash__</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__hash__</span>  <span class="c1"># use default hash function</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">te</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">te</span><span class="p">,</span> <span class="n">TensorElement</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;expect element indexing, but got slicing.&#39;</span><span class="p">)</span>
+        <span class="n">te</span><span class="o">.</span><span class="n">protected</span> <span class="o">=</span> <span class="n">protected</span>
+        <span class="k">return</span> <span class="n">te</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.stmt</span><span class="w"> </span><span class="kn">import</span> <span class="n">BufferStoreStmt</span>
+
+        <span class="n">te</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">items</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">te</span><span class="p">,</span> <span class="n">TensorElement</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;expect element indexing, but got slicing.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">BufferStoreStmt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">te</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">protected</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_unary</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>  <span class="c1"># pylint: disable=bad-staticmethod-argument</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Expr</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Constant</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Neg</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">LogicalNot</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">BitwiseNot</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="o">~</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown unary operator </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_binary</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>  <span class="c1"># pylint: disable=bad-staticmethod-argument</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Expr</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Expr</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Constant</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">():</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">operator_dict</span><span class="p">[</span><span class="bp">cls</span><span class="p">](</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Equal</span><span class="p">,</span> <span class="n">NotEqual</span><span class="p">,</span> <span class="n">LessThan</span><span class="p">,</span> <span class="n">LessEqual</span><span class="p">,</span> <span class="n">LogicalAnd</span><span class="p">,</span> <span class="n">LogicalOr</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">LeftShift</span><span class="p">,</span> <span class="n">RightShift</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">promote_type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_pointer</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_pointer</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Sub</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;uint64&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Equal</span><span class="p">,</span> <span class="n">NotEqual</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">operator_dict</span><span class="p">[</span><span class="bp">cls</span><span class="p">](</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown binary operator </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_pointer</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_pointer</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_string_type</span><span class="p">()</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_string_type</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Add</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Equal</span><span class="p">,</span> <span class="n">NotEqual</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">operator_dict</span><span class="p">[</span><span class="bp">cls</span><span class="p">](</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown binary operator </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;unknown binary operator </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">():</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">infer_type</span>
+
+            <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Add</span><span class="p">,</span> <span class="n">Sub</span><span class="p">,</span> <span class="n">BitwiseXor</span><span class="p">,</span> <span class="n">BitwiseOr</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">a</span>
+                <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Multiply</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">promote_type</span><span class="p">(</span><span class="n">infer_type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Multiply</span><span class="p">,</span> <span class="n">Div</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">a</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Constant</span><span class="p">):</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">infer_type</span>
+
+            <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Add</span><span class="p">,</span> <span class="n">BitwiseXor</span><span class="p">,</span> <span class="n">BitwiseOr</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">b</span>
+                <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Multiply</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">promote_type</span><span class="p">(</span><span class="n">infer_type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">Multiply</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">cls</span> <span class="o">==</span> <span class="n">LessThan</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BinaryExpr</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">b</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UnaryExpr</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Condition</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LessThan</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LessEqual</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Equal</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="bp">NotImplemented</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NotEqual</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LogicalAnd</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LogicalOr</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LogicalNot</span><span class="p">(</span><span class="n">Condition</span><span class="p">,</span> <span class="n">UnaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Neg</span><span class="p">(</span><span class="n">UnaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Add</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sub</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Multiply</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Div</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FloorDiv</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;FloorDiv is not supported in hidet by design from now on.&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Mod</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BitwiseNot</span><span class="p">(</span><span class="n">UnaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BitwiseAnd</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BitwiseOr</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BitwiseXor</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LeftShift</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RightShift</span><span class="p">(</span><span class="n">BinaryExpr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TensorElement</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">protected</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">indices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protected</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">protected</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TensorSlice</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">):</span>
+        <span class="c1"># a[3, 4:, :5, :] will be represented by</span>
+        <span class="c1"># base: a</span>
+        <span class="c1"># indices: [3, None, None, None]</span>
+        <span class="c1"># starts: [None, 4, None, None]</span>
+        <span class="c1"># ends: [None, None, 5, None]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Expr</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">indices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">starts</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Expr</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">starts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ends</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Expr</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">ends</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">starts</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ends</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">idx</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="n">starts</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">ends</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Call</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func_var</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func_var</span><span class="p">:</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">func_var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func_var</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Let</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="p">:</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">body</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Cast</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">target_type</span><span class="p">:</span> <span class="n">BaseType</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">expr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_type</span><span class="p">:</span> <span class="n">BaseType</span> <span class="o">=</span> <span class="n">target_type</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target_type</span><span class="p">,</span> <span class="n">BaseType</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;target_type </span><span class="si">{</span><span class="n">target_type</span><span class="si">}</span><span class="s2"> is not a BaseType&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Constant</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="c1"># reuse commonly-used constant objects</span>
+    <span class="n">_constant_pool</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">Constant</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+        <span class="n">const_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataType</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">],</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DataType</span><span class="p">,</span> <span class="n">StringType</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">]</span> <span class="o">=</span> <span class="n">const_type</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_scalar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">DataType</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">StringType</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__complex__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="c1"># This speciallisation of Expr._binary is done for speedup purposes only</span>
+    <span class="c1"># and fully equvivalent to Expr._binary by functionality</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_binary</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>  <span class="c1"># pylint: disable=bad-staticmethod-argument</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_binary_internal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">a_type</span><span class="p">,</span> <span class="n">res_type</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">operator_dict</span><span class="p">[</span><span class="bp">cls</span><span class="p">](</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Equal</span><span class="p">,</span> <span class="n">NotEqual</span><span class="p">,</span> <span class="n">LessThan</span><span class="p">,</span> <span class="n">LessEqual</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">boolean</span><span class="o">.</span><span class="n">true</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="n">boolean</span><span class="o">.</span><span class="n">false</span>
+            <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">[</span><span class="n">LeftShift</span><span class="p">,</span> <span class="n">RightShift</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">constant_int</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">a_type</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">constant_int</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">res_type</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">res_type</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span> <span class="k">else</span> <span class="n">promote_type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">_binary_internal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">res_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">):</span>
+            <span class="n">res_type</span> <span class="o">=</span> <span class="n">int64</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">int64</span> <span class="ow">or</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">uint64</span><span class="p">)</span> <span class="k">else</span> <span class="n">int32</span>
+            <span class="k">return</span> <span class="n">_binary_internal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">res_type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">IntegerType</span><span class="p">):</span>
+            <span class="n">res_type</span> <span class="o">=</span> <span class="n">int64</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">int64</span> <span class="ow">or</span> <span class="n">b</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">uint64</span><span class="p">)</span> <span class="k">else</span> <span class="n">int32</span>
+            <span class="k">return</span> <span class="n">_binary_internal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">int32</span><span class="p">,</span> <span class="n">res_type</span><span class="p">)</span>
+        <span class="c1"># 2.5% cases fall here</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Constant</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="IfThenElse"><a class="viewcode-back" href="../../../python_api/ir/expr.html#hidet.ir.expr.IfThenElse">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">IfThenElse</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The if-then-else expression.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cond: Expr</span>
+<span class="sd">        The condition of the if-then-else expression.</span>
+<span class="sd">    then_expr: Expr</span>
+<span class="sd">        The expression to be evaluated if the condition is true.</span>
+<span class="sd">    else_expr: Expr</span>
+<span class="sd">        The expression to be evaluated if the condition is false.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">then_expr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">else_expr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">cond</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">then_expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">then_expr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">else_expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">else_expr</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">then_expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">else_expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span></div>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dereference</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">expr</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Address</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">expr</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Reference</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">expr</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Var</span><span class="p">(</span><span class="n">Expr</span><span class="p">):</span>
+    <span class="n">id_clock</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">type</span><span class="p">:</span> <span class="n">BaseType</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A variable may have a hint, name, and id.</span>
+
+<span class="sd">        self.hint is used to determine the name in codegen. Different vars may have the</span>
+<span class="sd">        same hint. If two vars have the same hint such as &#39;x&#39;, the final name would be like &#39;x1&#39;, &#39;x2&#39;.</span>
+
+<span class="sd">        self.name is used to store the name of the variables that will be used directly in codegen, such as</span>
+<span class="sd">        &quot;threadIdx.x&quot;. The field self.name and self.hint are used exclusively. If self.name is not None,</span>
+<span class="sd">        self.hint will be ignored, otherwise, self.hint will be used to determine the name in codegen.</span>
+
+<span class="sd">        self.id is used to track the allocation of Var object in python, which is only used to help us to distinguish</span>
+<span class="sd">        different Var in python debugger.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">hint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseType</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">,</span> <span class="n">TensorPointerType</span><span class="p">,</span> <span class="n">FuncType</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_id</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">new_id</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">hidet</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;debug_enable_var_id&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">Var</span><span class="o">.</span><span class="n">id_clock</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">Var</span><span class="o">.</span><span class="n">id_clock</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset_id_counter</span><span class="p">():</span>
+        <span class="n">Var</span><span class="o">.</span><span class="n">id_clock</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SymbolVar</span><span class="p">(</span><span class="n">Var</span><span class="p">):</span>
+    <span class="n">name2symbol</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SymbolVar</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">DataType</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">hint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="c1"># the following are used as type hints</span>
+<span class="c1"># if a primitive function expect an int8 expression, we should use ExprInt8 instead of Expr</span>
+<span class="c1"># to explicit tell the reader that this function expect an int8 expression</span>
+<span class="c1"># but this is not enforced by the type system of python</span>
+<span class="c1"># ExprInt8 should be read as &quot;expression with int8 type&quot;</span>
+<span class="c1"># Usage example:</span>
+<span class="c1">#</span>
+<span class="c1">#   def cuda_i64_to_f16(a: ExprInt64) -&gt; ExprFloat16:</span>
+<span class="c1">#       ...</span>
+<span class="c1"># Above function expects an int64 expression and returns a float16 value.</span>
+
+<span class="n">ExprInt8</span> <span class="o">=</span> <span class="n">ExprInt16</span> <span class="o">=</span> <span class="n">ExprInt32</span> <span class="o">=</span> <span class="n">ExprInt64</span> <span class="o">=</span> <span class="n">Expr</span>
+<span class="n">ExprUInt8</span> <span class="o">=</span> <span class="n">ExprUInt16</span> <span class="o">=</span> <span class="n">ExprUInt32</span> <span class="o">=</span> <span class="n">ExprUInt64</span> <span class="o">=</span> <span class="n">Expr</span>
+<span class="n">ExprFloat16</span> <span class="o">=</span> <span class="n">ExprFloat32</span> <span class="o">=</span> <span class="n">ExprFloat64</span> <span class="o">=</span> <span class="n">ExprBFloat16</span> <span class="o">=</span> <span class="n">ExprTFloat32</span> <span class="o">=</span> <span class="n">Expr</span>
+<span class="n">Int</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The following are the mapping from hidet expression class to corresponding python operator.</span>
+<span class="sd">Used by compilation-time constant folding.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">operator_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">Expr</span><span class="p">],</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># unary arithmetic</span>
+    <span class="n">Neg</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">neg</span><span class="p">,</span>
+    <span class="n">LogicalNot</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">not_</span><span class="p">,</span>
+    <span class="n">BitwiseNot</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">invert</span><span class="p">,</span>
+    <span class="c1"># binary arithmetic</span>
+    <span class="n">Add</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+    <span class="n">Sub</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span>
+    <span class="n">Multiply</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span>
+    <span class="n">Div</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">,</span>
+    <span class="n">Mod</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">mod</span><span class="p">,</span>
+    <span class="n">BitwiseOr</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">or_</span><span class="p">,</span>
+    <span class="n">BitwiseAnd</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">and_</span><span class="p">,</span>
+    <span class="n">BitwiseXor</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">xor</span><span class="p">,</span>
+    <span class="n">Equal</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">eq</span><span class="p">,</span>
+    <span class="n">NotEqual</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">ne</span><span class="p">,</span>
+    <span class="n">LessThan</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">lt</span><span class="p">,</span>
+    <span class="n">LessEqual</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">le</span><span class="p">,</span>
+    <span class="n">LogicalAnd</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">,</span>
+    <span class="n">LogicalOr</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">,</span>
+    <span class="n">LeftShift</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">lshift</span><span class="p">,</span>
+    <span class="n">RightShift</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">rshift</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">]],</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Can not convert </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">dtype</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">data_type</span><span class="p">(</span><span class="s1">&#39;bool&#39;</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">data_type</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">data_type</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">string_type</span><span class="p">())</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">hint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hint</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">hint</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="s1">&#39;_.&#39;</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">data_type</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">hint</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scalar_var</span><span class="p">(</span><span class="n">hint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Var</span><span class="p">:</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">DataType</span><span class="p">)</span> <span class="k">else</span> <span class="n">data_type</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">hint</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_var</span><span class="p">(</span><span class="n">hint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Var</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">hint</span><span class="p">,</span> <span class="n">tensor_type</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">layout</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_one</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Expr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_zero</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Expr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_true</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">Constant</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_false</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">Constant</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="if_then_else"><a class="viewcode-back" href="../../../python_api/ir/expr.html#hidet.ir.expr.if_then_else">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">if_then_else</span><span class="p">(</span>
+    <span class="n">cond</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">then_expr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">else_expr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expr</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an if-then-else expression.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cond: Expr or PyScalar</span>
+<span class="sd">        The condition of the if-then-else expression.</span>
+
+<span class="sd">    then_expr: Expr or PyScalar</span>
+<span class="sd">        The expression to be evaluated if the condition is true.</span>
+
+<span class="sd">    else_expr: Expr or PyScalar</span>
+<span class="sd">        The expression to be evaluated if the condition is false.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: Expr</span>
+<span class="sd">        The if-then-else expression.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cond</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">cond</span><span class="p">)</span>
+    <span class="n">then_expr</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">then_expr</span><span class="p">)</span>
+    <span class="n">else_expr</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">else_expr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_constant</span><span class="p">(</span><span class="n">cond</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">cond</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">then_expr</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">else_expr</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">IfThenElse</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">then_expr</span><span class="p">,</span> <span class="n">else_expr</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_rank</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Expr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.compute</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorNode</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Var</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">TensorPointerType</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">tensor_type</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">ArrayType</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">TensorSlice</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">TensorNode</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Cast</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">target_type</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Can not infer the tensor rank of &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="tensor_slice"><a class="viewcode-back" href="../../../python_api/ir/expr.html#hidet.ir.expr.tensor_slice">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">tensor_slice</span><span class="p">(</span>
+    <span class="n">base</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Int</span><span class="p">]],</span> <span class="n">starts</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Int</span><span class="p">]],</span> <span class="n">ends</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">Int</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TensorSlice</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a tensor slice expression.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    base: Expr</span>
+<span class="sd">        The base tensor expression.</span>
+
+<span class="sd">    indices: Sequence[Optional[Int]]</span>
+<span class="sd">        The indices of the tensor slice.</span>
+
+<span class="sd">    starts: Sequence[Optional[Int]]</span>
+<span class="sd">        The start indices of the tensor slice.</span>
+
+<span class="sd">    ends: Sequence[Optional[Int]]</span>
+<span class="sd">        The end indices of the tensor slice.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: TensorSlice</span>
+<span class="sd">        The tensor slice expression.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ends</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The length of indices, starts and ends should be the same.&#39;</span><span class="p">)</span>
+
+    <span class="n">indices</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">)</span>
+    <span class="n">starts</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">starts</span><span class="p">)</span>
+    <span class="n">ends</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ends</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TensorSlice</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_element</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Int</span><span class="p">],</span> <span class="n">protected</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TensorElement</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">protected</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_chain_binary_op</span><span class="p">(</span><span class="n">op</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BinaryExpr</span><span class="p">],</span> <span class="n">operands</span><span class="p">,</span> <span class="n">default</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=protected-access</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">operands</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">convert</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">operands</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">convert</span><span class="p">(</span><span class="n">operands</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">operands</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">default</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">operands</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">Expr</span><span class="o">.</span><span class="n">_binary</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">logical_and</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LogicalAnd</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">LogicalAnd</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">logical_or</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LogicalOr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">LogicalOr</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">logical_not</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="c1"># pylint: disable=protected-access</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Expr</span><span class="o">.</span><span class="n">_unary</span><span class="p">(</span><span class="n">LogicalNot</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bitwise_not</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Expr</span><span class="o">.</span><span class="n">_unary</span><span class="p">(</span><span class="n">BitwiseNot</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">equal</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">less_than</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">less_equal</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">not_equal</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">left_shift</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LeftShift</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">right_shift</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">RightShift</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bitwise_and</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">BitwiseAnd</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">BitwiseAnd</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bitwise_or</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">BitwiseOr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">BitwiseOr</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bitwise_xor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">BitwiseXor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_chain_binary_op</span><span class="p">(</span><span class="n">BitwiseXor</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cast</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">,</span> <span class="n">BaseType</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Expr</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expect an expression, got </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">data_type</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Constant</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">is_scalar</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_vector</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Can not cast a scalar </span><span class="si">{}</span><span class="s1"> to a vector type </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dtype</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">()</span> <span class="ow">and</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">()</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">dtype</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">v</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cast</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Var</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Call</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Call</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">const_tensor</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Constant</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.utils.type_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_numpy_dtype</span>
+
+    <span class="k">return</span> <span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">=</span><span class="n">tensor_type</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">from_numpy_dtype</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_pointer_var</span><span class="p">(</span><span class="n">hint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">hint</span><span class="p">,</span> <span class="n">tensor_pointer_type</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">view</span><span class="p">(</span><span class="n">ptr</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">TensorType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expr</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expect a tensor type, got </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tp</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">TensorPointerType</span><span class="o">.</span><span class="n">from_tensor_type</span><span class="p">(</span><span class="n">tp</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">address</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Expr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Address</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">deref</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">Expr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expr</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">Dereference</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_constant</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">],</span> <span class="o">*</span><span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">PyScalar</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">Expr</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">Constant</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_constant</span><span class="p">(</span><span class="o">*</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">BaseType</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Constant</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">const_type</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">const_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">const_type</span> <span class="o">=</span> <span class="n">data_type</span><span class="p">(</span><span class="n">const_type</span><span class="p">)</span>
+
+    <span class="c1"># normalize value</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">const_type</span><span class="p">,</span> <span class="n">DataType</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">const_type</span><span class="o">.</span><span class="n">is_complex</span><span class="p">():</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">const_type</span><span class="o">.</span><span class="n">is_float</span><span class="p">():</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">const_type</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">const_type</span> <span class="o">==</span> <span class="n">boolean</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">const_type</span><span class="o">.</span><span class="n">is_vector</span><span class="p">():</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid data const_type </span><span class="si">{</span><span class="n">const_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">const_type</span><span class="p">,</span> <span class="n">TensorType</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">const_type</span><span class="p">,</span> <span class="n">PointerType</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">const_type</span><span class="p">,</span> <span class="n">StringType</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid const_type </span><span class="si">{</span><span class="n">const_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">const_type</span><span class="o">.</span><span class="n">is_data_type</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">128</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">128</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="p">):</span>
+        <span class="c1"># pylint: disable=protected-access</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">:</span>
+            <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">constant_int</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">const_type</span><span class="p">:</span> <span class="n">IntegerType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Constant</span><span class="p">:</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mi">128</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">128</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=protected-access</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">:</span>
+            <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Constant</span><span class="o">.</span><span class="n">_constant_pool</span><span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">const_type</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">symbol_var</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SymbolVar</span><span class="p">:</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">data_type</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SymbolVar</span><span class="o">.</span><span class="n">name2symbol</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid symbol name &quot;</span><span class="si">{}</span><span class="s1">&quot;, must be a valid identifier&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">SymbolVar</span><span class="o">.</span><span class="n">name2symbol</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">SymbolVar</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">SymbolVar</span><span class="o">.</span><span class="n">name2symbol</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">dtype</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;SymbolVar &quot;</span><span class="si">{}</span><span class="s1">&quot; already exists with dtype </span><span class="si">{}</span><span class="s1">, new dtype is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="n">SymbolVar</span><span class="o">.</span><span class="n">name2symbol</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">dtype</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">SymbolVar</span><span class="o">.</span><span class="n">name2symbol</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.cuda.event &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/cuda/event';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.cuda.event</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># pylint: disable=no-name-in-module, c-extension-no-member</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">cudart</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cuda.cudart</span><span class="w"> </span><span class="kn">import</span> <span class="n">cudaEvent_t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">exiting</span>
+
+
+<div class="viewcode-block" id="Event"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.Event">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Event</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CUDA event.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    enable_timing: bool</span>
+<span class="sd">        When enabled, the event is able to record the time between itself and another event.</span>
+
+<span class="sd">    blocking: bool</span>
+<span class="sd">        When enabled, we can use the :meth:`synchronize` method to block the current host thread until the event</span>
+<span class="sd">        completes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_timing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">blocking</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_enable_timing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">enable_timing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_blocking</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">blocking</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">:</span> <span class="n">cudaEvent_t</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">enable_timing</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventDisableTiming</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventDefault</span>
+        <span class="n">err</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventCreateWithFlags</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_exiting</span><span class="o">=</span><span class="n">exiting</span><span class="o">.</span><span class="n">is_exiting</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_exiting</span><span class="p">():</span>
+            <span class="k">return</span>
+        <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventDestroy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+
+<div class="viewcode-block" id="Event.handle"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.Event.handle">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">cudaEvent_t</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the handle of the event.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        handle: cudaEvent_t</span>
+<span class="sd">            The handle of the event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span></div>
+
+<div class="viewcode-block" id="Event.elapsed_time"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.Event.elapsed_time">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">elapsed_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the elapsed time between the start event and this event in milliseconds.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start_event: Event</span>
+<span class="sd">            The start event.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        elapsed_time: float</span>
+<span class="sd">            The elapsed time in milliseconds.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=protected-access</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enable_timing</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">start_event</span><span class="o">.</span><span class="n">_enable_timing</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Event does not have timing enabled&quot;</span><span class="p">)</span>
+        <span class="n">err</span><span class="p">,</span> <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventElapsedTime</span><span class="p">(</span><span class="n">start_event</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span>
+        <span class="k">return</span> <span class="n">elapsed_time</span></div>
+
+<div class="viewcode-block" id="Event.record"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.Event.record">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Record the event in the given stream.</span>
+
+<span class="sd">        After the event is recorded:</span>
+
+<span class="sd">        - We can synchronize the event to block the current host thread until all the tasks before the event are</span>
+<span class="sd">          completed via :meth:`Event.synchronize`.</span>
+<span class="sd">        - We can also get the elapsed time between the event and another event via :meth:`Event.elapsed_time` (when</span>
+<span class="sd">          `enable_timing` is `True`).</span>
+<span class="sd">        - We can also let another stream to wait for the event via :meth:`Stream.wait_event`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        stream: Stream, optional</span>
+<span class="sd">            The stream where the event is recorded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.cuda.stream</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">current_stream</span>
+
+        <span class="k">if</span> <span class="n">stream</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">current_stream</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">Stream</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;stream must be a Stream&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventRecord</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="n">stream</span><span class="o">.</span><span class="n">handle</span><span class="p">())</span>
+        <span class="k">assert</span> <span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">err</span></div>
+
+<div class="viewcode-block" id="Event.synchronize"><a class="viewcode-back" href="../../../python_api/cuda.html#hidet.cuda.Event.synchronize">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Block the current host thread until the tasks before the event are completed. This method is only available</span>
+<span class="sd">        when `blocking` is `True` when creating the event, and the event is recorded in a stream.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blocking</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Event does not have blocking enabled&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">err</span><span class="p">,)</span> <span class="o">=</span> <span class="n">cudart</span><span class="o">.</span><span class="n">cudaEventSynchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;cudaEventSynchronize failed with error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

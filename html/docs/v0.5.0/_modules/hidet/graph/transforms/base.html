@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.graph.transforms.base &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/graph/transforms/base';</script>
+    <link rel="icon" href="../../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.graph.transforms.base</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.option</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.flow_graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">FlowGraph</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.transforms.graph_patterns.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubgraphRewriteRule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphPassInstrument</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;hidet.graph.transforms&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="PassContext"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">PassContext</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Graph-level pass context.</span>
+
+<span class="sd">    Use the pass context to control the behavior of optimization passes. Normally, we can</span>
+<span class="sd">    optimize a flow graph by directly calling :func:`hidet.graph.optimize`:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">      graph_opt = hidet.graph.optimize(graph)</span>
+
+<span class="sd">    This will optimize the given flow graph in a default context.</span>
+
+<span class="sd">    To customize the optimizations, run the :func:`~hidet.graph.optimize` function with in</span>
+<span class="sd">    a custom :class:`hidet.graph.PassContext`:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">      with hidet.graph.PassContext() as ctx:</span>
+<span class="sd">          # config the contexts</span>
+<span class="sd">          ctx.profile_pass_instrument(print_stdout=True)  # print elapsed time for each pass</span>
+<span class="sd">          ctx.save_graph_instrument(out_dir=&#39;./outs&#39;)  # save the output of each pass as text</span>
+<span class="sd">          ctx.set_precision(dtype=&#39;float16&#39;)  # use float16 as the data type</span>
+<span class="sd">          ctx.set_reduce_precision(dtype=&#39;float32&#39;)  # use float32 for reduction accumulation</span>
+<span class="sd">          ctx.set_mma(&#39;mma&#39;)  # use TensorCore in NVIDIA GPUs to accelerate matmul and conv2d</span>
+<span class="sd">          ...   # other configs</span>
+
+<span class="sd">          # call optimize function</span>
+<span class="sd">          graph_opt = hidet.graph.optimize(graph)</span>
+
+<span class="sd">    Please refer to the member functions of this class for the available configs and their usage.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    instruments: List[GraphPassInstrument]</span>
+<span class="sd">        The graph pass instruments that will be applied before and after each pass. The instruments</span>
+<span class="sd">        will be applied in order. See :class:`hidet.graph.GraphPassInstrument` on how to add custom</span>
+<span class="sd">        instrument.</span>
+
+<span class="sd">    configs: Dict[str, Any]</span>
+<span class="sd">        The current configs of the pass context.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s1">&#39;PassContext&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GraphPassInstrument</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="c1"># target precision:</span>
+            <span class="c1"># [None, &#39;int8&#39;, &#39;float16&#39;, &#39;bfloat16&#39;, &#39;float32&#39;]</span>
+            <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="c1"># selectively quantize the given graph patterns</span>
+            <span class="s1">&#39;quantize_patterns&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="c1"># target reduce precision:</span>
+            <span class="c1"># [None, &#39;float16&#39;, &#39;float32&#39;]</span>
+            <span class="s1">&#39;reduce_precision&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="c1"># mma primitive:</span>
+            <span class="c1"># [&#39;simt&#39;, &#39;mma&#39;]</span>
+            <span class="s1">&#39;mma&#39;</span><span class="p">:</span> <span class="s1">&#39;mma&#39;</span><span class="p">,</span>
+            <span class="c1"># print lower details</span>
+            <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="c1"># Allow source graph removal.</span>
+            <span class="c1"># It is used to get rid of unnecessary tensors during the optimizations</span>
+            <span class="s1">&#39;allow_source_graph_removal&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="n">popped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">popped</span> <span class="o">==</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="PassContext.current"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.current">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">current</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current pass context.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret: PassContext</span>
+<span class="sd">            The current pass context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">PassContext</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="PassContext.set_precision"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.set_precision">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_precision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the target precision to use as the output of most operators. To retain the accuracy,</span>
+<span class="sd">        some operators will still use the original data type.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dtype: Optional[str]</span>
+<span class="sd">            The target dtype to mix the precision of the model. Candidates:</span>
+
+<span class="sd">            - None</span>
+<span class="sd">              Do not mix the precision.</span>
+<span class="sd">            - &#39;int8&#39;</span>
+<span class="sd">                Converts the model into float16 data type, then selectively quantize subgraphs</span>
+<span class="sd">                using default quantize_patterns.</span>
+<span class="sd">                For greater flexibility and control of quantization, use self.add_quantize_pattern(),</span>
+<span class="sd">                to selectively quantize subgraphs using custom quantize_patterns.</span>
+<span class="sd">            - &#39;float16&#39;</span>
+<span class="sd">              Convert the model into float16 data type.</span>
+<span class="sd">            - &#39;bfloat16&#39;</span>
+<span class="sd">              Convert the model into bfloat16 data type.</span>
+<span class="sd">            - &#39;float32&#39;</span>
+<span class="sd">              Convert the model into float32 data type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;int8&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_quantize_rules</span><span class="p">(</span><span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">quant</span><span class="o">.</span><span class="n">default_patterns</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;float16&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtype</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.add_quantize_rules"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.add_quantize_rules">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_quantize_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patterns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SubgraphRewriteRule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds selective quantization rules to the pass context.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pattern: Optional[List[SubgraphRewriteRule]]</span>
+<span class="sd">            The pattern to selectively quantize.</span>
+
+<span class="sd">            - List[SubgraphRewriteRule]</span>
+<span class="sd">              Adds new rules on top of what is already there. The new rules will be applied</span>
+<span class="sd">              after the existing ones.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">patterns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">pat</span> <span class="ow">in</span> <span class="n">patterns</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">SubgraphRewriteRule</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;quantize_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">SubgraphRewriteRule</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;quantize_patterns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pat</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;quantize_patterns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.set_reduce_precision"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.set_reduce_precision">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_reduce_precision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the target precision used for accumulation results. Operators like reduce_mean, reduce_avg,</span>
+<span class="sd">        matrix multiplication and convolution will reduce along some dimensions. We might want to use a</span>
+<span class="sd">        data type with more precision to accumulate the results for more accuracy.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dtype: Optional[str]</span>
+<span class="sd">        The target dtype to use for accumulation.</span>
+
+<span class="sd">            - None</span>
+<span class="sd">              Use the same as inputs of operators.</span>
+<span class="sd">            - &#39;float16&#39;</span>
+<span class="sd">              Use &#39;float16&#39; to accumulate. Only valid when set_precision(&#39;float16&#39;) has been used.</span>
+<span class="sd">            - &#39;float32&#39;</span>
+<span class="sd">              Use &#39;float32&#39; to accumulate.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;reduce_precision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtype</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.set_verbose"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.set_verbose">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow each graph level passes to print detailed information related to its lowering and optimization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;verbose&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.set_mma"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.set_mma">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_mma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mma</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specify the matrix-multiply-accumulate (mma) computation primitives used in matrix multiplication and</span>
+<span class="sd">        convolution.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mma: str</span>
+<span class="sd">            The mma computation primitive to use. Candidates:</span>
+
+<span class="sd">            - &#39;simt&#39;</span>
+<span class="sd">               Use cuda cores.</span>
+<span class="sd">            - &#39;mma&#39;</span>
+<span class="sd">               Use mma instructions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;mma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mma</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.save_graph_instrument"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.save_graph_instrument">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_graph_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save the computation graph after each pass to given output directory.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        out_dir: str</span>
+<span class="sd">            The directory to save graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments.save_graph_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">SaveGraphInstrument</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SaveGraphInstrument</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.profile_pass_instrument"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.profile_pass_instrument">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">profile_pass_instrument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">print_stdout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Profile the time of each pass.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        log_file: Optional[str]</span>
+<span class="sd">            When given, write the elapsed time for each pass to this file.</span>
+
+<span class="sd">        print_stdout: bool</span>
+<span class="sd">            Whether to print the elapsed time for each pass to standard output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments.profile_instrument</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProfileInstrument</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ProfileInstrument</span><span class="p">(</span><span class="n">log_file</span><span class="p">,</span> <span class="n">print_stdout</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="PassContext.reduce_cuda_compile_mem"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.reduce_cuda_compile_mem">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">reduce_cuda_compile_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reduce CUDA memory used during compilation by using vcuda tensors, might incur compile time cost</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        enable: Optional[bool]</span>
+<span class="sd">            When given, will always enable or disable this instrument.</span>
+<span class="sd">            If no argument is given, the compiler will decide to enable this with some heuristics</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvertGraphToVGPU</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvertGraphToVGPU</span><span class="p">(</span><span class="n">enable</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="PassContext.reduce_hip_compile_mem"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.reduce_hip_compile_mem">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">reduce_hip_compile_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reduce HIP memory used during compilation by using vhip tensors, might incur compile time cost</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        enable: Optional[bool]</span>
+<span class="sd">            When given, will always enable or disable this instrument.</span>
+<span class="sd">            If no argument is given, the compiler will decide to enable this with some heuristics</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvertGraphToVGPU</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvertGraphToVGPU</span><span class="p">(</span><span class="n">enable</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;hip&#39;</span><span class="p">))</span></div>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">allow_source_graph_removal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allow</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;allow_source_graph_removal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">allow</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_source_graph_removal_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;allow_source_graph_removal&#39;</span><span class="p">]</span></div>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GraphPass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FlowGraph</span><span class="p">:</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">PassContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">instruments</span><span class="p">:</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">before_pass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">graph</span><span class="p">)</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">instruments</span><span class="p">):</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">after_pass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">graph</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">graph</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">current_context</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">PassContext</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">PassContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">FlowGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FlowGraph</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

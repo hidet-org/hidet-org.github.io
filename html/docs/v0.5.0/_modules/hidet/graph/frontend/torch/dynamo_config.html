@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.graph.frontend.torch.dynamo_config &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/graph/frontend/torch/dynamo_config';</script>
+    <link rel="icon" href="../../../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.graph.frontend.torch.dynamo_config</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dynamo_config_warning</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s1">&#39;Configuration by dynamo_config is depricated. &#39;</span>
+        <span class="s1">&#39;Please pass the options via mode and options arguments of torch.compile() &#39;</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="DynamoConfig"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">DynamoConfig</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_cuda_graph</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_tensor_core</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print_input_graph</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dump_graph_ir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_correctness_report</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_steal_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DynamoConfig.reset"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.reset">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset the configuration to the default values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_cuda_graph</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_tensor_core</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print_input_graph</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dump_graph_ir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_correctness_report</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_steal_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.search_space"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.search_space">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The schedule search space for the operator kernel tuning</span>
+<span class="sd">        Candidates are: ``0``, ``1``, ``2``</span>
+
+<span class="sd">        - ``0``:</span>
+<span class="sd">            Use the default schedule, without tuning.</span>
+<span class="sd">        - ``1``:</span>
+<span class="sd">            Tune the schedule in a small search space. Usually takes less than one minute to tune a kernel.</span>
+<span class="sd">        - ``2``:</span>
+<span class="sd">            Tune the schedule in a large search space. Usually achieves the best performance, but takes longer time.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        level: int</span>
+<span class="sd">            The search space level.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dynamo_config_warning</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.use_tensor_core"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_tensor_core">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">use_tensor_core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to use tensor core</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_tensor_core</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.use_fp16"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">use_fp16</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to use float16 data type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dynamo_config_warning</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.use_fp16_reduction"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16_reduction">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">use_fp16_reduction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to use float16 data type for reduction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dynamo_config_warning</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.use_attention"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_attention">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">use_attention</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to use fused attention schedule</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dynamo_config_warning</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.use_cuda_graph"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_cuda_graph">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">use_cuda_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to use cuda graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_cuda_graph</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.print_input_graph"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.print_input_graph">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">print_input_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to print the input graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print_input_graph</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.dump_graph_ir"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.dump_graph_ir">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">dump_graph_ir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to dump the graph ir</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        output_dir: str</span>
+<span class="sd">            The output directory to dump the graph ir.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dump_graph_ir</span> <span class="o">=</span> <span class="n">output_dir</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.correctness_report"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.correctness_report">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">correctness_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to check correctness and print report error</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_correctness_report</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DynamoConfig.steal_weights"><a class="viewcode-back" href="../../../../../python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.steal_weights">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">steal_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether to clear pytorch weights in certain layers after</span>
+<span class="sd">        converting them to Hidet tensors. This will save some GPU memory usage.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_steal_weights</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<span class="n">dynamo_config</span> <span class="o">=</span> <span class="n">DynamoConfig</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

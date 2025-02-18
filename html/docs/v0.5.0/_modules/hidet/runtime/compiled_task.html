@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.runtime.compiled_task &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/runtime/compiled_task';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.runtime.compiled_task</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tabulate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.compiled_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompiledModule</span><span class="p">,</span> <span class="n">CompiledFunction</span><span class="p">,</span> <span class="n">load_compiled_module</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.dtypes</span><span class="w"> </span><span class="kn">import</span> <span class="n">i32</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ffi</span><span class="w"> </span><span class="kn">import</span> <span class="n">runtime_api</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ffi.array</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TensorSignature</span><span class="p">:</span>
+    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TaskMetaData</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">symbols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TensorSignature</span><span class="p">]</span>
+    <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TensorSignature</span><span class="p">]</span>
+    <span class="n">share_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">target</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">num_candidates</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">hidet_version</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<div class="viewcode-block" id="CompiledTask"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.CompiledTask">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">CompiledTask</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A compiled task is a special kind of compiled module that implements a computation task.</span>
+
+<span class="sd">    A compiled task is a compiled module with the following conventions:</span>
+
+<span class="sd">    1. The compiled module contains functions named `launch_0`, `launch_1`, ..., `launch_N-1`, where N is the number of</span>
+<span class="sd">       candidates for the task.</span>
+<span class="sd">    2. There are two shape-related functions `get_input_shape` and `get_output_shape` that return the shape of inputs</span>
+<span class="sd">       and outputs respectively.</span>
+
+<span class="sd">    When a compiled task is called, the input arguments should be consistent with the input signature of the task.</span>
+<span class="sd">    The compiled task will pick the best candidate based on the input shapes and dispatch the computation to the</span>
+<span class="sd">    corresponding candidate. The output tensors will be created and passed to the candidate function as arguments.</span>
+<span class="sd">    When the candidate finishes the execution, the output tensors will be returned.</span>
+
+<span class="sd">    This class is not intended to be instantiated by users directly. Instead, users should use the</span>
+<span class="sd">    :func:`load_compiled_task` function to load a compiled task from the given directory, or use</span>
+<span class="sd">    :func:`hidet.drivers.build_task` to build a compiled task from a task definition.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    task_dir: str</span>
+<span class="sd">        The directory of the compiled task.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">task_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="p">:</span> <span class="n">TaskMetaData</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_meta_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_module</span><span class="p">:</span> <span class="n">CompiledModule</span> <span class="o">=</span> <span class="n">load_compiled_module</span><span class="p">(</span><span class="n">task_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">CompiledFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">task_module</span><span class="p">[</span><span class="s1">&#39;launch_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">num_candidates</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_dispatch_table</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_input_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_module</span><span class="p">[</span><span class="s1">&#39;get_input_shape&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_module</span><span class="p">[</span><span class="s1">&#39;get_output_shape&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the compiled task with the given arguments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args: a sequence of input tensors or scalars</span>
+<span class="sd">            The input arguments. They should be consistent with the input signature of the task.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        A sequence of output tensors:</span>
+<span class="sd">            The output tensors. They are created by the task and passed to the candidate function as arguments.</span>
+<span class="sd">            When the candidate finishes the execution, the output tensors will be returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">outs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_async</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">outs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">outs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">outs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TaskMetaData</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.dataclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_dict</span>
+
+        <span class="n">meta_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;meta.json&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">meta_data_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">from_dict</span><span class="p">(</span><span class="n">TaskMetaData</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_compiled_modules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">CompiledModule</span><span class="p">]:</span>
+        <span class="n">compiled_modules</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">candidates_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;candidates&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">candidates_dir</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">candidates_dir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot find candidates dir: </span><span class="si">{</span><span class="n">candidates_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">module_dir</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">candidates_dir</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">module_dir</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">compiled_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CompiledModule</span><span class="p">(</span><span class="n">module_dir</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">compiled_modules</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No compiled module found in </span><span class="si">{</span><span class="n">candidates_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">compiled_modules</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_dispatch_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dispatch_table_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;dispatch_table.txt&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{}</span>
+        <span class="n">dispatch_table</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">symbols</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid dispatch table: </span><span class="si">{</span><span class="n">dispatch_table_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">dispatch_table</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">dispatch_table</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_symbol_values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">runtime_api</span><span class="o">.</span><span class="n">get_symbol_value</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span> <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">symbols</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">hidet</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">outputs</span><span class="p">):</span>
+            <span class="n">shape_buffer</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">i32</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">shape_buffer</span><span class="p">)</span>
+            <span class="n">shape</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">shape_buffer</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">share_map</span><span class="p">:</span>
+                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hidet</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">sig</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">sig</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">shared_tensor</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">share_map</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shared_tensor</span><span class="p">,</span> <span class="n">hidet</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+                    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+                    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shared_tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">),</span> <span class="s2">&quot;Unknown tensor type&quot;</span>
+                    <span class="n">tensor_dtype</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">torch</span><span class="p">,</span> <span class="n">sig</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+                    <span class="c1"># we need to turn the tensor into a view with the graph output&#39;s shape &amp; dtype</span>
+                    <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">shared_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">tensor_dtype</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span>
+                        <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">sig</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sig</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">storage</span><span class="o">=</span><span class="n">shared_tensor</span><span class="o">.</span><span class="n">storage</span>
+                    <span class="p">)</span>
+
+                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">outputs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pick_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.benchmark.bench</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_best_candidate</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_symbol_values</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">best_idx</span><span class="p">,</span> <span class="n">latencies</span> <span class="o">=</span> <span class="n">find_best_candidate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">,</span> <span class="o">*</span><span class="n">outputs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_idx</span>
+
+                <span class="c1"># write a benchmark report</span>
+                <span class="n">report_name</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">symbols</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">report_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">,</span> <span class="n">report_name</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;candidates.json&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">candidates_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="n">headers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidates_json</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span>
+                    <span class="n">candidate_lines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">candidates_json</span><span class="p">[</span><span class="s1">&#39;candidates&#39;</span><span class="p">]</span>
+                <span class="n">headers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">])</span>
+                <span class="n">sorted_indices</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">latencies</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">latencies</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">candidate_lines</span><span class="p">):</span>
+                    <span class="n">line</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latencies</span><span class="p">[</span><span class="n">idx</span><span class="p">]),</span> <span class="n">sorted_indices</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">idx</span><span class="p">)])</span>
+                <span class="n">candidate_lines</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">report_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">candidate_lines</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># write the best candidate to dispatch table</span>
+            <span class="n">dispatch_table_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_dir</span><span class="p">,</span> <span class="s1">&#39;dispatch_table.txt&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">symbols</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dispatch_table_path</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">key</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">candidate_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_table</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">candidate_index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid candidate index: </span><span class="si">{</span><span class="n">candidate_index</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">candidate_index</span>
+
+<div class="viewcode-block" id="CompiledTask.run_async"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.CompiledTask.run_async">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">run_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the compiled task with the given arguments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs: a sequence of input tensors or scalars</span>
+<span class="sd">            The input arguments. They should be consistent with the input signature of the task.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        A sequence of output tensors:</span>
+<span class="sd">            The output tensors. They are created by the task and passed to the candidate function as arguments.</span>
+<span class="sd">            When the candidate finishes the execution, the output tensors will be returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">option</span>
+
+        <span class="k">if</span> <span class="n">option</span><span class="o">.</span><span class="n">get_runtime_check</span><span class="p">():</span>
+            <span class="n">_check_inputs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_outputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+        <span class="n">candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">pick_best_candidate</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)]</span>
+        <span class="n">candidate</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">,</span> <span class="o">*</span><span class="n">outputs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">outputs</span></div>
+
+<div class="viewcode-block" id="CompiledTask.profile"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.CompiledTask.profile">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">warmup</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the compiled task with the given arguments and profile the execution time.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        args: a sequence of input tensors or scalars</span>
+<span class="sd">            The input arguments. They should be consistent with the input signature of the task.</span>
+
+<span class="sd">        warmup: int</span>
+<span class="sd">            The number of warmup runs.</span>
+
+<span class="sd">        number: int</span>
+<span class="sd">            The number of runs for each measurement.</span>
+
+<span class="sd">        repeat: int</span>
+<span class="sd">            The number of measurements.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        latency: List[float]</span>
+<span class="sd">            The measured latency in milliseconds. The length of the list is equal to `repeat`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">num_inputs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">args</span><span class="p">[:</span><span class="n">num_inputs</span><span class="p">]</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="n">num_inputs</span><span class="p">:]</span>
+
+        <span class="c1"># For operators like scatter_add_, if we run it multiple times on the same input &amp; output tensors,</span>
+        <span class="c1"># the input and output tensors will be wrong as they will be wrongly updated multiple times.</span>
+        <span class="c1"># to avoid this, make a clone of the output tensors if they share the memory with some input tensors.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">share_map</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
+
+            <span class="n">outputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">output_idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta_data</span><span class="o">.</span><span class="n">share_map</span><span class="p">:</span>
+                <span class="n">original_output</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="n">output_idx</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">original_output</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="n">output_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_output</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="n">output_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_output</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="n">inputs</span> <span class="o">+</span> <span class="n">outputs</span>
+
+        <span class="n">candidate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">pick_best_candidate</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">candidate</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">warmup</span><span class="o">=</span><span class="n">warmup</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">number</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">repeat</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="load_compiled_task"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.load_compiled_task">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">load_compiled_task</span><span class="p">(</span><span class="n">compiled_task_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CompiledTask</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a compiled task from the given directory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    compiled_task_dir: str</span>
+<span class="sd">        The directory of the compiled task.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: CompiledTask</span>
+<span class="sd">        The loaded compiled task.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">CompiledTask</span><span class="p">(</span><span class="n">compiled_task_dir</span><span class="p">)</span></div>
+
+
+<span class="n">CompiledTaskKey</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;CompiledTaskKey&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">,</span> <span class="s1">&#39;space&#39;</span><span class="p">,</span> <span class="s1">&#39;task_str&#39;</span><span class="p">])</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CompiledTaskCache</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">CompiledTask</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">task_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">CompiledTaskKey</span><span class="p">(</span><span class="n">device_type</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">task_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">task_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CompiledTask</span><span class="p">]:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">CompiledTaskKey</span><span class="p">(</span><span class="n">device_type</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">task_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">task_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compiled_task</span><span class="p">:</span> <span class="n">CompiledTask</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">CompiledTaskKey</span><span class="p">(</span><span class="n">device_type</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">task_str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cached</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">compiled_task</span>
+
+
+<span class="n">compiled_task_cache</span> <span class="o">=</span> <span class="n">CompiledTaskCache</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_inputs</span><span class="p">(</span><span class="n">traced_inputs</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">TensorSignature</span><span class="p">],</span> <span class="n">inputs</span><span class="p">):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_type</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtype_to_torch</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span> <span class="k">as</span> <span class="n">TorchTensor</span>
+
+    <span class="n">symbol_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">traced</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">traced_inputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">TorchTensor</span><span class="p">):</span>
+            <span class="n">traced_dev_kind</span> <span class="o">=</span> <span class="n">traced</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">new_device_target</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">new</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> <span class="s1">&#39;vcuda&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+            <span class="k">if</span> <span class="n">traced_dev_kind</span> <span class="o">!=</span> <span class="n">new_device_target</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;device mismatch at arg </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> between original: </span><span class="si">{</span><span class="n">traced</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2"> and new: </span><span class="si">{</span><span class="n">new</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">dtype_to_torch</span><span class="p">(</span><span class="n">data_type</span><span class="p">(</span><span class="n">traced</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span> <span class="o">!=</span> <span class="n">new</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dtype mismatch at arg </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> between original: </span><span class="si">{</span><span class="n">traced</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2"> and new: </span><span class="si">{</span><span class="n">new</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">traced_shape</span> <span class="o">=</span> <span class="n">traced</span><span class="o">.</span><span class="n">shape</span>
+            <span class="n">concrete_shape</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">shape</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">concrete_shape</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Rank of input </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> not equal to original. (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">concrete_shape</span><span class="p">)</span><span class="si">}</span><span class="s2"> vs. </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">orig_shape</span><span class="p">,</span> <span class="n">new_shape</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">,</span> <span class="n">concrete_shape</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_shape</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">orig_shape</span> <span class="o">!=</span> <span class="n">new_shape</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;shape mismatch at dimension </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">, original: </span><span class="se">\</span>
+<span class="s1">                                        </span><span class="si">{</span><span class="n">orig_shape</span><span class="si">}</span><span class="s1"> vs. new: </span><span class="si">{</span><span class="n">new_shape</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">orig_shape</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">symbol_map</span><span class="p">:</span>
+                    <span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_shape</span>
+                <span class="k">elif</span> <span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span> <span class="o">!=</span> <span class="n">new_shape</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;There exists multiple instances of the same symbol </span><span class="si">{</span><span class="n">orig_shape</span><span class="si">}</span><span class="se">\</span>
+<span class="s2">                        with different values in inputs (ex: </span><span class="si">{</span><span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">new_shape</span><span class="si">}</span><span class="s2">)&quot;</span>
+                    <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">traced_dev_kind</span> <span class="o">=</span> <span class="n">traced</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">traced_dev_kind</span> <span class="o">!=</span> <span class="n">new</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">target</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;device mismatch at arg </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> between original: </span><span class="si">{</span><span class="n">traced</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2"> and new: </span><span class="si">{</span><span class="n">new</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">data_type</span><span class="p">(</span><span class="n">traced</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">!=</span> <span class="n">new</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dtype mismatch at arg </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> between original: </span><span class="si">{</span><span class="n">traced</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2"> and new: </span><span class="si">{</span><span class="n">new</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">traced_shape</span> <span class="o">=</span> <span class="n">traced</span><span class="o">.</span><span class="n">shape</span>
+            <span class="n">concrete_shape</span> <span class="o">=</span> <span class="n">new</span><span class="o">.</span><span class="n">shape</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">concrete_shape</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Rank of input </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> not equal to original. (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">concrete_shape</span><span class="p">)</span><span class="si">}</span><span class="s2"> vs. </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">orig_shape</span><span class="p">,</span> <span class="n">new_shape</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">traced_shape</span><span class="p">,</span> <span class="n">concrete_shape</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_shape</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">orig_shape</span> <span class="o">!=</span> <span class="n">new_shape</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">&#39;shape mismatch at dimension </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">, original: </span><span class="se">\</span>
+<span class="s1">                                        </span><span class="si">{</span><span class="n">orig_shape</span><span class="si">}</span><span class="s1"> vs. new: </span><span class="si">{</span><span class="n">new_shape</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">orig_shape</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">symbol_map</span><span class="p">:</span>
+                    <span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_shape</span>
+                <span class="k">elif</span> <span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span> <span class="o">!=</span> <span class="n">new_shape</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;There exists multiple instances of the same symbol </span><span class="si">{</span><span class="n">orig_shape</span><span class="si">}</span><span class="se">\</span>
+<span class="s2">                        with different values in inputs (ex: </span><span class="si">{</span><span class="n">symbol_map</span><span class="p">[</span><span class="n">orig_shape</span><span class="p">]</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">new_shape</span><span class="si">}</span><span class="s2">)&quot;</span>
+                    <span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

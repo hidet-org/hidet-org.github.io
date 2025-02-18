@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Using Rule-based Scheduling &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/developer-guides/add-new-operator-rule-based';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using Template-based Scheduling" href="add-new-operator-template-based.html" />
+    <link rel="prev" title="Define Operator Computation" href="add-new-operator-compute-definition.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/gallery/developer-guides/add-new-operator-rule-based.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using Rule-based Scheduling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-steps-to-define-a-new-operator">Three steps to define a new operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-matrix-multiplication-example">Batch Matrix Multiplication Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-computation-task-class">1. Define the computation task class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-operator-class">2. Define the operator class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-function-to-create-the-operator-instance">3. Define a function to create the operator instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-defined-operator">Use the defined operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scheduling-machanisms">Two Scheduling Machanisms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-gallery-developer-guides-add-new-operator-rule-based-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="using-rule-based-scheduling">
+<span id="sphx-glr-gallery-developer-guides-add-new-operator-rule-based-py"></span><h1>Using Rule-based Scheduling<a class="headerlink" href="#using-rule-based-scheduling" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>In the previous tutorial, we have learned how to define the computation using compute primitives and wrap it into a
+<a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a>. In this tutorial, we will learn how to add an operator (i.e.,
+<a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.Operator" title="hidet.graph.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a>) with given computation definition, and use hidet’s provided rule-based scheduler to
+automatically schedule the computation into a tensor program.</p>
+<section id="three-steps-to-define-a-new-operator">
+<h2>Three steps to define a new operator<a class="headerlink" href="#three-steps-to-define-a-new-operator" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>There are three steps to define a new operator in Hidet.</p>
+<ol class="arabic simple">
+<li><p>Define the computation task class by inheriting <a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a>.</p></li>
+<li><p>Define the operator class by inheriting <a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.Operator" title="hidet.graph.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a>.</p></li>
+<li><p>Define a function to create the operator instance.</p></li>
+</ol>
+</section>
+<section id="batch-matrix-multiplication-example">
+<h2>Batch Matrix Multiplication Example<a class="headerlink" href="#batch-matrix-multiplication-example" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>We will take the batch matrix multiplication as an example to illustrate the three steps.</p>
+<section id="define-the-computation-task-class">
+<h3>1. Define the computation task class<a class="headerlink" href="#define-the-computation-task-class" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>We define the computation task class <strong>BatchMatmulTask</strong> by inheriting <a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> class. The
+<strong>BatchMatmulTask</strong> class’s constructor function takes two arguments, <strong>a</strong> and <strong>b</strong> that are the input tensor nodes
+of the batch matrix multiplication.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.compute</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">compute</span><span class="p">,</span> <span class="n">reduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.task</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BatchMatmulTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">):</span>
+        <span class="c1"># get the input sizes</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="c1"># define the computation</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span>
+            <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">k_size</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># call the parent class constructor to initialize the task</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;batch_matmul&#39;</span><span class="p">,</span>  <span class="c1"># the name of the task</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>  <span class="c1"># the input tensor nodes</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>  <span class="c1"># the output tensor nodes</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="define-the-operator-class">
+<h3>2. Define the operator class<a class="headerlink" href="#define-the-operator-class" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>Our next step is to define the operator class <strong>BatchMatmulOp</strong> by inheriting <a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.Operator" title="hidet.graph.Operator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code></a> class.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.ops.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">input_like</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BatchMatmulOp</span><span class="p">(</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="c1"># call the parent class constructor to initialize the operator</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>  <span class="c1"># the input tensors</span>
+            <span class="n">attributes</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">task</span><span class="o">=</span><span class="n">BatchMatmulTask</span><span class="p">(</span>  <span class="c1"># the task of the operator</span>
+                <span class="c1"># create tensor nodes (TensorNode) with the same shape and dtype as the tensors (Tensor)</span>
+                <span class="n">input_like</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
+                <span class="n">input_like</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="define-a-function-to-create-the-operator-instance">
+<h3>3. Define a function to create the operator instance<a class="headerlink" href="#define-a-function-to-create-the-operator-instance" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>We define a function <strong>batch_matmul</strong> to create the operator instance <strong>BatchMatmulOp</strong> and return the output tensor.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_matmul</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="c1"># get_output(0) returns the first output tensor of the operator</span>
+    <span class="k">return</span> <span class="n">BatchMatmulOp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="use-the-defined-operator">
+<h3>Use the defined operator<a class="headerlink" href="#use-the-defined-operator" title="Permalink to this heading"><span>¶</span></a></h3>
+<p>The new operator has no difference with the hidet provided operators, as we define hidet operators in the same way.
+For example, when we optimize the flow graph, this new operator can also fuse surrounding operators.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">hidet</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">demo_usage</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">batch_matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+
+<span class="n">demo_usage</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[[ 1.1  -0.99  1.03]
+  [ 0.55  0.46  0.13]]
+
+ [[-1.56 -0.44  0.02]
+  [-1.53  1.17  0.72]]]
+Tensor(shape=(2, 3, 2), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[[-0.82 -1.39]
+  [-1.25  0.12]
+  [ 0.97  0.18]]
+
+ [[ 0.45  1.01]
+  [-0.76  0.15]
+  [-0.68  1.17]]]
+Tensor(shape=(2, 2, 2), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
+[[[ 1.35 -1.46]
+  [-0.89 -0.69]]
+
+ [[-0.39 -1.63]
+  [-2.08 -0.53]]]
+</pre></div>
+</div>
+</section>
+</section>
+<section id="two-scheduling-machanisms">
+<h2>Two Scheduling Machanisms<a class="headerlink" href="#two-scheduling-machanisms" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>We only define the computation of the operator, and leave the scheduling to the rule-based scheduler provided by
+hidet. We call this method of scheduling as <strong>rule-based scheduling</strong>. Most hidet operators are using the same
+rule-based scheduler as we used in this example. Our experience shows that the rule-based
+scheduler can achieve good performance for operators that do not have large amount of reduction. However, for
+operators like matrix multiplication, convolution, etc., the rule-based scheduler may not be able to achieve the
+best performance as it does not use shared memory to cache the data loading. Thus, hidet also provides another
+scheduling mechanism, the <strong>template-based scheduling</strong>.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>In this tutorial, we have learned how to define a new operator with given computation definition, and use hidet’s
+provided rule-based scheduler to automatically schedule the computation into a tensor program. In the next tutorial,
+we will learn how to use the template-based scheduling to achieve better performance.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.226 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-new-operator-rule-based-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/ae45ce2035a9445efba7c195c2206725/add-new-operator-rule-based.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-rule-based.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/84e932728f240aec1767688615b91291/add-new-operator-rule-based.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-new-operator-rule-based.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/23cb2918e5115ce92846252180b95c7e/add-new-operator-rule-based.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">add-new-operator-rule-based.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="add-new-operator-compute-definition.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Define Operator Computation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="add-new-operator-template-based.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Using Template-based Scheduling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-steps-to-define-a-new-operator">Three steps to define a new operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-matrix-multiplication-example">Batch Matrix Multiplication Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-computation-task-class">1. Define the computation task class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-operator-class">2. Define the operator class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-function-to-create-the-operator-instance">3. Define a function to create the operator instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-defined-operator">Use the defined operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-scheduling-machanisms">Two Scheduling Machanisms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>hidet.runtime.compiled_app &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/hidet/runtime/compiled_app';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for hidet.runtime.compiled_app</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">asdict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.compiled_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompiledModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.compiled_graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompiledGraph</span><span class="p">,</span> <span class="n">save_compiled_graph</span><span class="p">,</span> <span class="n">load_compiled_graph</span><span class="p">,</span> <span class="n">GraphExecution</span>
+
+
+<span class="n">Tensor</span> <span class="o">=</span> <span class="s1">&#39;hidet.graph.tensor.Tensor&#39;</span>  <span class="c1"># used in type hint</span>
+
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AppMetaData</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">hidet_version</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">app_hash</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CompiledApp</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">meta</span><span class="p">:</span> <span class="n">AppMetaData</span><span class="p">,</span>
+        <span class="n">graphs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledGraph</span><span class="p">],</span>
+        <span class="n">modules</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledModule</span><span class="p">],</span>
+        <span class="n">tensors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
+        <span class="n">attributes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span> <span class="n">AppMetaData</span> <span class="o">=</span> <span class="n">meta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledGraph</span><span class="p">]</span> <span class="o">=</span> <span class="n">graphs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="n">tensors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">attributes</span>
+
+
+<div class="viewcode-block" id="create_compiled_app"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.create_compiled_app">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">create_compiled_app</span><span class="p">(</span>
+    <span class="n">graphs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledGraph</span><span class="p">],</span>
+    <span class="n">modules</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledModule</span><span class="p">],</span>
+    <span class="n">tensors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
+    <span class="n">attributes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CompiledApp</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a compiled app from a dict of compiled graphs.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graphs: Dict[str, CompiledGraph]</span>
+<span class="sd">        The compiled graphs used in the app.</span>
+
+<span class="sd">    modules: Dict[str, CompiledModule]</span>
+<span class="sd">        The compiled modules used in the app.</span>
+
+<span class="sd">    tensors: Dict[str, Tensor]</span>
+<span class="sd">        The tensors used in the app.</span>
+
+<span class="sd">    attributes: Dict[str, Union[bool, int, float, str]]</span>
+<span class="sd">        The attributes of the app.</span>
+
+<span class="sd">    name: Optional[str]</span>
+<span class="sd">        The name of the app. If None, the name will be set to &#39;app&#39;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: CompiledApp</span>
+<span class="sd">        The compiled app.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;app&#39;</span>
+
+    <span class="n">hash_obj</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+    <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">graph_name</span><span class="p">,</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">graphs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">graph_name</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">graph_hash</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="n">app_hash</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">hash_obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">AppMetaData</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">hidet_version</span><span class="o">=</span><span class="n">hidet</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">graphs</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">app_hash</span><span class="o">=</span><span class="n">app_hash</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CompiledApp</span><span class="p">(</span><span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">graphs</span><span class="o">=</span><span class="n">graphs</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="n">modules</span><span class="p">,</span> <span class="n">tensors</span><span class="o">=</span><span class="n">tensors</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="save_compiled_app"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.save_compiled_app">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">save_compiled_app</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">CompiledApp</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save a compiled app to a file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    app: CompiledApp</span>
+<span class="sd">        The compiled app to save.</span>
+
+<span class="sd">    path: str</span>
+<span class="sd">        The path to save the compiled app.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmp_dir</span><span class="p">:</span>
+        <span class="c1"># save the meta data</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;meta.json&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">meta_bytes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">asdict</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">meta</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">meta_bytes</span><span class="p">)</span>
+
+        <span class="c1"># save the kernel-only graphs to files</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">app</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">graph_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.hidet&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="n">save_compiled_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">graph_path</span><span class="p">,</span> <span class="n">save_dispatch_table</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">graph_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+                <span class="n">graph_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">graph_dir</span><span class="p">)</span>
+                <span class="n">zip_file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">graph_dir</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">graph_path</span><span class="p">)</span>
+
+        <span class="c1"># save the weights</span>
+        <span class="n">weights</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">weight_hash_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># the hash of the weight -&gt; the index of the weight in the weights list</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">app</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-weights-index.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">weight_index_file</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">weights</span><span class="p">:</span>
+                    <span class="n">weight_ndarray</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                    <span class="n">hash_obj</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+                    <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">weight_ndarray</span><span class="o">.</span><span class="n">tobytes</span><span class="p">())</span>
+                    <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">signature</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+                    <span class="n">weight_hash</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">hash_obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">weight_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">weight_hash_map</span><span class="p">:</span>
+                        <span class="n">weight_hash_map</span><span class="p">[</span><span class="n">weight_hash</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+                        <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weight_ndarray</span><span class="p">)</span>
+                    <span class="n">weight_index</span> <span class="o">=</span> <span class="n">weight_hash_map</span><span class="p">[</span><span class="n">weight_hash</span><span class="p">]</span>
+                    <span class="n">weight_index_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">weight_index</span><span class="p">))</span>
+
+        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;weights.npz&#39;</span><span class="p">),</span> <span class="o">*</span><span class="n">weights</span><span class="p">)</span>
+
+        <span class="c1"># save the contents of the current dir to a zip file</span>
+        <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="n">zip_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="n">arcname</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="n">tmp_dir</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="load_compiled_app"><a class="viewcode-back" href="../../../python_api/runtime/index.html#hidet.runtime.load_compiled_app">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">load_compiled_app</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CompiledApp</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a compiled app from a file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path: str</span>
+<span class="sd">        The path to the compiled app file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ret: CompiledApp</span>
+<span class="sd">        The loaded compiled app.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>  <span class="c1"># pylint: disable=redefined-outer-name</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.dataclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">from_dict</span>
+
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+        <span class="c1"># load the meta data</span>
+        <span class="k">with</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;meta.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">meta_bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">meta</span><span class="p">:</span> <span class="n">AppMetaData</span> <span class="o">=</span> <span class="n">from_dict</span><span class="p">(</span><span class="n">AppMetaData</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">meta_bytes</span><span class="p">))</span>
+
+        <span class="c1"># extract the app if needed</span>
+        <span class="n">app_dir</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">cache_file</span><span class="p">(</span><span class="s1">&#39;apps&#39;</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">app_hash</span><span class="p">)</span>
+        <span class="n">meta_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app_dir</span><span class="p">,</span> <span class="s1">&#39;meta.json&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">meta_path</span><span class="p">):</span>
+            <span class="c1"># we only extract the app when it is not in our cache dir.</span>
+            <span class="c1"># we used &#39;meta.json&#39; as the indicator whether the app is there or not.</span>
+            <span class="c1"># if the app is not there, we extract everything but the weights in the app to the cache dir</span>
+            <span class="n">files_to_extract</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span> <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;weights.npz&#39;</span><span class="p">]</span>
+            <span class="n">zip_file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">app_dir</span><span class="p">,</span> <span class="n">files_to_extract</span><span class="p">)</span>
+
+        <span class="c1"># load the compiled graphs</span>
+        <span class="n">graphs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CompiledGraph</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">graph_name</span> <span class="ow">in</span> <span class="n">meta</span><span class="o">.</span><span class="n">graphs</span><span class="p">:</span>
+            <span class="n">graphs</span><span class="p">[</span><span class="n">graph_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_compiled_graph</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app_dir</span><span class="p">,</span> <span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="n">graph_name</span><span class="p">))</span>
+
+        <span class="c1"># load the weights from the app file</span>
+        <span class="n">device2weights</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;weights.npz&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">npz</span><span class="p">:</span>
+            <span class="n">weights</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">npz</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">graph_name</span> <span class="ow">in</span> <span class="n">meta</span><span class="o">.</span><span class="n">graphs</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">:</span> <span class="n">CompiledGraph</span> <span class="o">=</span> <span class="n">graphs</span><span class="p">[</span><span class="n">graph_name</span><span class="p">]</span>
+            <span class="n">weight_index_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app_dir</span><span class="p">,</span> <span class="s1">&#39;graphs&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-weights-index.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">graph_name</span><span class="p">))</span>
+            <span class="n">graph_weights</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">weight_index_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">weight_indices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">weight_index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">weight_indices</span><span class="p">):</span>
+                    <span class="n">execution</span><span class="p">:</span> <span class="n">GraphExecution</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">graph_execution</span>
+                    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">execution</span><span class="o">.</span><span class="n">tensor_device</span><span class="p">[</span><span class="n">execution</span><span class="o">.</span><span class="n">weights_index</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+                    <span class="k">if</span> <span class="n">weight_index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">device2weights</span><span class="p">[</span><span class="n">device</span><span class="p">]:</span>
+                        <span class="n">device2weights</span><span class="p">[</span><span class="n">device</span><span class="p">][</span><span class="n">weight_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">weight_index</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">graph_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">device2weights</span><span class="p">[</span><span class="n">device</span><span class="p">][</span><span class="n">weight_index</span><span class="p">])</span>
+            <span class="n">graphs</span><span class="p">[</span><span class="n">graph_name</span><span class="p">]</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span><span class="n">graph_weights</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">CompiledApp</span><span class="p">(</span><span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">graphs</span><span class="o">=</span><span class="n">graphs</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">{},</span> <span class="n">tensors</span><span class="o">=</span><span class="p">{},</span> <span class="n">attributes</span><span class="o">=</span><span class="p">{})</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

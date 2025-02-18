@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Using Template-based Scheduling &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/developer-guides/add-new-operator-template-based';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Add Operator Resolve Rule" href="add-operator-resolve-rule.html" />
+    <link rel="prev" title="Using Rule-based Scheduling" href="add-new-operator-rule-based.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/gallery/developer-guides/add-new-operator-template-based.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using Template-based Scheduling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override-implement-cuda-method">Override <code class="docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-the-tensor-program">Implement the tensor-program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-operator">Define the operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-gallery-developer-guides-add-new-operator-template-based-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="using-template-based-scheduling">
+<span id="sphx-glr-gallery-developer-guides-add-new-operator-template-based-py"></span><h1>Using Template-based Scheduling<a class="headerlink" href="#using-template-based-scheduling" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>In the previous tutorial, we have learned how to define a new operator with rule-based scheduling. Rule-based scheduling
+is a convenient way to define a new operator, but it is not efficient enough for operators with large amount of
+reduction. In this tutorial, we will learn how to define a new operator with <strong>template-based scheduling</strong>.
+Template-based scheduling allows us to define a tensor program template, and the template will be instantiated for
+different input shapes and tunable hyper-parameters.</p>
+<section id="override-implement-cuda-method">
+<h2>Override <code class="docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method<a class="headerlink" href="#override-implement-cuda-method" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>The <a class="reference internal" href="../../python_api/ir/task.html#hidet.ir.task.Task" title="hidet.ir.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> class have two methods <code class="code docutils literal notranslate"><span class="pre">implement_cpu()</span></code> and <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> that
+can be override when we define a new task.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">hidet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.compute</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">compute</span><span class="p">,</span> <span class="n">reduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.task</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">IRModule</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BatchMatmulFp16Task</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">TensorNode</span><span class="p">):</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">batch_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span>
+            <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
+                <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">k_size</span><span class="p">],</span> <span class="n">fcompute</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">reduce_type</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;batch_matmul_fp16&#39;</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>
+            <span class="n">attributes</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="n">batch_size</span><span class="p">,</span>
+                <span class="s1">&#39;m_size&#39;</span><span class="p">:</span> <span class="n">m_size</span><span class="p">,</span>
+                <span class="s1">&#39;n_size&#39;</span><span class="p">:</span> <span class="n">n_size</span><span class="p">,</span>
+                <span class="s1">&#39;k_size&#39;</span><span class="p">:</span> <span class="n">k_size</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">allow_epilogue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">implement_cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IRModule</span><span class="p">:</span>
+        <span class="c1"># override this method to use template-based scheduling</span>
+        <span class="k">return</span> <span class="n">batch_matmul_mma_fp16_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In above task definition, we override the <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method to use template-based scheduling. Inside
+the <code class="code docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method, we call the <code class="code docutils literal notranslate"><span class="pre">batch_matmul_mma_fp16_schedule()</span></code> function to get a tensor
+program that implements the computation defined in the task.</p>
+</section>
+<section id="implement-the-tensor-program">
+<h2>Implement the tensor-program<a class="headerlink" href="#implement-the-tensor-program" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>We can implement the <code class="code docutils literal notranslate"><span class="pre">batch_matmul_mma_fp16_schedule()</span></code> function in the following way. This function is
+complicated. To learn what it does, we should know both CUDA programming and Hidet Script. Feel free to skip it for
+now.</p>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>This function defines the tensor program based on <em>Hidet Script</em>. Hidet Script is another domain-specific language
+in Hidet that allows developers to write tensor programs in python syntax. We will add more documentation
+to introduce Hidet Script in the future when it gets more stable.</p>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_matmul_mma_fp16_schedule</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BatchMatmulFp16Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IRModule</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">f16</span><span class="p">,</span>
+        <span class="n">spatial</span><span class="p">,</span>
+        <span class="n">repeat</span><span class="p">,</span>
+        <span class="n">shared_tensor</span><span class="p">,</span>
+        <span class="n">register_tensor</span><span class="p">,</span>
+        <span class="n">attrs</span><span class="p">,</span>
+        <span class="n">grid</span><span class="p">,</span>
+        <span class="n">printf</span><span class="p">,</span>
+        <span class="n">cast</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">repeat</span><span class="p">,</span> <span class="n">spatial</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">blockIdx</span><span class="p">,</span> <span class="n">threadIdx</span><span class="p">,</span> <span class="n">syncthreads</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">MmaConfig</span><span class="p">,</span> <span class="n">mma_sync</span>
+
+    <span class="c1"># get the workload size</span>
+    <span class="n">bs</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">]</span>
+    <span class="n">m_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;m_size&#39;</span><span class="p">]</span>
+    <span class="n">n_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;n_size&#39;</span><span class="p">]</span>
+    <span class="n">k_size</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;k_size&#39;</span><span class="p">]</span>
+
+    <span class="c1"># define the template hyper-parameters</span>
+    <span class="n">mma_config</span> <span class="o">=</span> <span class="n">MmaConfig</span><span class="o">.</span><span class="n">m16n8k8_f16_f16</span><span class="p">()</span>
+    <span class="n">block_m</span><span class="p">,</span> <span class="n">block_n</span><span class="p">,</span> <span class="n">block_k</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">8</span>
+    <span class="n">warp_m</span><span class="p">,</span> <span class="n">warp_n</span><span class="p">,</span> <span class="n">warp_k</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">8</span>
+    <span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">mma_m</span><span class="p">,</span> <span class="n">mma_n</span><span class="p">,</span> <span class="n">mma_k</span> <span class="o">=</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">k</span>  <span class="c1"># 16, 8, 8</span>
+    <span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">,</span> <span class="n">mma_count</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="n">warp_count_m</span> <span class="o">*</span> <span class="n">warp_count_n</span> <span class="o">*</span> <span class="n">warp_count_k</span> <span class="o">*</span> <span class="mi">32</span>
+
+    <span class="c1"># define the tensor program</span>
+    <span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">script_module</span><span class="p">()</span> <span class="k">as</span> <span class="n">module</span><span class="p">:</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">load_regs_a</span><span class="p">(</span><span class="n">smem_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">block_m</span><span class="p">,</span> <span class="n">block_k</span><span class="p">],</span> <span class="n">regs_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">]):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Load A registers from shared memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">warp_id</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">mi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">):</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_load_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                        <span class="n">regs_a</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">smem_a</span><span class="p">[</span><span class="n">wi</span> <span class="o">*</span> <span class="n">warp_m</span> <span class="o">+</span> <span class="n">mi</span> <span class="o">*</span> <span class="n">mma_m</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">wk</span> <span class="o">*</span> <span class="n">warp_k</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span>
+                        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">load_regs_b</span><span class="p">(</span><span class="n">smem_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">block_k</span><span class="p">,</span> <span class="n">block_n</span><span class="p">],</span> <span class="n">regs_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">]):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Load B registers from shared memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">warp_id</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">mj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mma_count_n</span><span class="p">):</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_load_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                        <span class="n">regs_b</span><span class="p">[</span><span class="n">mj</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">smem_b</span><span class="p">[</span><span class="n">wk</span> <span class="o">*</span> <span class="n">warp_k</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">wj</span> <span class="o">*</span> <span class="n">warp_n</span> <span class="o">+</span> <span class="n">mj</span> <span class="o">*</span> <span class="n">mma_n</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>
+                        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">warp_mma</span><span class="p">(</span>
+            <span class="n">regs_a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">],</span>
+            <span class="n">regs_b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">],</span>
+            <span class="n">regs_c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">],</span>
+        <span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Perform warp-level matrix multiplication.&quot;&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">mj</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">mma_sync</span><span class="p">(</span><span class="n">mma_config</span><span class="p">,</span> <span class="o">~</span><span class="n">regs_a</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">~</span><span class="n">regs_b</span><span class="p">[</span><span class="n">mj</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">~</span><span class="n">regs_c</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">mj</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">store_c</span><span class="p">(</span><span class="n">regs_c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">]):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Store C registers to global memory.&quot;&quot;&quot;</span>
+            <span class="n">warp_id</span><span class="p">,</span> <span class="n">lane_id</span> <span class="o">=</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">,</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">%</span> <span class="mi">32</span>
+            <span class="n">offset_m</span><span class="p">,</span> <span class="n">offset_n</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m</span><span class="p">,</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n</span>
+            <span class="n">gmem_c</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_m</span><span class="p">:,</span> <span class="n">offset_n</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">k_round</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">warp_count_k</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">wi</span><span class="p">,</span> <span class="n">wj</span><span class="p">,</span> <span class="n">wk</span> <span class="ow">in</span> <span class="n">spatial</span><span class="p">(</span><span class="n">warp_count_m</span><span class="p">,</span> <span class="n">warp_count_n</span><span class="p">,</span> <span class="n">warp_count_k</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">warp_id</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">wk</span> <span class="o">==</span> <span class="n">k_round</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">mj</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="n">mma_count_m</span><span class="p">,</span> <span class="n">mma_count_n</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                            <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+                            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_store_map</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">lane_id</span><span class="p">):</span>
+                                <span class="n">gmem_c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                                    <span class="p">[</span><span class="n">wi</span> <span class="o">*</span> <span class="n">warp_m</span> <span class="o">+</span> <span class="n">mi</span> <span class="o">*</span> <span class="n">mma_m</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">wj</span> <span class="o">*</span> <span class="n">warp_n</span> <span class="o">+</span> <span class="n">mj</span> <span class="o">*</span> <span class="n">mma_n</span> <span class="o">+</span> <span class="n">j</span><span class="p">],</span>
+                                    <span class="n">regs_c</span><span class="p">[</span><span class="n">mi</span><span class="p">,</span> <span class="n">mj</span><span class="p">,</span> <span class="n">p</span><span class="p">],</span>
+                                    <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="p">)</span>
+                                <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">batch_matmul_kernel</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">f16</span><span class="p">[</span><span class="n">bs</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">]</span>
+        <span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Batch matrix multiplication kernel.&quot;&quot;&quot;</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">grid_dim</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">m_size</span> <span class="o">+</span> <span class="n">block_m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_m</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">n_size</span> <span class="o">+</span> <span class="n">block_n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_n</span><span class="p">,</span>
+                <span class="n">bs</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">block_dim</span> <span class="o">=</span> <span class="n">threads</span>
+            <span class="n">offset_m</span><span class="p">,</span> <span class="n">offset_n</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m</span><span class="p">,</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n</span>
+            <span class="n">smem_a</span> <span class="o">=</span> <span class="n">shared_tensor</span><span class="p">(</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">block_m</span><span class="p">,</span> <span class="n">block_k</span><span class="p">])</span>
+            <span class="n">smem_b</span> <span class="o">=</span> <span class="n">shared_tensor</span><span class="p">(</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">block_k</span><span class="p">,</span> <span class="n">block_n</span><span class="p">])</span>
+            <span class="n">regs_a</span> <span class="o">=</span> <span class="n">register_tensor</span><span class="p">(</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">a_elements</span><span class="p">])</span>
+            <span class="n">regs_b</span> <span class="o">=</span> <span class="n">register_tensor</span><span class="p">(</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">b_elements</span><span class="p">])</span>
+            <span class="n">regs_c</span> <span class="o">=</span> <span class="n">register_tensor</span><span class="p">(</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">])</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">mma_config</span><span class="o">.</span><span class="n">c_elements</span><span class="p">):</span>
+                <span class="n">regs_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="k">for</span> <span class="n">k0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">k_size</span> <span class="o">+</span> <span class="n">block_k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_k</span><span class="p">):</span>
+                <span class="n">offset_k</span> <span class="o">=</span> <span class="n">k0</span> <span class="o">*</span> <span class="n">block_k</span>
+                <span class="n">gmem_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_m</span><span class="p">:,</span> <span class="n">offset_k</span><span class="p">:]</span>
+                <span class="n">gmem_b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">blockIdx</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">offset_k</span><span class="p">:,</span> <span class="n">offset_n</span><span class="p">:]</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                    <span class="n">smem_a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmem_a</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">],</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">repeat</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                    <span class="n">smem_b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmem_b</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">protected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">syncthreads</span><span class="p">()</span>
+                <span class="n">load_regs_a</span><span class="p">(</span><span class="n">smem_a</span><span class="p">,</span> <span class="n">regs_a</span><span class="p">)</span>
+                <span class="n">load_regs_b</span><span class="p">(</span><span class="n">smem_b</span><span class="p">,</span> <span class="n">regs_b</span><span class="p">)</span>
+                <span class="n">warp_mma</span><span class="p">(</span><span class="n">regs_a</span><span class="p">,</span> <span class="n">regs_b</span><span class="p">,</span> <span class="n">regs_c</span><span class="p">)</span>
+                <span class="n">syncthreads</span><span class="p">()</span>
+            <span class="n">store_c</span><span class="p">(</span><span class="n">regs_c</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+    <span class="n">ir_module</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">ir_module</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ir_module</span>
+</pre></div>
+</div>
+</section>
+<section id="define-the-operator">
+<h2>Define the operator<a class="headerlink" href="#define-the-operator" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>The remaining part is the same as the rule-based scheduling method to add new operator.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.ops.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">input_like</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BatchMatmulFp16Op</span><span class="p">(</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">hidet</span><span class="o">.</span><span class="n">float16</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">hidet</span><span class="o">.</span><span class="n">float16</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span>
+            <span class="n">attributes</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">task</span><span class="o">=</span><span class="n">BatchMatmulFp16Task</span><span class="p">(</span><span class="n">input_like</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="n">input_like</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)),</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">batch_matmul_fp16</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">BatchMatmulFp16Op</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">demo_usage</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">batch_matmul_fp16</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+
+<span class="n">demo_usage</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[-1.16 -1.77]
+  [-0.56 -1.48]]]
+Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[-0.52 -0.15]
+  [-0.36  0.03]]]
+Tensor(shape=(1, 2, 2), dtype=&#39;float16&#39;, device=&#39;cuda:0&#39;)
+[[[1.25 0.12]
+  [0.83 0.04]]]
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>In this tutorial, we have shown how to use the template-based scheduling mechanism to add new operators. Basically,
+what we need to do is to override the <strong>implement_cuda</strong> or <strong>implement_cpu</strong> method of the task class, and implement
+the task to get an IR module. In this example, we used Hidet Script to implement the task, but you can also use
+other ways such as IR builder.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.020 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-new-operator-template-based-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/505271c15f9420825bafda29bb62ccf7/add-new-operator-template-based.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-template-based.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f6c5686229a8640aa30e8675d0327df3/add-new-operator-template-based.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-new-operator-template-based.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e209050e14ecc401209af1f81eaadd65/add-new-operator-template-based.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">add-new-operator-template-based.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="add-new-operator-rule-based.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Using Rule-based Scheduling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="add-operator-resolve-rule.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Add Operator Resolve Rule</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#override-implement-cuda-method">Override <code class="docutils literal notranslate"><span class="pre">implement_cuda()</span></code> method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-the-tensor-program">Implement the tensor-program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-operator">Define the operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Computation times &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sg_execution_times';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sg_execution_times.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computation times</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="computation-times">
+<span id="sphx-glr-sg-execution-times"></span><h1>Computation times<a class="headerlink" href="#computation-times" title="Permalink to this heading"><span>¶</span></a></h1>
+<p><strong>13:37.894</strong> total execution time for 17 files <strong>from all galleries</strong>:</p>
+<div class="docutils container">
+<style scoped>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" class="init">
+$(document).ready( function () {
+    $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+} );
+</script><div class="pst-scrollable-table-container"><table class="table table-striped sg-datatable">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Mem (MB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/developer-guides/add-torch-operator-mapping.html#sphx-glr-gallery-developer-guides-add-torch-operator-mapping-py"><span class="std std-ref">Add PyTorch Operator Mapping</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-torch-operator-mapping.py</span></code>)</p></td>
+<td><p>08:35.712</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/tutorials/optimize-pytorch-model.html#sphx-glr-gallery-tutorials-optimize-pytorch-model-py"><span class="std std-ref">Optimize PyTorch Model</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/tutorials/optimize-pytorch-model.py</span></code>)</p></td>
+<td><p>02:11.220</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/getting-started/quick-start.html#sphx-glr-gallery-getting-started-quick-start-py"><span class="std std-ref">Quick Start</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/getting-started/quick-start.py</span></code>)</p></td>
+<td><p>02:01.228</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/tutorials/optimize-onnx-model.html#sphx-glr-gallery-tutorials-optimize-onnx-model-py"><span class="std std-ref">Optimize ONNX Model</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/tutorials/optimize-onnx-model.py</span></code>)</p></td>
+<td><p>00:42.205</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/developer-guides/hidet-script-dynamic-kernel.html#sphx-glr-gallery-developer-guides-hidet-script-dynamic-kernel-py"><span class="std std-ref">Writing Dynamic kernel</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/hidet-script-dynamic-kernel.py</span></code>)</p></td>
+<td><p>00:01.137</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/developer-guides/add-new-operator-compute-definition.html#sphx-glr-gallery-developer-guides-add-new-operator-compute-definition-py"><span class="std std-ref">Define Operator Computation</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-new-operator-compute-definition.py</span></code>)</p></td>
+<td><p>00:01.114</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/hidet-script/3-kernel-functions.html#sphx-glr-gallery-hidet-script-3-kernel-functions-py"><span class="std std-ref">Kernel Functions</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/3-kernel-functions.py</span></code>)</p></td>
+<td><p>00:01.090</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/hidet-script/5-efficient-matmul.html#sphx-glr-gallery-hidet-script-5-efficient-matmul-py"><span class="std std-ref">More Efficient Matrix Multiplication</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/5-efficient-matmul.py</span></code>)</p></td>
+<td><p>00:01.072</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/developer-guides/add-new-operator-template-based.html#sphx-glr-gallery-developer-guides-add-new-operator-template-based-py"><span class="std std-ref">Using Template-based Scheduling</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-new-operator-template-based.py</span></code>)</p></td>
+<td><p>00:01.020</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/hidet-script/4-naive-matmul.html#sphx-glr-gallery-hidet-script-4-naive-matmul-py"><span class="std std-ref">Naive Matrix Multiplication</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/4-naive-matmul.py</span></code>)</p></td>
+<td><p>00:00.852</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/how-to-guides/visualize-flow-graph.html#sphx-glr-gallery-how-to-guides-visualize-flow-graph-py"><span class="std std-ref">Visualize Flow Graph</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/how-to-guides/visualize-flow-graph.py</span></code>)</p></td>
+<td><p>00:00.301</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/developer-guides/add-new-operator-rule-based.html#sphx-glr-gallery-developer-guides-add-new-operator-rule-based-py"><span class="std std-ref">Using Rule-based Scheduling</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-new-operator-rule-based.py</span></code>)</p></td>
+<td><p>00:00.226</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/hidet-script/0-hello-world.html#sphx-glr-gallery-hidet-script-0-hello-world-py"><span class="std std-ref">Hello World!</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/0-hello-world.py</span></code>)</p></td>
+<td><p>00:00.205</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/hidet-script/1-scalar-addition.html#sphx-glr-gallery-hidet-script-1-scalar-addition-py"><span class="std std-ref">Scalar Addition</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/1-scalar-addition.py</span></code>)</p></td>
+<td><p>00:00.201</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/hidet-script/2-vector-addition.html#sphx-glr-gallery-hidet-script-2-vector-addition-py"><span class="std std-ref">Vector Addition</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/hidet-script/2-vector-addition.py</span></code>)</p></td>
+<td><p>00:00.198</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gallery/developer-guides/add-operator-resolve-rule.html#sphx-glr-gallery-developer-guides-add-operator-resolve-rule-py"><span class="std std-ref">Add Operator Resolve Rule</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-operator-resolve-rule.py</span></code>)</p></td>
+<td><p>00:00.103</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="gallery/developer-guides/add-subgraph-rewrite-rule.html#sphx-glr-gallery-developer-guides-add-subgraph-rewrite-rule-py"><span class="std std-ref">Add Sub-Graph Rewrite Rule</span></a> (<code class="docutils literal notranslate"><span class="pre">../../gallery/developer-guides/add-subgraph-rewrite-rule.py</span></code>)</p></td>
+<td><p>00:00.010</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,954 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Quick Start &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/getting-started/quick-start';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Optimize PyTorch Model" href="../tutorials/optimize-pytorch-model.html" />
+    <link rel="prev" title="Build from source" href="../../getting-started/build-from-source.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/gallery/getting-started/quick-start.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quick Start</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-pytorch-model-with-hidet">Optimize PyTorch model with Hidet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-tensors">Define tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-operators">Run operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-tensor-and-flow-graph">Symbolic tensor and flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-flow-graph">Optimize flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-flow-graph">Run flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-step">Next Step</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-gallery-getting-started-quick-start-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="quick-start">
+<span id="sphx-glr-gallery-getting-started-quick-start-py"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>This guide walks through the key functionality of Hidet for tensor computation.</p>
+<section id="optimize-pytorch-model-with-hidet">
+<h2>Optimize PyTorch model with Hidet<a class="headerlink" href="#optimize-pytorch-model-with-hidet" title="Permalink to this heading"><span>¶</span></a></h2>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">torch.compile(...)</span></code> requires PyTorch 2.3+.</p>
+</div>
+<p>The easiest way to use Hidet is to use the <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.compile.html#torch.compile" title="(in PyTorch v2.6)"><code class="xref py py-func docutils literal notranslate"><span class="pre">torch.compile()</span></code></a> function with <code class="docutils literal notranslate"><span class="pre">hidet</span></code> as the backend, such as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model_opt</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.compile.html#torch.compile" title="torch.compile" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">compile</span></a><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;hidet&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we use resnet18 model as an example to show how to optimize a PyTorch model with Hidet.</p>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because tf32 is enabled by default for torch’s cudnn backend, the torch’s precision is slightly low.
+You could disable the tf32 (See also <a class="reference external" href="https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices">PyTorch TF32</a>).</p>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">hidet</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="c1"># take resnet18 as an example</span>
+<span class="n">x</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.randn.html#torch.randn" title="torch.randn" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.dtype" title="torch.dtype" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">torch</span><span class="o">.</span><span class="n">float16</span></a><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/hub.html#torch.hub.load" title="torch.hub.load" class="sphx-glr-backref-module-torch-hub sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><span class="s1">&#39;pytorch/vision:v0.9.0&#39;</span><span class="p">,</span> <span class="s1">&#39;resnet18&#39;</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.cuda" title="torch.nn.Module.cuda" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-method"><span class="n">model</span><span class="o">.</span><span class="n">cuda</span></a><span class="p">()</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.dtype" title="torch.dtype" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">torch</span><span class="o">.</span><span class="n">float16</span></a><span class="p">)</span>
+
+<span class="c1"># optimize the model with &#39;hidet&#39; backend</span>
+<span class="n">model_opt</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.compile.html#torch.compile" title="torch.compile" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">compile</span></a><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;hidet&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max-autotune&#39;</span><span class="p">)</span>
+
+<span class="c1"># run the optimized model</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">model_opt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># check the correctness</span>
+<a href="https://pytorch.org/docs/stable/testing.html#torch.testing.assert_close" title="torch.testing.assert_close" class="sphx-glr-backref-module-torch-testing sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_close</span></a><span class="p">(</span><span class="n">actual</span><span class="o">=</span><span class="n">y1</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">2e-2</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">2e-2</span><span class="p">)</span>
+
+
+<span class="c1"># benchmark the performance</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;eager&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;hidet&#39;</span><span class="p">,</span> <span class="n">model_opt</span><span class="p">)]:</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start_event</span></a> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">Event</span></a><span class="p">(</span><span class="n">enable_timing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">end_event</span></a> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">Event</span></a><span class="p">(</span><span class="n">enable_timing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.synchronize.html#torch.cuda.synchronize" title="torch.cuda.synchronize" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span></a><span class="p">()</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event.record" title="torch.cuda.Event.record" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-method"><span class="n">start_event</span><span class="o">.</span><span class="n">record</span></a><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event.record" title="torch.cuda.Event.record" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-method"><span class="n">end_event</span><span class="o">.</span><span class="n">record</span></a><span class="p">()</span>
+    <a href="https://pytorch.org/docs/stable/generated/torch.cuda.synchronize.html#torch.cuda.synchronize" title="torch.cuda.synchronize" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span></a><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;10}</span><span class="s1">: </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event.elapsed_time" title="torch.cuda.Event.elapsed_time" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-method"><span class="n">start_event</span><span class="o">.</span><span class="n">elapsed_time</span></a><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">end_event</span></a><span class="p">)</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parallel build:   0%|                                    | 0/38 [00:00&lt;?, ?it/s]
+Parallel build:   3%|▋                           | 1/38 [00:02&lt;01:39,  2.69s/it]
+Parallel build:  13%|███▋                        | 5/38 [00:02&lt;00:13,  2.37it/s]
+Parallel build:  21%|█████▉                      | 8/38 [00:03&lt;00:07,  3.92it/s]
+Parallel build:  26%|███████                    | 10/38 [00:03&lt;00:05,  5.20it/s]
+Parallel build:  32%|████████▌                  | 12/38 [00:03&lt;00:06,  4.32it/s]
+Parallel build:  32%|████████▌                  | 12/38 [00:19&lt;00:06,  4.32it/s]
+Parallel build:  39%|██████████▋                | 15/38 [00:20&lt;00:53,  2.34s/it]
+Parallel build:  42%|███████████▎               | 16/38 [00:20&lt;00:44,  2.03s/it]
+Parallel build:  45%|████████████               | 17/38 [00:21&lt;00:39,  1.86s/it]
+Parallel build:  47%|████████████▊              | 18/38 [00:23&lt;00:34,  1.73s/it]
+Parallel build:  50%|█████████████▌             | 19/38 [00:35&lt;01:20,  4.21s/it]
+Parallel build:  53%|██████████████▏            | 20/38 [00:36&lt;01:01,  3.39s/it]
+Parallel build:  58%|███████████████▋           | 22/38 [00:37&lt;00:36,  2.27s/it]
+Parallel build:  61%|████████████████▎          | 23/38 [00:38&lt;00:29,  1.96s/it]
+Parallel build:  63%|█████████████████          | 24/38 [00:39&lt;00:23,  1.67s/it]
+Parallel build:  66%|█████████████████▊         | 25/38 [00:39&lt;00:17,  1.33s/it]
+Parallel build:  68%|██████████████████▍        | 26/38 [00:41&lt;00:16,  1.34s/it]
+Parallel build:  71%|███████████████████▏       | 27/38 [00:52&lt;00:44,  4.02s/it]
+Parallel build:  74%|███████████████████▉       | 28/38 [00:53&lt;00:32,  3.20s/it]
+Parallel build:  76%|████████████████████▌      | 29/38 [01:03&lt;00:47,  5.24s/it]
+Parallel build:  79%|█████████████████████▎     | 30/38 [01:04&lt;00:32,  4.05s/it]
+Parallel build:  82%|██████████████████████     | 31/38 [01:16&lt;00:44,  6.41s/it]
+Parallel build:  84%|██████████████████████▋    | 32/38 [01:18&lt;00:29,  4.90s/it]
+Parallel build:  87%|███████████████████████▍   | 33/38 [01:29&lt;00:33,  6.68s/it]
+Parallel build:  89%|████████████████████████▏  | 34/38 [01:30&lt;00:20,  5.04s/it]
+Parallel build:  92%|████████████████████████▊  | 35/38 [01:30&lt;00:10,  3.56s/it]
+Parallel build:  95%|█████████████████████████▌ | 36/38 [01:31&lt;00:05,  2.85s/it]
+Parallel build:  97%|██████████████████████████▎| 37/38 [01:45&lt;00:06,  6.28s/it]
+Parallel build: 100%|███████████████████████████| 38/38 [01:46&lt;00:00,  4.60s/it]
+Parallel build: 100%|███████████████████████████| 38/38 [01:46&lt;00:00,  2.81s/it]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 48it [00:00, 473.90it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 105it [00:00, 526.33it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 164it [00:00, 554.91it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 179it [00:00, 401.83it/s]
+
+Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 10it [00:00, 88.79it/s]
+Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 10it [00:00, 81.72it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 45it [00:00, 449.47it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 90it [00:00, 448.72it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 151it [00:00, 519.16it/s]/home/ryan/.local/lib/python3.10/site-packages/scipy/stats/_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 177it [00:00, 389.80it/s]
+
+Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 10it [00:00, 87.05it/s]
+Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 12it [00:00, 70.85it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 49it [00:00, 490.00it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 98it [00:00, 464.20it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 145it [00:00, 457.96it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 181it [00:00, 339.12it/s]
+
+Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 9it [00:00, 89.05it/s]
+Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 12it [00:00, 71.60it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 62it [00:00, 617.96it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 124it [00:00, 599.20it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 181it [00:00, 396.66it/s]
+
+Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 10it [00:00, 96.66it/s]
+Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 10it [00:00, 88.33it/s]
+
+Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
+Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 42it [00:00, 418.00it/s]
+Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 89it [00:00, 444.61it/s]
+Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 150it [00:00, 517.68it/s]
+Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 183it [00:00, 341.42it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 48it [00:00, 477.16it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 98it [00:00, 489.07it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 151it [00:00, 507.51it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 179it [00:00, 372.54it/s]
+
+Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 92.06it/s]
+Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 89.45it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 64it [00:00, 635.60it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 128it [00:00, 637.64it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 177it [00:00, 461.07it/s]
+
+Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 99.84it/s]
+Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 96.33it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 36it [00:00, 352.45it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 72it [00:00, 349.10it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 108it [00:00, 353.98it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 150it [00:00, 378.12it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 188it [00:01, 80.59it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 214it [00:01, 82.44it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 214it [00:01, 114.88it/s]
+
+Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 8it [00:00, 61.01it/s]
+Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 12it [00:00, 44.09it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 52it [00:00, 519.76it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 104it [00:00, 477.72it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 153it [00:00, 481.28it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 182it [00:00, 351.09it/s]
+
+Finding the best candidates for reduce_sum (36, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (36, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 138.96it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 61it [00:00, 606.14it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 122it [00:00, 580.52it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 177it [00:00, 430.95it/s]
+
+Finding the best candidates for reduce_sum (50, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (50, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 142.91it/s]
+
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 30it [00:00, 295.68it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 67it [00:00, 336.27it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 103it [00:00, 343.54it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 143it [00:00, 365.39it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 180it [00:00, 210.47it/s]
+Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 188it [00:00, 218.90it/s]
+
+Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 65.69it/s]
+Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 12it [00:00, 53.33it/s]
+
+Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 8it [00:00, 78.40it/s]
+Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 8it [00:00, 76.61it/s]
+
+Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 0it [00:00, ?it/s]
+Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 7it [00:00, 58.63it/s]
+Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 11it [00:00, 41.37it/s]
+
+Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 0it [00:00, ?it/s]
+Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 25it [00:00, 247.04it/s]
+Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 71it [00:00, 366.14it/s]
+Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 108it [00:00, 198.70it/s]
+Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 109it [00:00, 209.90it/s]
+     eager: 0.781 ms
+     hidet: 0.163 ms
+</pre></div>
+</div>
+<p>One operator can have multiple equivalent implementations (i.e., kernel programs) with different performance. We
+usually need to try different implementations for each concrete input shape to find the best one for the specific
+input shape. This process is called <cite>kernel tuning</cite>. To enable kernel tuning, we can use the following config in
+hidet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 - no tuning, default kernel will be used</span>
+<span class="c1"># 1 - tuning in a small search space</span>
+<span class="c1"># 2 - tuning in a large search space, will take longer time and achieves better performance</span>
+<span class="n">hidet</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">dynamo_config</span><span class="o">.</span><span class="n">search_space</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When kernel tuning is enabled, hidet can achieve the following performance on NVIDIA RTX 4090:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>eager: 1.176 ms
+hidet: 0.286 ms
+</pre></div>
+</div>
+<p>Hidet provides some configurations to control the optimization of hidet backend. such as</p>
+<ul class="simple">
+<li><p><strong>Search Space</strong>: you can choose the search space of operator kernel tuning. A larger schedule space usually
+achieves the better performance, but takes longer time to optimize.</p></li>
+<li><p><strong>Correctness Checking</strong>: print the correctness checking report. You can know the numerical difference between the
+hidet generated operator and the original pytorch operator.</p></li>
+<li><p><strong>Other Configurations</strong>: you can also configure the other optimizations of hidet backend, such as using a lower
+precision of data type automatically (e.g., float16), or control the behavior of parallelization of the reduction
+dimension of the matrix multiplication and convolution operators.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>You can learn more about the configuration of hidet as a backend in torch dynamo in the tutorial
+<a class="reference internal" href="../tutorials/optimize-pytorch-model.html"><span class="doc">Optimize PyTorch Model</span></a>.</p>
+</div>
+<p>In the remaining parts, we will show you the key components of Hidet.</p>
+</section>
+<section id="define-tensors">
+<h2>Define tensors<a class="headerlink" href="#define-tensors" title="Permalink to this heading"><span>¶</span></a></h2>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Besides <a class="reference internal" href="../../python_api/root.html#hidet.randn" title="hidet.randn"><code class="xref py py-func docutils literal notranslate"><span class="pre">randn()</span></code></a>, we can also use <a class="reference internal" href="../../python_api/root.html#hidet.zeros" title="hidet.zeros"><code class="xref py py-func docutils literal notranslate"><span class="pre">zeros()</span></code></a>, <a class="reference internal" href="../../python_api/root.html#hidet.ones" title="hidet.ones"><code class="xref py py-func docutils literal notranslate"><span class="pre">ones()</span></code></a>, <a class="reference internal" href="../../python_api/root.html#hidet.full" title="hidet.full"><code class="xref py py-func docutils literal notranslate"><span class="pre">full()</span></code></a>,
+<a class="reference internal" href="../../python_api/root.html#hidet.empty" title="hidet.empty"><code class="xref py py-func docutils literal notranslate"><span class="pre">empty()</span></code></a> to create tensors with different initialized values. We can use <a class="reference internal" href="../../python_api/root.html#hidet.from_torch" title="hidet.from_torch"><code class="xref py py-func docutils literal notranslate"><span class="pre">from_torch()</span></code></a> to
+convert a PyTorch tensor to Hidet tensor that shares the same memory. We can also use <a class="reference internal" href="../../python_api/root.html#hidet.asarray" title="hidet.asarray"><code class="xref py py-func docutils literal notranslate"><span class="pre">asarray()</span></code></a> to
+convert python list or numpy ndarray to Hidet tensor.</p>
+</div>
+<p>A <em>tensor</em> is a n-dimension array. As other machine learning framework,
+Hidet takes <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor" title="hidet.Tensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> as the core object to compute and manipulate.
+The following code defines a tensor with randomly initialized tensor with <a class="reference internal" href="../../python_api/root.html#hidet.randn" title="hidet.randn"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.randn()</span></code></a>.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 3), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+[[-0.89  0.02 -0.7 ]
+ [ 0.31 -0.16 -0.97]]
+</pre></div>
+</div>
+<p>Each <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor" title="hidet.Tensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> has <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.dtype" title="hidet.Tensor.dtype"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dtype</span></code></a> to define the type of each tensor element,
+and <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.device" title="hidet.Tensor.device"><code class="xref py py-attr docutils literal notranslate"><span class="pre">device</span></code></a> to tell which device this tensor resides on, and
+<a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.shape" title="hidet.Tensor.shape"><code class="xref py py-attr docutils literal notranslate"><span class="pre">shape</span></code></a> to indicate the size of each dimension. The example defines a <code class="docutils literal notranslate"><span class="pre">float32</span></code> tensor on
+<code class="docutils literal notranslate"><span class="pre">cuda</span></code> device with shape <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3]</span></code>.</p>
+</section>
+<section id="run-operators">
+<h2>Run operators<a class="headerlink" href="#run-operators" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>Hidet provides <a class="reference internal" href="../../python_api/ops/index.html#module-hidet.ops" title="hidet.ops"><code class="xref py py-mod docutils literal notranslate"><span class="pre">a</span> <span class="pre">bunch</span> <span class="pre">of</span> <span class="pre">operators</span></code></a> (e.g., <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul()</span></code></a> and
+<a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">conv2d()</span></code></a>) to compute and manipulate tensors. We can do a matrix multiplication as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">randn</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">c</span>  <span class="c1"># &#39;d + c&#39; is equivalent to &#39;hidet.ops.add(d, c)&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+[[ 2.13  0.16]
+ [-0.08  2.13]]
+</pre></div>
+</div>
+<p>In this example, the operator is executed on the device at the time we call it, thus it is in an <cite>imperative</cite> style
+of execution. Imperative execution is intuitive and easy to debug. But it prevents some graph-level optimization
+opportunities and suffers from higher kernel dispatch latency.</p>
+<p>In the next section, we would introduce another way to execute operators.</p>
+</section>
+<section id="symbolic-tensor-and-flow-graph">
+<h2>Symbolic tensor and flow graph<a class="headerlink" href="#symbolic-tensor-and-flow-graph" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>In hidet, each tensor has an optional <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.storage" title="hidet.Tensor.storage"><code class="xref py py-attr docutils literal notranslate"><span class="pre">storage</span></code></a> attribute that represents a block of
+memory that stores the contents of the tensor. If the storage attribute is None, the tensor is a <cite>symbolic</cite> tensor.
+We could use <a class="reference internal" href="../../python_api/root.html#hidet.symbol_like" title="hidet.symbol_like"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.symbol_like()</span></code></a> or <a class="reference internal" href="../../python_api/root.html#hidet.symbol" title="hidet.symbol"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.symbol()</span></code></a> to create a symbolic tensor. Symbolic tensors are
+returned if any input tensor of an operator is symbolic. We could know how the symbolic tensor is computed via the
+<a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.trace" title="hidet.Tensor.trace"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trace</span></code></a> attribute. It is a tuple <code class="docutils literal notranslate"><span class="pre">(op,</span> <span class="pre">idx)</span></code> where <code class="docutils literal notranslate"><span class="pre">op</span></code> is the operator produces this
+tensor and <code class="docutils literal notranslate"><span class="pre">idx</span></code> is the index of this tensor in the operator’s outputs.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linear_bias</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">hidet</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">symbol_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">linear_bias</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">trace</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">y</span><span class="o">.</span><span class="n">trace</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>x: Tensor(shape=(2, 3), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+y: Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+from (&lt;hidet.graph.ops.arithmetic.AddOp object at 0x7589399a7730&gt;, 0)
+</pre></div>
+</div>
+<p>We can use trace attribute to construct the computation graph, starting from the symbolic output tensor(s).
+This is what function <a class="reference internal" href="../../python_api/root.html#hidet.trace_from" title="hidet.trace_from"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.trace_from()</span></code></a> does. In hidet, we use <a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.FlowGraph" title="hidet.graph.FlowGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">hidet.graph.FlowGraph</span></code></a> to
+represent the data flow graph (a.k.a, computation graph).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span><span class="p">:</span> <span class="n">hidet</span><span class="o">.</span><span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">trace_from</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[2, 3][cuda]){
+  c = Constant(float32[3, 2][cuda])
+  c_1 = Constant(float32[2][cuda])
+  x_1: float32[2, 2][cuda] = Matmul(x, c, require_prologue=False, transpose_b=False)
+  x_2: float32[2, 2][cuda] = Add(x_1, c_1)
+  return x_2
+}
+</pre></div>
+</div>
+</section>
+<section id="optimize-flow-graph">
+<h2>Optimize flow graph<a class="headerlink" href="#optimize-flow-graph" title="Permalink to this heading"><span>¶</span></a></h2>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We may config optimizations with <a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.PassContext" title="hidet.graph.PassContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassContext</span></code></a>.
+Potential configs:</p>
+<ul class="simple">
+<li><p>Whether to use tensor core.</p></li>
+<li><p>Whether to use low-precision data type (e.g., <code class="docutils literal notranslate"><span class="pre">float16</span></code>).</p></li>
+</ul>
+</div>
+<p>Flow graph is the basic unit of graph-level optimizations in hidet. We can optimize a flow graph with
+<a class="reference internal" href="../../python_api/graph/index.html#hidet.graph.optimize" title="hidet.graph.optimize"><code class="xref py py-func docutils literal notranslate"><span class="pre">hidet.graph.optimize()</span></code></a>. This function applies the predefined passes to optimize given flow graph.
+In this example, we fused the matrix multiplication and element-wise addition into a single operator.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">opt_graph</span><span class="p">:</span> <span class="n">hidet</span><span class="o">.</span><span class="n">FlowGraph</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">opt_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[2, 3][cuda]){
+  c = Constant(float32[2][cuda])
+  c_1 = Constant(float32[3, 2][cuda])
+  x_1: float32[2, 2][cuda] = FusedCudaBatchMatmul(c, x, c_1, fused_graph=FlowGraph(Broadcast, Broadcast, CudaBatchMatmul, Reshape, Add), anchor=2)
+  return x_1
+}
+</pre></div>
+</div>
+</section>
+<section id="run-flow-graph">
+<h2>Run flow graph<a class="headerlink" href="#run-flow-graph" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>We can directly call the flow graph to run it:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">opt_graph</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Generating Hidet IR:   0%|                                | 0/1 [00:00&lt;?, ?it/s]
+Generating Hidet IR: 100%|███████████████████████| 1/1 [00:00&lt;00:00, 127.39it/s]
+
+Appling fusing:   0%|                                     | 0/1 [00:00&lt;?, ?it/s]
+Appling fusing: 100%|█████████████████████████████| 1/1 [00:00&lt;00:00, 33.98it/s]
+Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+[[ 2.13  0.16]
+ [-0.08  2.13]]
+</pre></div>
+</div>
+<p>For CUDA device, a more efficient way is to create a cuda graph to dispatch the kernels in a flow graph
+to the NVIDIA GPU.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">cuda_graph</span> <span class="o">=</span> <span class="n">opt_graph</span><span class="o">.</span><span class="n">cuda_graph</span><span class="p">()</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">cuda_graph</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">a</span><span class="p">])</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+[[ 2.13  0.16]
+ [-0.08  2.13]]
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>In this quick start guide, we walk through several important functionalities of hidet:</p>
+<ul class="simple">
+<li><p>Define tensors.</p></li>
+<li><p>Run operators imperatively.</p></li>
+<li><p>Use symbolic tensor to create computation graph (e.g., flow graph).</p></li>
+<li><p>Optimize and run flow graph.</p></li>
+</ul>
+</section>
+<section id="next-step">
+<h2>Next Step<a class="headerlink" href="#next-step" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>It is time to learn how to use hidet in your project. A good start is to <a class="reference internal" href="../tutorials/optimize-pytorch-model.html#optimize-pytorch-model"><span class="std std-ref">Optimize PyTorch Model</span></a> and
+<a class="reference internal" href="../tutorials/optimize-onnx-model.html#optimize-onnx-model"><span class="std std-ref">Optimize ONNX Model</span></a> with Hidet.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 1.228 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-getting-started-quick-start-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/fa14adfa3f7a821b935f03b65d4c9424/quick-start.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">quick-start.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/3569039cf5f95a13057b8af49e308bad/quick-start.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">quick-start.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/a26acb2fe94bb91fbb9a8b50ee93c6f2/quick-start.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">quick-start.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../getting-started/build-from-source.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Build from source</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tutorials/optimize-pytorch-model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optimize PyTorch Model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-pytorch-model-with-hidet">Optimize PyTorch model with Hidet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-tensors">Define tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-operators">Run operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-tensor-and-flow-graph">Symbolic tensor and flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-flow-graph">Optimize flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-flow-graph">Run flow graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-step">Next Step</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

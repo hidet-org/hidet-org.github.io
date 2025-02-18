@@ -1,0 +1,1863 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Index &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gallery/tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery/how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Index</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.__call__">__call__() (hidet.graph.FlowGraph method)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.Module.__call__">(hidet.graph.Module method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.abs">abs() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.acos">acos() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.acosh">acosh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_avg_pool1d">adaptive_avg_pool1d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_avg_pool2d">adaptive_avg_pool2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_avg_pool3d">adaptive_avg_pool3d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_max_pool1d">adaptive_max_pool1d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_max_pool2d">adaptive_max_pool2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.adaptive_max_pool3d">adaptive_max_pool3d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.add">add() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.add_edge">add_edge() (hidet.utils.DirectedGraph method)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.add_node">add_node() (hidet.utils.DirectedGraph method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.add_quantize_rules">add_quantize_rules() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.addr">addr() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument.after_all_passes">after_all_passes() (hidet.graph.GraphPassInstrument method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument.after_pass">after_pass() (hidet.graph.GraphPassInstrument method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.all">all() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.all_gather">all_gather() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.all_reduce">all_reduce() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.any">any() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.arange">arange() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/option.html#hidet.option.cpu.arch">arch() (hidet.option.cpu static method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.cuda.arch">(hidet.option.cuda static method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.arg_reduce">arg_reduce() (in module hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.argmax">argmax() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.argmin">argmin() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.as_strided">as_strided() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.asarray">asarray() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.asarray">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.asin">asin() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.asinh">asinh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task.assertions">assertions (hidet.ir.task.Task attribute)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.astype">astype() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.atan">atan() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.atan2">atan2() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.atanh">atanh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.attention">attention() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator.attrs">attrs (hidet.graph.Operator attribute)</a>
+
+      <ul>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.attrs">(hidet.ir.task.Task attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/cuda.html#hidet.cuda.available">available() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.avg_pool2d">avg_pool2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.avg_pool3d">avg_pool3d() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.barrier">barrier() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.batch_norm_infer">batch_norm_infer() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument.before_all_passes">before_all_passes() (hidet.graph.GraphPassInstrument method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument.before_pass">before_pass() (hidet.graph.GraphPassInstrument method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.bench_config">bench_config() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_and">bitwise_and() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_invert">bitwise_invert() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_left_shift">bitwise_left_shift() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_or">bitwise_or() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_right_shift">bitwise_right_shift() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_xor">bitwise_xor() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.broadcast">broadcast() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.build">build() (hidet.graph.FlowGraph method)</a>
+
+      <ul>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.build">(hidet.ir.task.Task method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/drivers.html#hidet.drivers.build_ir_module">build_ir_module() (in module hidet.drivers)</a>
+</li>
+      <li><a href="python_api/drivers.html#hidet.drivers.build_ir_module_batch">build_ir_module_batch() (in module hidet.drivers)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator.build_target">build_target (hidet.graph.Operator property)</a>
+</li>
+      <li><a href="python_api/drivers.html#hidet.drivers.build_task">build_task() (in module hidet.drivers)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/option.html#hidet.option.cache_dir">cache_dir() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.cache_operator">cache_operator() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.cast">cast() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.cdiv">cdiv() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.ceil">ceil() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.celu">celu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.clamp">clamp() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.clip">clip() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server">compile_server (class in hidet.option)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledFunction">CompiledFunction (class in hidet.runtime)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledGraph">CompiledGraph (class in hidet.runtime)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule">CompiledModule (class in hidet.runtime)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledTask">CompiledTask (class in hidet.runtime)</a>
+</li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.compute">compute() (in module hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.compute_capability">compute_capability() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.concat">concat() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.configs">configs (hidet.graph.PassContext attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conj">conj() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.context">context() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.contiguous">contiguous() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv1d">conv1d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv1d_gemm">conv1d_gemm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv1d_transpose">conv1d_transpose() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d">conv2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_channel_last">conv2d_channel_last() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_gemm">conv2d_gemm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_gemm_fp16">conv2d_gemm_fp16() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_gemm_fp16_channel_last">conv2d_gemm_fp16_channel_last() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_gemm_image_transform">conv2d_gemm_image_transform() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_transpose">conv2d_transpose() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_transpose_gemm">conv2d_transpose_gemm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv2d_winograd">conv2d_winograd() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv3d">conv3d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv3d_gemm">conv3d_gemm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv3d_transpose">conv3d_transpose() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.conv_pad">conv_pad() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.copy">copy() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.copy_async">copy_async() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.correctness_report">correctness_report() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.cos">cos() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.cosh">cosh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.cpu">cpu (class in hidet.option)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.cpu">cpu() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.cpu_async">cpu_async() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.create_compiled_app">create_compiled_app() (in module hidet.runtime)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.cuda">cuda (class in hidet.option)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.cuda">cuda() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.cuda_">cuda_() (hidet.graph.FlowGraph method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.cuda_async">cuda_async() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.cuda_batch_matmul">cuda_batch_matmul() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.cuda_graph">cuda_graph() (hidet.graph.FlowGraph method)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledGraph.cuda_graph">(hidet.runtime.CompiledGraph method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/cuda.html#hidet.cuda.graph.CudaGraph">CudaGraph (class in hidet.cuda.graph)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.cumsum">cumsum() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.current">current() (hidet.graph.PassContext class method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.OptionContext.current">(hidet.option.OptionContext static method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/option.html#hidet.option.current_context">current_context() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.current_device">current_device() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.current_stream">current_stream() (in module hidet.cuda)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ir/type.html#hidet.ir.type.data_type">data_type() (in module hidet.ir.type)</a>
+</li>
+      <li><a href="python_api/ir/type.html#hidet.ir.type.DataType">DataType (class in hidet.ir.type)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.debug_cache_tuning">debug_cache_tuning() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.debug_enable_var_id">debug_enable_var_id() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.debug_show_var_id">debug_show_var_id() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.debug_show_verbose_flow_graph">debug_show_verbose_flow_graph() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.debug_strict_broadcast_check">debug_strict_broadcast_check() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ir/stmt.html#hidet.ir.stmt.DeclareScope">DeclareScope (class in hidet.ir.stmt)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.default_stream">default_stream() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.detach">detach() (hidet.Tensor method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator.device">device (hidet.graph.Operator property)</a>
+
+      <ul>
+        <li><a href="python_api/tensor.html#hidet.Tensor.device">(hidet.Tensor attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/cuda.html#hidet.cuda.device_count">device_count() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Stream.device_id">device_id() (hidet.cuda.Stream method)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph">DirectedGraph (class in hidet.utils)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.divide">divide() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.dtype">dtype (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task.dummy_arguments">dummy_arguments() (hidet.ir.task.Task method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.dump_graph_ir">dump_graph_ir() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.dump_options">dump_options() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig">DynamoConfig (class in hidet.graph.frontend.torch)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.einsum">einsum() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Event.elapsed_time">elapsed_time() (hidet.cuda.Event method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.embedding_bag">embedding_bag() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.empty">empty() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.empty">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.empty_like">empty_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.empty_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.enable">enable() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.enabled">enabled() (hidet.option.compile_server static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.equal">equal() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.erf">erf() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.error_tolerance">error_tolerance() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Event">Event (class in hidet.cuda)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.execution_mode">execution_mode() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.exp">exp() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.expand_dims">expand_dims() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.expm1">expm1() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.ExternalStream">ExternalStream (class in hidet.cuda)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/utils/index.html#hidet.utils.factorize">factorize() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.fix_gpu_frequency_for_tuning">fix_gpu_frequency_for_tuning() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.flatten">flatten() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.flip">flip() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.floor">floor() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph">FlowGraph (class in hidet.graph)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.forward">forward() (hidet.graph.FlowGraph method)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.free">free() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.free_async">free_async() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.free_host">free_host() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.from_dlpack">from_dlpack() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.from_dlpack">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.from_edges">from_edges() (hidet.utils.DirectedGraph static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.from_numpy">from_numpy() (in module hidet.graph)</a>
+</li>
+      <li><a href="python_api/graph/frontend/onnx.html#hidet.graph.frontend.from_onnx">from_onnx() (in module hidet.graph.frontend)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.from_torch">from_torch() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.from_torch">(in module hidet.graph)</a>
+</li>
+        <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.from_torch">(in module hidet.graph.frontend)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.full">full() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.full">(in module hidet.graph)</a>
+</li>
+        <li><a href="python_api/ops/index.html#hidet.ops.full">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.full_like">full_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.full_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ir/func.html#hidet.ir.func.Function">Function (class in hidet.ir.func)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule.functions">functions (hidet.runtime.CompiledModule attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.fused_operator">fused_operator() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.gather">gather() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.gc_disabled">gc_disabled() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.gcd">gcd() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.gelu">gelu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task.generate_arguments">generate_arguments() (hidet.ir.task.Task method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.cpu.get_arch">get_arch() (hidet.option.cpu static method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.cuda.get_arch">(hidet.option.cuda static method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/option.html#hidet.option.cuda.get_arch_pair">get_arch_pair() (hidet.option.cuda static method)</a>
+</li>
+      <li><a href="python_api/ir/func.html#hidet.ir.func.Function.get_attr">get_attr() (hidet.ir.func.Function method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_bench_config">get_bench_config() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_cache_dir">get_cache_dir() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_cache_operator">get_cache_operator() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_execution_mode">get_execution_mode() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_hexcute_matmul">get_hexcute_matmul() (in module hidet.option)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/option.html#hidet.option.get_num_local_workers">get_num_local_workers() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.get_num_workers">get_num_workers() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.OptionContext.get_option">get_option() (hidet.option.OptionContext method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.get_option">(in module hidet.option)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/option.html#hidet.option.get_parallel_build">get_parallel_build() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_parallel_k">get_parallel_k() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_parallel_tune">get_parallel_tune() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_runtime_check">get_runtime_check() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_save_lower_ir">get_save_lower_ir() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.get_search_space">get_search_space() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument">GraphPassInstrument (class in hidet.graph)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.greater">greater() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.greater_equal">greater_equal() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.group_norm">group_norm() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/cuda.html#hidet.cuda.Event.handle">handle() (hidet.cuda.Event method)</a>
+
+      <ul>
+        <li><a href="python_api/cuda.html#hidet.cuda.Stream.handle">(hidet.cuda.Stream method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.hardshrink">hardshrink() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.hardsigmoid">hardsigmoid() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.hardswish">hardswish() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.hardtanh">hardtanh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.has_edge">has_edge() (hidet.utils.DirectedGraph method)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.has_node">has_node() (hidet.utils.DirectedGraph method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.hexcute_matmul">hexcute_matmul() (in module hidet.option)</a>
+</li>
+      <li>
+    hidet
+
+      <ul>
+        <li><a href="python_api/root.html#module-hidet">module</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/data_types.html#hidet.bfloat16">hidet.bfloat16 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.boolean">hidet.boolean (built-in variable)</a>
+</li>
+      <li>
+    hidet.drivers
+
+      <ul>
+        <li><a href="python_api/drivers.html#module-hidet.drivers">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ffi
+
+      <ul>
+        <li><a href="python_api/ffi/index.html#module-hidet.ffi">module</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/data_types.html#hidet.float16">hidet.float16 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.float32">hidet.float32 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.float64">hidet.float64 (built-in variable)</a>
+</li>
+      <li>
+    hidet.graph
+
+      <ul>
+        <li><a href="python_api/graph/index.html#module-hidet.graph">module</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/data_types.html#hidet.int16">hidet.int16 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.int32">hidet.int32 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.int64">hidet.int64 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.int8">hidet.int8 (built-in variable)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    hidet.ir.compute
+
+      <ul>
+        <li><a href="python_api/ir/compute.html#module-hidet.ir.compute">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ir.expr
+
+      <ul>
+        <li><a href="python_api/ir/expr.html#module-hidet.ir.expr">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ir.func
+
+      <ul>
+        <li><a href="python_api/ir/func.html#module-hidet.ir.func">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ir.stmt
+
+      <ul>
+        <li><a href="python_api/ir/stmt.html#module-hidet.ir.stmt">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ir.task
+
+      <ul>
+        <li><a href="python_api/ir/task.html#module-hidet.ir.task">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.ops
+
+      <ul>
+        <li><a href="python_api/ops/index.html#module-hidet.ops">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.option
+
+      <ul>
+        <li><a href="python_api/option.html#module-hidet.option">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.runtime
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#module-hidet.runtime">module</a>
+</li>
+      </ul></li>
+      <li>
+    hidet.testing
+
+      <ul>
+        <li><a href="python_api/testing/index.html#module-hidet.testing">module</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/data_types.html#hidet.tfloat32">hidet.tfloat32 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.uint16">hidet.uint16 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.uint32">hidet.uint32 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.uint64">hidet.uint64 (built-in variable)</a>
+</li>
+      <li><a href="python_api/data_types.html#hidet.uint8">hidet.uint8 (built-in variable)</a>
+</li>
+      <li>
+    hidet.utils
+
+      <ul>
+        <li><a href="python_api/utils/index.html#module-hidet.utils">module</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.hip_">hip_() (hidet.graph.FlowGraph method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ir/expr.html#hidet.ir.expr.if_then_else">if_then_else() (in module hidet.ir.expr)</a>
+</li>
+      <li><a href="python_api/ir/expr.html#hidet.ir.expr.IfThenElse">IfThenElse (class in hidet.ir.expr)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.im2col">im2col() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.imag">imag() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.index_select">index_select() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.initialize">initialize() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.graph.CudaGraph.inputs">inputs (hidet.cuda.graph.CudaGraph property)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.inputs">(hidet.graph.FlowGraph attribute)</a>
+</li>
+        <li><a href="python_api/graph/index.html#hidet.graph.Operator.inputs">(hidet.graph.Operator attribute)</a>
+</li>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.inputs">(hidet.ir.task.Task attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.instance_norm">instance_norm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.instruments">instruments (hidet.graph.PassContext attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ir/expr.html#hidet.ir.expr.Int">Int (in module hidet.ir.expr)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.internal">internal (class in hidet.option)</a>
+</li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task.inverse_map">inverse_map (hidet.ir.task.Task attribute)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.is_fix_gpu_frequency_for_tuning">is_fix_gpu_frequency_for_tuning() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.is_option_exist">is_option_exist() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.is_symbolic">is_symbolic() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.internal.is_torch_api_use_example_input_shapes">is_torch_api_use_example_input_shapes() (hidet.option.internal static method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.is_use_torch_stream">is_use_torch_stream() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.isfinite">isfinite() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.isinf">isinf() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.isnan">isnan() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.item">item() (hidet.Tensor method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.latency">latency() (hidet.graph.FlowGraph method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.layer_norm">layer_norm() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.layout">layout (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.lcm">lcm() (in module hidet.utils)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.leaky_relu">leaky_relu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.less">less() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.less_equal">less_equal() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.linspace">linspace() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.load">load() (hidet.graph.FlowGraph static method)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.load_compiled_app">load_compiled_app() (in module hidet.runtime)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.load_compiled_graph">load_compiled_graph() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.load_compiled_graph">(in module hidet.runtime)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.load_compiled_module">load_compiled_module() (in module hidet.runtime)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.load_compiled_task">load_compiled_task() (in module hidet.runtime)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.log">log() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.log10">log10() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.log1p">log1p() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.log2">log2() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logaddexp">logaddexp() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logical_and">logical_and() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logical_not">logical_not() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logical_or">logical_or() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logical_xor">logical_xor() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logsigmoid">logsigmoid() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.logsoftmax">logsoftmax() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.lp_norm">lp_norm() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.make_complex">make_complex() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.malloc">malloc() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.malloc_async">malloc_async() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.malloc_host">malloc_host() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.matmul">matmul() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.matmul_cublas">matmul_cublas() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.matmul_nt">matmul_nt() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.matmul_x86">matmul_x86() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.max">max() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.max_pool2d">max_pool2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.max_pool3d">max_pool3d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.maximum">maximum() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.mean">mean() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.mean">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/cuda.html#hidet.cuda.memcpy">memcpy() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.memcpy_async">memcpy_async() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.memory_info">memory_info() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.memset">memset() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.memset_async">memset_async() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.meshgrid">meshgrid() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.min">min() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.minimum">minimum() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.mod">mod() (in module hidet.ops)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="python_api/root.html#module-hidet">hidet</a>
+</li>
+        <li><a href="python_api/drivers.html#module-hidet.drivers">hidet.drivers</a>
+</li>
+        <li><a href="python_api/ffi/index.html#module-hidet.ffi">hidet.ffi</a>
+</li>
+        <li><a href="python_api/graph/index.html#module-hidet.graph">hidet.graph</a>
+</li>
+        <li><a href="python_api/ir/compute.html#module-hidet.ir.compute">hidet.ir.compute</a>
+</li>
+        <li><a href="python_api/ir/expr.html#module-hidet.ir.expr">hidet.ir.expr</a>
+</li>
+        <li><a href="python_api/ir/func.html#module-hidet.ir.func">hidet.ir.func</a>
+</li>
+        <li><a href="python_api/ir/stmt.html#module-hidet.ir.stmt">hidet.ir.stmt</a>
+</li>
+        <li><a href="python_api/ir/task.html#module-hidet.ir.task">hidet.ir.task</a>
+</li>
+        <li><a href="python_api/ops/index.html#module-hidet.ops">hidet.ops</a>
+</li>
+        <li><a href="python_api/option.html#module-hidet.option">hidet.option</a>
+</li>
+        <li><a href="python_api/runtime/index.html#module-hidet.runtime">hidet.runtime</a>
+</li>
+        <li><a href="python_api/testing/index.html#module-hidet.testing">hidet.testing</a>
+</li>
+        <li><a href="python_api/utils/index.html#module-hidet.utils">hidet.utils</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.Module">Module (class in hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.Module">(class in hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule.module_dir">module_dir (hidet.runtime.CompiledModule attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.multiply">multiply() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator.name">name (hidet.graph.Operator attribute)</a>
+
+      <ul>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.name">(hidet.ir.task.Task attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.nbytes">nbytes (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.negative">negative() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.nodes">nodes (hidet.graph.FlowGraph property)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.not_equal">not_equal() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.num_local_workers">num_local_workers() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.num_workers">num_workers() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.numpy">numpy() (hidet.Tensor method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/root.html#hidet.ones">ones() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.ones">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.ones_like">ones_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.ones_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.op">op (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator">Operator (class in hidet.graph)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.OperatorPattern">OperatorPattern (class in hidet.graph.transforms.subgraph_rewrite)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.optimize">optimize() (in module hidet.graph)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.OptionContext">OptionContext (class in hidet.option)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.graph.CudaGraph.outputs">outputs (hidet.cuda.graph.CudaGraph property)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.outputs">(hidet.graph.FlowGraph attribute)</a>
+</li>
+        <li><a href="python_api/graph/index.html#hidet.graph.Operator.outputs">(hidet.graph.Operator attribute)</a>
+</li>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.outputs">(hidet.ir.task.Task attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.pad">pad() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.parallel_build">parallel_build() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.parallel_k">parallel_k() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.parallel_tune">parallel_tune() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext">PassContext (class in hidet.graph)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.password">password() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.permute_dims">permute_dims() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.port">port() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.positive">positive() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.pow">pow() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.prelu">prelu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.print_input_graph">print_input_graph() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.prod">prod() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledFunction.profile">profile() (hidet.runtime.CompiledFunction method)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule.profile">(hidet.runtime.CompiledModule method)</a>
+</li>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledTask.profile">(hidet.runtime.CompiledTask method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.profile_pass_instrument">profile_pass_instrument() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.profiler_start">profiler_start() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.profiler_stop">profiler_stop() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.properties">properties() (in module hidet.cuda)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/root.html#hidet.randn">randn() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.randn">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.randn_like">randn_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.randn_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.real">real() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.rearrange">rearrange() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.rearrange">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.reciprocal">reciprocal() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Event.record">record() (hidet.cuda.Event method)</a>
+</li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.reduce">reduce() (in module hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.reduce_cuda_compile_mem">reduce_cuda_compile_mem() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.reduce_hip_compile_mem">reduce_hip_compile_mem() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.reduce_scatter">reduce_scatter() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.ReduceType">ReduceType (class in hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.register_resolve_rule">register_resolve_rule() (in module hidet.graph.transforms.resolve_variant)</a>
+</li>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.register_rewrite_rule">register_rewrite_rule() (in module hidet.graph.transforms.subgraph_rewrite)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.relu">relu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.relu6">relu6() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.remainder">remainder() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.repeat_interleave">repeat_interleave() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.repo">repo() (hidet.option.compile_server static method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.reset">reset() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.reshape">reshape() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.reshape">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.resize2d">resize2d() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.ResolveRule.resolve">resolve() (hidet.graph.transforms.resolve_variant.ResolveRule method)</a>
+</li>
+      <li><a href="python_api/graph/transforms/resolve_variant.html#hidet.graph.transforms.resolve_variant.ResolveRule">ResolveRule (class in hidet.graph.transforms.resolve_variant)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.restore_options">restore_options() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.roll">roll() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.round">round() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.rsqrt">rsqrt() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.graph.CudaGraph.run">run() (hidet.cuda.graph.CudaGraph method)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.graph.CudaGraph.run_async">run_async() (hidet.cuda.graph.CudaGraph method)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledGraph.run_async">(hidet.runtime.CompiledGraph method)</a>
+</li>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledTask.run_async">(hidet.runtime.CompiledTask method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/option.html#hidet.option.runtime_check">runtime_check() (in module hidet.option)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.save">save() (hidet.graph.FlowGraph method)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledGraph.save">(hidet.runtime.CompiledGraph method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.save_compiled_app">save_compiled_app() (in module hidet.runtime)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.save_compiled_graph">save_compiled_graph() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.save_compiled_graph">(in module hidet.runtime)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.save_graph_instrument">save_graph_instrument() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.save_lower_ir">save_lower_ir() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.scalar_input">scalar_input() (in module hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.scatter_">scatter_() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.scatter_add_">scatter_add_() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.script">script() (in module hidet)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.search_space">search_space() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.search_space">(in module hidet.option)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/cuda.html#hidet.cuda.set_device">set_device() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.set_mma">set_mma() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.OptionContext.set_option">set_option() (hidet.option.OptionContext method)</a>
+
+      <ul>
+        <li><a href="python_api/option.html#hidet.option.set_option">(in module hidet.option)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.set_precision">set_precision() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.set_reduce_precision">set_reduce_precision() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.set_strided_slice">set_strided_slice() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.set_verbose">set_verbose() (hidet.graph.PassContext method)</a>
+</li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledGraph.set_weights">set_weights() (hidet.runtime.CompiledGraph method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.shape">shape (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.share_map">share_map (hidet.graph.FlowGraph property)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.Operator.share_map">(hidet.graph.Operator attribute)</a>
+</li>
+        <li><a href="python_api/ir/task.html#hidet.ir.task.Task.share_map">(hidet.ir.task.Task attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule.shared_library">shared_library (hidet.runtime.CompiledModule attribute)</a>
+</li>
+      <li><a href="python_api/ffi/index.html#hidet.ffi.SharedLibrary">SharedLibrary (class in hidet.ffi)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.sigmoid">sigmoid() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.sign">sign() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.signature">signature() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.silu">silu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.sin">sin() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.sinh">sinh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.size">size (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.softmax">softmax() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.softmin">softmin() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.softplus">softplus() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.softshrink">softshrink() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.softsign">softsign() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.SubgraphRewriteRule.source">source() (hidet.graph.transforms.subgraph_rewrite.SubgraphRewriteRule method)</a>
+
+      <ul>
+        <li><a href="python_api/runtime/index.html#hidet.runtime.CompiledModule.source">(hidet.runtime.CompiledModule method)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.split">split() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.sqrt">sqrt() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.square">square() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.squeeze">squeeze() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.squeeze">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.std">std() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.steal_weights">steal_weights() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.storage">storage (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Stream">Stream (class in hidet.cuda)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.stream">stream() (in module hidet.cuda)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.strided_slice">strided_slice() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.SubgraphRewriteRule">SubgraphRewriteRule (class in hidet.graph.transforms.subgraph_rewrite)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.subtract">subtract() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.sum">sum() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.sum">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.symbol">symbol() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.symbol">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/root.html#hidet.symbol_like">symbol_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.symbol_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task.symbols">symbols (hidet.ir.task.Task attribute)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.symmetric_dequantize">symmetric_dequantize() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.symmetric_quantize">symmetric_quantize() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/cuda.html#hidet.cuda.Event.synchronize">synchronize() (hidet.cuda.Event method)</a>
+
+      <ul>
+        <li><a href="python_api/cuda.html#hidet.cuda.Stream.synchronize">(hidet.cuda.Stream method)</a>
+</li>
+        <li><a href="python_api/cuda.html#hidet.cuda.synchronize">(in module hidet.cuda)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.take">take() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tan">tan() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tanh">tanh() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tanhshrink">tanhshrink() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.SubgraphRewriteRule.target">target() (hidet.graph.transforms.subgraph_rewrite.SubgraphRewriteRule method)</a>
+</li>
+      <li><a href="python_api/ir/task.html#hidet.ir.task.Task">Task (class in hidet.ir.task)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.Operator.task">task (hidet.graph.Operator attribute)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor">Tensor (class in hidet)</a>
+</li>
+      <li><a href="python_api/ir/compute.html#hidet.ir.compute.tensor_input">tensor_input() (in module hidet.ir.compute)</a>
+</li>
+      <li><a href="python_api/ir/expr.html#hidet.ir.expr.tensor_slice">tensor_slice() (in module hidet.ir.expr)</a>
+</li>
+      <li><a href="python_api/graph/transforms/subgraph_rewrite.html#hidet.graph.transforms.subgraph_rewrite.TensorPattern">TensorPattern (class in hidet.graph.transforms.subgraph_rewrite)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tile">tile() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.to">to() (hidet.Tensor method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/tensor.html#hidet.Tensor.to_device">to_device() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.tolist">tolist() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.topological_order">topological_order() (hidet.utils.DirectedGraph method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.torch">torch() (hidet.Tensor method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.internal.torch_api_use_example_input_shapes">torch_api_use_example_input_shapes() (hidet.option.internal static method)</a>
+</li>
+      <li><a href="python_api/tensor.html#hidet.Tensor.trace">trace (hidet.Tensor attribute)</a>
+</li>
+      <li><a href="python_api/root.html#hidet.trace_from">trace_from() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.trace_from">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/ops/index.html#hidet.ops.transfer">transfer() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.transpose">transpose() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tri">tri() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.tril">tril() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.triu">triu() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.trunc">trunc() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/tensor.html#hidet.Tensor.unsqueeze">unsqueeze() (hidet.Tensor method)</a>
+
+      <ul>
+        <li><a href="python_api/ops/index.html#hidet.ops.unsqueeze">(in module hidet.ops)</a>
+</li>
+      </ul></li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.usage_count">usage_count (hidet.graph.FlowGraph property)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_attention">use_attention() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_cuda_graph">use_cuda_graph() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16">use_fp16() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16_reduction">use_fp16_reduction() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_tensor_core">use_tensor_core() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.use_torch_stream">use_torch_stream() (in module hidet.option)</a>
+</li>
+      <li><a href="python_api/option.html#hidet.option.compile_server.username">username() (hidet.option.compile_server static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.var">var() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.vcuda_">vcuda_() (hidet.graph.FlowGraph method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.vhip_">vhip_() (hidet.graph.FlowGraph method)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.view">view() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/cuda.html#hidet.cuda.Stream.wait_event">wait_event() (hidet.cuda.Stream method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.wait_tensor">wait_tensor() (in module hidet.ops)</a>
+</li>
+      <li><a href="python_api/ops/index.html#hidet.ops.where">where() (in module hidet.ops)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/root.html#hidet.zeros">zeros() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.zeros">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/root.html#hidet.zeros_like">zeros_like() (in module hidet)</a>
+
+      <ul>
+        <li><a href="python_api/graph/index.html#hidet.graph.zeros_like">(in module hidet.graph)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

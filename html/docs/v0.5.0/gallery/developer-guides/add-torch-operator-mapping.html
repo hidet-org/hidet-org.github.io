@@ -1,0 +1,951 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>Add PyTorch Operator Mapping &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/developer-guides/add-torch-operator-mapping';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Add New Operator" href="../../how-to-guides/add-new-operator/index.html" />
+    <link rel="prev" title="CPU Specifics" href="../../hidet-script/reference/7-cpu-specific.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hidet-script/5-efficient-matmul.html">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/gallery/developer-guides/add-torch-operator-mapping.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Add PyTorch Operator Mapping</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-environment">1. Prepare Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-the-model">2. Compile and Run the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-operator-mappings">3. Add Operator Mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-gallery-developer-guides-add-torch-operator-mapping-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="add-pytorch-operator-mapping">
+<span id="sphx-glr-gallery-developer-guides-add-torch-operator-mapping-py"></span><h1>Add PyTorch Operator Mapping<a class="headerlink" href="#add-pytorch-operator-mapping" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>This guide describes how to add an operator mapping for PyTorch.</p>
+<figure class="align-default" id="id1">
+digraph {
+    // rankdir=LR;
+    splines=curved;
+    node [
+        shape=box, style=&quot;rounded, filled&quot;,
+        height=0.4, width=0.6, margin=&quot;0.2,0.10&quot;,
+        fillcolor=&quot;#EEF0E5&quot;,
+        color=&quot;#163020&quot;,
+        fontcolor=&quot;#163020&quot;,
+    ];
+    edge [
+        color=&quot;#163020&quot;,
+        fontcolor=&quot;#163020&quot;,
+    ];
+
+
+    graph [style=&quot;rounded, dashed&quot;]
+        a [label=&quot;PyTorch nn.Module&quot;];
+        b [label=&quot;torch.fx.Graph&quot;];
+        c [label=&quot;hidet.FlowGraph&quot;];
+        d [label=&quot;hidet.runtime.CompiledGraph&quot;];
+
+        a -&gt; b [label=&quot;   Step 1: PyTorch Dynamo&quot;];
+        b -&gt; c [label=&quot;   Step 2: Operator mapping&quot;];
+        c -&gt; d [label=&quot;   Step 3: FlowGraph building&quot;];
+}<figcaption>
+<p><span class="caption-text">The workflow of hidet backend of <code class="code docutils literal notranslate"><span class="pre">torch.compile(...,</span> <span class="pre">backend='hidet')</span></code>.</span><a class="headerlink" href="#id1" title="Permalink to this image"><span>¶</span></a></p>
+</figcaption>
+</figure>
+<p>During step 2, we convert each pytorch operator to a hidet operator. In a <cite>torch.fx.Graph</cite>, there are three kinds of
+operators that need to be converted:</p>
+<ol class="arabic simple">
+<li><p>functions (e.g., <code class="code docutils literal notranslate"><span class="pre">torch.nn.functional.relu</span></code>, <code class="code docutils literal notranslate"><span class="pre">torch.relu</span></code>, <code class="code docutils literal notranslate"><span class="pre">operator.add</span></code>, etc.)</p></li>
+<li><p>modules (e.g., <code class="code docutils literal notranslate"><span class="pre">torch.nn.ReLU</span></code>, <code class="code docutils literal notranslate"><span class="pre">torch.nn.Linear</span></code>, etc.)</p></li>
+<li><p>tensor methods (e.g., <code class="code docutils literal notranslate"><span class="pre">torch.Tensor.squeeze</span></code>, <code class="code docutils literal notranslate"><span class="pre">torch.Tensor.to</span></code>, etc.)</p></li>
+</ol>
+<p>In this guide, we will show how to add the operator mapping for all the three kinds of operators.</p>
+<section id="prepare-environment">
+<h2>1. Prepare Environment<a class="headerlink" href="#prepare-environment" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>First, we remove some existing operator mapping (i.e., conversion) rules for demonstration purpose, and define an
+example model.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+
+<span class="c1"># hidet employs an interpreter to convert a fx.Graph to FlowGraph</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Registry</span>
+
+<span class="c1"># the following three modules register the conversion rules</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.register_functions</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.register_modules</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.register_methods</span>
+
+<span class="c1"># Before removing registered functions, make sure to</span>
+<span class="c1"># call allow_in_graph_registered_funcs_only() by importing dynamo_backends</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.dynamo_backends</span>
+
+<span class="c1"># we remove the rules for the following operators for demonstration purpose</span>
+<span class="c1"># we will add them back later</span>
+<span class="k">del</span> <span class="n">Registry</span><span class="o">.</span><span class="n">registered_functions</span><span class="p">[</span><a href="https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html#torch.nn.functional.relu" title="torch.nn.functional.relu" class="sphx-glr-backref-module-torch-nn-functional sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">relu</span></a><span class="p">]</span>
+<span class="k">del</span> <span class="n">Registry</span><span class="o">.</span><span class="n">registered_functions</span><span class="p">[</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">Registry</span><span class="o">.</span><span class="n">registered_modules</span><span class="p">[</span><a href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear" title="torch.nn.Linear" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span></a><span class="p">]</span>
+<span class="k">del</span> <span class="n">Registry</span><span class="o">.</span><span class="n">registered_methods</span><span class="p">[</span><a href="https://pytorch.org/docs/stable/generated/torch.Tensor.flatten.html#torch.Tensor.flatten" title="torch.Tensor.flatten" class="sphx-glr-backref-module-torch-Tensor sphx-glr-backref-type-py-method"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">.</span><span class="n">flatten</span></a><span class="p">]</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Model</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="torch.nn.Module" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">nn</span><span class="o">.</span><span class="n">Module</span></a><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a model used nn.Linear, nn.functional.relu, operator.add and Tensor.flatten&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear" title="torch.nn.Linear" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span></a><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html#torch.nn.functional.relu" title="torch.nn.functional.relu" class="sphx-glr-backref-module-torch-nn-functional sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">relu</span></a><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="compile-and-run-the-model">
+<h2>2. Compile and Run the Model<a class="headerlink" href="#compile-and-run-the-model" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>If we compile and run the model, we will get an error that complains about the missing conversion rules for
+<code class="code docutils literal notranslate"><span class="pre">torch.nn.Linear</span></code>, <code class="code docutils literal notranslate"><span class="pre">torch.nn.functional.relu</span></code> and <code class="code docutils literal notranslate"><span class="pre">operator.add</span></code>.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_model</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="torch.nn.Module" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">Model</span></a><span class="p">()</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+    <span class="n">model_opt</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.compile.html#torch.compile" title="torch.compile" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">compile</span></a><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;hidet&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max-autotune&#39;</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.randn.html#torch.randn" title="torch.randn" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">model_opt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/testing.html#torch.testing.assert_close" title="torch.testing.assert_close" class="sphx-glr-backref-module-torch-testing sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_close</span></a><span class="p">(</span><span class="n">actual</span><span class="o">=</span><span class="n">y1</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">3e-3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;success!&#39;</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">run_model</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>backend=&#39;hidet&#39; raised:
+NotImplementedError: The following operators are not supported or mapped by hidet yet:
+  torch.nn.functional.relu
+  operator.add
+Please see the following guide to add the conversion rules:
+  https://docs.hidet.org/stable/gallery/developer-guides/add-torch-operator-mapping.html
+You are also welcome to submit a PR or an issue with reproducible script to:
+  https://github.com/hidet-org/hidet
+Thanks for your contribution!
+
+Set TORCH_LOGS=&quot;+dynamo&quot; and TORCHDYNAMO_VERBOSE=1 for more information
+
+
+You can suppress this exception and fall back to eager by setting:
+    import torch._dynamo
+    torch._dynamo.config.suppress_errors = True
+</pre></div>
+</div>
+</section>
+<section id="add-operator-mappings">
+<h2>3. Add Operator Mappings<a class="headerlink" href="#add-operator-mappings" title="Permalink to this heading"><span>¶</span></a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">ops</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.frontend.torch.registry</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">register_function</span><span class="p">,</span>
+    <span class="n">register_module</span><span class="p">,</span>
+    <span class="n">register_method</span><span class="p">,</span>
+    <span class="n">HidetModule</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="c1"># register the conversion rule for torch.nn.functional.relu</span>
+<span class="nd">@register_function</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html#torch.nn.functional.relu" title="torch.nn.functional.relu" class="sphx-glr-backref-module-torch-nn-functional sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">relu</span></a><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">torch_relu</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>  <span class="c1"># the signature must match the original function</span>
+    <span class="c1"># the parameter `x` is hidet.Tensor instead of torch.Tensor</span>
+    <span class="c1"># we also need to return a hidet.Tensor instead of torch.Tensor</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">inplace</span>  <span class="c1"># ignore inplace</span>
+    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="nd">@register_function</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">operator_add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+
+<span class="nd">@register_module</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear" title="torch.nn.Linear" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span></a><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HidetLinear</span><span class="p">(</span>
+    <span class="n">HidetModule</span>
+<span class="p">):</span>  <span class="c1"># HidetModule is a tool class that helps us to convert a torch.nn.Module</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">torch_module</span><span class="p">:</span> <a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="torch.nn.Module" class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span></a><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">torch_module</span><span class="p">)</span>
+        <span class="c1"># inside the class, we can access the parameter of the torch module via</span>
+        <span class="c1"># `self.param(name: str, optional: bool = False) -&gt; Tensor`</span>
+        <span class="c1"># and the returned tensor is a hidet.Tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transposed_weight</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="s1">&#39;bias&#39;</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+        <span class="c1"># similarly, the parameter `x` is hidet.Tensor instead of torch.Tensor</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposed_weight</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+        <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>If we run the model again, it will complain about the missing conversion rule for <code class="code docutils literal notranslate"><span class="pre">torch.Tensor.flatten</span></code>.
+It does not complain about missing conversion rule for <code class="code docutils literal notranslate"><span class="pre">torch.Tensor.flatten</span></code> before because we can not
+know the type of the method’s class (i.e., <code class="code docutils literal notranslate"><span class="pre">torch.Tensor</span></code>) before we actually run the model.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">run_model</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>backend=&#39;hidet&#39; raised:
+NotImplementedError: The following operators are not supported or mapped by hidet yet:
+  torch.Tensor.flatten
+Please see the following guide to add the conversion rules:
+  https://docs.hidet.org/stable/gallery/developer-guides/add-torch-operator-mapping.html
+You are also welcome to submit a PR or an issue with reproducible script to:
+  https://github.com/hidet-org/hidet
+Thanks for your contribution!
+
+Set TORCH_LOGS=&quot;+dynamo&quot; and TORCHDYNAMO_VERBOSE=1 for more information
+
+
+You can suppress this exception and fall back to eager by setting:
+    import torch._dynamo
+    torch._dynamo.config.suppress_errors = True
+</pre></div>
+</div>
+<p>Thus, we need to add the conversion rule for <code class="code docutils literal notranslate"><span class="pre">torch.Tensor.flatten</span></code> later as well.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@register_method</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.Tensor.flatten.html#torch.Tensor.flatten" title="torch.Tensor.flatten" class="sphx-glr-backref-module-torch-Tensor sphx-glr-backref-type-py-method"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">.</span><span class="n">flatten</span></a><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">start_dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_dim</span><span class="o">=</span><span class="n">start_dim</span><span class="p">,</span> <span class="n">end_dim</span><span class="o">=</span><span class="n">end_dim</span><span class="p">)</span>
+
+
+<span class="n">run_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Generating Hidet IR:   0%|                                | 0/1 [00:00&lt;?, ?it/s]
+Generating Hidet IR: 100%|███████████████████████| 1/1 [00:00&lt;00:00, 800.44it/s]
+
+Parallel build:   0%|                                     | 0/2 [00:00&lt;?, ?it/s]
+Parallel build:  50%|██████████████▌              | 1/2 [00:01&lt;00:01,  1.01s/it]
+Parallel build: 100%|█████████████████████████████| 2/2 [00:31&lt;00:00, 18.22s/it]
+Parallel build: 100%|█████████████████████████████| 2/2 [00:31&lt;00:00, 15.65s/it]
+
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 0it [00:00, ?it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 5it [00:00, 46.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 25it [00:00, 131.92it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 40it [00:00, 139.56it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 58it [00:00, 151.16it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 76it [00:00, 157.44it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 92it [00:00, 145.91it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 107it [00:00, 145.47it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 126it [00:00, 149.59it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 146it [00:00, 161.30it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 163it [00:01, 152.49it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 179it [00:01, 144.87it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 204it [00:01, 172.48it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 222it [00:01, 161.34it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 240it [00:01, 164.68it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 257it [00:01, 150.66it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 273it [00:01, 149.94it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 294it [00:01, 164.42it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 314it [00:02, 172.91it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 332it [00:02, 149.88it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 348it [00:02, 147.88it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 365it [00:02, 151.30it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 388it [00:02, 171.95it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 408it [00:02, 179.62it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 427it [00:02, 180.10it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 446it [00:02, 177.83it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 464it [00:02, 178.08it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 489it [00:03, 197.55it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 509it [00:03, 186.25it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 528it [00:03, 184.79it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 547it [00:03, 176.00it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 566it [00:03, 178.28it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 590it [00:03, 192.70it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 610it [00:03, 176.13it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 630it [00:03, 179.66it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 653it [00:03, 191.48it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 674it [00:04, 196.28it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 694it [00:04, 187.48it/s]/home/ryan/.local/lib/python3.10/site-packages/scipy/stats/_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 701it [00:17, 187.48it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 702it [04:47,  5.02s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 706it [04:47,  4.57s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 721it [04:48,  3.07s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 733it [04:48,  2.24s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 742it [04:48,  1.74s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 750it [04:49,  1.36s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 756it [04:49,  1.10s/it]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 762it [04:49,  1.16it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 768it [04:49,  1.50it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 773it [04:49,  1.90it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 778it [04:49,  2.45it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 783it [04:50,  3.20it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 788it [04:50,  4.23it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 793it [04:50,  5.63it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 798it [04:50,  7.37it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 802it [04:50,  9.05it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 806it [04:50, 11.07it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 810it [04:50, 13.68it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 816it [04:50, 19.06it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 822it [04:51, 24.85it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 827it [04:51, 27.65it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 832it [04:51, 30.93it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 837it [04:51, 33.78it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 843it [04:51, 36.97it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 848it [04:51, 34.95it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 853it [04:51, 33.63it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 859it [04:52, 36.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 864it [04:52, 37.17it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 870it [04:52, 40.90it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 875it [04:52, 37.44it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 882it [04:52, 43.88it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 888it [04:52, 47.73it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 894it [04:52, 50.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 900it [04:52, 53.18it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 906it [04:52, 52.59it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 912it [04:53, 43.33it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 917it [04:53, 39.11it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 922it [04:53, 37.59it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 926it [04:53, 36.94it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 931it [04:53, 38.64it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 936it [04:53, 39.94it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 942it [04:53, 41.64it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 947it [04:54, 37.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 951it [04:54, 35.78it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 955it [04:54, 34.32it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 961it [04:54, 39.00it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 965it [04:54, 37.89it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 969it [04:54, 35.68it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 973it [04:54, 34.17it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 977it [04:54, 34.40it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 983it [04:55, 39.35it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 989it [04:55, 44.66it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 994it [04:55, 44.27it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 999it [04:55, 43.99it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1004it [04:55, 40.48it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1009it [04:55, 41.29it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1015it [04:55, 44.27it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1020it [04:55, 42.32it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1025it [04:56, 38.15it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1029it [04:56, 36.00it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1033it [04:56, 34.46it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1039it [04:56, 40.64it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1044it [04:56, 37.06it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1049it [04:56, 38.75it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1054it [04:56, 38.57it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1058it [04:56, 37.59it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1062it [04:57, 36.86it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1066it [04:57, 36.33it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1074it [04:57, 46.48it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1080it [04:57, 50.02it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1086it [04:57, 50.49it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1092it [04:57, 50.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1098it [04:57, 49.02it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1104it [04:57, 49.77it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1110it [04:57, 50.29it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1116it [04:58, 50.67it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1122it [04:58, 45.44it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1127it [04:58, 40.35it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1132it [04:58, 39.73it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1138it [04:58, 42.86it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1144it [04:58, 47.01it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1149it [04:58, 44.10it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1154it [04:59, 42.26it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1159it [04:59, 41.00it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1165it [04:59, 43.96it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1172it [04:59, 50.40it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1178it [04:59, 52.87it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1184it [04:59, 54.73it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1190it [04:59, 56.12it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1196it [04:59, 48.40it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1202it [05:00, 41.28it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1207it [05:00, 39.10it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1213it [05:00, 43.79it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1218it [05:00, 43.67it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1223it [05:00, 39.10it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1228it [05:00, 36.30it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1232it [05:00, 34.76it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1238it [05:01, 37.82it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1243it [05:01, 39.28it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1248it [05:01, 40.40it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1253it [05:01, 36.97it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1260it [05:01, 43.78it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1267it [05:01, 49.14it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1273it [05:01, 49.76it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1279it [05:01, 50.29it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1285it [05:02, 45.26it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1290it [05:02, 43.15it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1295it [05:02, 41.66it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1300it [05:02, 37.90it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1305it [05:02, 39.31it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1311it [05:02, 41.13it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1317it [05:02, 43.97it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1322it [05:02, 39.32it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1327it [05:03, 40.38it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1332it [05:03, 38.33it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1338it [05:03, 42.60it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1345it [05:03, 48.32it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1350it [05:03, 48.73it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1356it [05:03, 51.69it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1362it [05:03, 53.90it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1368it [05:03, 43.80it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1373it [05:04, 39.35it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1378it [05:04, 37.65it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1384it [05:04, 42.71it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1389it [05:04, 41.33it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1393it [05:17, 41.33it/s]
+Finding the best candidates for fused_broadcast_broadcast_batch_matmul_reshape_add_relu (10,) (10, 10) (10, 10) (10, 10): 1393it [07:58,  2.91it/s]
+success!
+</pre></div>
+</div>
+<p>We put all the registration code in the following three modules:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">hidet.graph.frontend.torch.register_functions</span></code> (all the functions in <cite>torch.nn.functional.*</cite> and
+<cite>operator.*</cite>)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">hidet.graph.frontend.torch.register_modules</span></code> (all the modules in <cite>torch.nn.*</cite>)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">hidet.graph.frontend.torch.register_methods</span></code> (all the methods in <cite>torch.Tensor.*</cite>)</p></li>
+</ol>
+<p>Lots of operators have already been registered in the above three modules, and they are also good examples for us
+to learn how to add operator mapping.</p>
+<p>Usually, we will use the existing operators in hidet (defined in <cite>hidet.ops.*</cite>) to implement the pytorch operators.
+If there are no corresponding operators in hidet, we can add the missing operators to <cite>hidet.ops.*</cite> by following the
+guide <a class="reference internal" href="../../how-to-guides/add-new-operator/index.html"><span class="doc">Add New Operator</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The operator mapping rules are registered in the global registry. Thus, if we register the same operator mapping
+rules multiple times, only the last registration will take effect.</p>
+</div>
+</section>
+<section id="summary">
+<h2>4. Summary<a class="headerlink" href="#summary" title="Permalink to this heading"><span>¶</span></a></h2>
+<p>In this guide, we show how to add operator mapping for PyTorch. We first remove some existing operator mapping rules
+for demonstration purpose, and then add them back. We also show how to add operator mapping for functions, modules
+and tensor methods.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (8 minutes 35.712 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-torch-operator-mapping-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c9c737b889f0fa2384aec8f853585bb4/add-torch-operator-mapping.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-torch-operator-mapping.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d37ec2a6c7a01a86c97a1ee6175b2330/add-torch-operator-mapping.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-torch-operator-mapping.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/65a35d22d6b339070a97b9ee62c344e3/add-torch-operator-mapping.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">add-torch-operator-mapping.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../hidet-script/reference/7-cpu-specific.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CPU Specifics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../how-to-guides/add-new-operator/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Add New Operator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-environment">1. Prepare Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-and-run-the-model">2. Compile and Run the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-operator-mappings">3. Add Operator Mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

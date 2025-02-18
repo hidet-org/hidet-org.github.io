@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-406WJTRD8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-406WJTRD8C');
+    </script>
+    
+    <title>More Efficient Matrix Multiplication &#8212; Hidet Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gallery/hidet-script/5-efficient-matmul';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reference" href="../../hidet-script/reference/index.html" />
+    <link rel="prev" title="Naive Matrix Multiplication" href="4-naive-matmul.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Hidet Documentation - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Hidet Documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/install.html">Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/build-from-source.html">Build from source</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quick-start.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-pytorch-model.html">Optimize PyTorch Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimize-onnx-model.html">Optimize ONNX Model</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hidet Script</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../hidet-script/index.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../hidet-script/examples/index.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0-hello-world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-scalar-addition.html">Scalar Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-vector-addition.html">Vector Addition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-kernel-functions.html">Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-naive-matmul.html">Naive Matrix Multiplication</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">More Efficient Matrix Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hidet-script/reference/index.html">Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/1-type-system.html">Type System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/2-expression.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/3-statement.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/4-function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/5-module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/6-cuda-specific.html">CUDA Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hidet-script/reference/7-cpu-specific.html">CPU Specifics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-torch-operator-mapping.html">Add PyTorch Operator Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/add-new-operator/index.html">Add New Operator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-compute-definition.html">Define Operator Computation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-rule-based.html">Using Rule-based Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-guides/add-new-operator-template-based.html">Using Template-based Scheduling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-operator-resolve-rule.html">Add Operator Resolve Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-guides/add-subgraph-rewrite-rule.html">Add Sub-Graph Rewrite Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-guides/contributing.html">Contributing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../notes/operator-cache.html">Operator Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to-guides/visualize-flow-graph.html">Visualize Flow Graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python_api/index.html">Python API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/root.html">hidet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/option.html">hidet.option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/cuda.html">hidet.cuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/tensor.html">hidet.Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/data_types.html">hidet.dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/drivers.html">hidet.drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ops/index.html">hidet.ops</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../python_api/graph/index.html">hidet.graph</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/frontend/index.html">hidet.graph.frontend</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/onnx.html">hidet.graph.frontend.onnx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/frontend/torch.html">hidet.graph.frontend.torch</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_api/graph/transforms/index.html">hidet.graph.transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/subgraph_rewrite.html">Sub-graph Rewrite Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/graph/transforms/resolve_variant.html">Resolve Operator Pass</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/runtime/index.html">hidet.runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/ffi/index.html">hidet.ffi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/utils/index.html">hidet.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/testing/index.html">hidet.testing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hidet-org/hidet" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/gallery/hidet-script/5-efficient-matmul.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>More Efficient Matrix Multiplication</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-gallery-hidet-script-5-efficient-matmul-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="more-efficient-matrix-multiplication">
+<span id="sphx-glr-gallery-hidet-script-5-efficient-matmul-py"></span><h1>More Efficient Matrix Multiplication<a class="headerlink" href="#more-efficient-matrix-multiplication" title="Permalink to this heading"><span>¶</span></a></h1>
+<p>In this example, we show you how to write a more efficient matrix multiplication kernel on NVIDIA GPU that uses shared
+memory. For simplicity, we omitted some optimizations like software pipelining (see our <a class="reference external" href="https://dl.acm.org/doi/10.1145/3575693.3575702">paper</a> for more details).</p>
+<p>Feel free to skip this example if you are not familiar with CUDA programming.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hidet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang</span><span class="w"> </span><span class="kn">import</span> <span class="n">attrs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang</span><span class="w"> </span><span class="kn">import</span> <span class="n">float32</span><span class="p">,</span> <span class="n">int32</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang</span><span class="w"> </span><span class="kn">import</span> <span class="n">as_tensor_pointer</span><span class="p">,</span> <span class="n">register_tensor</span><span class="p">,</span> <span class="n">shared_tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">threadIdx</span><span class="p">,</span> <span class="n">blockIdx</span><span class="p">,</span> <span class="n">syncthreads</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">spatial</span><span class="p">,</span> <span class="n">auto_map</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.lang.layout</span><span class="w"> </span><span class="kn">import</span> <span class="n">row_major</span><span class="p">,</span> <span class="n">local_layout</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark_func</span>
+
+<span class="c1"># the hyperparameters of the kernel</span>
+<span class="n">warps_m</span><span class="p">,</span> <span class="n">warps_n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span>  <span class="c1"># we use 4x2 warps</span>
+<span class="n">warp_m</span><span class="p">,</span> <span class="n">warp_n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>  <span class="c1"># each warp repeats 2x2 times</span>
+<span class="n">warp_map_m</span><span class="p">,</span> <span class="n">warp_map_n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">16</span>  <span class="c1"># each warp has 2x16 threads</span>
+<span class="n">thread_m</span><span class="p">,</span> <span class="n">thread_n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span>  <span class="c1"># each thread repeats 4x4 times</span>
+
+<span class="c1"># block_size = (64, 256, 8)</span>
+<span class="n">block_m_size</span><span class="p">,</span> <span class="n">block_n_size</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">warps_m</span> <span class="o">*</span> <span class="n">warp_m</span> <span class="o">*</span> <span class="n">warp_map_m</span> <span class="o">*</span> <span class="n">thread_m</span><span class="p">,</span>
+    <span class="n">warps_n</span> <span class="o">*</span> <span class="n">warp_n</span> <span class="o">*</span> <span class="n">warp_map_n</span> <span class="o">*</span> <span class="n">thread_n</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">block_k_size</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">num_warps</span> <span class="o">=</span> <span class="n">warps_m</span> <span class="o">*</span> <span class="n">warps_n</span>  <span class="c1"># 8</span>
+<span class="n">num_threads</span> <span class="o">=</span> <span class="n">num_warps</span> <span class="o">*</span> <span class="mi">32</span>  <span class="c1"># 256</span>
+
+<span class="k">with</span> <span class="n">hidet</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">script_module</span><span class="p">()</span> <span class="k">as</span> <span class="n">script_module</span><span class="p">:</span>
+
+    <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">relu</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">float32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">float32</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+    <span class="nd">@hidet</span><span class="o">.</span><span class="n">script</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">matmul_relu_kernel</span><span class="p">(</span>
+        <span class="n">a_ptr</span><span class="p">:</span> <span class="o">~</span><span class="n">float32</span><span class="p">,</span>
+        <span class="n">b_ptr</span><span class="p">:</span> <span class="o">~</span><span class="n">float32</span><span class="p">,</span>
+        <span class="n">c_ptr</span><span class="p">:</span> <span class="o">~</span><span class="n">float32</span><span class="p">,</span>
+        <span class="n">m_size</span><span class="p">:</span> <span class="n">int32</span><span class="p">,</span>
+        <span class="n">n_size</span><span class="p">:</span> <span class="n">int32</span><span class="p">,</span>
+        <span class="n">k_size</span><span class="p">:</span> <span class="n">int32</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">func_name</span> <span class="o">=</span> <span class="s1">&#39;matmul_kernel&#39;</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">block_dim</span> <span class="o">=</span> <span class="n">num_threads</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">grid_dim</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">m_size</span> <span class="o">+</span> <span class="n">block_m_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_m_size</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">n_size</span> <span class="o">+</span> <span class="n">block_n_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_n_size</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a> <span class="o">=</span> <span class="n">as_tensor_pointer</span><span class="p">(</span><span class="n">a_ptr</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">m_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">])</span>
+        <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a> <span class="o">=</span> <span class="n">as_tensor_pointer</span><span class="p">(</span><span class="n">b_ptr</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">k_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">])</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">as_tensor_pointer</span><span class="p">(</span><span class="n">c_ptr</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">])</span>
+
+        <span class="c1"># define tensors in shared memory</span>
+        <span class="n">smem_a</span> <span class="o">=</span> <span class="n">shared_tensor</span><span class="p">(</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">block_m_size</span><span class="p">,</span> <span class="n">block_k_size</span><span class="p">])</span>
+        <span class="n">smem_b</span> <span class="o">=</span> <span class="n">shared_tensor</span><span class="p">(</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">block_k_size</span><span class="p">,</span> <span class="n">block_n_size</span><span class="p">])</span>
+
+        <span class="c1"># define the accumulation tensor in register</span>
+        <span class="n">regs_c</span> <span class="o">=</span> <span class="n">register_tensor</span><span class="p">(</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">,</span>
+            <span class="c1"># shape will be inferred from the layout automatically,</span>
+            <span class="c1"># in this case, the shape is [64, 256]</span>
+            <span class="n">layout</span><span class="o">=</span><span class="p">(</span>
+                <span class="n">local_layout</span><span class="p">(</span><span class="n">warps_m</span><span class="p">,</span> <span class="n">warps_n</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">row_major</span><span class="p">(</span><span class="n">warp_m</span><span class="p">,</span> <span class="n">warp_n</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">local_layout</span><span class="p">(</span><span class="n">warp_map_m</span><span class="p">,</span> <span class="n">warp_map_n</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">row_major</span><span class="p">(</span><span class="n">thread_m</span><span class="p">,</span> <span class="n">thread_n</span><span class="p">)</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># initialize the registers</span>
+        <span class="n">mma_mapping</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">spatial</span><span class="p">(</span><span class="n">warps_m</span><span class="p">,</span> <span class="n">warps_n</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">warp_m</span><span class="p">,</span> <span class="n">warp_n</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">warp_map_m</span><span class="p">,</span> <span class="n">warp_map_n</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">thread_m</span><span class="p">,</span> <span class="n">thread_n</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_mapping</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">regs_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="c1"># iterate over the k tiles</span>
+        <span class="n">num_k_tiles</span> <span class="o">=</span> <span class="p">(</span><span class="n">k_size</span> <span class="o">+</span> <span class="n">block_k_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">block_k_size</span>
+        <span class="k">for</span> <span class="n">k_tile</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_k_tiles</span><span class="p">):</span>
+            <span class="c1"># load smem_a [block_m_size, block_k_size] from global memory</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">auto_map</span><span class="p">(</span><span class="n">block_m_size</span><span class="p">,</span> <span class="n">block_k_size</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="n">num_threads</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">global_i</span><span class="p">,</span> <span class="n">global_k</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m_size</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="n">k_tile</span> <span class="o">*</span> <span class="n">block_k_size</span><span class="p">)</span>
+                <span class="n">smem_a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">[</span><span class="n">global_i</span><span class="p">,</span> <span class="n">global_k</span><span class="p">]</span> <span class="k">if</span> <span class="n">global_i</span> <span class="o">&lt;</span> <span class="n">m_size</span> <span class="ow">and</span> <span class="n">global_k</span> <span class="o">&lt;</span> <span class="n">k_size</span> <span class="k">else</span> <span class="mf">0.0</span>
+                <span class="p">)</span>
+
+            <span class="c1"># load smem_b [block_k_size, block_n_size] from global memory</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">auto_map</span><span class="p">(</span><span class="n">block_k_size</span><span class="p">,</span> <span class="n">block_n_size</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="n">num_threads</span><span class="p">)</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                <span class="n">global_k</span><span class="p">,</span> <span class="n">global_j</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">k_tile</span> <span class="o">*</span> <span class="n">block_k_size</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n_size</span><span class="p">)</span>
+                <span class="n">smem_b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">[</span><span class="n">global_k</span><span class="p">,</span> <span class="n">global_j</span><span class="p">]</span> <span class="k">if</span> <span class="n">global_k</span> <span class="o">&lt;</span> <span class="n">k_size</span> <span class="ow">and</span> <span class="n">global_j</span> <span class="o">&lt;</span> <span class="n">n_size</span> <span class="k">else</span> <span class="mf">0.0</span>
+                <span class="p">)</span>
+
+            <span class="c1"># synchronize all threads in the block</span>
+            <span class="n">syncthreads</span><span class="p">()</span>
+
+            <span class="c1"># simt matrix multiply accumulate (mma): regs_c = regs_c + smem_a @ smem_b</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_mapping</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_k_size</span><span class="p">):</span>
+                    <span class="n">regs_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">smem_a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">smem_b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+
+            <span class="c1"># synchronize all threads in the block</span>
+            <span class="n">syncthreads</span><span class="p">()</span>
+
+        <span class="c1"># store regs_c back to global memory</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mma_mapping</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">global_i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">block_m_size</span>
+            <span class="n">global_j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">block_n_size</span>
+            <span class="k">if</span> <span class="n">global_i</span> <span class="o">&lt;</span> <span class="n">m_size</span> <span class="ow">and</span> <span class="n">global_j</span> <span class="o">&lt;</span> <span class="n">n_size</span><span class="p">:</span>
+                <span class="n">c</span><span class="p">[</span><span class="n">global_i</span><span class="p">,</span> <span class="n">global_j</span><span class="p">]</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">regs_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+
+<span class="n">module</span> <span class="o">=</span> <span class="n">script_module</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">hidet_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">:</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">:</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></a><span class="p">):</span>
+    <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">,</span> <span class="n">k_size</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/size.html#torch.Size" title="torch.Size" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <a href="https://pytorch.org/docs/stable/size.html#torch.Size" title="torch.Size" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <a href="https://pytorch.org/docs/stable/size.html#torch.Size" title="torch.Size" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">c</span> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.empty.html#torch.empty" title="torch.empty" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">empty</span></a><span class="p">([</span><span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">module</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">m_size</span><span class="p">,</span> <span class="n">n_size</span><span class="p">,</span> <span class="n">k_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">torch_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">:</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">:</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class"><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></a><span class="p">):</span>
+    <span class="k">return</span> <a href="https://pytorch.org/docs/stable/generated/torch.matmul.html#torch.matmul" title="torch.matmul" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span></a><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">)</span><span class="o">.</span><span class="n">relu</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run the program with different input sizes. This implementation archives about 30% performance of cuBLAS kernels.
+For more efficient implementations, please refer to the <a class="reference external" href="https://github.com/hidet-org/hidet/tree/main/python/hidet/graph/ops/matmul">ones</a> in hidet package.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)]:</span>
+    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.randn.html#torch.randn" title="torch.randn" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.dtype" title="torch.dtype" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">torch</span><span class="o">.</span><span class="n">float32</span></a><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a> <span class="o">=</span> <a href="https://pytorch.org/docs/stable/generated/torch.randn.html#torch.randn" title="torch.randn" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">randn</span></a><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.dtype" title="torch.dtype" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">torch</span><span class="o">.</span><span class="n">float32</span></a><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+
+    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">c1</span></a> <span class="o">=</span> <span class="n">hidet_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">)</span>
+    <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">c2</span></a> <span class="o">=</span> <span class="n">torch_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">)</span>
+
+    <a href="https://pytorch.org/docs/stable/testing.html#torch.testing.assert_close" title="torch.testing.assert_close" class="sphx-glr-backref-module-torch-testing sphx-glr-backref-type-py-function"><span class="n">torch</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_close</span></a><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">c1</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">c2</span></a><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+
+    <span class="n">hidet_latency</span> <span class="o">=</span> <span class="n">benchmark_func</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">hidet_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; torch: </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">benchmark_func</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">torch_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">))))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; hidet: </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">benchmark_func</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">hidet_matmul_relu</span><span class="p">(</span><a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="torch.Tensor" class="sphx-glr-backref-module-torch sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">))))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>1024x1024x1024:
+ torch: 0.048 ms
+ hidet: 0.131 ms
+256x256x256:
+ torch: 0.009 ms
+ hidet: 0.035 ms
+32x32x32:
+ torch: 0.009 ms
+ hidet: 0.014 ms
+</pre></div>
+</div>
+<p>Get the source code:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">source</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdint.h&gt;
+#include &lt;cudaTypedefs.h&gt;
+#include &lt;hidet/runtime/symbols.h&gt;
+#include &lt;hidet/runtime/memory_planner.h&gt;
+#include &lt;hidet/runtime/cpu/context.h&gt;
+#include &lt;hidet/runtime/cuda/complex.h&gt;
+#include &lt;hidet/runtime/cuda/context.h&gt;
+#include &lt;hidet/runtime/logging.h&gt;
+#include &lt;hidet/runtime/int_fastdiv.h&gt;
+
+
+static __device__ __forceinline__ float hidet_relu(float x) {
+  return ((0.0f &lt; x) ? x : 0.0f);
+}
+
+static __global__ void __launch_bounds__(256) hidet_matmul_kernel(float * __restrict__ a_ptr, float * __restrict__ b_ptr, float * __restrict__ c_ptr, int32_t m_size, int32_t n_size, int32_t k_size) {
+  __builtin_assume((0 &lt;= (int)threadIdx.x));
+  __builtin_assume(((int)threadIdx.x &lt; 256));
+  __builtin_assume((0 &lt;= (int)threadIdx.y));
+  __builtin_assume(((int)threadIdx.y &lt; 1));
+  __builtin_assume((0 &lt;= (int)threadIdx.z));
+  __builtin_assume(((int)threadIdx.z &lt; 1));
+  __builtin_assume((0 &lt;= (int)blockIdx.x));
+  __builtin_assume(((int)blockIdx.x &lt; ((m_size + 63) / 64)));
+  __builtin_assume((0 &lt;= (int)blockIdx.y));
+  __builtin_assume(((int)blockIdx.y &lt; ((n_size + 255) / 256)));
+  __builtin_assume((0 &lt;= (int)blockIdx.z));
+  __builtin_assume(((int)blockIdx.z &lt; 1));
+  float *a = ((float*)(a_ptr));
+  float *b = ((float*)(b_ptr));
+  float *c = ((float*)(c_ptr));
+  __shared__ float smem_a[512];
+  __shared__ float smem_b[2048];
+  float regs_c[64];
+  for (int32_t i = 0; (i &lt; 4); i = (i + 1)) {
+    for (int32_t i_1 = 0; (i_1 &lt; 4); i_1 = (i_1 + 1)) {
+      regs_c[((i * 4) + i_1)] = 0.0f;
+    }
+  }
+  for (int32_t i_2 = 0; (i_2 &lt; 4); i_2 = (i_2 + 1)) {
+    for (int32_t i_3 = 0; (i_3 &lt; 4); i_3 = (i_3 + 1)) {
+      regs_c[(16 + ((i_2 * 4) + i_3))] = 0.0f;
+    }
+  }
+  for (int32_t i_4 = 0; (i_4 &lt; 4); i_4 = (i_4 + 1)) {
+    for (int32_t i_5 = 0; (i_5 &lt; 4); i_5 = (i_5 + 1)) {
+      regs_c[(32 + ((i_4 * 4) + i_5))] = 0.0f;
+    }
+  }
+  for (int32_t i_6 = 0; (i_6 &lt; 4); i_6 = (i_6 + 1)) {
+    for (int32_t i_7 = 0; (i_7 &lt; 4); i_7 = (i_7 + 1)) {
+      regs_c[(48 + ((i_6 * 4) + i_7))] = 0.0f;
+    }
+  }
+  for (int32_t k_tile = 0; (k_tile &lt; ((k_size + 7) / 8)); k_tile = (k_tile + 1)) {
+    int32_t global_i = (((int)threadIdx.x / 8) + ((int)blockIdx.x * 64));
+    int32_t global_k = (((int)threadIdx.x % 8) + (k_tile * 8));
+    smem_a[(int)threadIdx.x] = (((global_i &lt; m_size) &amp;&amp; (global_k &lt; k_size)) ? a[((global_i * k_size) + global_k)] : 0.0f);
+    int32_t global_k_1 = (((int)threadIdx.x % 8) + (k_tile * 8));
+    smem_a[((int)threadIdx.x + 256)] = (((((((int)threadIdx.x / 8) + ((int)blockIdx.x * 64)) + 32) &lt; m_size) &amp;&amp; (global_k_1 &lt; k_size)) ? a[((((((int)threadIdx.x / 8) + ((int)blockIdx.x * 64)) + 32) * k_size) + global_k_1)] : 0.0f);
+    for (int32_t r = 0; (r &lt; 8); r = (r + 1)) {
+      int32_t global_k_2 = (r + (k_tile * 8));
+      int32_t global_j = ((int)threadIdx.x + ((int)blockIdx.y * 256));
+      smem_b[((int)threadIdx.x + (r * 256))] = (((global_k_2 &lt; k_size) &amp;&amp; (global_j &lt; n_size)) ? b[((global_k_2 * n_size) + global_j)] : 0.0f);
+    }
+    __syncthreads();
+    for (int32_t i_8 = 0; (i_8 &lt; 4); i_8 = (i_8 + 1)) {
+      for (int32_t i_9 = 0; (i_9 &lt; 4); i_9 = (i_9 + 1)) {
+        for (int32_t k = 0; (k &lt; 8); k = (k + 1)) {
+          regs_c[((i_8 * 4) + i_9)] = (regs_c[((i_8 * 4) + i_9)] + (smem_a[((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_8) * 8) + k)] * smem_b[((k * 256) + (((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_9))]));
+        }
+      }
+    }
+    for (int32_t i_10 = 0; (i_10 &lt; 4); i_10 = (i_10 + 1)) {
+      for (int32_t i_11 = 0; (i_11 &lt; 4); i_11 = (i_11 + 1)) {
+        for (int32_t k_1 = 0; (k_1 &lt; 8); k_1 = (k_1 + 1)) {
+          regs_c[(16 + ((i_10 * 4) + i_11))] = (regs_c[(16 + ((i_10 * 4) + i_11))] + (smem_a[((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_10) * 8) + k_1)] * smem_b[(((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_11) + (k_1 * 256)) + 64)]));
+        }
+      }
+    }
+    for (int32_t i_12 = 0; (i_12 &lt; 4); i_12 = (i_12 + 1)) {
+      for (int32_t i_13 = 0; (i_13 &lt; 4); i_13 = (i_13 + 1)) {
+        for (int32_t k_2 = 0; (k_2 &lt; 8); k_2 = (k_2 + 1)) {
+          regs_c[(32 + ((i_12 * 4) + i_13))] = (regs_c[(32 + ((i_12 * 4) + i_13))] + (smem_a[(((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_12) * 8) + k_2) + 64)] * smem_b[((k_2 * 256) + (((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_13))]));
+        }
+      }
+    }
+    for (int32_t i_14 = 0; (i_14 &lt; 4); i_14 = (i_14 + 1)) {
+      for (int32_t i_15 = 0; (i_15 &lt; 4); i_15 = (i_15 + 1)) {
+        for (int32_t k_3 = 0; (k_3 &lt; 8); k_3 = (k_3 + 1)) {
+          regs_c[(48 + ((i_14 * 4) + i_15))] = (regs_c[(48 + ((i_14 * 4) + i_15))] + (smem_a[(((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_14) * 8) + k_3) + 64)] * smem_b[(((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_15) + (k_3 * 256)) + 64)]));
+        }
+      }
+    }
+    __syncthreads();
+  }
+  for (int32_t i_16 = 0; (i_16 &lt; 4); i_16 = (i_16 + 1)) {
+    for (int32_t i_17 = 0; (i_17 &lt; 4); i_17 = (i_17 + 1)) {
+      int32_t global_i_1 = (((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_16) + ((int)blockIdx.x * 64));
+      int32_t global_j_1 = ((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_17) + ((int)blockIdx.y * 256));
+      if ((global_i_1 &lt; m_size) &amp;&amp; (global_j_1 &lt; n_size)) {
+        c[((global_i_1 * n_size) + global_j_1)] = hidet_relu(regs_c[((i_16 * 4) + i_17)]);
+      }
+    }
+  }
+  for (int32_t i_18 = 0; (i_18 &lt; 4); i_18 = (i_18 + 1)) {
+    for (int32_t i_19 = 0; (i_19 &lt; 4); i_19 = (i_19 + 1)) {
+      int32_t global_i_2 = (((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_18) + ((int)blockIdx.x * 64));
+      if ((global_i_2 &lt; m_size) &amp;&amp; ((((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_19) + ((int)blockIdx.y * 256)) + 64) &lt; n_size)) {
+        c[((global_i_2 * n_size) + (((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_19) + ((int)blockIdx.y * 256)) + 64))] = hidet_relu(regs_c[(16 + ((i_18 * 4) + i_19))]);
+      }
+    }
+  }
+  for (int32_t i_20 = 0; (i_20 &lt; 4); i_20 = (i_20 + 1)) {
+    for (int32_t i_21 = 0; (i_21 &lt; 4); i_21 = (i_21 + 1)) {
+      int32_t global_j_2 = ((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_21) + ((int)blockIdx.y * 256));
+      if ((((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_20) + ((int)blockIdx.x * 64)) + 8) &lt; m_size) &amp;&amp; (global_j_2 &lt; n_size)) {
+        c[((((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_20) + ((int)blockIdx.x * 64)) + 8) * n_size) + global_j_2)] = hidet_relu(regs_c[(32 + ((i_20 * 4) + i_21))]);
+      }
+    }
+  }
+  for (int32_t i_22 = 0; (i_22 &lt; 4); i_22 = (i_22 + 1)) {
+    for (int32_t i_23 = 0; (i_23 &lt; 4); i_23 = (i_23 + 1)) {
+      if ((((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_22) + ((int)blockIdx.x * 64)) + 8) &lt; m_size) &amp;&amp; ((((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_23) + ((int)blockIdx.y * 256)) + 64) &lt; n_size)) {
+        c[((((((((((int)threadIdx.x / 64) * 4) + (((int)threadIdx.x % 32) / 16)) * 4) + i_22) + ((int)blockIdx.x * 64)) + 8) * n_size) + (((((((((int)threadIdx.x / 32) % 2) * 32) + ((int)threadIdx.x % 16)) * 4) + i_23) + ((int)blockIdx.y * 256)) + 64))] = hidet_relu(regs_c[(48 + ((i_22 * 4) + i_23))]);
+      }
+    }
+  }
+}
+
+DLL void hidet_launch(float * __restrict__ a_ptr, float * __restrict__ b_ptr, float * __restrict__ c_ptr, int32_t m_size, int32_t n_size, int32_t k_size) {
+  if ((0 &lt; ((m_size + 63) / 64)) &amp;&amp; (0 &lt; ((n_size + 255) / 256))) {
+    if (65535 &lt; ((n_size + 255) / 256)) {
+      printf(&quot;Launching kernel with grid_dim = (%d, %d, %d), block_dim = (%d, %d, %d)\n&quot;, ((m_size + 63) / 64), ((n_size + 255) / 256), 1, 256, 1, 1);
+      assert(false);  // Invalid launch configuration
+    }
+    if (((((m_size + 63) / 64) % 1) != 0) || ((((n_size + 255) / 256) % 1) != 0)) {
+      assert(false);  // Cluster dims must elementwise evenly divide grid dims
+    }
+    hidet_matmul_kernel&lt;&lt;&lt;dim3(((m_size + 63) / 64), ((n_size + 255) / 256), 1), dim3(256, 1, 1), 0, (cudaStream_t)get_cuda_stream()&gt;&gt;&gt;(a_ptr, b_ptr, c_ptr, m_size, n_size, k_size);
+    {cudaError_t err = cudaGetLastError(); if (err != cudaSuccess) LOG(ERROR) &lt;&lt; &quot;CUDA error: &quot; &lt;&lt; cudaGetErrorString(err) &lt;&lt; &quot;\n&quot;;}
+  }
+}
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.072 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-hidet-script-5-efficient-matmul-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e18cce0241e83e33d12176ee53959b20/5-efficient-matmul.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">5-efficient-matmul.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/51eba9b4fe8288b78d68f2e1ebd733b0/5-efficient-matmul.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">5-efficient-matmul.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/7111dca89cd5dc7ae174bb55d8018b48/5-efficient-matmul.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">5-efficient-matmul.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4-naive-matmul.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Naive Matrix Multiplication</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../hidet-script/reference/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hidet Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023, Hidet Authors.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
