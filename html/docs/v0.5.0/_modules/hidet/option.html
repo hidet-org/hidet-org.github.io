@@ -531,20 +531,8 @@
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">,</span>
         <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int, float&#39;</span><span class="p">,</span>
         <span class="n">default_value</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Deprecated option. Please use the `num_local_workers` option instead.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fix_gpu_frequency_for_tuning&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to fix the GPU frequency during tuning to avoid frequency throttling.&#39;</span><span class="p">,</span>
-        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
-    <span class="p">)</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;num_local_workers&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(),</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Number of local worker processes to use for parallel compilation/tuning&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The pair (max_parallel_jobs, mem_gb_per_job, max_candidates_per_job) that describe &#39;</span>
+        <span class="s1">&#39;the maximum number of parallel jobs and memory reserved for each job&#39;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;save_lower_ir&#39;</span><span class="p">,</span>
@@ -607,7 +595,7 @@
         <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The address of the compile server. Can be an IP address or a domain name.&#39;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.port&#39;</span><span class="p">,</span> <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">3281</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The port of the compile server.&#39;</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.port&#39;</span><span class="p">,</span> <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">8329</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The port of the compile server.&#39;</span>
     <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.enabled&#39;</span><span class="p">,</span>
@@ -640,24 +628,11 @@
         <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The version (e.g., branch, commit, or tag) that the remote server will use.&#39;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="c1"># TODO: this value should be requested from the compilation server</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;compile_server.num_workers&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The number of worker processes of the compile server.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cuda.arch&#39;</span><span class="p">,</span>
         <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
         <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The CUDA architecture to compile the kernels for (e.g., &quot;sm_70&quot;). &quot;auto&quot; for auto-detect.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hip.arch&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;The HIP GCN architecture to compile the kernels for (e.g., &quot;gfx1100&quot;). &quot;auto&quot; for auto-detect.&#39;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;cuda.cpu_arch&#39;</span><span class="p">,</span>
@@ -675,36 +650,14 @@
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;execution_mode&#39;</span><span class="p">,</span>
         <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
         <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;interpreter&#39;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilation&#39; mode for run() function in Operator allowed&quot;</span><span class="p">,</span>
-        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;symbolic&#39;</span><span class="p">,</span> <span class="s1">&#39;interpreter&#39;</span><span class="p">,</span> <span class="s1">&#39;compilation&#39;</span><span class="p">],</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilaion&#39; mode for run() function in Operator allowed&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;symbolic&#39;</span><span class="p">,</span> <span class="s1">&#39;interpreter&#39;</span><span class="p">,</span> <span class="s1">&#39;compilaion&#39;</span><span class="p">],</span>
     <span class="p">)</span>
     <span class="n">register_option</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s1">&#39;parallel_k&#39;</span><span class="p">,</span>
         <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;Union[str, int]&#39;</span><span class="p">,</span>
         <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span>
         <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parallelization on k dimension of the matrix multiplication.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hexcute_matmul&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;enable&#39;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Whether to enable the hexcute matmul kernels. The valid values for this option can be&quot;</span>
-        <span class="s2">&quot;&#39;enable&#39;, &#39;disable&#39;, and &#39;auto&#39;&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="c1"># Exclusive `torch.compile` API option.</span>
-    <span class="c1"># Torch Dynamo passes two arguments to the compiler: `fx.graph` and `example_inputs`.</span>
-    <span class="c1"># From torch==2.4, `example_inputs` is an actual tensor (not FakeTensor, non-symbolic).</span>
-    <span class="c1"># We use `fx.graph` to get symbolic shapes because `example_inputs` doesn&#39;t contain such info.</span>
-    <span class="c1">#</span>
-    <span class="c1"># On the other hand, vllm passes symbolic `example_inputs` if dynamic shapes are expected and</span>
-    <span class="c1"># non-symbolic `example_inputs` if static shapes are expected. `fx.graph` remains the same in both cases.</span>
-    <span class="c1"># With `internal.torch_api_use_example_input_shapes` set to True, we use the shape of `example_inputs` to determine</span>
-    <span class="c1"># the requested shapes.</span>
-    <span class="n">register_option</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;internal.torch_api_use_example_input_shapes&#39;</span><span class="p">,</span>
-        <span class="n">type_hint</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span>
-        <span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Applicable when using torch.compile only. Use `example_inputs` shapes instead of fx.graph shapes.&#39;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># Load hidet config</span>
@@ -1120,11 +1073,10 @@
 <span class="sd">    mem_gb_per_job: float</span>
 <span class="sd">        The minimum amount of memory (in GiB) reserved for each tuning job, default 1.5GiB.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;`parallel_tune` option is deprecated.&#39;</span> <span class="s1">&#39;Please use the `num_local_workers` option instead.&#39;</span><span class="p">)</span>
     <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">max_parallel_jobs</span><span class="p">,</span> <span class="n">mem_gb_per_job</span><span class="p">,</span> <span class="n">max_candidates_per_job</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="get_parallel_tune"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_parallel_tune">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_parallel_tune</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<div class="viewcode-block" id="get_parallel_tune"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_parallel_tune">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_parallel_tune</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the option value of whether to build operators in parallel.</span>
 
@@ -1134,56 +1086,7 @@
 <span class="sd">        Get the maximum number of jobs and minumum amount of memory reserved for tuning.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;`parallel_tune` option is deprecated.&#39;</span> <span class="s1">&#39;Please use the `num_local_workers` option instead.&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">get_num_local_workers</span><span class="p">(),</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="fix_gpu_frequency_for_tuning"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.fix_gpu_frequency_for_tuning">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">fix_gpu_frequency_for_tuning</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Whether to fix the GPU frequency during tuning to avoid frequency throttling.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    enabled: bool</span>
-<span class="sd">        Whether to fix the GPU frequency during tuning to avoid frequency throttling.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;fix_gpu_frequency_for_tuning&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="is_fix_gpu_frequency_for_tuning"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.is_fix_gpu_frequency_for_tuning">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">is_fix_gpu_frequency_for_tuning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get the option value of whether to fix the GPU frequency during tuning to avoid frequency throttling.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ret: bool</span>
-<span class="sd">        Whether to fix the GPU frequency during tuning to avoid frequency throttling.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;fix_gpu_frequency_for_tuning&#39;</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="num_local_workers"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.num_local_workers">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">num_local_workers</span><span class="p">(</span><span class="n">num_workers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Set the number of local worker processes to use for parallel compilation/tuning.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    num_workers: Optional[int]</span>
-<span class="sd">        The number of local worker processes. If None, use os.cpu_count().</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;num_local_workers&#39;</span><span class="p">,</span> <span class="n">num_workers</span> <span class="k">if</span> <span class="n">num_workers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span></div>
-
-
-<div class="viewcode-block" id="get_num_local_workers"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_num_local_workers">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_num_local_workers</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get the number of local worker processes to use for parallel compilation/tuning.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ret: int</span>
-<span class="sd">        The number of local worker processes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;num_local_workers&#39;</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_tune&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="save_lower_ir"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.save_lower_ir">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">save_lower_ir</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
@@ -1294,26 +1197,26 @@
     <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;runtime_check&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="execution_mode"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.execution_mode">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">execution_mode</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;compilation&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="execution_mode"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.execution_mode">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">execution_mode</span><span class="p">(</span><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;compilaion&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilation&#39; mode for run() function in Operator allowed.</span>
+<span class="sd">    Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilaion&#39; mode for run() function in Operator allowed.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    kind: str</span>
-<span class="sd">        Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilation&#39; mode for run() function in Operator allowed.</span>
+<span class="sd">        Use &#39;symbolic&#39;, &#39;interpreter&#39;, or &#39;compilaion&#39; mode for run() function in Operator allowed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;execution_mode&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_execution_mode"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_execution_mode">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_execution_mode</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get which of &#39;symbolic&#39;, &#39;interpreter&#39;, &#39;compilation&#39; mode to use for run() function in Operator allowed.</span>
+<span class="sd">    Get which of &#39;symbolic&#39;, &#39;interpreter&#39;, &#39;compilaion&#39; mode to use for run() function in Operator allowed.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    ret: str</span>
-<span class="sd">        Get which of &#39;symbolic&#39;, &#39;interpreter&#39;, &#39;compilation&#39; mode to use for run() function in Operator allowed.</span>
+<span class="sd">        Get which of &#39;symbolic&#39;, &#39;interpreter&#39;, &#39;compilaion&#39; mode to use for run() function in Operator allowed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;execution_mode&#39;</span><span class="p">)</span></div>
 
@@ -1351,39 +1254,6 @@
     <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_k&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hexcute_matmul"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.hexcute_matmul">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">hexcute_matmul</span><span class="p">(</span><span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;enable&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Whether to enable hexcute matmul kernels, such as the Hexcute matmul kernels.</span>
-
-<span class="sd">    - ``enable``:</span>
-<span class="sd">        Always enable the hexcute matmul kernels on all the GPU platforms.</span>
-<span class="sd">    - ``disable``:</span>
-<span class="sd">        Always disable the hexcute matmul kernels on all the GPU platforms.</span>
-<span class="sd">    - ``auto``:</span>
-<span class="sd">        Use a heuristic strategy to decide whether to enable the hexcute matmul kernels.</span>
-<span class="sd">        The decision is based on the metrics of the current GPU platform, such as</span>
-<span class="sd">        the memory bandwidth, the compute throughput, etc.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    strategy: str</span>
-<span class="sd">        The strategy to enable the hexcute matmul kernels.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;hexcute_matmul&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="get_hexcute_matmul"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.get_hexcute_matmul">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_hexcute_matmul</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get strategy to enable the hexcute matmul kernels.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ret: str</span>
-<span class="sd">        Get strategy to enable the hexcute matmul kernels.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;hexcute_matmul&#39;</span><span class="p">)</span></div>
-
-
 <div class="viewcode-block" id="debug_show_verbose_flow_graph"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.debug_show_verbose_flow_graph">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">debug_show_verbose_flow_graph</span><span class="p">(</span><span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Whether to show verbose information (like task) when we convert flow graph in to human-readable text.</span>
 
@@ -1409,34 +1279,6 @@
 <span class="sd">        True if option exists/registered, False otherwise.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">OptionRegistry</span><span class="o">.</span><span class="n">registered_options</span></div>
-
-
-<div class="viewcode-block" id="use_torch_stream"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.use_torch_stream">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">use_torch_stream</span><span class="p">(</span><span class="n">use</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the flag for whether to use torch steam</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    use: bool</span>
-<span class="sd">        whether to set</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ffi.runtime_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">runtime_api</span>
-
-    <span class="c1"># set use torch stream flag according to the option</span>
-    <span class="n">runtime_api</span><span class="o">.</span><span class="n">use_torch_cuda_stream</span><span class="p">(</span><span class="n">use</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="is_use_torch_stream"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.is_use_torch_stream">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">is_use_torch_stream</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checking if currently is using torch stream</span>
-
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ret: bool</span>
-<span class="sd">        True if using torch stream, False otherwise.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ffi.runtime_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">runtime_api</span>
-
-    <span class="k">return</span> <span class="n">runtime_api</span><span class="o">.</span><span class="n">get_use_torch_cuda_stream</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="cuda"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.cuda">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">cuda</span><span class="p">:</span>
@@ -1526,61 +1368,6 @@
             <span class="n">end</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">begin</span><span class="p">)</span>
             <span class="n">arch</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">begin</span><span class="p">:</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">arch</span></div></div>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">hip</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">arch</span><span class="p">(</span><span class="n">arch</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Set the HIP architecture to use when building HIP kernels.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        arch: Optional[str]</span>
-<span class="sd">            The hip GCN architecture, e.g., &#39;gfx1100&#39;, etc. &quot;auto&quot; means</span>
-<span class="sd">            using the architecture of the first HIP GPU on the current machine. Default &quot;auto&quot;.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;hip.arch&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_arch</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the HIP architecture to use when building HIP kernels.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: str</span>
-<span class="sd">            The hip GCN architecture, e.g., &#39;gfx1100&#39;, etc.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">arch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;hip.arch&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">arch</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-            <span class="n">major</span><span class="p">,</span> <span class="n">minor</span> <span class="o">=</span> <span class="n">hip</span><span class="o">.</span><span class="n">get_arch_pair</span><span class="p">()</span>
-
-            <span class="c1"># TODO: cannot get properties.gcnArch properly</span>
-            <span class="k">if</span> <span class="n">major</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">minor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">arch</span> <span class="o">=</span> <span class="s1">&#39;gfx1100&#39;</span>
-            <span class="k">elif</span> <span class="n">major</span> <span class="o">==</span> <span class="mi">9</span> <span class="ow">and</span> <span class="n">minor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">arch</span> <span class="o">=</span> <span class="s1">&#39;gfx90a&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hip arch </span><span class="si">{</span><span class="n">major</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">minor</span><span class="si">}</span><span class="s1"> not supported&#39;</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">arch</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_arch_pair</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the HIP architecture to use when building HIP kernels, with major and minor version as a tuple.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: Tuple[int, int]</span>
-<span class="sd">            The HIP architecture, e.g., (3, 5), (7, 0), (8, 0), etc.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">hidet.hip</span>
-
-        <span class="c1"># get the architecture of the first CUDA GPU</span>
-        <span class="n">properties</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">hip</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">properties</span><span class="o">.</span><span class="n">major</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">minor</span>
 
 
 <div class="viewcode-block" id="compile_server"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.compile_server">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">compile_server</span><span class="p">:</span>
@@ -1682,61 +1469,7 @@
 <span class="sd">            branch: &#39;main&#39;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.repo_url&#39;</span><span class="p">,</span> <span class="n">repo_url</span><span class="p">)</span>
-        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.repo_version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="compile_server.num_workers"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.compile_server.num_workers">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">num_workers</span><span class="p">(</span><span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Set the number of worker processes of the compile server.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        num_workers: int</span>
-<span class="sd">            The number of worker processes of the compile server.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.num_workers&#39;</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="compile_server.get_num_workers"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.compile_server.get_num_workers">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_num_workers</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the number of worker processes of the compile server.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: int</span>
-<span class="sd">            The number of worker processes of the compile server.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;compile_server.num_workers&#39;</span><span class="p">)</span></div></div>
-
-
-<div class="viewcode-block" id="internal"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.internal">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">internal</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Internal options.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="internal.torch_api_use_example_input_shapes"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.internal.torch_api_use_example_input_shapes">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">torch_api_use_example_input_shapes</span><span class="p">(</span><span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Applicable when using `torch.compile` only. Use `example_inputs` shapes instead of fx.graph shapes.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        enable: bool</span>
-<span class="sd">            Applicable when using torch.compile only. Use `example_inputs` shapes instead of fx.graph shapes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;internal.torch_api_use_example_input_shapes&#39;</span><span class="p">,</span> <span class="n">enable</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="internal.is_torch_api_use_example_input_shapes"><a class="viewcode-back" href="../../python_api/option.html#hidet.option.internal.is_torch_api_use_example_input_shapes">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_torch_api_use_example_input_shapes</span><span class="p">():</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get whether to use `example_inputs` shapes instead of `fx.graph` shapes.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: bool</span>
-<span class="sd">            Whether to use `example_inputs` shapes instead of `fx.graph` shapes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;internal.torch_api_use_example_input_shapes&#39;</span><span class="p">)</span></div></div>
+        <span class="n">OptionContext</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;compile_server.repo_version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></div></div>
 
 
 <span class="c1"># load the options from config file (e.g., ~/.config/hidet.config) if exists</span>
@@ -1781,7 +1514,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**08:39.321** total execution time for 7 files **from gallery/developer-guides**:
+**02:27.685** total execution time for 7 files **from gallery/developer-guides**:
 
 .. container::
 
@@ -33,23 +33,23 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_gallery_developer-guides_add-torch-operator-mapping.py` (``add-torch-operator-mapping.py``)
-     - 08:35.712
-     - 0.0
-   * - :ref:`sphx_glr_gallery_developer-guides_hidet-script-dynamic-kernel.py` (``hidet-script-dynamic-kernel.py``)
-     - 00:01.137
+     - 02:27.685
      - 0.0
    * - :ref:`sphx_glr_gallery_developer-guides_add-new-operator-compute-definition.py` (``add-new-operator-compute-definition.py``)
-     - 00:01.114
-     - 0.0
-   * - :ref:`sphx_glr_gallery_developer-guides_add-new-operator-template-based.py` (``add-new-operator-template-based.py``)
-     - 00:01.020
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_gallery_developer-guides_add-new-operator-rule-based.py` (``add-new-operator-rule-based.py``)
-     - 00:00.226
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_gallery_developer-guides_add-new-operator-template-based.py` (``add-new-operator-template-based.py``)
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_gallery_developer-guides_add-operator-resolve-rule.py` (``add-operator-resolve-rule.py``)
-     - 00:00.103
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_gallery_developer-guides_add-subgraph-rewrite-rule.py` (``add-subgraph-rewrite-rule.py``)
-     - 00:00.010
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_gallery_developer-guides_hidet-script-dynamic-kernel.py` (``hidet-script-dynamic-kernel.py``)
+     - 00:00.000
      - 0.0

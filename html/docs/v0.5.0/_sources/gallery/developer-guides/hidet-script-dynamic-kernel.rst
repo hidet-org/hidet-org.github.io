@@ -184,8 +184,8 @@ Writing Dynamic kernel
 
  .. code-block:: none
 
-    1024x1024x1024: hidet takes 0.13 ms
-    333x555x444: hidet takes 0.07 ms
+    1024x1024x1024: hidet takes 0.22 ms
+    333x555x444: hidet takes 0.11 ms
     1x13x12: hidet takes 0.02 ms
 
 
@@ -194,7 +194,7 @@ Writing Dynamic kernel
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.137 seconds)
+   **Total running time of the script:** (0 minutes 1.939 seconds)
 
 
 .. _sphx_glr_download_gallery_developer-guides_hidet-script-dynamic-kernel.py:

@@ -494,6 +494,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ops/index.html#hidet.ops.barrier">barrier() (in module hidet.ops)</a>
 </li>
+      <li><a href="python_api/ops/index.html#hidet.ops.batch_matmul">batch_matmul() (in module hidet.ops)</a>
+</li>
       <li><a href="python_api/ops/index.html#hidet.ops.batch_norm_infer">batch_norm_infer() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/graph/index.html#hidet.graph.GraphPassInstrument.before_all_passes">before_all_passes() (hidet.graph.GraphPassInstrument method)</a>
@@ -502,16 +504,18 @@
 </li>
       <li><a href="python_api/option.html#hidet.option.bench_config">bench_config() (in module hidet.option)</a>
 </li>
+      <li><a href="python_api/testing/index.html#hidet.testing.benchmark_func">benchmark_func() (in module hidet.testing)</a>
+</li>
       <li><a href="python_api/ops/index.html#hidet.ops.bitwise_and">bitwise_and() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.bitwise_invert">bitwise_invert() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.bitwise_left_shift">bitwise_left_shift() (in module hidet.ops)</a>
 </li>
-      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_or">bitwise_or() (in module hidet.ops)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.bitwise_or">bitwise_or() (in module hidet.ops)</a>
+</li>
       <li><a href="python_api/ops/index.html#hidet.ops.bitwise_right_shift">bitwise_right_shift() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.bitwise_xor">bitwise_xor() (in module hidet.ops)</a>
@@ -637,8 +641,6 @@
       <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.cuda_">cuda_() (hidet.graph.FlowGraph method)</a>
 </li>
       <li><a href="python_api/tensor.html#hidet.Tensor.cuda_async">cuda_async() (hidet.Tensor method)</a>
-</li>
-      <li><a href="python_api/ops/index.html#hidet.ops.cuda_batch_matmul">cuda_batch_matmul() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.cuda_graph">cuda_graph() (hidet.graph.FlowGraph method)</a>
 
@@ -770,8 +772,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/utils/index.html#hidet.utils.factorize">factorize() (in module hidet.utils)</a>
 </li>
-      <li><a href="python_api/option.html#hidet.option.fix_gpu_frequency_for_tuning">fix_gpu_frequency_for_tuning() (in module hidet.option)</a>
-</li>
       <li><a href="python_api/ops/index.html#hidet.ops.flatten">flatten() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.flip">flip() (in module hidet.ops)</a>
@@ -838,8 +838,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ops/index.html#hidet.ops.gather">gather() (in module hidet.ops)</a>
 </li>
-      <li><a href="python_api/utils/index.html#hidet.utils.gc_disabled">gc_disabled() (in module hidet.utils)</a>
-</li>
       <li><a href="python_api/utils/index.html#hidet.utils.gcd">gcd() (in module hidet.utils)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.gelu">gelu() (in module hidet.ops)</a>
@@ -864,14 +862,8 @@
 </li>
       <li><a href="python_api/option.html#hidet.option.get_execution_mode">get_execution_mode() (in module hidet.option)</a>
 </li>
-      <li><a href="python_api/option.html#hidet.option.get_hexcute_matmul">get_hexcute_matmul() (in module hidet.option)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python_api/option.html#hidet.option.get_num_local_workers">get_num_local_workers() (in module hidet.option)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.compile_server.get_num_workers">get_num_workers() (hidet.option.compile_server static method)</a>
-</li>
       <li><a href="python_api/option.html#hidet.option.OptionContext.get_option">get_option() (hidet.option.OptionContext method)</a>
 
       <ul>
@@ -921,8 +913,6 @@
       <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.has_edge">has_edge() (hidet.utils.DirectedGraph method)</a>
 </li>
       <li><a href="python_api/utils/index.html#hidet.utils.DirectedGraph.has_node">has_node() (hidet.utils.DirectedGraph method)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.hexcute_matmul">hexcute_matmul() (in module hidet.option)</a>
 </li>
       <li>
     hidet
@@ -1052,8 +1042,6 @@
         <li><a href="python_api/utils/index.html#module-hidet.utils">module</a>
 </li>
       </ul></li>
-      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.hip_">hip_() (hidet.graph.FlowGraph method)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -1082,27 +1070,19 @@
         <li><a href="python_api/ir/task.html#hidet.ir.task.Task.inputs">(hidet.ir.task.Task attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ops/index.html#hidet.ops.instance_norm">instance_norm() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/graph/index.html#hidet.graph.PassContext.instruments">instruments (hidet.graph.PassContext attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ir/expr.html#hidet.ir.expr.Int">Int (in module hidet.ir.expr)</a>
 </li>
-      <li><a href="python_api/option.html#hidet.option.internal">internal (class in hidet.option)</a>
-</li>
       <li><a href="python_api/ir/task.html#hidet.ir.task.Task.inverse_map">inverse_map (hidet.ir.task.Task attribute)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.is_fix_gpu_frequency_for_tuning">is_fix_gpu_frequency_for_tuning() (in module hidet.option)</a>
 </li>
       <li><a href="python_api/option.html#hidet.option.is_option_exist">is_option_exist() (in module hidet.option)</a>
 </li>
       <li><a href="python_api/tensor.html#hidet.Tensor.is_symbolic">is_symbolic() (hidet.Tensor method)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.internal.is_torch_api_use_example_input_shapes">is_torch_api_use_example_input_shapes() (hidet.option.internal static method)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.is_use_torch_stream">is_use_torch_stream() (in module hidet.option)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.isfinite">isfinite() (in module hidet.ops)</a>
 </li>
@@ -1287,17 +1267,13 @@
       </ul></li>
       <li><a href="python_api/tensor.html#hidet.Tensor.nbytes">nbytes (hidet.Tensor attribute)</a>
 </li>
-      <li><a href="python_api/ops/index.html#hidet.ops.negative">negative() (in module hidet.ops)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/ops/index.html#hidet.ops.negative">negative() (in module hidet.ops)</a>
+</li>
       <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.nodes">nodes (hidet.graph.FlowGraph property)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.not_equal">not_equal() (in module hidet.ops)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.num_local_workers">num_local_workers() (in module hidet.option)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.compile_server.num_workers">num_workers() (hidet.option.compile_server static method)</a>
 </li>
       <li><a href="python_api/tensor.html#hidet.Tensor.numpy">numpy() (hidet.Tensor method)</a>
 </li>
@@ -1425,8 +1401,6 @@
 </li>
       <li><a href="python_api/graph/index.html#hidet.graph.PassContext.reduce_cuda_compile_mem">reduce_cuda_compile_mem() (hidet.graph.PassContext method)</a>
 </li>
-      <li><a href="python_api/graph/index.html#hidet.graph.PassContext.reduce_hip_compile_mem">reduce_hip_compile_mem() (hidet.graph.PassContext method)</a>
-</li>
       <li><a href="python_api/ops/index.html#hidet.ops.reduce_scatter">reduce_scatter() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/ir/compute.html#hidet.ir.compute.ReduceType">ReduceType (class in hidet.ir.compute)</a>
@@ -1507,8 +1481,6 @@
 </li>
       <li><a href="python_api/ir/compute.html#hidet.ir.compute.scalar_input">scalar_input() (in module hidet.ir.compute)</a>
 </li>
-      <li><a href="python_api/ops/index.html#hidet.ops.scatter_">scatter_() (in module hidet.ops)</a>
-</li>
       <li><a href="python_api/ops/index.html#hidet.ops.scatter_add_">scatter_add_() (in module hidet.ops)</a>
 </li>
       <li><a href="python_api/root.html#hidet.script">script() (in module hidet)</a>
@@ -1563,10 +1535,10 @@
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.sin">sin() (in module hidet.ops)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ops/index.html#hidet.ops.sinh">sinh() (in module hidet.ops)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/tensor.html#hidet.Tensor.size">size (hidet.Tensor attribute)</a>
 </li>
       <li><a href="python_api/ops/index.html#hidet.ops.softmax">softmax() (in module hidet.ops)</a>
@@ -1687,8 +1659,6 @@
 </li>
       <li><a href="python_api/tensor.html#hidet.Tensor.torch">torch() (hidet.Tensor method)</a>
 </li>
-      <li><a href="python_api/option.html#hidet.option.internal.torch_api_use_example_input_shapes">torch_api_use_example_input_shapes() (hidet.option.internal static method)</a>
-</li>
       <li><a href="python_api/tensor.html#hidet.Tensor.trace">trace (hidet.Tensor attribute)</a>
 </li>
       <li><a href="python_api/root.html#hidet.trace_from">trace_from() (in module hidet)</a>
@@ -1725,17 +1695,15 @@
 </li>
       <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_attention">use_attention() (hidet.graph.frontend.torch.DynamoConfig method)</a>
 </li>
-      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_cuda_graph">use_cuda_graph() (hidet.graph.frontend.torch.DynamoConfig method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_cuda_graph">use_cuda_graph() (hidet.graph.frontend.torch.DynamoConfig method)</a>
+</li>
       <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16">use_fp16() (hidet.graph.frontend.torch.DynamoConfig method)</a>
 </li>
       <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_fp16_reduction">use_fp16_reduction() (hidet.graph.frontend.torch.DynamoConfig method)</a>
 </li>
       <li><a href="python_api/graph/frontend/torch.html#hidet.graph.frontend.torch.DynamoConfig.use_tensor_core">use_tensor_core() (hidet.graph.frontend.torch.DynamoConfig method)</a>
-</li>
-      <li><a href="python_api/option.html#hidet.option.use_torch_stream">use_torch_stream() (in module hidet.option)</a>
 </li>
       <li><a href="python_api/option.html#hidet.option.compile_server.username">username() (hidet.option.compile_server static method)</a>
 </li>
@@ -1747,13 +1715,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python_api/ops/index.html#hidet.ops.var">var() (in module hidet.ops)</a>
 </li>
-      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.vcuda_">vcuda_() (hidet.graph.FlowGraph method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.vhip_">vhip_() (hidet.graph.FlowGraph method)</a>
-</li>
-      <li><a href="python_api/ops/index.html#hidet.ops.view">view() (in module hidet.ops)</a>
+      <li><a href="python_api/graph/index.html#hidet.graph.FlowGraph.vcuda_">vcuda_() (hidet.graph.FlowGraph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1830,7 +1794,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

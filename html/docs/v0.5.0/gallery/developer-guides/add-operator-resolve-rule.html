@@ -440,7 +440,7 @@ variants. When optimizing the model, we can resolve the generic operator to the 
 For example, in Hidet, we provided a generic <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul()</span></code></a> operator with the same semantics as
 the numpy equivalent <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul" title="(in NumPy v2.2)"><code class="xref py py-data docutils literal notranslate"><span class="pre">numpy.matmul</span></code></a>. This operator is a generic operator and is scheduled automatically by
 our auto-scheduler, thus it is not very efficient. But we also provided a lot of specialized variants of the operators
-such as highly-optimized <code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code> that only accepts <span class="math notranslate nohighlight">\(A=[B, M, K]\)</span> and
+such as highly-optimized <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.batch_matmul" title="hidet.ops.batch_matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a> that only accepts <span class="math notranslate nohighlight">\(A=[B, M, K]\)</span> and
 <span class="math notranslate nohighlight">\(B=[B, K, N]\)</span>. During the operator resolving, we first reshape and broadcast the input tensors to align the
 input shapes with the specialized operator, then use the specialized operator to compute the result, and finally
 reshape the output tensor to get the correct output shape.</p></li>
@@ -472,7 +472,7 @@ algorithm.</span><a class="headerlink" href="#id4" title="Permalink to this imag
 </figure>
 <p>The operator resolving pass would repeat the resolving process until no more operators can be resolved. Thus, in the
 conv2d example, we will first resolve <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-func docutils literal notranslate"><span class="pre">conv2d()</span></code></a> to <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">matmul()</span></code></a>, and then
-to <code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code>.</p>
+to <a class="reference internal" href="../../python_api/ops/index.html#hidet.ops.batch_matmul" title="hidet.ops.batch_matmul"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a>.</p>
 </section>
 <section id="id2">
 <h2>Add Operator Resolve Rule<a class="headerlink" href="#id2" title="Permalink to this heading"><span>¶</span></a></h2>
@@ -558,7 +558,7 @@ Graph(x: float32[2, 3][cuda]){
 <p>In this tutorial, we learned how to resolve an operator to other operators. We also learned how to add a resolve
 rule to an operator. The resolve rule is a powerful tool to reuse existing operators to implement new operators.
 We can also use it to resolve a generic operator to more specialized variants.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.103 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.356 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-operator-resolve-rule-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8b075bfc1113c6e4f11f1f1daa4dce21/add-operator-resolve-rule.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-operator-resolve-rule.ipynb</span></code></a></p>
@@ -647,7 +647,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

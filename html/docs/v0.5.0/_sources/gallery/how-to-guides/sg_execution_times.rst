@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.301** total execution time for 1 file **from gallery/how-to-guides**:
+**00:00.146** total execution time for 1 file **from gallery/how-to-guides**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_gallery_how-to-guides_visualize-flow-graph.py` (``visualize-flow-graph.py``)
-     - 00:00.301
+     - 00:00.146
      - 0.0

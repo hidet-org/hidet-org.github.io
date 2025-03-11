@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.618** total execution time for 6 files **from gallery/hidet-script**:
+**00:00.277** total execution time for 6 files **from gallery/hidet-script**:
 
 .. container::
 
@@ -32,21 +32,21 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_gallery_hidet-script_3-kernel-functions.py` (``3-kernel-functions.py``)
-     - 00:01.090
-     - 0.0
    * - :ref:`sphx_glr_gallery_hidet-script_5-efficient-matmul.py` (``5-efficient-matmul.py``)
-     - 00:01.072
+     - 00:00.114
      - 0.0
    * - :ref:`sphx_glr_gallery_hidet-script_4-naive-matmul.py` (``4-naive-matmul.py``)
-     - 00:00.852
+     - 00:00.103
+     - 0.0
+   * - :ref:`sphx_glr_gallery_hidet-script_3-kernel-functions.py` (``3-kernel-functions.py``)
+     - 00:00.061
      - 0.0
    * - :ref:`sphx_glr_gallery_hidet-script_0-hello-world.py` (``0-hello-world.py``)
-     - 00:00.205
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_gallery_hidet-script_1-scalar-addition.py` (``1-scalar-addition.py``)
-     - 00:00.201
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_gallery_hidet-script_2-vector-addition.py` (``2-vector-addition.py``)
-     - 00:00.198
+     - 00:00.000
      - 0.0

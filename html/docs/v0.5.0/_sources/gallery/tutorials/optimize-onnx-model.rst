@@ -99,7 +99,7 @@ get the median latency.
 
  .. code-block:: none
 
-    PyTorch: 1.745 ms
+    PyTorch: 5.005 ms
 
 
 
@@ -168,12 +168,6 @@ tensor.
 
 
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Generating Hidet IR:   0%|                                | 0/1 [00:00<?, ?it/s]    Generating Hidet IR: 100%|███████████████████████| 1/1 [00:00<00:00, 505.03it/s]
 
 
 
@@ -246,8 +240,8 @@ Then, we use :meth:`~hidet.cuda.graph.CudaGraph.run` method to run the cuda grap
 
  .. code-block:: none
 
-    Parallel build:   0%|                                    | 0/56 [00:00<?, ?it/s]    Parallel build:   2%|▌                           | 1/56 [00:01<01:27,  1.58s/it]    Parallel build:  70%|██████████████████▊        | 39/56 [00:02<00:00, 19.27it/s]    Parallel build:  82%|██████████████████████▏    | 46/56 [00:02<00:00, 21.01it/s]    Parallel build:  88%|███████████████████████▋   | 49/56 [00:02<00:00, 20.65it/s]    Parallel build:  95%|█████████████████████████▌ | 53/56 [00:02<00:00, 22.57it/s]    Parallel build: 100%|███████████████████████████| 56/56 [00:03<00:00, 23.40it/s]    Parallel build: 100%|███████████████████████████| 56/56 [00:03<00:00, 17.45it/s]
-      Hidet: 3.452 ms
+    Parallel build:   0%|                                    | 0/56 [00:00<?, ?it/s]    Parallel build:   2%|▌                           | 1/56 [00:00<00:31,  1.73it/s]    Parallel build:   4%|█                           | 2/56 [00:03<01:47,  2.00s/it]    Parallel build:  96%|██████████████████████████ | 54/56 [00:04<00:00, 14.52it/s]    Parallel build: 100%|███████████████████████████| 56/56 [00:04<00:00, 11.32it/s]
+      Hidet: 6.617 ms
 
 
 
@@ -283,8 +277,8 @@ conduct graph level optimizations with :func:`hidet.graph.optimize`.
 
  .. code-block:: none
 
-    Parallel build:   0%|                                    | 0/28 [00:00<?, ?it/s]    Parallel build:   4%|█                           | 1/28 [00:01<00:36,  1.37s/it]    Parallel build:   7%|██                          | 2/28 [00:02<00:36,  1.42s/it]    Parallel build:  11%|███                         | 3/28 [00:03<00:22,  1.12it/s]    Parallel build:  14%|████                        | 4/28 [00:03<00:15,  1.54it/s]    Parallel build:  18%|█████                       | 5/28 [00:03<00:12,  1.91it/s]    Parallel build:  25%|███████                     | 7/28 [00:03<00:05,  3.53it/s]    Parallel build:  43%|███████████▌               | 12/28 [00:03<00:01,  8.80it/s]    Parallel build:  57%|███████████████▍           | 16/28 [00:03<00:00, 12.80it/s]    Parallel build:  71%|███████████████████▎       | 20/28 [00:04<00:00, 16.38it/s]    Parallel build:  82%|██████████████████████▏    | 23/28 [00:04<00:00, 18.56it/s]    Parallel build:  96%|██████████████████████████ | 27/28 [00:04<00:00, 22.53it/s]    Parallel build: 100%|███████████████████████████| 28/28 [00:04<00:00,  6.15it/s]
-      Hidet: 2.639 ms
+    Parallel build:   0%|                                    | 0/32 [00:00<?, ?it/s]    Parallel build:   3%|▉                           | 1/32 [00:05<02:36,  5.04s/it]    Parallel build:  28%|███████▉                    | 9/32 [00:05<00:10,  2.14it/s]    Parallel build:  38%|██████████▏                | 12/32 [00:06<00:07,  2.73it/s]    Parallel build:  56%|███████████████▏           | 18/32 [00:09<00:06,  2.15it/s]    Parallel build:  59%|████████████████           | 19/32 [00:09<00:05,  2.28it/s]    Parallel build:  81%|█████████████████████▉     | 26/32 [00:09<00:01,  4.32it/s]    Parallel build:  91%|████████████████████████▍  | 29/32 [00:10<00:00,  5.07it/s]    Parallel build:  97%|██████████████████████████▏| 31/32 [00:10<00:00,  5.78it/s]    Parallel build: 100%|███████████████████████████| 32/32 [00:10<00:00,  3.07it/s]
+      Hidet: 3.810 ms
 
 
 
@@ -315,7 +309,7 @@ optimizations. We follow the following steps to run an ONNX model in Hidet:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 42.205 seconds)
+   **Total running time of the script:** (1 minutes 19.593 seconds)
 
 
 .. _sphx_glr_download_gallery_tutorials_optimize-onnx-model.py:

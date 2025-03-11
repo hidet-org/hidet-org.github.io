@@ -188,7 +188,7 @@ Run the compiled kernels with different input sizes and check the correctness of
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.852 seconds)
+   **Total running time of the script:** (0 minutes 0.103 seconds)
 
 
 .. _sphx_glr_download_gallery_hidet-script_4-naive-matmul.py:

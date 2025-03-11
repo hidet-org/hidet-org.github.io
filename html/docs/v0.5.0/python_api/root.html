@@ -447,7 +447,7 @@
 <td><p>Create an uninitialized tensor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.randn" title="hidet.randn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randn</span></code></a>(shape[, dtype, mean, stddev, device])</p></td>
-<td><p>Create a tensor with normal (Gaussian) distributed values.</p></td>
+<td><p>Create a tensor with uniformly distributed values.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.zeros" title="hidet.zeros"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros</span></code></a>(shape[, dtype, device])</p></td>
 <td><p>Create a tensor initialized with zero.</p></td>
@@ -580,14 +580,14 @@ that contains the contents of the zip file.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hidet.randn">
 <span class="sig-prename descclassname"><span class="pre">hidet.</span></span><span class="sig-name descname"><span class="pre">randn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hidet/graph/tensor.html#randn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.randn" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>Create a tensor with normal (Gaussian) distributed values.</p>
+<dd><p>Create a tensor with uniformly distributed values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
 <li><p><strong>dtype</strong> (<a class="reference internal" href="ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>default 'float32'</em>) – The data type of element of the tensor.</p></li>
-<li><p><strong>mean</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – The mean of the normal distribution.</p></li>
-<li><p><strong>stddev</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – The standard deviation of the normal distribution.</p></li>
+<li><p><strong>mean</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – The mean of the uniform distribution.</p></li>
+<li><p><strong>stddev</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – The standard deviation of the uniform distribution.</p></li>
 <li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
 </ul>
 </dd>
@@ -1026,7 +1026,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

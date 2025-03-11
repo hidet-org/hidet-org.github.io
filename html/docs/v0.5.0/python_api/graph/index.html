@@ -426,8 +426,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.latency"><code class="docutils literal notranslate"><span class="pre">FlowGraph.latency()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.vcuda_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.vcuda_()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.cuda_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.cuda_()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.vhip_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.vhip_()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.hip_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.hip_()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext"><code class="docutils literal notranslate"><span class="pre">PassContext</span></code></a><ul class="nav section-nav flex-column">
@@ -442,7 +440,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.save_graph_instrument"><code class="docutils literal notranslate"><span class="pre">PassContext.save_graph_instrument()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.profile_pass_instrument"><code class="docutils literal notranslate"><span class="pre">PassContext.profile_pass_instrument()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.reduce_cuda_compile_mem"><code class="docutils literal notranslate"><span class="pre">PassContext.reduce_cuda_compile_mem()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.reduce_hip_compile_mem"><code class="docutils literal notranslate"><span class="pre">PassContext.reduce_hip_compile_mem()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.GraphPassInstrument"><code class="docutils literal notranslate"><span class="pre">GraphPassInstrument</span></code></a><ul class="nav section-nav flex-column">
@@ -567,7 +564,7 @@
 <td><p>Convert a list, tuple, or numpy ndarray to a hidet tensor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.randn" title="hidet.graph.randn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randn</span></code></a>(shape[, dtype, mean, stddev, device])</p></td>
-<td><p>Create a tensor with normal (Gaussian) distributed values.</p></td>
+<td><p>Create a tensor with uniformly distributed values.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.empty" title="hidet.graph.empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty</span></code></a>(shape[, dtype, device, layout])</p></td>
 <td><p>Create an uninitialized tensor.</p></td>
@@ -808,12 +805,6 @@ memory with input tensor 0, and output tensor 1 shares the memory with input ten
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.cuda_" title="hidet.graph.FlowGraph.cuda_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuda_</span></code></a>()</p></td>
 <td><p>casts the flow graph object from vcuda device in place</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.vhip_" title="hidet.graph.FlowGraph.vhip_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vhip_</span></code></a>()</p></td>
-<td><p>casts the flow graph object to vhip device in place</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.FlowGraph.hip_" title="hidet.graph.FlowGraph.hip_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hip_</span></code></a>()</p></td>
-<td><p>casts the flow graph object from vhip device in place</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -994,28 +985,6 @@ with the cost of longer compilation and tuning time.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="hidet.graph.FlowGraph.vhip_">
-<span class="sig-name descname"><span class="pre">vhip_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/flow_graph.html#FlowGraph.vhip_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.vhip_" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>casts the flow graph object to vhip device in place</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="hidet.graph.FlowGraph.hip_">
-<span class="sig-name descname"><span class="pre">hip_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/flow_graph.html#FlowGraph.hip_"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.FlowGraph.hip_" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>casts the flow graph object from vhip device in place</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -1097,9 +1066,6 @@ instrument.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.graph.PassContext.reduce_cuda_compile_mem" title="hidet.graph.PassContext.reduce_cuda_compile_mem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_cuda_compile_mem</span></code></a>([enable])</p></td>
 <td><p>Reduce CUDA memory used during compilation by using vcuda tensors, might incur compile time cost</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.graph.PassContext.reduce_hip_compile_mem" title="hidet.graph.PassContext.reduce_hip_compile_mem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_hip_compile_mem</span></code></a>([enable])</p></td>
-<td><p>Reduce HIP memory used during compilation by using vhip tensors, might incur compile time cost</p></td>
 </tr>
 </tbody>
 </table>
@@ -1276,18 +1242,6 @@ convolution.</p>
 <dt class="sig sig-object py" id="hidet.graph.PassContext.reduce_cuda_compile_mem">
 <span class="sig-name descname"><span class="pre">reduce_cuda_compile_mem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.reduce_cuda_compile_mem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.reduce_cuda_compile_mem" title="Permalink to this definition"><span>¶</span></a></dt>
 <dd><p>Reduce CUDA memory used during compilation by using vcuda tensors, might incur compile time cost</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>enable</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – When given, will always enable or disable this instrument.
-If no argument is given, the compiler will decide to enable this with some heuristics</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="hidet.graph.PassContext.reduce_hip_compile_mem">
-<span class="sig-name descname"><span class="pre">reduce_hip_compile_mem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/transforms/base.html#PassContext.reduce_hip_compile_mem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.PassContext.reduce_hip_compile_mem" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>Reduce HIP memory used during compilation by using vhip tensors, might incur compile time cost</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>enable</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – When given, will always enable or disable this instrument.
@@ -1473,14 +1427,14 @@ after all passes
 <dl class="py function">
 <dt class="sig sig-object py" id="hidet.graph.randn">
 <span class="sig-prename descclassname"><span class="pre">hidet.graph.</span></span><span class="sig-name descname"><span class="pre">randn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/graph/tensor.html#randn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.graph.randn" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>Create a tensor with normal (Gaussian) distributed values.</p>
+<dd><p>Create a tensor with uniformly distributed values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>shape</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em>) – The shape of new tensor.</p></li>
 <li><p><strong>dtype</strong> (<a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> or </em><em>str</em><em>, </em><em>default 'float32'</em>) – The data type of element of the tensor.</p></li>
-<li><p><strong>mean</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – The mean of the normal distribution.</p></li>
-<li><p><strong>stddev</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – The standard deviation of the normal distribution.</p></li>
+<li><p><strong>mean</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – The mean of the uniform distribution.</p></li>
+<li><p><strong>stddev</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – The standard deviation of the uniform distribution.</p></li>
 <li><p><strong>device</strong> (<em>Device</em><em> or </em><em>str</em><em>, </em><em>default 'cpu'</em>) – The device of the new tensor is created on.</p></li>
 </ul>
 </dd>
@@ -1926,8 +1880,6 @@ information on graph pass configuration.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.latency"><code class="docutils literal notranslate"><span class="pre">FlowGraph.latency()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.vcuda_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.vcuda_()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.cuda_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.cuda_()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.vhip_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.vhip_()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.FlowGraph.hip_"><code class="docutils literal notranslate"><span class="pre">FlowGraph.hip_()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext"><code class="docutils literal notranslate"><span class="pre">PassContext</span></code></a><ul class="nav section-nav flex-column">
@@ -1942,7 +1894,6 @@ information on graph pass configuration.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.save_graph_instrument"><code class="docutils literal notranslate"><span class="pre">PassContext.save_graph_instrument()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.profile_pass_instrument"><code class="docutils literal notranslate"><span class="pre">PassContext.profile_pass_instrument()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.reduce_cuda_compile_mem"><code class="docutils literal notranslate"><span class="pre">PassContext.reduce_cuda_compile_mem()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.PassContext.reduce_hip_compile_mem"><code class="docutils literal notranslate"><span class="pre">PassContext.reduce_hip_compile_mem()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.graph.GraphPassInstrument"><code class="docutils literal notranslate"><span class="pre">GraphPassInstrument</span></code></a><ul class="nav section-nav flex-column">
@@ -1998,7 +1949,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

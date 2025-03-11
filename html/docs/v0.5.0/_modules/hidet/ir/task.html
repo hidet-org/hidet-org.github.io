@@ -633,20 +633,20 @@
         <span class="k">return</span> <span class="n">build_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">implement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Target</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">IRModule</span><span class="p">]:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.schedulers</span><span class="w"> </span><span class="kn">import</span> <span class="n">GpuAutoScheduler</span><span class="p">,</span> <span class="n">CpuAutoScheduler</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.schedulers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CudaAutoScheduler</span><span class="p">,</span> <span class="n">CpuAutoScheduler</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">target</span> <span class="o">=</span> <span class="n">Target</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 
         <span class="n">implement_target</span><span class="p">,</span> <span class="n">scheduler</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;cuda&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implement_cuda</span><span class="p">,</span> <span class="n">GpuAutoScheduler</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)),</span>
-            <span class="s1">&#39;hip&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implement_hip</span><span class="p">,</span> <span class="n">GpuAutoScheduler</span><span class="p">(</span><span class="s1">&#39;hip&#39;</span><span class="p">)),</span>
-            <span class="s1">&#39;cpu&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implement_cpu</span><span class="p">,</span> <span class="n">CpuAutoScheduler</span><span class="p">()),</span>
+            <span class="s1">&#39;cuda&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implement_cuda</span><span class="p">,</span> <span class="n">CudaAutoScheduler</span><span class="p">),</span>
+            <span class="s1">&#39;cpu&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implement_cpu</span><span class="p">,</span> <span class="n">CpuAutoScheduler</span><span class="p">),</span>
         <span class="p">}[</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
 
         <span class="n">ir_modules</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">IRModule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">IRModule</span><span class="p">]]</span> <span class="o">=</span> <span class="n">implement_target</span><span class="p">(</span><span class="n">working_dir</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ir_modules</span> <span class="ow">is</span> <span class="bp">NotImplemented</span><span class="p">:</span>
-            <span class="n">ir_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">scheduler</span><span class="o">.</span><span class="n">schedule_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span>
+            <span class="n">auto_scheduler</span> <span class="o">=</span> <span class="n">scheduler</span><span class="p">()</span>
+            <span class="n">ir_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">auto_scheduler</span><span class="o">.</span><span class="n">schedule_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">,</span> <span class="n">IRModule</span><span class="p">):</span>
             <span class="n">ir_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">ir_modules</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IRModule</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ir_modules</span><span class="p">):</span>
@@ -662,9 +662,6 @@
         <span class="k">return</span> <span class="n">ir_modules</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">implement_cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">IRModule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">IRModule</span><span class="p">]]:</span>
-        <span class="k">return</span> <span class="bp">NotImplemented</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">implement_hip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">IRModule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">IRModule</span><span class="p">]]:</span>
         <span class="k">return</span> <span class="bp">NotImplemented</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">implement_cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">IRModule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">IRModule</span><span class="p">]]:</span>
@@ -757,7 +754,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

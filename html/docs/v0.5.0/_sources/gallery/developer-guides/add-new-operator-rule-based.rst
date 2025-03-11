@@ -179,25 +179,25 @@ For example, when we optimize the flow graph, this new operator can also fuse su
  .. code-block:: none
 
     Tensor(shape=(2, 2, 3), dtype='float32', device='cpu')
-    [[[ 1.1  -0.99  1.03]
-      [ 0.55  0.46  0.13]]
+    [[[-1.58  0.66 -2.11]
+      [-0.12 -1.35 -1.7 ]]
 
-     [[-1.56 -0.44  0.02]
-      [-1.53  1.17  0.72]]]
+     [[-0.19 -1.64 -0.3 ]
+      [ 1.03  0.37 -0.71]]]
     Tensor(shape=(2, 3, 2), dtype='float32', device='cpu')
-    [[[-0.82 -1.39]
-      [-1.25  0.12]
-      [ 0.97  0.18]]
+    [[[ 1.31  1.07]
+      [ 0.41 -0.13]
+      [-0.6  -0.54]]
 
-     [[ 0.45  1.01]
-      [-0.76  0.15]
-      [-0.68  1.17]]]
+     [[-0.89  0.33]
+      [ 0.72 -2.04]
+      [-0.07 -1.44]]]
     Tensor(shape=(2, 2, 2), dtype='float32', device='cpu')
-    [[[ 1.35 -1.46]
-      [-0.89 -0.69]]
+    [[[-0.53 -0.64]
+      [ 0.3   0.97]]
 
-     [[-0.39 -1.63]
-      [-2.08 -0.53]]]
+     [[-0.99  3.73]
+      [-0.6   0.62]]]
 
 
 
@@ -226,7 +226,7 @@ we will learn how to use the template-based scheduling to achieve better perform
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.226 seconds)
+   **Total running time of the script:** (0 minutes 0.383 seconds)
 
 
 .. _sphx_glr_download_gallery_developer-guides_add-new-operator-rule-based.py:

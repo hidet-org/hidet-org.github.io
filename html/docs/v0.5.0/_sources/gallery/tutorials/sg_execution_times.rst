@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**02:53.425** total execution time for 2 files **from gallery/tutorials**:
+**02:03.930** total execution time for 2 files **from gallery/tutorials**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_gallery_tutorials_optimize-pytorch-model.py` (``optimize-pytorch-model.py``)
-     - 02:11.220
-     - 0.0
    * - :ref:`sphx_glr_gallery_tutorials_optimize-onnx-model.py` (``optimize-onnx-model.py``)
-     - 00:42.205
+     - 01:19.593
+     - 0.0
+   * - :ref:`sphx_glr_gallery_tutorials_optimize-pytorch-model.py` (``optimize-pytorch-model.py``)
+     - 00:44.337
      - 0.0

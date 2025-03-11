@@ -475,161 +475,239 @@ You could disable the tf32 (See also <a class="reference external" href="https:/
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;10}</span><span class="s1">: </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event.elapsed_time" title="torch.cuda.Event.elapsed_time" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-method"><span class="n">start_event</span><span class="o">.</span><span class="n">elapsed_time</span></a><span class="p">(</span><a href="https://pytorch.org/docs/stable/generated/torch.cuda.Event.html#torch.cuda.Event" title="torch.cuda.Event" class="sphx-glr-backref-module-torch-cuda sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">end_event</span></a><span class="p">)</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parallel build:   0%|                                    | 0/38 [00:00&lt;?, ?it/s]
-Parallel build:   3%|▋                           | 1/38 [00:02&lt;01:39,  2.69s/it]
-Parallel build:  13%|███▋                        | 5/38 [00:02&lt;00:13,  2.37it/s]
-Parallel build:  21%|█████▉                      | 8/38 [00:03&lt;00:07,  3.92it/s]
-Parallel build:  26%|███████                    | 10/38 [00:03&lt;00:05,  5.20it/s]
-Parallel build:  32%|████████▌                  | 12/38 [00:03&lt;00:06,  4.32it/s]
-Parallel build:  32%|████████▌                  | 12/38 [00:19&lt;00:06,  4.32it/s]
-Parallel build:  39%|██████████▋                | 15/38 [00:20&lt;00:53,  2.34s/it]
-Parallel build:  42%|███████████▎               | 16/38 [00:20&lt;00:44,  2.03s/it]
-Parallel build:  45%|████████████               | 17/38 [00:21&lt;00:39,  1.86s/it]
-Parallel build:  47%|████████████▊              | 18/38 [00:23&lt;00:34,  1.73s/it]
-Parallel build:  50%|█████████████▌             | 19/38 [00:35&lt;01:20,  4.21s/it]
-Parallel build:  53%|██████████████▏            | 20/38 [00:36&lt;01:01,  3.39s/it]
-Parallel build:  58%|███████████████▋           | 22/38 [00:37&lt;00:36,  2.27s/it]
-Parallel build:  61%|████████████████▎          | 23/38 [00:38&lt;00:29,  1.96s/it]
-Parallel build:  63%|█████████████████          | 24/38 [00:39&lt;00:23,  1.67s/it]
-Parallel build:  66%|█████████████████▊         | 25/38 [00:39&lt;00:17,  1.33s/it]
-Parallel build:  68%|██████████████████▍        | 26/38 [00:41&lt;00:16,  1.34s/it]
-Parallel build:  71%|███████████████████▏       | 27/38 [00:52&lt;00:44,  4.02s/it]
-Parallel build:  74%|███████████████████▉       | 28/38 [00:53&lt;00:32,  3.20s/it]
-Parallel build:  76%|████████████████████▌      | 29/38 [01:03&lt;00:47,  5.24s/it]
-Parallel build:  79%|█████████████████████▎     | 30/38 [01:04&lt;00:32,  4.05s/it]
-Parallel build:  82%|██████████████████████     | 31/38 [01:16&lt;00:44,  6.41s/it]
-Parallel build:  84%|██████████████████████▋    | 32/38 [01:18&lt;00:29,  4.90s/it]
-Parallel build:  87%|███████████████████████▍   | 33/38 [01:29&lt;00:33,  6.68s/it]
-Parallel build:  89%|████████████████████████▏  | 34/38 [01:30&lt;00:20,  5.04s/it]
-Parallel build:  92%|████████████████████████▊  | 35/38 [01:30&lt;00:10,  3.56s/it]
-Parallel build:  95%|█████████████████████████▌ | 36/38 [01:31&lt;00:05,  2.85s/it]
-Parallel build:  97%|██████████████████████████▎| 37/38 [01:45&lt;00:06,  6.28s/it]
-Parallel build: 100%|███████████████████████████| 38/38 [01:46&lt;00:00,  4.60s/it]
-Parallel build: 100%|███████████████████████████| 38/38 [01:46&lt;00:00,  2.81s/it]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;26:45,  3.19it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 848.02it/s]
+Gen IR:  10%|██▉                            | 495/5120 [00:01&lt;00:10, 428.45it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4372.32it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 48it [00:00, 473.90it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 105it [00:00, 526.33it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 164it [00:00, 554.91it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 224, 224, 3) (392, 64) (3, 1, 112, 112, 64): 179it [00:00, 401.83it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:14&lt;03:35, 14.34s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:14&lt;00:00,  1.11it/s]
 
-Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 10it [00:00, 88.79it/s]
-Finding the best candidates for reduce_sum (3, 1, 112, 112, 64) (1, 112, 112, 64): 10it [00:00, 81.72it/s]
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.58it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 37.54it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 45it [00:00, 449.47it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 90it [00:00, 448.72it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 151it [00:00, 519.16it/s]/home/ryan/.local/lib/python3.10/site-packages/scipy/stats/_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
-  res = hypotest_fun_out(*samples, **kwds)
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.90s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.10it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 64) (9, 1, 56, 56, 64): 177it [00:00, 389.80it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;27:58,  3.05it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 867.71it/s]
+Gen IR:  34%|█████████▉                   | 1761/5120 [00:00&lt;00:00, 3389.12it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:00&lt;00:00, 6650.55it/s]
 
-Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 10it [00:00, 87.05it/s]
-Finding the best candidates for reduce_sum (9, 1, 56, 56, 64) (1, 56, 56, 64): 12it [00:00, 70.85it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:28, 13.91s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:14&lt;00:00,  1.14it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 49it [00:00, 490.00it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 98it [00:00, 464.20it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 145it [00:00, 457.96it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 56, 56, 64) (576, 128) (9, 1, 28, 28, 128): 181it [00:00, 339.12it/s]
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.26it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 35.74it/s]
 
-Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 9it [00:00, 89.05it/s]
-Finding the best candidates for reduce_sum (9, 1, 28, 28, 128) (1, 28, 28, 128): 12it [00:00, 71.60it/s]
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.89s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.12it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 62it [00:00, 617.96it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 124it [00:00, 599.20it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 128) (18, 1, 28, 28, 128): 181it [00:00, 396.66it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;26:13,  3.25it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 901.47it/s]
+Gen IR:  34%|█████████▉                   | 1761/5120 [00:00&lt;00:00, 3700.03it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:00&lt;00:00, 7025.29it/s]
 
-Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 10it [00:00, 96.66it/s]
-Finding the best candidates for reduce_sum (18, 1, 28, 28, 128) (1, 28, 28, 128): 10it [00:00, 88.33it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:15, 13.03s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:13&lt;00:00,  1.22it/s]
 
-Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 0it [00:00, ?it/s]
-Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 42it [00:00, 418.00it/s]
-Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 89it [00:00, 444.61it/s]
-Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 150it [00:00, 517.68it/s]
-Finding the best candidates for fused_conv_gemm_fp16_pk_rearrange_subtract_mul_mul_add_add_relu (1, 56, 56, 64) (64, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 1, 1, 128) (1, 28, 28, 128) (1, 28, 28, 128): 183it [00:00, 341.42it/s]
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.10it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 35.47it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 48it [00:00, 477.16it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 98it [00:00, 489.07it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 151it [00:00, 507.51it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (1152, 256) (18, 1, 14, 14, 256): 179it [00:00, 372.54it/s]
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.88s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.13it/s]
 
-Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 92.06it/s]
-Finding the best candidates for reduce_sum (18, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 89.45it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;24:55,  3.42it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:01&lt;00:10, 436.80it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4656.63it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 64it [00:00, 635.60it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 128it [00:00, 637.64it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 256) (34, 1, 14, 14, 256): 177it [00:00, 461.07it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:18, 13.22s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:13&lt;00:00,  1.21it/s]
 
-Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 99.84it/s]
-Finding the best candidates for reduce_sum (34, 1, 14, 14, 256) (1, 14, 14, 256): 10it [00:00, 96.33it/s]
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.87it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 37.60it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 36it [00:00, 352.45it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 72it [00:00, 349.10it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 108it [00:00, 353.98it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 150it [00:00, 378.12it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 188it [00:01, 80.59it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 214it [00:01, 82.44it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 28, 28, 128) (128, 256) (2, 1, 14, 14, 256): 214it [00:01, 114.88it/s]
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.88s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.12it/s]
 
-Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 8it [00:00, 61.01it/s]
-Finding the best candidates for reduce_sum (2, 1, 14, 14, 256) (1, 14, 14, 256): 12it [00:00, 44.09it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;25:58,  3.29it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 879.40it/s]
+Gen IR:  33%|█████████▌                   | 1681/5120 [00:01&lt;00:01, 1857.98it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4517.34it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 52it [00:00, 519.76it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 104it [00:00, 477.72it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 153it [00:00, 481.28it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (2304, 512) (36, 1, 7, 7, 512): 182it [00:00, 351.09it/s]
+Appling fusing:   0%|                                   | 0/177 [00:00&lt;?, ?it/s]
+Appling fusing:   1%|▏                          | 1/177 [00:00&lt;01:44,  1.69it/s]
+Appling fusing:  28%|███████▏                  | 49/177 [00:00&lt;00:01, 82.21it/s]
+Appling fusing:  55%|█████████████▋           | 97/177 [00:01&lt;00:00, 123.71it/s]
+Appling fusing:  77%|██████████████████▍     | 136/177 [00:01&lt;00:00, 170.78it/s]
+Appling fusing:  92%|██████████████████████▉  | 162/177 [00:01&lt;00:00, 80.87it/s]
+Appling fusing: 100%|█████████████████████████| 177/177 [00:01&lt;00:00, 90.77it/s]
 
-Finding the best candidates for reduce_sum (36, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (36, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 138.96it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:19, 13.29s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:13&lt;00:00,  1.20it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 61it [00:00, 606.14it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 122it [00:00, 580.52it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 7, 7, 512) (4608, 512) (50, 1, 7, 7, 512): 177it [00:00, 430.95it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;29:24,  2.90it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 854.03it/s]
+Gen IR:  34%|█████████▉                   | 1761/5120 [00:00&lt;00:01, 3320.49it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:00&lt;00:00, 6490.48it/s]
 
-Finding the best candidates for reduce_sum (50, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (50, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 142.91it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:12&lt;03:11, 12.76s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:12&lt;00:00,  1.25it/s]
 
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 30it [00:00, 295.68it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 67it [00:00, 336.27it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 103it [00:00, 343.54it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 143it [00:00, 365.39it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 180it [00:00, 210.47it/s]
-Finding the best candidates for conv_gemm_fp16_pk (1, 14, 14, 256) (256, 512) (4, 1, 7, 7, 512): 188it [00:00, 218.90it/s]
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.30it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 36.38it/s]
 
-Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 8it [00:00, 65.69it/s]
-Finding the best candidates for reduce_sum (4, 1, 7, 7, 512) (1, 7, 7, 512): 12it [00:00, 53.33it/s]
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.89s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.10it/s]
 
-Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 8it [00:00, 78.40it/s]
-Finding the best candidates for reduce_avg (1, 7, 7, 512) (1, 7, 1, 512): 8it [00:00, 76.61it/s]
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;27:44,  3.08it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:01&lt;00:11, 420.22it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4442.97it/s]
 
-Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 0it [00:00, ?it/s]
-Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 7it [00:00, 58.63it/s]
-Finding the best candidates for reduce_avg (1, 7, 1, 512) (1, 1, 1, 512): 11it [00:00, 41.37it/s]
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:14&lt;03:38, 14.59s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:14&lt;00:00,  1.09it/s]
 
-Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 0it [00:00, ?it/s]
-Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 25it [00:00, 247.04it/s]
-Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 71it [00:00, 366.14it/s]
-Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 108it [00:00, 198.70it/s]
-Finding the best candidates for fused_matmul_f16_pk_cute_transpose_b_True_add (1, 512) (1000, 512) (1000,) (1, 1000): 109it [00:00, 209.90it/s]
-     eager: 0.781 ms
-     hidet: 0.163 ms
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.39it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 36.21it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.91s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.07it/s]
+
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;33:43,  2.53it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:06, 779.38it/s]
+Gen IR:  10%|███                            | 501/5120 [00:01&lt;00:10, 420.66it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4127.89it/s]
+
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:20, 13.39s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:13&lt;00:00,  1.19it/s]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.70it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 37.81it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.91s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.08it/s]
+
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;27:59,  3.05it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 821.95it/s]
+Gen IR:  10%|██▉                            | 493/5120 [00:00&lt;00:05, 801.44it/s]
+Gen IR:  34%|█████████▉                   | 1761/5120 [00:01&lt;00:02, 1674.48it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 3763.89it/s]
+
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:13&lt;03:17, 13.15s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:13&lt;00:00,  1.21it/s]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.95it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 38.53it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.95s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:02&lt;00:00,  2.98it/s]
+
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;28:11,  3.03it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:00&lt;00:05, 831.78it/s]
+Gen IR:  34%|█████████▉                   | 1761/5120 [00:00&lt;00:00, 3410.13it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:00&lt;00:00, 6530.87it/s]
+
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:16&lt;04:11, 16.78s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:16&lt;00:00,  1.06s/it]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.30it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 35.82it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.98s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:02&lt;00:00,  2.99it/s]
+
+Gen IR:   0%|                                          | 0/5120 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                                  | 1/5120 [00:00&lt;28:37,  2.98it/s]
+Gen IR:   8%|██▍                            | 401/5120 [00:01&lt;00:10, 431.55it/s]
+Gen IR: 100%|█████████████████████████████| 5120/5120 [00:01&lt;00:00, 4549.37it/s]
+
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:12&lt;03:08, 12.60s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:12&lt;00:00,  1.26it/s]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  6.61it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 32.29it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:02&lt;00:10,  2.09s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:02&lt;00:00,  2.71it/s]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.28it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 35.59it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:01&lt;00:09,  1.92s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:01&lt;00:00,  3.04it/s]
+
+Gen IR:   0%|                                             | 0/6 [00:00&lt;?, ?it/s]
+Gen IR:  17%|██████▏                              | 1/6 [00:00&lt;00:00,  7.15it/s]
+Gen IR: 100%|█████████████████████████████████████| 6/6 [00:00&lt;00:00, 35.27it/s]
+
+Compiling:   0%|                                          | 0/6 [00:00&lt;?, ?it/s]
+Compiling:  17%|█████▋                            | 1/6 [00:02&lt;00:10,  2.08s/it]
+Compiling: 100%|██████████████████████████████████| 6/6 [00:02&lt;00:00,  2.80it/s]
+
+Gen IR:   0%|                                         | 0/10240 [00:00&lt;?, ?it/s]
+Gen IR:   0%|                               | 1/10240 [00:00&lt;1:07:30,  2.53it/s]
+Gen IR:   2%|▍                             | 161/10240 [00:00&lt;00:46, 216.22it/s]
+Gen IR:   3%|▉                             | 321/10240 [00:00&lt;00:23, 416.77it/s]
+Gen IR:   9%|██▊                           | 961/10240 [00:01&lt;00:11, 827.93it/s]
+Gen IR: 100%|███████████████████████████| 10240/10240 [00:01&lt;00:00, 6169.22it/s]
+
+Appling fusing:   0%|                                   | 0/241 [00:00&lt;?, ?it/s]
+Appling fusing:   0%|                           | 1/241 [00:00&lt;03:15,  1.22it/s]
+Appling fusing:  27%|███████                   | 65/241 [00:01&lt;00:02, 71.09it/s]
+Appling fusing:  32%|████████▎                 | 77/241 [00:01&lt;00:03, 42.95it/s]
+Appling fusing:  60%|███████████████          | 145/241 [00:02&lt;00:01, 79.20it/s]
+Appling fusing:  87%|████████████████████▊   | 209/241 [00:02&lt;00:00, 116.41it/s]
+Appling fusing:  94%|██████████████████████▌ | 226/241 [00:02&lt;00:00, 113.78it/s]
+Appling fusing: 100%|█████████████████████████| 241/241 [00:02&lt;00:00, 86.65it/s]
+
+Compiling:   0%|                                         | 0/16 [00:00&lt;?, ?it/s]
+Compiling:   6%|██                               | 1/16 [00:18&lt;04:36, 18.47s/it]
+Compiling: 100%|████████████████████████████████| 16/16 [00:18&lt;00:00,  1.16s/it]
+     eager: 2.275 ms
+     hidet: 0.309 ms
 </pre></div>
 </div>
 <p>One operator can have multiple equivalent implementations (i.e., kernel programs) with different performance. We
@@ -681,8 +759,8 @@ The following code defines a tensor with randomly initialized tensor with <a cla
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 3), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
-[[-0.89  0.02 -0.7 ]
- [ 0.31 -0.16 -0.97]]
+[[ 0.55223507 -0.38891074  0.46868673]
+ [ 1.0056821  -1.8648937  -1.0117671 ]]
 </pre></div>
 </div>
 <p>Each <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor" title="hidet.Tensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> has <a class="reference internal" href="../../python_api/tensor.html#hidet.Tensor.dtype" title="hidet.Tensor.dtype"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dtype</span></code></a> to define the type of each tensor element,
@@ -702,8 +780,8 @@ and <a class="reference internal" href="../../python_api/tensor.html#hidet.Tenso
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
-[[ 2.13  0.16]
- [-0.08  2.13]]
+[[ 0.07206896  1.8569803 ]
+ [-2.989338    1.3373796 ]]
 </pre></div>
 </div>
 <p>In this example, the operator is executed on the device at the time we call it, thus it is in an <cite>imperative</cite> style
@@ -735,7 +813,7 @@ tensor and <code class="docutils literal notranslate"><span class="pre">idx</spa
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>x: Tensor(shape=(2, 3), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
 y: Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
-from (&lt;hidet.graph.ops.arithmetic.AddOp object at 0x7589399a7730&gt;, 0)
+from (&lt;hidet.graph.ops.arithmetic.AddOp object at 0x745838ec62c0&gt;, 0)
 </pre></div>
 </div>
 <p>We can use trace attribute to construct the computation graph, starting from the symbolic output tensor(s).
@@ -776,7 +854,7 @@ In this example, we fused the matrix multiplication and element-wise addition in
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Graph(x: float32[2, 3][cuda]){
   c = Constant(float32[2][cuda])
   c_1 = Constant(float32[3, 2][cuda])
-  x_1: float32[2, 2][cuda] = FusedCudaBatchMatmul(c, x, c_1, fused_graph=FlowGraph(Broadcast, Broadcast, CudaBatchMatmul, Reshape, Add), anchor=2)
+  x_1: float32[2, 2][cuda] = FusedBatchMatmul(c, x, c_1, fused_graph=FlowGraph(Broadcast, Broadcast, BatchMatmul, Reshape, Add), anchor=2)
   return x_1
 }
 </pre></div>
@@ -789,14 +867,9 @@ In this example, we fused the matrix multiplication and element-wise addition in
 <span class="nb">print</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Generating Hidet IR:   0%|                                | 0/1 [00:00&lt;?, ?it/s]
-Generating Hidet IR: 100%|███████████████████████| 1/1 [00:00&lt;00:00, 127.39it/s]
-
-Appling fusing:   0%|                                     | 0/1 [00:00&lt;?, ?it/s]
-Appling fusing: 100%|█████████████████████████████| 1/1 [00:00&lt;00:00, 33.98it/s]
-Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
-[[ 2.13  0.16]
- [-0.08  2.13]]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
+[[ 0.0722584  1.857559 ]
+ [-2.9872227  1.338318 ]]
 </pre></div>
 </div>
 <p>For CUDA device, a more efficient way is to create a cuda graph to dispatch the kernels in a flow graph
@@ -808,8 +881,8 @@ to the NVIDIA GPU.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2), dtype=&#39;float32&#39;, device=&#39;cuda:0&#39;)
-[[ 2.13  0.16]
- [-0.08  2.13]]
+[[ 0.0722584  1.857559 ]
+ [-2.9872227  1.338318 ]]
 </pre></div>
 </div>
 </section>
@@ -827,7 +900,7 @@ to the NVIDIA GPU.</p>
 <h2>Next Step<a class="headerlink" href="#next-step" title="Permalink to this heading"><span>¶</span></a></h2>
 <p>It is time to learn how to use hidet in your project. A good start is to <a class="reference internal" href="../tutorials/optimize-pytorch-model.html#optimize-pytorch-model"><span class="std std-ref">Optimize PyTorch Model</span></a> and
 <a class="reference internal" href="../tutorials/optimize-onnx-model.html#optimize-onnx-model"><span class="std std-ref">Optimize ONNX Model</span></a> with Hidet.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 1.228 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 0.661 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-getting-started-quick-start-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fa14adfa3f7a821b935f03b65d4c9424/quick-start.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">quick-start.ipynb</span></code></a></p>
@@ -921,7 +994,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

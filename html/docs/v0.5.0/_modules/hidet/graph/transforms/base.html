@@ -607,23 +607,9 @@
 <span class="sd">            When given, will always enable or disable this instrument.</span>
 <span class="sd">            If no argument is given, the compiler will decide to enable this with some heuristics</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvertGraphToVGPU</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvertGraphToVCuda</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvertGraphToVGPU</span><span class="p">(</span><span class="n">enable</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">))</span></div>
-
-<div class="viewcode-block" id="PassContext.reduce_hip_compile_mem"><a class="viewcode-back" href="../../../../python_api/graph/index.html#hidet.graph.PassContext.reduce_hip_compile_mem">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">reduce_hip_compile_mem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reduce HIP memory used during compilation by using vhip tensors, might incur compile time cost</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        enable: Optional[bool]</span>
-<span class="sd">            When given, will always enable or disable this instrument.</span>
-<span class="sd">            If no argument is given, the compiler will decide to enable this with some heuristics</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvertGraphToVGPU</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvertGraphToVGPU</span><span class="p">(</span><span class="n">enable</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;hip&#39;</span><span class="p">))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instruments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ConvertGraphToVCuda</span><span class="p">(</span><span class="n">enable</span><span class="p">))</span></div>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">allow_source_graph_removal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">allow</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">[</span><span class="s1">&#39;allow_source_graph_removal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">allow</span>
@@ -689,7 +675,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

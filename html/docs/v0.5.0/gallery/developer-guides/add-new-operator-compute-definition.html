@@ -652,7 +652,8 @@ The following example shows how to create a task.</p>
 </div>
 <p>Its computation DAG can be visualized as follows.</p>
 <figure class="align-default" id="id8">
-digraph {
+<div class="graphviz"><object data="../../_images/graphviz-b7f2d5746d003c7379dfd1ee2ccd6d040c140648.svg" type="image/svg+xml" class="graphviz">
+<p class="warning">digraph {
     // rankdir=LR;
     splines=curved;
     node [
@@ -679,7 +680,8 @@ digraph {
         a -&gt; c -&gt; d
         a -&gt; e
         b -&gt; e
-}<figcaption>
+}</p></object></div>
+<figcaption>
 <p><span class="caption-text">An example of computation DAG. In this example, there are 5 tensor nodes, where node A and B are inputs
 and node D and E are outputs. The computation of node C depends on the computation of node A and B.</span><a class="headerlink" href="#id8" title="Permalink to this image"><span>¶</span></a></p>
 </figcaption>
@@ -753,12 +755,12 @@ that is used to describe the computation of a single operator.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: add
 Inputs:
 Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[1.7  1.38 0.95 2.4  1.8 ]
+[ 0.27 -0.36  2.23 -0.63  1.31]
 Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[-0.98  1.84 -0.82  1.03 -0.72]
+[-1.45 -0.05  0.27  2.68  0.42]
 Output:
 Tensor(shape=(5,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[0.72 3.22 0.13 3.43 1.09]
+[-1.18 -0.41  2.5   2.05  1.73]
 </pre></div>
 </div>
 </section>
@@ -790,13 +792,13 @@ more about how to define the computation of different operators.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: reduce_sum
 Inputs:
 Tensor(shape=(4, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[-0.51  0.27 -0.22]
- [-0.75  0.88  0.39]
- [-0.31 -0.64 -2.62]
- [ 0.92  1.67 -1.02]]
+[[ 1.06  1.32  0.73]
+ [ 0.27  0.64 -0.38]
+ [ 0.93 -1.4   0.81]
+ [-0.53  0.54 -0.63]]
 Output:
 Tensor(shape=(4,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[-0.46  0.52 -3.58  1.57]
+[ 3.12  0.54  0.34 -0.63]
 </pre></div>
 </div>
 </section>
@@ -819,13 +821,13 @@ Tensor(shape=(4,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: arg_max
 Inputs:
 Tensor(shape=(4, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[-0.98 -0.75 -2.16]
- [ 0.27  0.09 -2.  ]
- [-0.78 -0.41 -1.36]
- [ 0.23  0.07 -0.38]]
+[[-1.45 -1.04 -0.43]
+ [ 0.71  0.71 -0.5 ]
+ [ 0.52  0.5   0.61]
+ [-0.1   0.39  0.22]]
 Output:
 Tensor(shape=(4,), dtype=&#39;int64&#39;, device=&#39;cpu&#39;)
-[1 0 1 0]
+[2 0 2 1]
 </pre></div>
 </div>
 </section>
@@ -851,18 +853,18 @@ Tensor(shape=(4,), dtype=&#39;int64&#39;, device=&#39;cpu&#39;)
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: matmul
 Inputs:
 Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[-2.13 -1.33  0.1 ]
- [-0.22  1.37  0.49]
- [-0.05 -0.99  0.18]]
+[[ 1.33  1.06  1.69]
+ [-0.04 -0.18 -0.51]
+ [ 1.06 -0.4   0.95]]
 Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[ 0.11 -0.84  0.91]
- [ 0.06 -0.2   0.32]
- [ 0.8  -0.79  0.89]]
+[[ 0.13  0.45 -0.85]
+ [-1.97 -0.37  0.17]
+ [ 1.51  0.64 -0.34]]
 Output:
 Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[-0.24  1.98 -2.29]
- [ 0.44 -0.47  0.67]
- [ 0.08  0.09 -0.21]]
+[[ 0.64  1.3  -1.52]
+ [-0.41 -0.28  0.18]
+ [ 2.37  1.24 -1.29]]
 </pre></div>
 </div>
 </section>
@@ -888,10 +890,10 @@ Tensor(shape=(3, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Task: softmax
 Inputs:
 Tensor(shape=(3,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[-1.45 -1.11  1.01]
+[ 0.32  0.28 -1.71]
 Output:
 Tensor(shape=(3,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[0.07 0.1  0.83]
+[0.48 0.46 0.06]
 </pre></div>
 </div>
 </section>
@@ -901,7 +903,7 @@ Tensor(shape=(3,), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
 <p>In this tutorial, we introduced the compute primitives that are used to define the computation of operators in Hidet.
 After that, we showed how to wrap the computation DAG into a task and build and run the task. In the next step, we
 will show you how to use these compute primitives to define new operators in Hidet.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.114 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.845 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-new-operator-compute-definition-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d9c0cdd2b656bf8cf5de448a9da6f533/add-new-operator-compute-definition.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-compute-definition.ipynb</span></code></a></p>
@@ -998,7 +1000,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

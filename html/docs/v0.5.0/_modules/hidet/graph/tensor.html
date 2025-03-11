@@ -904,7 +904,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">.impl.dlpack</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_dlpack</span>
 
-        <span class="k">if</span> <span class="n">stream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_cuda</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">stream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">stream</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stream(</span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s2">) is not allowed due to its ambiguity.&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">stream</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -920,14 +920,6 @@
                 <span class="n">event</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
                 <span class="n">event</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">provider_stream</span><span class="p">)</span>
                 <span class="n">consumer_stream</span><span class="o">.</span><span class="n">wait_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">stream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_hip</span><span class="p">():</span>
-            <span class="n">consumer_stream</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">hip</span><span class="o">.</span><span class="n">ExternalStream</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-            <span class="n">provider_stream</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">hip</span><span class="o">.</span><span class="n">current_stream</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">consumer_stream</span> <span class="o">!=</span> <span class="n">provider_stream</span><span class="p">:</span>
-                <span class="n">event</span> <span class="o">=</span> <span class="n">hidet</span><span class="o">.</span><span class="n">hip</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
-                <span class="n">event</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">provider_stream</span><span class="p">)</span>
-                <span class="n">consumer_stream</span><span class="o">.</span><span class="n">wait_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-
         <span class="k">return</span> <span class="n">to_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__dlpack_device__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
@@ -1111,37 +1103,6 @@
 
         <span class="k">return</span> <span class="n">unsqueeze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span></div>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">view</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataType</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reinterpret/view the self tensor with a different `dtype` and/or `shape`,</span>
-<span class="sd">        without any data copying or casting.</span>
-
-<span class="sd">        If the element size of `dtype` is different than `self.dtype`, the size of the last dimension of the new tensor</span>
-<span class="sd">        will be scaled proportionally. For example, if `dtype.nbytes==2` and `self.dtype.nbytes==4`, the size of the</span>
-<span class="sd">        last dimension of the new tensor will be doubled. For this to be possible, `len(self.shape)` must be greater</span>
-<span class="sd">        than 0.</span>
-
-<span class="sd">        Additionally, if `dtype.nbytes`&gt;`self.dtype.nbytes`, `self.shape[-1]`</span>
-<span class="sd">        must be divisible by the ratio between the two element sizes.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        dtype: Union[str, DataType], optional</span>
-<span class="sd">            The target data type to convert to. None indicates unchanged.</span>
-<span class="sd">        shape: Sequence[int], optional</span>
-<span class="sd">            The target shape to convert to. None indicates unchanged.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: Tensor</span>
-<span class="sd">            The tensor with the new data type and shape.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">view</span>
-
-        <span class="k">return</span> <span class="n">view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
-
 <div class="viewcode-block" id="Tensor.rearrange"><a class="viewcode-back" href="../../../python_api/tensor.html#hidet.graph.Tensor.rearrange">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">rearrange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a rearranged tensor.</span>
 
@@ -1249,8 +1210,6 @@
                 <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
             <span class="k">elif</span> <span class="n">device</span><span class="o">.</span><span class="n">is_cuda</span><span class="p">():</span>
                 <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">device</span><span class="o">.</span><span class="n">is_hip</span><span class="p">():</span>
-                <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">hip</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot recognize device </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
@@ -1303,32 +1262,6 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">hip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a copy of self tensor on hip device.</span>
-
-<span class="sd">        If the current tensor is already on hip device, self is returned.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        device: Device, optional</span>
-<span class="sd">            The target hip device. None indicates the current hip device.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: Tensor</span>
-<span class="sd">            The new tensor or self.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;hip&#39;</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="n">instantiate_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">==</span> <span class="n">device</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">hip</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Transferring from non-hip device to hip device is not supported yet.&#39;</span><span class="p">)</span>
-
     <span class="k">def</span><span class="w"> </span><span class="nf">vcuda_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cast the tensor to vcuda device in place.</span>
 
@@ -1367,45 +1300,6 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">vhip_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cast the tensor to vhip device in place.</span>
-
-<span class="sd">        If the current tensor is already on vhip device, nothing is performed</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: None</span>
-<span class="sd">            This operation is in-place</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_vhip</span><span class="p">():</span>
-            <span class="k">return</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_hip</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tensor must be on cuda device, got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
-        <span class="c1"># if the tensor has no storage, there is no need to cast</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">vhip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;vhip&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">hip_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cast the tensor from vhip device in place.</span>
-
-<span class="sd">        If the current tensor is already on cuda device, nothing is performed</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        ret: None</span>
-<span class="sd">            This operation is in-place</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_hip</span><span class="p">():</span>
-            <span class="k">return</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">is_vhip</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tensor must be on vhip device, got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">hip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s1">&#39;hip&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Tensor.copy"><a class="viewcode-back" href="../../../python_api/tensor.html#hidet.graph.Tensor.copy">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a copy of current tensor.</span>
@@ -1561,7 +1455,11 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">dtypes</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">,</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">tfloat32</span><span class="p">]:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;numpy does not support </span><span class="si">{}</span><span class="s1">, converting to float32&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtypes</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">boolean</span><span class="p">:</span>
+            <span class="c1"># workaround for numpy not supporting exporting boolean to dlpack</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Tensor.torch"><a class="viewcode-back" href="../../../python_api/tensor.html#hidet.graph.Tensor.torch">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">torch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1573,10 +1471,10 @@
 <span class="sd">            The torch tensor that shares the memory with the hidet tensor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.frontend.torch.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtype_to_torch</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">hidet</span><span class="o">.</span><span class="n">float8_e4m3</span><span class="p">,</span> <span class="n">hidet</span><span class="o">.</span><span class="n">float8_e5m2</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">torch</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dtype_to_torch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">boolean</span><span class="p">:</span>
+            <span class="c1"># workaround for torch not supporting exporting boolean to dlpack</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
@@ -1759,7 +1657,7 @@
 
 
 <div class="viewcode-block" id="randn"><a class="viewcode-back" href="../../../python_api/root.html#hidet.graph.randn">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">randn</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a tensor with normal (Gaussian) distributed values.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a tensor with uniformly distributed values.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1770,10 +1668,10 @@
 <span class="sd">        The data type of element of the tensor.</span>
 
 <span class="sd">    mean: float, default 0.0</span>
-<span class="sd">        The mean of the normal distribution.</span>
+<span class="sd">        The mean of the uniform distribution.</span>
 
 <span class="sd">    stddev: float, default 1.0</span>
-<span class="sd">        The standard deviation of the normal distribution.</span>
+<span class="sd">        The standard deviation of the uniform distribution.</span>
 
 <span class="sd">    device: Device or str, default &#39;cpu&#39;</span>
 <span class="sd">        The device of the new tensor is created on.</span>
@@ -2049,7 +1947,10 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">nparray</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s1">&#39;WRITEABLE&#39;</span><span class="p">]:</span>
         <span class="c1"># make a copy if the array is read-only</span>
         <span class="n">nparray</span> <span class="o">=</span> <span class="n">nparray</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">nparray</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">nparray</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">nparray</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">nparray</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="from_dlpack"><a class="viewcode-back" href="../../../python_api/root.html#hidet.graph.from_dlpack">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">from_dlpack</span><span class="p">(</span><span class="n">dltensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -2090,15 +1991,18 @@
 <span class="sd">        The created hidet tensor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.frontend.torch.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtype_from_torch</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expect a torch.Tensor, got </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">)))</span>
     <span class="k">if</span> <span class="n">torch_tensor</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">:</span>
         <span class="n">torch_tensor</span> <span class="o">=</span> <span class="n">torch_tensor</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">torch_tensor</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">float8_e4m3fn</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">float8_e5m2</span><span class="p">]:</span>  <span class="c1">#</span>
-        <span class="k">return</span> <span class="n">from_torch</span><span class="p">(</span><span class="n">torch_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">uint8</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dtype_from_torch</span><span class="p">(</span><span class="n">torch_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">)</span></div>
+        <span class="c1"># raise ValueError(&#39;Please first call .detach() on the pytorch tensor before converting it to hidet.&#39;)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">torch_tensor</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">:</span>
+        <span class="c1"># exporting torch.bool to dlpack is not supported by pytorch yet</span>
+        <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">torch_tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">uint8</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">from_dlpack</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="asarray"><a class="viewcode-back" href="../../../python_api/root.html#hidet.graph.asarray">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">asarray</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -2172,7 +2076,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

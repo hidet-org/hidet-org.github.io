@@ -373,13 +373,14 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">hidet.cuda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet</span><span class="w"> </span><span class="kn">import</span> <span class="n">option</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">codegen</span><span class="p">,</span> <span class="n">compile_source</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.drivers.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">lazy_initialize_cuda</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">IRModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.type</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncType</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.ir.target</span><span class="w"> </span><span class="kn">import</span> <span class="n">Target</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">lower</span><span class="p">,</span> <span class="n">PassContext</span><span class="p">,</span> <span class="n">SaveIRInstrument</span><span class="p">,</span> <span class="n">ProfileInstrument</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.multiprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_imap_2ndlevel</span><span class="p">,</span> <span class="n">get_parallel_num_workers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.multiprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_imap</span><span class="p">,</span> <span class="n">get_parallel_num_workers</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.stack_limit</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_stack_limit</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.folder_lock</span><span class="w"> </span><span class="kn">import</span> <span class="n">FolderLock</span>
 
@@ -542,20 +543,19 @@
         <span class="n">ir_module</span><span class="p">,</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">args</span>
         <span class="n">build_ir_module</span><span class="p">(</span><span class="n">ir_module</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">output_kind</span><span class="o">=</span><span class="n">output_kind</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">regroup_modules</span><span class="p">(</span><span class="n">modules</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">regroup_modules</span><span class="p">(</span><span class="n">modules</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Regroup IR modules for parallel processing.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">cdiv</span>
 
-        <span class="n">MAX_CANDIDATES_PER_JOB</span> <span class="o">=</span> <span class="mi">32</span>
-        <span class="n">num_workers</span> <span class="o">=</span> <span class="n">get_parallel_num_workers</span><span class="p">(</span><span class="n">is_remote_allowed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">max_candidates_per_job</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">get_parallel_tune</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">len_modules</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">modules</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">len_modules</span> <span class="o">&lt;=</span> <span class="n">num_workers</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">modules</span>
 
-        <span class="n">num_new_jobs</span> <span class="o">=</span> <span class="n">cdiv</span><span class="p">(</span><span class="n">len_modules</span><span class="p">,</span> <span class="n">num_workers</span> <span class="o">*</span> <span class="n">MAX_CANDIDATES_PER_JOB</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_workers</span>
+        <span class="n">num_new_jobs</span> <span class="o">=</span> <span class="n">cdiv</span><span class="p">(</span><span class="n">len_modules</span><span class="p">,</span> <span class="n">num_workers</span> <span class="o">*</span> <span class="n">max_candidates_per_job</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_workers</span>
         <span class="n">job_per_worker</span> <span class="o">=</span> <span class="n">len_modules</span> <span class="o">//</span> <span class="n">num_new_jobs</span>
         <span class="n">num_modules_for_1st_pass</span> <span class="o">=</span> <span class="n">job_per_worker</span> <span class="o">*</span> <span class="n">num_new_jobs</span>
 
@@ -585,23 +585,34 @@
                     <span class="n">name_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">func_str</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">True</span>
 
+    <span class="c1"># Determine number of workers</span>
+    <span class="n">max_num_worker</span><span class="p">,</span> <span class="n">mem_for_worker</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="n">get_parallel_tune</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">hidet</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">compile_server</span><span class="o">.</span><span class="n">enabled</span><span class="p">():</span>
+        <span class="n">num_workers</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">),</span> <span class="mi">128</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num_workers</span> <span class="o">=</span> <span class="n">get_parallel_num_workers</span><span class="p">(</span><span class="n">max_num_worker</span><span class="p">,</span> <span class="n">mem_for_worker</span><span class="p">)</span>
+
     <span class="c1"># Shuffle modules for balanced workloads</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
     <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">)</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">()</span>
 
-    <span class="n">lazy_initialize_cuda</span><span class="p">()</span>
-    <span class="n">ir_modules_list</span> <span class="o">=</span> <span class="n">regroup_modules</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">check_function_singular</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">),</span> <span class="s2">&quot;Duplicate function names detected in regrouped modules.&quot;</span>
+    <span class="k">if</span> <span class="n">num_workers</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">lazy_initialize_cuda</span><span class="p">()</span>
+        <span class="n">ir_modules_list</span> <span class="o">=</span> <span class="n">regroup_modules</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">check_function_singular</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">),</span> <span class="s2">&quot;Duplicate function names detected in regrouped modules.&quot;</span>
 
-    <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">group</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span> <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">output_dir</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">,</span> <span class="n">output_dirs</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">)])]</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">group</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span> <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">output_dir</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">,</span> <span class="n">output_dirs</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">)])]</span>
 
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
-        <span class="n">parallel_imap_2ndlevel</span><span class="p">(</span><span class="n">build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">,</span> <span class="n">is_remote_allowed</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Compiling&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">80</span>
-    <span class="p">):</span>
-        <span class="k">pass</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+            <span class="n">parallel_imap</span><span class="p">(</span><span class="n">build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">,</span> <span class="n">mem_for_worker</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Compiling&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">80</span>
+        <span class="p">):</span>
+            <span class="k">pass</span>
 
-    <span class="k">return</span> <span class="n">output_dirs</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">)]</span></div>
+        <span class="k">return</span> <span class="n">output_dirs</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ir_modules_list</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">build_ir_module</span><span class="p">(</span><span class="n">ir_modules</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">output_dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">output_kind</span><span class="o">=</span><span class="n">output_kind</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">output_dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span></div>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_library_name</span><span class="p">(</span><span class="n">output_kind</span><span class="p">):</span>
@@ -625,14 +636,11 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_source_path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span><span class="p">:</span>
-        <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;source.cu&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;hip&#39;</span><span class="p">:</span>
-        <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;source.hip.cpp&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;source.cu&#39;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
-        <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;source.cc&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;source.cc&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid target: </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">src_path</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid target: </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">lower_ir_module</span><span class="p">(</span><span class="n">ir_module</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
@@ -712,7 +720,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

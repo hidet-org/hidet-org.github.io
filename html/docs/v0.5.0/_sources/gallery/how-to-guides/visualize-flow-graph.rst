@@ -227,21 +227,21 @@ method to do that.
  .. code-block:: none
 
                                    ConvChannelLastPass started...
-                                   ConvChannelLastPass 0.002 seconds
+                                   ConvChannelLastPass 0.004 seconds
                                    SubgraphRewritePass started...
-                                   SubgraphRewritePass 0.014 seconds
+                                   SubgraphRewritePass 0.024 seconds
                                   AutoMixPrecisionPass started...
-                                  AutoMixPrecisionPass 0.002 seconds
+                                  AutoMixPrecisionPass 0.004 seconds
                                  SelectiveQuantizePass started...
                                    SubgraphRewritePass started...
-                                   SubgraphRewritePass 0.014 seconds
-                                 SelectiveQuantizePass 0.016 seconds
+                                   SubgraphRewritePass 0.024 seconds
+                                 SelectiveQuantizePass 0.028 seconds
                                     ResolveVariantPass started...
-                                    ResolveVariantPass 0.003 seconds
+                                    ResolveVariantPass 0.005 seconds
                                       FuseOperatorPass started...
-                                      FuseOperatorPass 0.021 seconds
+                                      FuseOperatorPass 0.034 seconds
                                   EliminateBarrierPass started...
-                                  EliminateBarrierPass 0.002 seconds
+                                  EliminateBarrierPass 0.003 seconds
 
 
 
@@ -297,7 +297,7 @@ This tutorial shows how to visualize the flow graph of a model and the intermedi
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.301 seconds)
+   **Total running time of the script:** (0 minutes 0.146 seconds)
 
 
 .. _sphx_glr_download_gallery_how-to-guides_visualize-flow-graph.py:

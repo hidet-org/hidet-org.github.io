@@ -427,6 +427,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.avg_pool2d"><code class="docutils literal notranslate"><span class="pre">avg_pool2d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.avg_pool3d"><code class="docutils literal notranslate"><span class="pre">avg_pool3d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.barrier"><code class="docutils literal notranslate"><span class="pre">barrier()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.batch_matmul"><code class="docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.batch_norm_infer"><code class="docutils literal notranslate"><span class="pre">batch_norm_infer()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.bitwise_and"><code class="docutils literal notranslate"><span class="pre">bitwise_and()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.bitwise_invert"><code class="docutils literal notranslate"><span class="pre">bitwise_invert()</span></code></a></li>
@@ -460,7 +461,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.conv_pad"><code class="docutils literal notranslate"><span class="pre">conv_pad()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cosh"><code class="docutils literal notranslate"><span class="pre">cosh()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cuda_batch_matmul"><code class="docutils literal notranslate"><span class="pre">cuda_batch_matmul()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cumsum"><code class="docutils literal notranslate"><span class="pre">cumsum()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.divide"><code class="docutils literal notranslate"><span class="pre">divide()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.einsum"><code class="docutils literal notranslate"><span class="pre">einsum()</span></code></a></li>
@@ -544,7 +544,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.roll"><code class="docutils literal notranslate"><span class="pre">roll()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.round"><code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.rsqrt"><code class="docutils literal notranslate"><span class="pre">rsqrt()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.scatter_"><code class="docutils literal notranslate"><span class="pre">scatter_()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.scatter_add_"><code class="docutils literal notranslate"><span class="pre">scatter_add_()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.set_strided_slice"><code class="docutils literal notranslate"><span class="pre">set_strided_slice()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.sigmoid"><code class="docutils literal notranslate"><span class="pre">sigmoid()</span></code></a></li>
@@ -580,7 +579,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.trunc"><code class="docutils literal notranslate"><span class="pre">trunc()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.unsqueeze"><code class="docutils literal notranslate"><span class="pre">unsqueeze()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.var"><code class="docutils literal notranslate"><span class="pre">var()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.view"><code class="docutils literal notranslate"><span class="pre">view()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.wait_tensor"><code class="docutils literal notranslate"><span class="pre">wait_tensor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.where"><code class="docutils literal notranslate"><span class="pre">where()</span></code></a></li>
 </ul>
@@ -684,107 +682,107 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.barrier" title="hidet.ops.barrier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">barrier</span></code></a>(x)</p></td>
 <td><p>Barrier operator is an identity operator and return the same tensor as input.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.batch_norm_infer" title="hidet.ops.batch_norm_infer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_norm_infer</span></code></a>(x, running_mean, running_var)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_and" title="hidet.ops.bitwise_and"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_and</span></code></a>(x, y)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_invert" title="hidet.ops.bitwise_invert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_invert</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_left_shift" title="hidet.ops.bitwise_left_shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_left_shift</span></code></a>(x, y)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_or" title="hidet.ops.bitwise_or"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_or</span></code></a>(x, y)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_right_shift" title="hidet.ops.bitwise_right_shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_right_shift</span></code></a>(x, y)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_xor" title="hidet.ops.bitwise_xor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_xor</span></code></a>(x, y)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.broadcast" title="hidet.ops.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a>(data, shape)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.cast" title="hidet.ops.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast</span></code></a>(x, dtype)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.ceil" title="hidet.ops.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceil</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.celu" title="hidet.ops.celu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">celu</span></code></a>(x, alpha)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.clamp" title="hidet.ops.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clamp</span></code></a>(x, min, max)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.clip" title="hidet.ops.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>(x, min_val, max_val)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.concat" title="hidet.ops.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a>(tensors, axis)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conj" title="hidet.ops.conj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conj</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv1d" title="hidet.ops.conv1d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d</span></code></a>(data, weight[, stride, dilations, groups])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv1d_gemm" title="hidet.ops.conv1d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d_gemm</span></code></a>(data, weight, stride[, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv1d_transpose" title="hidet.ops.conv1d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d_transpose</span></code></a>(data, weight[, stride, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d</span></code></a>(data, weight[, stride, dilations, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_channel_last" title="hidet.ops.conv2d_channel_last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_channel_last</span></code></a>(data, weight[, stride, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm" title="hidet.ops.conv2d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm</span></code></a>(data, weight, stride, dilations)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_fp16" title="hidet.ops.conv2d_gemm_fp16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_fp16</span></code></a>(img, weight[, padding, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_fp16_channel_last" title="hidet.ops.conv2d_gemm_fp16_channel_last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_fp16_channel_last</span></code></a>(img, weight, ...)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_image_transform" title="hidet.ops.conv2d_gemm_image_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_image_transform</span></code></a>(x, kernel, ...)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_transpose" title="hidet.ops.conv2d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_transpose</span></code></a>(data, weight, stride, padding)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_transpose_gemm" title="hidet.ops.conv2d_transpose_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_transpose_gemm</span></code></a>(data, weight, stride, ...)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_winograd" title="hidet.ops.conv2d_winograd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_winograd</span></code></a>(x, w)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv3d" title="hidet.ops.conv3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d</span></code></a>(data, weight[, stride, dilations, groups])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv3d_gemm" title="hidet.ops.conv3d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d_gemm</span></code></a>(data, weight, stride, dilations)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv3d_transpose" title="hidet.ops.conv3d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d_transpose</span></code></a>(data, weight[, stride, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv_pad" title="hidet.ops.conv_pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv_pad</span></code></a>(data, pads[, value])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.cos" title="hidet.ops.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.cosh" title="hidet.ops.cosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosh</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.cuda_batch_matmul" title="hidet.ops.cuda_batch_matmul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cuda_batch_matmul</span></code></a>(a, b[, mma])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.batch_matmul" title="hidet.ops.batch_matmul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_matmul</span></code></a>(a, b[, mma])</p></td>
 <td><p>Batched matrix multiplication.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.batch_norm_infer" title="hidet.ops.batch_norm_infer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_norm_infer</span></code></a>(x, running_mean, running_var)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_and" title="hidet.ops.bitwise_and"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_and</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_invert" title="hidet.ops.bitwise_invert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_invert</span></code></a>(x)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_left_shift" title="hidet.ops.bitwise_left_shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_left_shift</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_or" title="hidet.ops.bitwise_or"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_or</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.bitwise_right_shift" title="hidet.ops.bitwise_right_shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_right_shift</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.bitwise_xor" title="hidet.ops.bitwise_xor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bitwise_xor</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.broadcast" title="hidet.ops.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a>(data, shape)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.cast" title="hidet.ops.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cast</span></code></a>(x, dtype)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.ceil" title="hidet.ops.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceil</span></code></a>(x)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.celu" title="hidet.ops.celu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">celu</span></code></a>(x, alpha)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.clamp" title="hidet.ops.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clamp</span></code></a>(x, min, max)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.clip" title="hidet.ops.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>(x, min_val, max_val)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.concat" title="hidet.ops.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a>(tensors, axis)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conj" title="hidet.ops.conj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conj</span></code></a>(x)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv1d" title="hidet.ops.conv1d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d</span></code></a>(data, weight[, stride, dilations, groups])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv1d_gemm" title="hidet.ops.conv1d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d_gemm</span></code></a>(data, weight, stride[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv1d_transpose" title="hidet.ops.conv1d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv1d_transpose</span></code></a>(data, weight[, stride, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d" title="hidet.ops.conv2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d</span></code></a>(data, weight[, stride, dilations, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_channel_last" title="hidet.ops.conv2d_channel_last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_channel_last</span></code></a>(data, weight[, stride, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm" title="hidet.ops.conv2d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm</span></code></a>(data, weight, stride, dilations)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_fp16" title="hidet.ops.conv2d_gemm_fp16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_fp16</span></code></a>(img, weight[, padding, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_fp16_channel_last" title="hidet.ops.conv2d_gemm_fp16_channel_last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_fp16_channel_last</span></code></a>(img, weight, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_gemm_image_transform" title="hidet.ops.conv2d_gemm_image_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_gemm_image_transform</span></code></a>(x, kernel, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_transpose" title="hidet.ops.conv2d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_transpose</span></code></a>(data, weight, stride, padding)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv2d_transpose_gemm" title="hidet.ops.conv2d_transpose_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_transpose_gemm</span></code></a>(data, weight, stride, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv2d_winograd" title="hidet.ops.conv2d_winograd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv2d_winograd</span></code></a>(x, w)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv3d" title="hidet.ops.conv3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d</span></code></a>(data, weight[, stride, dilations, groups])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv3d_gemm" title="hidet.ops.conv3d_gemm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d_gemm</span></code></a>(data, weight, stride, dilations)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.conv3d_transpose" title="hidet.ops.conv3d_transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv3d_transpose</span></code></a>(data, weight[, stride, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.conv_pad" title="hidet.ops.conv_pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv_pad</span></code></a>(data, pads[, value])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.cos" title="hidet.ops.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.cosh" title="hidet.ops.cosh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosh</span></code></a>(x)</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.cumsum" title="hidet.ops.cumsum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cumsum</span></code></a>(x, dim[, exclusive, reverse])</p></td>
 <td><p></p></td>
@@ -852,7 +850,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.hardswish" title="hidet.ops.hardswish"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hardswish</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.hardtanh" title="hidet.ops.hardtanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hardtanh</span></code></a>(x, min_val, max_val[, inplace])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.hardtanh" title="hidet.ops.hardtanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hardtanh</span></code></a>(x, min_val, max_val)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.im2col" title="hidet.ops.im2col"><code class="xref py py-obj docutils literal notranslate"><span class="pre">im2col</span></code></a>(x, kernel_size[, dilation, padding, ...])</p></td>
@@ -933,7 +931,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.matmul" title="hidet.ops.matmul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matmul</span></code></a>(a, b[, require_prologue])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.matmul_cublas" title="hidet.ops.matmul_cublas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matmul_cublas</span></code></a>(a, b[, transpose_b])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.matmul_cublas" title="hidet.ops.matmul_cublas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matmul_cublas</span></code></a>(a, b)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.matmul_nt" title="hidet.ops.matmul_nt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matmul_nt</span></code></a>(a, b[, require_prologue])</p></td>
@@ -1035,115 +1033,109 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.rsqrt" title="hidet.ops.rsqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsqrt</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.scatter_" title="hidet.ops.scatter_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_</span></code></a>(input, dim, index, src, reduce)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.scatter_add_" title="hidet.ops.scatter_add_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_add_</span></code></a>(input, dim, index, src)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.scatter_add_" title="hidet.ops.scatter_add_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter_add_</span></code></a>(input, dim, index, src)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.set_strided_slice" title="hidet.ops.set_strided_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_strided_slice</span></code></a>(data, setvalue, starts, ends)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.set_strided_slice" title="hidet.ops.set_strided_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_strided_slice</span></code></a>(data, setvalue, starts, ends)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sigmoid" title="hidet.ops.sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigmoid</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sigmoid" title="hidet.ops.sigmoid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigmoid</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sign" title="hidet.ops.sign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sign" title="hidet.ops.sign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sign</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.silu" title="hidet.ops.silu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">silu</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.silu" title="hidet.ops.silu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">silu</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sin" title="hidet.ops.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sin" title="hidet.ops.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sinh" title="hidet.ops.sinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinh</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sinh" title="hidet.ops.sinh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinh</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.softmax" title="hidet.ops.softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax</span></code></a>(x[, axis])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.softmax" title="hidet.ops.softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax</span></code></a>(x[, axis])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.softmin" title="hidet.ops.softmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmin</span></code></a>(x, axis)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.softmin" title="hidet.ops.softmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmin</span></code></a>(x, axis)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.softplus" title="hidet.ops.softplus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softplus</span></code></a>(x, beta, threshold_val)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.softplus" title="hidet.ops.softplus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softplus</span></code></a>(x, beta, threshold_val)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.softshrink" title="hidet.ops.softshrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softshrink</span></code></a>(x, lambda_val)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.softshrink" title="hidet.ops.softshrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softshrink</span></code></a>(x, lambda_val)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.softsign" title="hidet.ops.softsign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softsign</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.softsign" title="hidet.ops.softsign"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softsign</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.split" title="hidet.ops.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data, parts_or_sections[, axis])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.split" title="hidet.ops.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data, parts_or_sections[, axis])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sqrt" title="hidet.ops.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sqrt" title="hidet.ops.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.square" title="hidet.ops.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.square" title="hidet.ops.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.squeeze" title="hidet.ops.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code></a>(x, dims)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.squeeze" title="hidet.ops.squeeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze</span></code></a>(x, dims)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.std" title="hidet.ops.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a>(x, dims[, keep_dim])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.std" title="hidet.ops.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a>(x, dims[, keep_dim])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.strided_slice" title="hidet.ops.strided_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strided_slice</span></code></a>(data, starts, ends[, axes, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.strided_slice" title="hidet.ops.strided_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strided_slice</span></code></a>(data, starts, ends[, axes, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.subtract" title="hidet.ops.subtract"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract</span></code></a>(x, y)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.subtract" title="hidet.ops.subtract"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subtract</span></code></a>(x, y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.sum" title="hidet.ops.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>(x, dims[, keep_dim])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.sum" title="hidet.ops.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>(x, dims[, keep_dim])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.symmetric_dequantize" title="hidet.ops.symmetric_dequantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symmetric_dequantize</span></code></a>(wq, scale[, dims])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.symmetric_dequantize" title="hidet.ops.symmetric_dequantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symmetric_dequantize</span></code></a>(wq, scale[, dims])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.symmetric_quantize" title="hidet.ops.symmetric_quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symmetric_quantize</span></code></a>(w[, quant_type, dims])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.symmetric_quantize" title="hidet.ops.symmetric_quantize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symmetric_quantize</span></code></a>(w[, quant_type, dims])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.take" title="hidet.ops.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>(data, indices[, axis])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.take" title="hidet.ops.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>(data, indices[, axis])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tan" title="hidet.ops.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tan" title="hidet.ops.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tanh" title="hidet.ops.tanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanh</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tanh" title="hidet.ops.tanh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanh</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tanhshrink" title="hidet.ops.tanhshrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanhshrink</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tanhshrink" title="hidet.ops.tanhshrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tanhshrink</span></code></a>(x)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tile" title="hidet.ops.tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile</span></code></a>(data, repeats)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tile" title="hidet.ops.tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile</span></code></a>(data, repeats)</p></td>
 <td><p>Tile a tensor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.transfer" title="hidet.ops.transfer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transfer</span></code></a>(x, dst_device)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.transfer" title="hidet.ops.transfer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transfer</span></code></a>(x, dst_device)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.transpose" title="hidet.ops.transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose</span></code></a>(x[, axes])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.transpose" title="hidet.ops.transpose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose</span></code></a>(x[, axes])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tri" title="hidet.ops.tri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tri</span></code></a>(n[, m, k, dtype, device])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tri" title="hidet.ops.tri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tri</span></code></a>(n[, m, k, dtype, device])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.tril" title="hidet.ops.tril"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tril</span></code></a>(x[, diagonal])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.tril" title="hidet.ops.tril"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tril</span></code></a>(x[, diagonal])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.triu" title="hidet.ops.triu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triu</span></code></a>(x[, diagonal])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.triu" title="hidet.ops.triu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triu</span></code></a>(x[, diagonal])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.trunc" title="hidet.ops.trunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trunc</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.trunc" title="hidet.ops.trunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trunc</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.unsqueeze" title="hidet.ops.unsqueeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsqueeze</span></code></a>(x, dims)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.unsqueeze" title="hidet.ops.unsqueeze"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsqueeze</span></code></a>(x, dims)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.var" title="hidet.ops.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>(x, dims[, keep_dim, correction])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.view" title="hidet.ops.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code></a>(x[, dtype, shape])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.ops.var" title="hidet.ops.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>(x, dims[, keep_dim, correction])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#hidet.ops.wait_tensor" title="hidet.ops.wait_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait_tensor</span></code></a>(x[, comm_id])</p></td>
@@ -1579,6 +1571,42 @@ at the end of graph-level optimizations.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>y</strong> – The output tensor.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.ops.batch_matmul">
+<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">batch_matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mma'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.batch_matmul" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Batched matrix multiplication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The lhs operand with shape [batch_size, m_size, k_size].</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The rhs operand with shape [batch_size, k_size, n_size].</p></li>
+<li><p><strong>mma</strong> (<em>str</em>) – <p>The matrix-multiplication-accumulate (mma) in warp level:</p>
+<ul>
+<li><dl class="simple">
+<dt>’simt’:</dt><dd><p>Use cuda core to do the warp-level mma (simt stands for single-instruction-multiple-threads).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’mma’:</dt><dd><p>Use mma instruction.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>See also:
+<a class="reference external" href="https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#warp-level-matrix-instructions">https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#warp-level-matrix-instructions</a></p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>c</strong> – The result tensor of matrix multiplication.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
@@ -2148,42 +2176,6 @@ at the end of graph-level optimizations.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="hidet.ops.cuda_batch_matmul">
-<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">cuda_batch_matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mma'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.cuda_batch_matmul" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><p>Batched matrix multiplication.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The lhs operand with shape [batch_size, m_size, k_size].</p></li>
-<li><p><strong>b</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – The rhs operand with shape [batch_size, k_size, n_size].</p></li>
-<li><p><strong>mma</strong> (<em>str</em>) – <p>The matrix-multiplication-accumulate (mma) in warp level:</p>
-<ul>
-<li><dl class="simple">
-<dt>’simt’:</dt><dd><p>Use cuda core to do the warp-level mma (simt stands for single-instruction-multiple-threads).</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>’mma’:</dt><dd><p>Use mma instruction.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>See also:
-<a class="reference external" href="https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#warp-level-matrix-instructions">https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#warp-level-matrix-instructions</a></p>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>c</strong> – The result tensor of matrix multiplication.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor">Tensor</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="hidet.ops.cumsum">
 <span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">cumsum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.cumsum" title="Permalink to this definition"><span>¶</span></a></dt>
 <dd><dl class="field-list simple">
@@ -2524,14 +2516,13 @@ at the end of graph-level optimizations.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hidet.ops.hardtanh">
-<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">hardtanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.hardtanh" title="Permalink to this definition"><span>¶</span></a></dt>
+<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">hardtanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.hardtanh" title="Permalink to this definition"><span>¶</span></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
 <li><p><strong>min_val</strong> (<em>float</em>) – </p></li>
 <li><p><strong>max_val</strong> (<em>float</em>) – </p></li>
-<li><p><strong>inplace</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -2938,13 +2929,12 @@ at the end of graph-level optimizations.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hidet.ops.matmul_cublas">
-<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">matmul_cublas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.matmul_cublas" title="Permalink to this definition"><span>¶</span></a></dt>
+<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">matmul_cublas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.matmul_cublas" title="Permalink to this definition"><span>¶</span></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
 <li><p><strong>b</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
-<li><p><strong>transpose_b</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -3472,22 +3462,6 @@ Tensor([2, 12, 5])</p></li>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="hidet.ops.scatter_">
-<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">scatter_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.scatter_" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
-<li><p><strong>dim</strong> (<em>int</em>) – </p></li>
-<li><p><strong>index</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
-<li><p><strong>src</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
-<li><p><strong>reduce</strong> (<em>str</em>) – </p></li>
-</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -4030,23 +4004,6 @@ Must have len(repeats) == len(data.shape).</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="hidet.ops.view">
-<span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.view" title="Permalink to this definition"><span>¶</span></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a>) – </p></li>
-<li><p><strong>dtype</strong> (<em>str</em><em> | </em><a class="reference internal" href="../ir/type.html#hidet.ir.type.DataType" title="hidet.ir.type.DataType"><em>DataType</em></a><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>shape</strong> (<em>List</em><em>[</em><em>Expr</em><em> | </em><em>int</em><em>] </em><em>| </em><em>None</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="../tensor.html#hidet.Tensor" title="hidet.Tensor"><em>Tensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="hidet.ops.wait_tensor">
 <span class="sig-prename descclassname"><span class="pre">hidet.ops.</span></span><span class="sig-name descname"><span class="pre">wait_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comm_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hidet.ops.wait_tensor" title="Permalink to this definition"><span>¶</span></a></dt>
 <dd><dl class="field-list simple">
@@ -4154,6 +4111,7 @@ Must have len(repeats) == len(data.shape).</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.avg_pool2d"><code class="docutils literal notranslate"><span class="pre">avg_pool2d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.avg_pool3d"><code class="docutils literal notranslate"><span class="pre">avg_pool3d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.barrier"><code class="docutils literal notranslate"><span class="pre">barrier()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.batch_matmul"><code class="docutils literal notranslate"><span class="pre">batch_matmul()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.batch_norm_infer"><code class="docutils literal notranslate"><span class="pre">batch_norm_infer()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.bitwise_and"><code class="docutils literal notranslate"><span class="pre">bitwise_and()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.bitwise_invert"><code class="docutils literal notranslate"><span class="pre">bitwise_invert()</span></code></a></li>
@@ -4187,7 +4145,6 @@ Must have len(repeats) == len(data.shape).</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.conv_pad"><code class="docutils literal notranslate"><span class="pre">conv_pad()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cosh"><code class="docutils literal notranslate"><span class="pre">cosh()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cuda_batch_matmul"><code class="docutils literal notranslate"><span class="pre">cuda_batch_matmul()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.cumsum"><code class="docutils literal notranslate"><span class="pre">cumsum()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.divide"><code class="docutils literal notranslate"><span class="pre">divide()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.einsum"><code class="docutils literal notranslate"><span class="pre">einsum()</span></code></a></li>
@@ -4271,7 +4228,6 @@ Must have len(repeats) == len(data.shape).</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.roll"><code class="docutils literal notranslate"><span class="pre">roll()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.round"><code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.rsqrt"><code class="docutils literal notranslate"><span class="pre">rsqrt()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.scatter_"><code class="docutils literal notranslate"><span class="pre">scatter_()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.scatter_add_"><code class="docutils literal notranslate"><span class="pre">scatter_add_()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.set_strided_slice"><code class="docutils literal notranslate"><span class="pre">set_strided_slice()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.sigmoid"><code class="docutils literal notranslate"><span class="pre">sigmoid()</span></code></a></li>
@@ -4307,7 +4263,6 @@ Must have len(repeats) == len(data.shape).</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.trunc"><code class="docutils literal notranslate"><span class="pre">trunc()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.unsqueeze"><code class="docutils literal notranslate"><span class="pre">unsqueeze()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.var"><code class="docutils literal notranslate"><span class="pre">var()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.view"><code class="docutils literal notranslate"><span class="pre">view()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.wait_tensor"><code class="docutils literal notranslate"><span class="pre">wait_tensor()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.ops.where"><code class="docutils literal notranslate"><span class="pre">where()</span></code></a></li>
 </ul>
@@ -4334,7 +4289,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

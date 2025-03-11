@@ -62,6 +62,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_api/testing/index';</script>
     <link rel="icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -377,7 +378,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -393,6 +396,14 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.testing.benchmark_func"><code class="docutils literal notranslate"><span class="pre">benchmark_func()</span></code></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -404,6 +415,45 @@
                   
   <section id="module-hidet.testing">
 <span id="hidet-testing"></span><h1>hidet.testing<a class="headerlink" href="#module-hidet.testing" title="Permalink to this heading"><span>¶</span></a></h1>
+<p><strong>Functions:</strong></p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hidet.testing.benchmark_func" title="hidet.testing.benchmark_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">benchmark_func</span></code></a>(run_func, *args[, warmup, ...])</p></td>
+<td><p>Benchmark given function.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="hidet.testing.benchmark_func">
+<span class="sig-prename descclassname"><span class="pre">hidet.testing.</span></span><span class="sig-name descname"><span class="pre">benchmark_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warmup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hidet/utils/benchmark/bench.html#benchmark_func"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hidet.testing.benchmark_func" title="Permalink to this definition"><span>¶</span></a></dt>
+<dd><p>Benchmark given function.</p>
+<p>The given function <code class="docutils literal notranslate"><span class="pre">run_func</span></code> will be executed <span class="math notranslate nohighlight">\(warmup + repeat * number\)</span> times. Each <span class="math notranslate nohighlight">\(number\)</span> times
+of execution will be grouped and conducted together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>]</em><em>, </em><em>Any</em><em>]</em>) – Any callable function to be benchmarked.</p></li>
+<li><p><strong>warmup</strong> (<em>int</em>) – The number of warm-up executions.</p></li>
+<li><p><strong>number</strong> (<em>int</em>) – The number of executions to be grouped for measurement.</p></li>
+<li><p><strong>repeat</strong> (<em>int</em>) – The number of repeat times of the group measurement.</p></li>
+<li><p><strong>median</strong> (<em>bool</em>) – Whether the median latency is returned, instead of the latency.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>ret</strong> –</p>
+<ul class="simple">
+<li><p>When median == True, a single latency number is returned.</p></li>
+<li><p>When median == False, the latency of each repeat is returned, as a list of floats.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[float, List[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -442,6 +492,22 @@
             
             
               
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidet.testing.benchmark_func"><code class="docutils literal notranslate"><span class="pre">benchmark_func()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -461,7 +527,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

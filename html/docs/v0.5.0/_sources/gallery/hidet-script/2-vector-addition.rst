@@ -114,11 +114,11 @@ Call the compiled module with the input and output tensors
  .. code-block:: none
 
     Tensor(shape=(3,), dtype='float32', device='cpu')
-    [-0.78  0.59  0.18]
+    [ 0.29  1.58 -0.26]
     Tensor(shape=(3,), dtype='float32', device='cpu')
-    [ 0.   -0.56 -0.32]
+    [ 1.68 -0.77  1.23]
     Tensor(shape=(3,), dtype='float32', device='cpu')
-    [-0.77  0.02 -0.14]
+    [1.97 0.81 0.97]
 
 
 
@@ -126,7 +126,7 @@ Call the compiled module with the input and output tensors
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.198 seconds)
+   **Total running time of the script:** (0 minutes 0.003 seconds)
 
 
 .. _sphx_glr_download_gallery_hidet-script_2-vector-addition.py:

@@ -340,7 +340,7 @@ component of the graph optimization framework. Hidet uses it to implement some h
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.010 seconds)
+   **Total running time of the script:** (0 minutes 0.015 seconds)
 
 
 .. _sphx_glr_download_gallery_developer-guides_add-subgraph-rewrite-rule.py:

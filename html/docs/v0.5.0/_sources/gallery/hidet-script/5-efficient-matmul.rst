@@ -203,14 +203,14 @@ For more efficient implementations, please refer to the `ones`_ in hidet package
  .. code-block:: none
 
     1024x1024x1024:
-     torch: 0.048 ms
-     hidet: 0.131 ms
+     torch: 0.129 ms
+     hidet: 0.218 ms
     256x256x256:
-     torch: 0.009 ms
-     hidet: 0.035 ms
+     torch: 0.018 ms
+     hidet: 0.056 ms
     32x32x32:
-     torch: 0.009 ms
-     hidet: 0.014 ms
+     torch: 0.018 ms
+     hidet: 0.020 ms
 
 
 
@@ -383,7 +383,7 @@ Get the source code:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.072 seconds)
+   **Total running time of the script:** (0 minutes 0.114 seconds)
 
 
 .. _sphx_glr_download_gallery_hidet-script_5-efficient-matmul.py:

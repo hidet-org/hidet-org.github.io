@@ -677,8 +677,6 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">LaunchKernelStmt</span><span class="p">(</span><span class="n">Stmt</span><span class="p">):</span>
-    <span class="n">_supported_targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> <span class="s1">&#39;hip&#39;</span><span class="p">,</span> <span class="s1">&#39;cpu&#39;</span><span class="p">]</span>
-
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">func_var</span><span class="p">:</span> <span class="n">Var</span><span class="p">,</span>
@@ -687,18 +685,13 @@
         <span class="n">cluster_dim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">],</span>
         <span class="n">block_dim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">],</span>
         <span class="n">shared_mem</span><span class="p">:</span> <span class="n">Expr</span><span class="p">,</span>
-        <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_supported_targets</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unsupported target: </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">func_var</span><span class="p">:</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">func_var</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Expr</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grid_dim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cluster_dim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block_dim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]</span> <span class="o">=</span> <span class="n">block_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shared_mem_bytes</span><span class="p">:</span> <span class="n">Expr</span> <span class="o">=</span> <span class="n">shared_mem</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">target</span>
 
         <span class="k">assert</span> <span class="n">func_var</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
@@ -771,7 +764,6 @@
     <span class="n">block_dim</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Int</span><span class="p">],</span> <span class="n">Int</span><span class="p">],</span>
     <span class="n">cluster_dim</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Int</span><span class="p">],</span> <span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">shared_mem</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LaunchKernelStmt</span><span class="p">:</span>
     <span class="n">launch_config</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">dims</span> <span class="ow">in</span> <span class="p">[</span><span class="n">grid_dim</span><span class="p">,</span> <span class="n">cluster_dim</span><span class="p">,</span> <span class="n">block_dim</span><span class="p">]:</span>
@@ -784,7 +776,7 @@
             <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">launch_config</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">dims</span><span class="p">))</span>
     <span class="n">grid_dim</span><span class="p">,</span> <span class="n">cluster_dim</span><span class="p">,</span> <span class="n">block_dim</span> <span class="o">=</span> <span class="n">launch_config</span>
-    <span class="k">return</span> <span class="n">LaunchKernelStmt</span><span class="p">(</span><span class="n">func_var</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">grid_dim</span><span class="p">,</span> <span class="n">cluster_dim</span><span class="p">,</span> <span class="n">block_dim</span><span class="p">,</span> <span class="n">convert</span><span class="p">(</span><span class="n">shared_mem</span><span class="p">),</span> <span class="n">target</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">LaunchKernelStmt</span><span class="p">(</span><span class="n">func_var</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">grid_dim</span><span class="p">,</span> <span class="n">cluster_dim</span><span class="p">,</span> <span class="n">block_dim</span><span class="p">,</span> <span class="n">convert</span><span class="p">(</span><span class="n">shared_mem</span><span class="p">))</span>
 </pre></div>
 
                 </article>
@@ -823,7 +815,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

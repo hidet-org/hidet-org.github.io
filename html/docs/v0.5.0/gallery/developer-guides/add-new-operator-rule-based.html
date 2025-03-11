@@ -528,25 +528,25 @@ For example, when we optimize the flow graph, this new operator can also fuse su
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Tensor(shape=(2, 2, 3), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[[ 1.1  -0.99  1.03]
-  [ 0.55  0.46  0.13]]
+[[[-1.58  0.66 -2.11]
+  [-0.12 -1.35 -1.7 ]]
 
- [[-1.56 -0.44  0.02]
-  [-1.53  1.17  0.72]]]
+ [[-0.19 -1.64 -0.3 ]
+  [ 1.03  0.37 -0.71]]]
 Tensor(shape=(2, 3, 2), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[[-0.82 -1.39]
-  [-1.25  0.12]
-  [ 0.97  0.18]]
+[[[ 1.31  1.07]
+  [ 0.41 -0.13]
+  [-0.6  -0.54]]
 
- [[ 0.45  1.01]
-  [-0.76  0.15]
-  [-0.68  1.17]]]
+ [[-0.89  0.33]
+  [ 0.72 -2.04]
+  [-0.07 -1.44]]]
 Tensor(shape=(2, 2, 2), dtype=&#39;float32&#39;, device=&#39;cpu&#39;)
-[[[ 1.35 -1.46]
-  [-0.89 -0.69]]
+[[[-0.53 -0.64]
+  [ 0.3   0.97]]
 
- [[-0.39 -1.63]
-  [-2.08 -0.53]]]
+ [[-0.99  3.73]
+  [-0.6   0.62]]]
 </pre></div>
 </div>
 </section>
@@ -566,7 +566,7 @@ scheduling mechanism, the <strong>template-based scheduling</strong>.</p>
 <p>In this tutorial, we have learned how to define a new operator with given computation definition, and use hidet’s
 provided rule-based scheduler to automatically schedule the computation into a tensor program. In the next tutorial,
 we will learn how to use the template-based scheduling to achieve better performance.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.226 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.383 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-developer-guides-add-new-operator-rule-based-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ae45ce2035a9445efba7c195c2206725/add-new-operator-rule-based.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">add-new-operator-rule-based.ipynb</span></code></a></p>
@@ -662,7 +662,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

@@ -209,7 +209,7 @@ you can access the source code of the compiled module using ``module.source()``.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.205 seconds)
+   **Total running time of the script:** (0 minutes 0.012 seconds)
 
 
 .. _sphx_glr_download_gallery_hidet-script_0-hello-world.py:

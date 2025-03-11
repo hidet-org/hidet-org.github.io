@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**02:01.228** total execution time for 1 file **from gallery/getting-started**:
+**05:00.661** total execution time for 1 file **from gallery/getting-started**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_gallery_getting-started_quick-start.py` (``quick-start.py``)
-     - 02:01.228
+     - 05:00.661
      - 0.0

@@ -369,7 +369,6 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">cudart</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cuda.cudart</span><span class="w"> </span><span class="kn">import</span> <span class="n">cudaGraphExec_t</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.option</span><span class="w"> </span><span class="kn">import</span> <span class="n">use_torch_stream</span><span class="p">,</span> <span class="n">is_use_torch_stream</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.graph.tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">MemoryPool</span><span class="p">,</span> <span class="n">CudaMemoryAPI</span><span class="p">,</span> <span class="n">memory_pool</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">Device</span>
@@ -473,6 +472,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ref_objs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref_objs</span>
+
         <span class="k">with</span> <span class="n">memory_pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory_pool</span><span class="p">):</span>
             <span class="c1"># create the input tensors</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span> <span class="o">=</span> <span class="n">f_create_inputs</span><span class="p">()</span>
@@ -482,18 +482,11 @@
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_warmup</span><span class="p">):</span>
                 <span class="n">f_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">)</span>
 
-            <span class="c1"># There are two scenarios:</span>
-            <span class="c1"># 1. if torch or hidet is using default stream we use hidet created new stream</span>
-            <span class="c1"># 2. If torch is using its own new stream we use hidet created new stream to avoid</span>
-            <span class="c1">#    interfere with torch stream</span>
-            <span class="c1"># Both cases we switch back to use hidet stream</span>
-            <span class="n">prev_flag</span> <span class="o">=</span> <span class="n">is_use_torch_stream</span><span class="p">()</span>
-            <span class="n">use_torch_stream</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
             <span class="c1"># capture the cuda graph</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_memory_api</span><span class="o">.</span><span class="n">freeze</span><span class="p">()</span>
             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_capture</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span> <span class="o">=</span> <span class="n">f_run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inputs</span><span class="p">)</span>
-            <span class="n">use_torch_stream</span><span class="p">(</span><span class="n">prev_flag</span><span class="p">)</span>
+
         <span class="c1"># instantiate the cuda graph</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_graph_exec</span><span class="p">:</span> <span class="n">cudaGraphExec_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_capture</span><span class="o">.</span><span class="n">instantiate</span><span class="p">()</span>
 
@@ -642,7 +635,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

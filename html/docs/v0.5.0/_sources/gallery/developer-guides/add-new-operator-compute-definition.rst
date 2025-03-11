@@ -397,12 +397,12 @@ The following code shows how to 1) define the computation, 2) define the task, a
     Task: add
     Inputs:
     Tensor(shape=(5,), dtype='float32', device='cpu')
-    [1.7  1.38 0.95 2.4  1.8 ]
+    [ 0.27 -0.36  2.23 -0.63  1.31]
     Tensor(shape=(5,), dtype='float32', device='cpu')
-    [-0.98  1.84 -0.82  1.03 -0.72]
+    [-1.45 -0.05  0.27  2.68  0.42]
     Output:
     Tensor(shape=(5,), dtype='float32', device='cpu')
-    [0.72 3.22 0.13 3.43 1.09]
+    [-1.18 -0.41  2.5   2.05  1.73]
 
 
 
@@ -456,13 +456,13 @@ ReduceSum
     Task: reduce_sum
     Inputs:
     Tensor(shape=(4, 3), dtype='float32', device='cpu')
-    [[-0.51  0.27 -0.22]
-     [-0.75  0.88  0.39]
-     [-0.31 -0.64 -2.62]
-     [ 0.92  1.67 -1.02]]
+    [[ 1.06  1.32  0.73]
+     [ 0.27  0.64 -0.38]
+     [ 0.93 -1.4   0.81]
+     [-0.53  0.54 -0.63]]
     Output:
     Tensor(shape=(4,), dtype='float32', device='cpu')
-    [-0.46  0.52 -3.58  1.57]
+    [ 3.12  0.54  0.34 -0.63]
 
 
 
@@ -504,13 +504,13 @@ ArgMax
     Task: arg_max
     Inputs:
     Tensor(shape=(4, 3), dtype='float32', device='cpu')
-    [[-0.98 -0.75 -2.16]
-     [ 0.27  0.09 -2.  ]
-     [-0.78 -0.41 -1.36]
-     [ 0.23  0.07 -0.38]]
+    [[-1.45 -1.04 -0.43]
+     [ 0.71  0.71 -0.5 ]
+     [ 0.52  0.5   0.61]
+     [-0.1   0.39  0.22]]
     Output:
     Tensor(shape=(4,), dtype='int64', device='cpu')
-    [1 0 1 0]
+    [2 0 2 1]
 
 
 
@@ -553,18 +553,18 @@ MatMul
     Task: matmul
     Inputs:
     Tensor(shape=(3, 3), dtype='float32', device='cpu')
-    [[-2.13 -1.33  0.1 ]
-     [-0.22  1.37  0.49]
-     [-0.05 -0.99  0.18]]
+    [[ 1.33  1.06  1.69]
+     [-0.04 -0.18 -0.51]
+     [ 1.06 -0.4   0.95]]
     Tensor(shape=(3, 3), dtype='float32', device='cpu')
-    [[ 0.11 -0.84  0.91]
-     [ 0.06 -0.2   0.32]
-     [ 0.8  -0.79  0.89]]
+    [[ 0.13  0.45 -0.85]
+     [-1.97 -0.37  0.17]
+     [ 1.51  0.64 -0.34]]
     Output:
     Tensor(shape=(3, 3), dtype='float32', device='cpu')
-    [[-0.24  1.98 -2.29]
-     [ 0.44 -0.47  0.67]
-     [ 0.08  0.09 -0.21]]
+    [[ 0.64  1.3  -1.52]
+     [-0.41 -0.28  0.18]
+     [ 2.37  1.24 -1.29]]
 
 
 
@@ -606,10 +606,10 @@ Softmax
     Task: softmax
     Inputs:
     Tensor(shape=(3,), dtype='float32', device='cpu')
-    [-1.45 -1.11  1.01]
+    [ 0.32  0.28 -1.71]
     Output:
     Tensor(shape=(3,), dtype='float32', device='cpu')
-    [0.07 0.1  0.83]
+    [0.48 0.46 0.06]
 
 
 
@@ -627,7 +627,7 @@ will show you how to use these compute primitives to define new operators in Hid
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.114 seconds)
+   **Total running time of the script:** (0 minutes 1.845 seconds)
 
 
 .. _sphx_glr_download_gallery_developer-guides_add-new-operator-compute-definition.py:

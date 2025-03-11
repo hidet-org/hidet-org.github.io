@@ -384,7 +384,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.compiled_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">compiled_module_exists</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.compiled_task</span><span class="w"> </span><span class="kn">import</span> <span class="n">CompiledTask</span><span class="p">,</span> <span class="n">TensorSignature</span><span class="p">,</span> <span class="n">load_compiled_task</span><span class="p">,</span> <span class="n">compiled_task_cache</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.runtime.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">Device</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.multiprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_imap_1stlevel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.multiprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_imap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">hidet.utils.py</span><span class="w"> </span><span class="kn">import</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">green</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -677,30 +677,27 @@
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hidet</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_build_job</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">task</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">args</span>
-        <span class="n">task</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Success&#39;</span>
-    <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">,):</span>  <span class="c1"># pylint: disable=broad-except</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
-
-        <span class="k">if</span> <span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span>
-
-
 <span class="k">def</span><span class="w"> </span><span class="nf">build_task_batch</span><span class="p">(</span><span class="n">task_target_pairs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Task</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]):</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">task</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="k">for</span> <span class="n">task</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">task_target_pairs</span><span class="p">]</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_job</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">task</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Success&#39;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">,):</span>  <span class="c1"># pylint: disable=broad-except</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
+
+            <span class="k">if</span> <span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
+
     <span class="k">if</span> <span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">lazy_initialize_cuda</span><span class="p">()</span>
-        <span class="n">status_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-            <span class="n">tqdm</span><span class="p">(</span><span class="n">parallel_imap_1stlevel</span><span class="p">(</span><span class="n">_build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Parallel build&#39;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
-        <span class="p">)</span>
+        <span class="n">status_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">parallel_imap</span><span class="p">(</span><span class="n">build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Parallel build&#39;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">80</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">status_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">))</span>
+        <span class="n">status_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">build_job</span><span class="p">,</span> <span class="n">jobs</span><span class="p">))</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">status</span> <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">status_list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">option</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;parallel_build&#39;</span><span class="p">):</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Failed to build </span><span class="si">{}</span><span class="s1"> tasks:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">status_list</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="p">))]</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">target</span><span class="p">),</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">job_msg</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">task_target_pairs</span><span class="p">,</span> <span class="n">status_list</span><span class="p">):</span>
@@ -749,7 +746,7 @@ By Hidet Team
 
   <p class="copyright">
     
-      © Copyright 2023, Hidet Authors.
+      © Copyright 2025, Hidet Authors.
       <br/>
     
   </p>

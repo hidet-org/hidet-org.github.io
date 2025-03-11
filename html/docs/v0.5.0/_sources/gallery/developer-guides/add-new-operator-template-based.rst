@@ -286,14 +286,14 @@ The remaining part is the same as the rule-based scheduling method to add new op
  .. code-block:: none
 
     Tensor(shape=(1, 2, 2), dtype='float16', device='cuda:0')
-    [[[-1.16 -1.77]
-      [-0.56 -1.48]]]
+    [[[ 0.6885 -1.012 ]
+      [ 0.842  -1.512 ]]]
     Tensor(shape=(1, 2, 2), dtype='float16', device='cuda:0')
-    [[[-0.52 -0.15]
-      [-0.36  0.03]]]
+    [[[ 1.938  -1.326 ]
+      [-0.2118 -0.2937]]]
     Tensor(shape=(1, 2, 2), dtype='float16', device='cuda:0')
-    [[[1.25 0.12]
-      [0.83 0.04]]]
+    [[[ 1.549  -0.6157]
+      [ 1.952  -0.6724]]]
 
 
 
@@ -310,7 +310,7 @@ other ways such as IR builder.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.020 seconds)
+   **Total running time of the script:** (0 minutes 1.820 seconds)
 
 
 .. _sphx_glr_download_gallery_developer-guides_add-new-operator-template-based.py:
